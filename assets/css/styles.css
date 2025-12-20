@@ -188,18 +188,6 @@ a:hover{opacity:.88}
   color:rgba(11,27,42,.88);
 }
 
-.footer{
-  padding:26px 0 42px;
-  color:rgba(17,18,20,.62);
-  font-size:13px;
-  border-top:1px solid var(--line);
-  margin-top:20px;
-}
-.smallcaps{
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  font-size:12px;
-}
 /* Make entire module card clickable */
 .card-link{
   display:block;
@@ -213,3 +201,39 @@ a:hover{opacity:.88}
   box-shadow: 0 16px 34px rgba(0,0,0,.10);
 }
 
+.footer{
+  padding:26px 0 42px;
+  color:rgba(17,18,20,.62);
+  font-size:13px;
+  border-top:1px solid var(--line);
+  margin-top:20px;
+}
+.smallcaps{
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:12px;
+}
+
+/* readable long-form content */
+.prose p{margin:0 0 12px; color:rgba(17,18,20,.78)}
+.prose ul{margin:0 0 14px 18px; color:rgba(17,18,20,.78)}
+.prose li{margin:0 0 6px}
+.prose h3{
+  font-family:Georgia,'Times New Roman',serif;
+  color:var(--navy);
+  font-size:22px;
+  margin:18px 0 10px;
+}
+.prose h4{
+  font-family:Georgia,'Times New Roman',serif;
+  color:rgba(11,27,42,.92);
+  font-size:18px;
+  margin:14px 0 8px;
+}
+.prose .small-label{
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(11,27,42,.65);
+  margin:0 0 8px;
+}
