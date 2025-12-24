@@ -212,3 +212,24 @@ body{
     font-size: 40px;
   }
 }
+/* ================================
+   HOMEPAGE CARD IMAGE FIX
+   Prevent awkward cropping
+================================ */
+
+/* Module cards on homepage */
+.card .img{
+  height: 190px;                 /* taller image area */
+  background-size: contain;      /* show full image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(255,255,255,.04); /* subtle matte */
+}
+
+/* Hero images (homepage only) */
+.hero-media{
+  min-height: 300px;
+  background-size: cover;
+  background-position: center top; /* favor faces */
+  background-repeat: no-repeat;
+}
