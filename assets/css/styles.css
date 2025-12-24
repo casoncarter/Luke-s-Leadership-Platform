@@ -137,6 +137,13 @@ body{
   color: var(--muted);
   font-size: 18px;
 }
+.hero-media{
+  min-height: 300px;
+  background-size: cover;
+  background-position: center top; /* 👈 favors faces */
+  background-repeat: no-repeat;
+  filter: saturate(.95) contrast(1.05);
+}
 
 /* ---------- MODULE GRID (Homepage) ---------- */
 .modules{
