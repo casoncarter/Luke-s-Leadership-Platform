@@ -6,6 +6,180 @@
   <title>THE GUITAR TRAINING PLATFORM | Luke</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/platforms.css" />
+
+  <!-- Page-only enhancements (keeps global site CSS untouched) -->
+  <style>
+    .platform-hero{
+      position: relative;
+      overflow: hidden;
+    }
+    .platform-hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(900px 400px at 20% 10%, rgba(246,241,230,.30), transparent 60%),
+        radial-gradient(700px 420px at 85% 0%, rgba(246,241,230,.22), transparent 58%),
+        linear-gradient(180deg, rgba(11,18,38,.20), rgba(11,18,38,0));
+      pointer-events:none;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: end;
+    }
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+    }
+    .hero-card{
+      border: 1px solid rgba(10,15,31,.12);
+      background: rgba(246,241,230,.72);
+      backdrop-filter: blur(6px);
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+      box-shadow: 0 10px 30px rgba(10,15,31,.08);
+    }
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+    .pill{
+      border: 1px solid rgba(10,15,31,.14);
+      background: rgba(255,255,255,.60);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: .92rem;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    /* Module cards */
+    .module{
+      border: 1px solid rgba(10,15,31,.10);
+      border-radius: 18px;
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 10px 28px rgba(10,15,31,.06);
+      overflow: hidden;
+      margin: 18px 0;
+    }
+    .module-hd{
+      padding: 14px 16px 12px;
+      background: linear-gradient(180deg, rgba(11,18,38,.06), rgba(255,255,255,0));
+      border-bottom: 1px solid rgba(10,15,31,.08);
+    }
+    .module-hd h2{
+      margin: 0 0 6px;
+      font-size: 1.25rem;
+      letter-spacing: .02em;
+    }
+    .module-hd .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      opacity:.92;
+      font-size:.95rem;
+    }
+    .module-bd{
+      padding: 14px 16px 16px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+    }
+    @media (max-width: 980px){
+      .module-bd{ grid-template-columns: 1fr; }
+    }
+
+    .callout{
+      border: 1px solid rgba(10,15,31,.10);
+      background: rgba(246,241,230,.58);
+      border-radius: 16px;
+      padding: 12px 12px 10px;
+    }
+    .callout h4{
+      margin: 0 0 8px;
+      font-size: .98rem;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      opacity: .9;
+    }
+    .callout ul{ margin: 0; padding-left: 18px; }
+    .callout p{ margin: 0; }
+
+    /* Video embeds */
+    .video-card{
+      border: 1px solid rgba(10,15,31,.10);
+      border-radius: 16px;
+      background: rgba(255,255,255,.70);
+      overflow:hidden;
+    }
+    .video-card .vc-hd{
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(10,15,31,.08);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .video-card .vc-hd strong{ font-size: .98rem; }
+    .video-card .vc-hd a{
+      font-size: .92rem;
+      opacity: .85;
+      text-decoration: underline;
+    }
+    .video{
+      position:relative;
+      width:100%;
+      aspect-ratio: 16 / 9;
+      background: rgba(11,18,38,.08);
+    }
+    .video iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    /* Song list layout */
+    .song-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 10px;
+    }
+    @media (max-width: 980px){ .song-grid{ grid-template-columns: 1fr; } }
+    .song-card{
+      border: 1px solid rgba(10,15,31,.10);
+      border-radius: 16px;
+      background: rgba(255,255,255,.78);
+      padding: 12px 12px 10px;
+      box-shadow: 0 8px 22px rgba(10,15,31,.05);
+    }
+    .song-card h3{
+      margin:0 0 8px;
+      font-size: 1.02rem;
+      letter-spacing: .02em;
+    }
+    .song-card ol{
+      margin:0;
+      padding-left: 18px;
+    }
+
+    /* Make long platform paragraphs breathe */
+    .platform-main p{ margin: 10px 0; }
+    .platform-main h2{ margin-top: 22px; }
+    .platform-main h3{ margin-top: 18px; }
+    .divider{
+      height:1px;
+      background: rgba(10,15,31,.10);
+      margin: 18px 0;
+    }
+  </style>
 </head>
 
 <body class="platform">
@@ -34,63 +208,657 @@
   <main class="container">
     <section class="platform-hero">
       <p class="kicker">Platform</p>
-      <h1>THE GUITAR TRAINING PLATFORM</h1>
-      <p>Full platform content preserved from the Word documents — redesigned for clarity, navigation, and a classic Ralph Lauren feel.</p>
+
+      <div class="hero-grid">
+        <div>
+          <h1>THE GUITAR TRAINING PLATFORM</h1>
+          <p>Play what you hear. Understand what you play. Learn fast. Have fun.</p>
+          <div class="pill-row">
+            <div class="pill">Shape-first (CAGED)</div>
+            <div class="pill">Ear-first (not theory-first)</div>
+            <div class="pill">Song-driven</div>
+            <div class="pill">20-minute practice design</div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <strong>Executive Summary</strong>
+          <p style="margin:10px 0 0;">
+            Learning guitar as a pianist isn’t starting over — it’s unlocking music from a new angle. If piano is architecture, guitar is geometry:
+            shapes, patterns, and repeating structures that turn harmony into something physical and immediate.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section class="platform-shell">
       <aside class="platform-toc">
         <div class="toc-title">On this page</div>
-            <a href="#the-guitar-training-platform">THE GUITAR TRAINING PLATFORM</a>
-            <a href="#module-1-the-guitar-mindset-play-by-shape-not-by-note">Module 1: The Guitar Mindset — Play by Shape, Not by Note</a>
-            <a href="#module-2-the-caged-system-your-new-map-of-the-guitar">Module 2: The CAGED System — Your New Map of the Guitar</a>
-            <a href="#module-3-chord-families-the-guitarists-harmonic-shortcuts">Module 3: Chord Families — The Guitarist’s Harmonic Shortcuts</a>
-            <a href="#module-4-strumming-turning-chords-into-music">Module 4: Strumming — Turning Chords Into Music</a>
-            <a href="#module-5-ear-based-guitar-translating-your-piano-intuition">Module 5: Ear-Based Guitar — Translating Your Piano Intuition</a>
-            <a href="#module-6-tabs-the-guitarists-sheet-music">Module 6: Tabs — The Guitarist’s Sheet Music</a>
-            <a href="#module-7-song-based-learning-the-fastest-path-to-fluency">Module 7: Song-Based Learning — The Fastest Path to Fluency</a>
-            <a href="#module-8-the-fretboard-quick-navigation-tricks">Module 8: The Fretboard — Quick Navigation Tricks</a>
-            <a href="#module-9-technique-essentials-the-minimum-viable-guitarist-skillset">Module 9: Technique Essentials — The “Minimum Viable Guitarist” Skillset</a>
-            <a href="#module-10-practice-design-how-to-level-up-fast">Module 10: Practice Design — How to Level Up Fast</a>
+        <a href="#the-guitar-training-platform">THE GUITAR TRAINING PLATFORM</a>
+        <a href="#m1">Module 1: The Guitar Mindset — Play by Shape, Not by Note</a>
+        <a href="#m2">Module 2: The CAGED System — Your New Map of the Guitar</a>
+        <a href="#m3">Module 3: Chord Families — The Guitarist’s Harmonic Shortcuts</a>
+        <a href="#m4">Module 4: Strumming — Turning Chords Into Music</a>
+        <a href="#m5">Module 5: Ear-Based Guitar — Translating Your Piano Intuition</a>
+        <a href="#m6">Module 6: Tabs — The Guitarist’s Sheet Music</a>
+        <a href="#m7">Module 7: Song-Based Learning — The Fastest Path to Fluency</a>
+        <a href="#m8">Module 8: The Fretboard — Quick Navigation Tricks</a>
+        <a href="#m9">Module 9: Technique Essentials — The “Minimum Viable Guitarist” Skillset</a>
+        <a href="#m10">Module 10: Practice Design — How to Level Up Fast</a>
+        <a href="#songs">The First 25 Guitar Songs for Luke</a>
       </aside>
 
       <article class="platform-main">
-        
-<h2 id="the-guitar-training-platform">THE GUITAR TRAINING PLATFORM</h2><p>Play What You Hear. Understand What You Play. Learn Fast. Have Fun.</p><p>Executive Summary</p><p>Learning guitar as a pianist isn’t starting over — it’s unlocking music from a new angle. If piano is architecture, guitar is geometry: shapes, patterns, and repeating structures that turn harmony into something physical and immediate. Because Luke already understands chords, keys, progressions, and ear-based learning, he can learn guitar much faster than the average beginner.</p><p>This platform teaches guitar the way musicians actually use it:</p><p>Shape-based (CAGED) rather than notation-based</p><p>Ear-first, not theory-first</p><p>Song-driven, not exercise-driven</p><p>Play-focused, not practice-heavy</p><p>By mastering a few core concepts — chord shapes, transitions, strumming, fretboard patterns, and song structure — Luke can quickly gain fluency and freedom on the instrument.</p><p>This is the path not only to playing the guitar, but to enjoying it.</p><h2 id="module-1-the-guitar-mindset-play-by-shape-not-by-note">Module 1: The Guitar Mindset — Play by Shape, Not by Note</h2><p>Core Principle: Piano thinks vertically; guitar thinks geometrically.</p><p>On piano, chords stack.
-On guitar, chords shape.</p><p>What to Learn</p><p>Chords are built as hand shapes, not individual notes.</p><p>These shapes repeat up the neck (unlike the piano).</p><p>Patterns make everything easier — especially for someone who already knows harmony.</p><p>Starter Exercise</p><p>Pick a chord you know (G, C, D, Am).
-Slide it up the neck while keeping the shape.
-Hear how it becomes new chords instantly.</p><p>Key Resources</p><p>CAGED overview (Paul Davids): https://www.youtube.com/watch?v=1p0yhiJdPRY</p><p>JustinGuitar “Beginner Mindset” lessons: https://www.justinguitar.com/categories/beginner-guitar-lessons-grade-1</p><h2 id="module-2-the-caged-system-your-new-map-of-the-guitar">Module 2: The CAGED System — Your New Map of the Guitar</h2><p>Core Principle: Five shapes = every chord, everywhere.</p><p>If Luke learns these five shapes, he unlocks the entire fretboard:</p><p>C shape</p><p>A shape</p><p>G shape</p><p>E shape</p><p>D shape</p><p>Every major chord, every barre chord, every voicing… all come from these.</p><p>Why This Is Perfect for a Pianist</p><p>CAGED is the guitar’s “logic.”
-Once you see it, you can play the instrument instead of chasing it.</p><p>Key Resources</p><p>CAGED Deep Dive (Sean Daniel): https://www.youtube.com/watch?v=9bqVdF4VQWc</p><p>JustinGuitar CAGED Essentials (free course): https://www.justinguitar.com/modules/caged-system</p><h2 id="module-3-chord-families-the-guitarists-harmonic-shortcuts">Module 3: Chord Families — The Guitarist’s Harmonic Shortcuts</h2><p>Core Principle: Most songs use three chord families.</p><p>Luke already understands functional harmony. These three families will feel natural:</p><p>The Big Three:</p><p>G Family: G – C – D – Em</p><p>C Family: C – F – G – Am</p><p>D Family: D – G – A – Bm</p><p>Learn these, and he can play thousands of acoustic songs instantly.</p><p>Try This</p><p>Choose a song he knows on piano in G major.
-Play it on guitar using only G-family shapes.
-Instant fluency.</p><p>Key Resources</p><p>Andy Guitar Easy Chords &amp; Songs: https://www.andyguitar.co.uk/online-lessons/categories/beginners</p><h2 id="module-4-strumming-turning-chords-into-music">Module 4: Strumming — Turning Chords Into Music</h2><p>Core Principle: Rhythm makes the song feel alive.</p><p>The trick to sounding “like a guitarist” is not the chords…
-It’s the right hand.</p><p>Learn These First:</p><p>Down, down-up, up-down-up (the universal pattern)</p><p>16th-note feel (for pop)</p><p>Shuffle feel (for folk &amp; blues)</p><p>Exercise</p><p>Mute the strings with your left hand.
-Practice strumming patterns without chords to master the groove.</p><p>Key Resources</p><p>Marty Music Strumming Playlist: https://www.youtube.com/playlist?list=PL-RYb_OMw7GdHGwEJdBDEu79SUZlQO7Rh</p><p>JustinGuitar Strumming Techniques: https://www.justinguitar.com/modules/strumming-techniques</p><h2 id="module-5-ear-based-guitar-translating-your-piano-intuition">Module 5: Ear-Based Guitar — Translating Your Piano Intuition</h2><p>Core Principle: Luke already knows how to do this — guitar just adds shapes.</p><p>What to Practice</p><p>Hear the interval → find it on one string</p><p>Turn those intervals into chords</p><p>Recognize common progressions (I–V–vi–IV, ii–V–I)</p><p>Why He’ll Learn Fast</p><p>Because the shapes repeat, he only needs to find something once for it to work everywhere.</p><p>Key Resources</p><p>Functional Ear Trainer App: https://www.matthewvancise.com/fet</p><p>JustinGuitar Ear Training: https://www.justinguitar.com/categories/ear-training</p><h2 id="module-6-tabs-the-guitarists-sheet-music">Module 6: Tabs — The Guitarist’s Sheet Music</h2><p>Core Principle: Guitarists read grids, not staff notation.</p><p>TAB is easy:</p><p>6 lines = 6 strings</p><p>Numbers = fret numbers</p><p>Luke will pick this up instantly.</p><p>Key Resources</p><p>Ultimate Guitar Tabs: https://www.ultimate-guitar.com/</p><p>Songsterr (interactive tab player): https://www.songsterr.com/</p><h2 id="module-7-song-based-learning-the-fastest-path-to-fluency">Module 7: Song-Based Learning — The Fastest Path to Fluency</h2><p>Core Principle: Learn guitar by learning songs, not scales.</p><p>Songs teach:</p><p>Chord transitions</p><p>Rhythm</p><p>Voice leading</p><p>Real-world progressions</p><p>Perfect Beginner Songs (Piano-Friendly Too)</p><p>Riptide — Vance Joy</p><p>Wonderwall — Oasis</p><p>Let Her Go — Passenger</p><p>Hey There Delilah — Plain White T’s</p><p>I’m Yours — Jason Mraz</p><p>Hallelujah — Jeff Buckley version</p><p>Someone Like You — Adele (acoustic arrangement)</p><p>Key Resource</p><p>Marty Music Song Tutorials: https://www.youtube.com/@MartyMusic</p><p>JustinGuitar Song Lessons: https://www.justinguitar.com/songs</p><h2 id="module-8-the-fretboard-quick-navigation-tricks">Module 8: The Fretboard — Quick Navigation Tricks</h2><p>Core Principle: The low E and A strings are your anchors.</p><p>Learn These First:</p><p>Notes on E string (open → 12th)</p><p>Notes on A string</p><p>Power chord shapes</p><p>Barre chord shapes (CAGED again)</p><p>Once Luke knows the E and A strings, the whole fretboard unlocks.</p><p>Key Resource</p><p>Fretboard Map (free PDF): https://fretboardtoolbox.com/</p><h2 id="module-9-technique-essentials-the-minimum-viable-guitarist-skillset">Module 9: Technique Essentials — The “Minimum Viable Guitarist” Skillset</h2><p>Core Principle: You only need a few foundational techniques to sound good.</p><p>Must-Learn Techniques</p><p>Clean chord changes</p><p>Palm muting</p><p>Hammer-ons &amp; pull-offs</p><p>Simple fingerpicking (PIMA)</p><p>Basic scales (pentatonic is plenty)</p><p>Key Resources</p><p>GuitarLessons365 (technique playlist): https://www.youtube.com/@guitarlessons365</p><p>Pentatonic Scale Lesson (Ben Eller): https://www.youtube.com/watch?v=wgSZW2G7F7E</p><h2 id="module-10-practice-design-how-to-level-up-fast">Module 10: Practice Design — How to Level Up Fast</h2><p>Core Principle: 20 minutes of focused practice beats 2 hours of wandering.</p><p>Sample 20-Minute Routine</p><p>5 minutes – chord changes (G–C–D, C–F–G, etc.)
-5 minutes – strumming pattern focus
-5 minutes – melody or riff via tab
-5 minutes – play a song you love</p><p>Bonus: Use Play-Along Tools</p><p>YouTube speed control</p><p>Songsterr slowdown function</p><p>Fender Play tempo tools (optional but good)</p><h3>Key Takeaways</h3><p>Guitar is shapes, patterns, and repetition — not note-reading.</p><p>Because Luke knows chords and harmony, he will learn much faster than beginners.</p><p>CAGED + chord families = instant fluency.</p><p>Strumming is 80% of sounding like a guitarist.</p><p>Play songs early and often — it accelerates everything.</p><p>Practice small, consistent sessions, not marathons.</p><p>The real goal: freedom — the ability to hear something and play it.</p><p>The First 25 Guitar Songs for Luke</p><p>Chosen specifically for a pianist who learns by ear, loves chord patterns, and wants quick wins with real music.</p><p>These are grouped by difficulty and designed to build momentum fast.
-Every song is playable with simple chords, shape-based riffs, or common strumming patterns.</p><p>⭐ LEVEL 1 — The Instant Wins (Simplest Chords, Easiest Transitions)</p><p>1. Riptide — Vance Joy
-2. Hey There Delilah — Plain White T’s
-3. Wonderwall — Oasis
-4. I’m Yours — Jason Mraz
-5. Let Her Go — Passenger
-6. Counting Stars — OneRepublic
-7. Someone Like You — Adele (Acoustic arrangement)
-8. Hallelujah — Leonard Cohen / Jeff Buckley version
-9. Stand By Me — Ben E. King
-10. Love Yourself — Justin Bieber</p><p>All are based on G-family or C-family chords. Perfect for learning strumming confidence.</p><p>⭐ LEVEL 2 — Songs That Teach a Skill (Strumming, Fingerpicking, Groove)</p><p>11. Fast Car — Tracy Chapman (simple fingerpicking pattern)
-12. Photograph — Ed Sheeran (great for chord transitions)
-13. Yellow — Coldplay (easy shapes, iconic rhythm)
-14. Zombie — The Cranberries (power chords introduction)
-15. Iris — Goo Goo Dolls (open tuning optional but not required)
-16. Blinding Lights — The Weeknd (Acoustic version)
-17. The A Team — Ed Sheeran (great for dynamic strumming)
-18. Stay With Me — Sam Smith (I–V–vi progression)</p><p>⭐ LEVEL 3 — Songs That Level Up Your Guitar Brain (Riffs + Emotional Expression)</p><p>19. Blackbird — The Beatles (fingerstyle shapes — perfect for a pianist)
-20. Time of Your Life — Green Day (strumming discipline)
-21. Wish You Were Here — Pink Floyd (melodic intro riff)
-22. Hotel California (Acoustic) — Eagles (A+ for chord fluency)
-23. Skinny Love — Bon Iver (minimal shapes, huge vibe)
-24. Tears in Heaven — Eric Clapton (classic emotional playing)
-25. More Than Words — Extreme (advanced strumming/fingerstyle blend)</p>
+
+        <!-- Intro / Overview -->
+        <h2 id="the-guitar-training-platform">THE GUITAR TRAINING PLATFORM</h2>
+        <p><em>Play What You Hear. Understand What You Play. Learn Fast. Have Fun.</em></p>
+
+        <div class="callout">
+          <h4>This platform teaches guitar the way musicians actually use it</h4>
+          <ul>
+            <li>Shape-based (CAGED) rather than notation-based</li>
+            <li>Ear-first, not theory-first</li>
+            <li>Song-driven, not exercise-driven</li>
+            <li>Play-focused, not practice-heavy</li>
+          </ul>
+        </div>
+
+        <p>
+          By mastering a few core concepts — chord shapes, transitions, strumming, fretboard patterns, and song structure —
+          Luke can quickly gain fluency and freedom on the instrument. This is the path not only to playing the guitar, but to enjoying it.
+        </p>
+
+        <div class="divider"></div>
+
+        <!-- Module 1 -->
+        <section class="module" id="m1">
+          <div class="module-hd">
+            <h2>Module 1: The Guitar Mindset — Play by Shape, Not by Note</h2>
+            <div class="meta">
+              <span><strong>Core Principle:</strong> Piano thinks vertically; guitar thinks geometrically.</span>
+            </div>
+          </div>
+
+          <div class="module-bd">
+            <div>
+              <p>On piano, chords stack. On guitar, chords shape.</p>
+
+              <div class="callout">
+                <h4>What to learn</h4>
+                <ul>
+                  <li>Chords are built as hand shapes, not individual notes.</li>
+                  <li>These shapes repeat up the neck (unlike the piano).</li>
+                  <li>Patterns make everything easier — especially for someone who already knows harmony.</li>
+                </ul>
+              </div>
+
+              <div class="callout" style="margin-top:12px;">
+                <h4>Starter exercise</h4>
+                <p>
+                  Pick a chord you know (G, C, D, Am). Slide it up the neck while keeping the shape.
+                  Hear how it becomes new chords instantly.
+                </p>
+              </div>
+            </div>
+
+            <div class="video-card">
+              <div class="vc-hd">
+                <strong>CAGED overview (Paul Davids)</strong>
+                <a href="https://www.youtube.com/watch?v=1p0yhiJdPRY" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/1p0yhiJdPRY"
+                  title="CAGED overview (Paul Davids)"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Module 2 -->
+        <section class="module" id="m2">
+          <div class="module-hd">
+            <h2>Module 2: The CAGED System — Your New Map of the Guitar</h2>
+            <div class="meta">
+              <span><strong>Core Principle:</strong> Five shapes = every chord, everywhere.</span>
+            </div>
+          </div>
+
+          <div class="module-bd">
+            <div>
+              <p>If Luke learns these five shapes, he unlocks the entire fretboard:</p>
+              <div class="callout">
+                <ul>
+                  <li>C shape</li>
+                  <li>A shape</li>
+                  <li>G shape</li>
+                  <li>E shape</li>
+                  <li>D shape</li>
+                </ul>
+              </div>
+
+              <p style="margin-top:10px;">
+                Every major chord, every barre chord, every voicing… all come from these.
+              </p>
+
+              <div class="callout" style="margin-top:12px;">
+                <h4>Why this is perfect for a pianist</h4>
+                <p>
+                  CAGED is the guitar’s “logic.” Once you see it, you can play the instrument instead of chasing it.
+                </p>
+              </div>
+
+              <p style="margin-top:10px;">
+                <strong>Key resource:</strong> JustinGuitar CAGED Essentials (free course):<br />
+                https://www.justinguitar.com/modules/caged-system
+              </p>
+            </div>
+
+            <div class="video-card">
+              <div class="vc-hd">
+                <strong>The CAGED System (JustinGuitar)</strong>
+                <a href="https://www.youtube.com/watch?v=7MbwbWSeZjc" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/7MbwbWSeZjc"
+                  title="The CAGED System (JustinGuitar)"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Module 3 -->
+        <section class="module" id="m3">
+          <div class="module-hd">
+            <h2>Module 3: Chord Families — The Guitarist’s Harmonic Shortcuts</h2>
+            <div class="meta">
+              <span><strong>Core Principle:</strong> Most songs use three chord families.</span>
+            </div>
+          </div>
+
+          <div class="module-bd">
+            <div>
+              <p>Luke already understands functional harmony. These three families will feel natural:</p>
+
+              <div class="callout">
+                <h4>The Big Three</h4>
+                <ul>
+                  <li><strong>G Family:</strong> G – C – D – Em</li>
+                  <li><strong>C Family:</strong> C – F – G – Am</li>
+                  <li><strong>D Family:</strong> D – G – A – Bm</li>
+                </ul>
+              </div>
+
+              <div class="callout" style="margin-top:12px;">
+                <h4>Try this</h4>
+                <p>
+                  Choose a song he knows on piano in G major. Play it on guitar using only G-family shapes. Instant fluency.
+                </p>
+              </div>
+
+              <p style="margin-top:10px;">
+                <strong>Key Resource:</strong> Andy Guitar Easy Chords &amp; Songs:
+                https://www.andyguitar.co.uk/online-lessons/categories/beginners
+              </p>
+            </div>
+
+            <div class="video-card">
+              <div class="vc-hd">
+                <strong>3-Chord Song Families (Andy Guitar)</strong>
+                <a href="https://www.youtube.com/watch?v=JOsMVwp2KSQ" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/JOsMVwp2KSQ"
+                  title="3-Chord Song Families (Andy Guitar)"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Module 4 -->
+        <section class="module" id="m4">
+          <div class="module-hd">
+            <h2>Module 4: Strumming — Turning Chords Into Music</h2>
+            <div class="meta">
+              <span><strong>Core Principle:</strong> Rhythm makes the song feel alive.</span>
+            </div>
+          </div>
+
+          <div class="module-bd">
+            <div>
+              <p>The trick to sounding “like a guitarist” is not the chords… it’s the right hand.</p>
+
+              <div class="callout">
+                <h4>Learn these first</h4>
+                <ul>
+                  <li>Down, down-up, up-down-up (the universal pattern)</li>
+                  <li>16th-note feel (for pop)</li>
+                  <li>Shuffle feel (for folk &amp; blues)</li>
+                </ul>
+              </div>
+
+              <div class="callout" style="margin-top:12px;">
+                <h4>Exercise</h4>
+                <p>
+                  Mute the strings with your left hand. Practice strumming patterns without chords to master the groove.
+                </p>
+              </div>
+
+              <p style="margin-top:10px;">
+                <strong>Key Resources:</strong><br />
+                Marty Music Strumming Playlist: https://www.youtube.com/playlist?list=PL-RYb_OMw7GdHGwEJdBDEu79SUZlQO7Rh<br />
+                JustinGuitar Strumming Techniques: https://www.justinguitar.com/modules/strumming-techniques
+              </p>
+            </div>
+
+            <div class="video-card">
+              <div class="vc-hd">
+                <strong>Beginner Strumming Patterns (Marty Music)</strong>
+                <a href="https://www.youtube.com/watch?v=xItenkWdNtw" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/xItenkWdNtw"
+                  title="Beginner Strumming Patterns (Marty Music)"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Module 5 -->
+        <section class="module" id="m5">
+          <div class="module-hd">
+            <h2>Module 5: Ear-Based Guitar — Translating Your Piano Intuition</h2>
+            <div class="meta">
+              <span><strong>Core Principle:</strong> Luke already knows how to do this — guitar just adds shapes.</span>
+            </div>
+          </div>
+
+          <div class="module-bd">
+            <div>
+              <div class="callout">
+                <h4>What to practice</h4>
+                <ul>
+                  <li>Hear the interval → find it on one string</li>
+                  <li>Turn those intervals into chords</li>
+                  <li>Recognize common progressions (I–V–vi–IV, ii–V–I)</li>
+                </ul>
+              </div>
+
+              <div class="callout" style="margin-top:12px;">
+                <h4>Why he’ll learn fast</h4>
+                <p>
+                  Because the shapes repeat, he only needs to find something once for it to work everywhere.
+                </p>
+              </div>
+
+              <p style="margin-top:10px;">
+                <strong>Key Resources:</strong><br />
+                Functional Ear Trainer App: https://www.matthewvancise.com/fet<br />
+                JustinGuitar Ear Training: https://www.justinguitar.com/categories/ear-training
+              </p>
+            </div>
+
+            <div class="video-card">
+              <div class="vc-hd">
+                <strong>Why You Need Ear Training (JustinGuitar)</strong>
+                <a href="https://www.youtube.com/watch?v=bqUdZdhHGVI" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/bqUdZdhHGVI"
+                  title="Why You Need Ear Training (JustinGuitar)"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Module 6 -->
+        <section class="module" id="m6">
+          <div class="module-hd">
+            <h2>Module 6: Tabs — The Guitarist’s Sheet Music</h2>
+            <div class="meta">
+              <span><strong>Core Principle:</strong> Guitarists read grids, not staff notation.</span>
+            </div>
+          </div>
+
+          <div class="module-bd">
+            <div>
+              <div class="callout">
+                <h4>TAB is easy</h4>
+                <ul>
+                  <li>6 lines = 6 strings</li>
+                  <li>Numbers = fret numbers</li>
+                  <li>Luke will pick this up instantly.</li>
+                </ul>
+              </div>
+
+              <p style="margin-top:10px;">
+                <strong>Key Resources:</strong><br />
+                Ultimate Guitar Tabs: https://www.ultimate-guitar.com/<br />
+                Songsterr (interactive tab player): https://www.songsterr.com/
+              </p>
+            </div>
+
+            <div class="video-card">
+              <div class="vc-hd">
+                <strong>How to Read Guitar TAB (JustinGuitar)</strong>
+                <a href="https://www.youtube.com/watch?v=i10y_ZuOfjk" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/i10y_ZuOfjk"
+                  title="How to Read Guitar TAB (JustinGuitar)"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Module 7 -->
+        <section class="module" id="m7">
+          <div class="module-hd">
+            <h2>Module 7: Song-Based Learning — The Fastest Path to Fluency</h2>
+            <div class="meta">
+              <span><strong>Core Principle:</strong> Learn guitar by learning songs, not scales.</span>
+            </div>
+          </div>
+
+          <div class="module-bd">
+            <div>
+              <p>Songs teach:</p>
+              <div class="callout">
+                <ul>
+                  <li>Chord transitions</li>
+                  <li>Rhythm</li>
+                  <li>Voice leading</li>
+                  <li>Real-world progressions</li>
+                </ul>
+              </div>
+
+              <div class="callout" style="margin-top:12px;">
+                <h4>Perfect beginner songs (piano-friendly too)</h4>
+                <ul>
+                  <li>Riptide — Vance Joy</li>
+                  <li>Wonderwall — Oasis</li>
+                  <li>Let Her Go — Passenger</li>
+                  <li>Hey There Delilah — Plain White T’s</li>
+                  <li>I’m Yours — Jason Mraz</li>
+                  <li>Hallelujah — Jeff Buckley version</li>
+                  <li>Someone Like You — Adele (acoustic arrangement)</li>
+                </ul>
+              </div>
+
+              <p style="margin-top:10px;">
+                <strong>Key Resource:</strong><br />
+                Marty Music Song Tutorials: https://www.youtube.com/@MartyMusic<br />
+                JustinGuitar Song Lessons: https://www.justinguitar.com/songs
+              </p>
+            </div>
+
+            <div class="video-card">
+              <div class="vc-hd">
+                <strong>Wonderwall (Marty Music)</strong>
+                <a href="https://www.youtube.com/watch?v=o8wM8inaqmo" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/o8wM8inaqmo"
+                  title="Wonderwall Guitar Lesson (Marty Music)"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Module 8 -->
+        <section class="module" id="m8">
+          <div class="module-hd">
+            <h2>Module 8: The Fretboard — Quick Navigation Tricks</h2>
+            <div class="meta">
+              <span><strong>Core Principle:</strong> The low E and A strings are your anchors.</span>
+            </div>
+          </div>
+
+          <div class="module-bd">
+            <div>
+              <p>Learn these first:</p>
+              <div class="callout">
+                <ul>
+                  <li>Notes on E string (open → 12th)</li>
+                  <li>Notes on A string</li>
+                  <li>Power chord shapes</li>
+                  <li>Barre chord shapes (CAGED again)</li>
+                </ul>
+              </div>
+
+              <p style="margin-top:10px;">
+                Once Luke knows the E and A strings, the whole fretboard unlocks.
+              </p>
+
+              <p style="margin-top:10px;">
+                <strong>Key Resource:</strong> Fretboard Map (free PDF): https://fretboardtoolbox.com/
+              </p>
+            </div>
+
+            <div class="video-card">
+              <div class="vc-hd">
+                <strong>Notes on E &amp; A Strings</strong>
+                <a href="https://www.youtube.com/watch?v=iwDthuCRMjc" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/iwDthuCRMjc"
+                  title="Learning Notes on E and A Strings (Guitar Lesson)"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Module 9 -->
+        <section class="module" id="m9">
+          <div class="module-hd">
+            <h2>Module 9: Technique Essentials — The “Minimum Viable Guitarist” Skillset</h2>
+            <div class="meta">
+              <span><strong>Core Principle:</strong> You only need a few foundational techniques to sound good.</span>
+            </div>
+          </div>
+
+          <div class="module-bd">
+            <div>
+              <div class="callout">
+                <h4>Must-learn techniques</h4>
+                <ul>
+                  <li>Clean chord changes</li>
+                  <li>Palm muting</li>
+                  <li>Hammer-ons &amp; pull-offs</li>
+                  <li>Simple fingerpicking (PIMA)</li>
+                  <li>Basic scales (pentatonic is plenty)</li>
+                </ul>
+              </div>
+
+              <p style="margin-top:10px;">
+                <strong>Key Resources:</strong><br />
+                GuitarLessons365 (technique playlist): https://www.youtube.com/@guitarlessons365<br />
+                Pentatonic Scale Lesson (Ben Eller): https://www.youtube.com/watch?v=wgSZW2G7F7E
+              </p>
+            </div>
+
+            <div class="video-card">
+              <div class="vc-hd">
+                <strong>PIMA Fingerpicking (Fender Play)</strong>
+                <a href="https://www.youtube.com/watch?v=ael-nRUmMV8" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/ael-nRUmMV8"
+                  title="How to Use the PIMA Technique (Fender Play)"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+
+          <div class="module-bd" style="padding-top:0;">
+            <div style="grid-column: 1 / -1;">
+              <div class="video-card">
+                <div class="vc-hd">
+                  <strong>Pentatonic Scale (Ben Eller)</strong>
+                  <a href="https://www.youtube.com/watch?v=wgSZW2G7F7E" target="_blank" rel="noopener">Open on YouTube</a>
+                </div>
+                <div class="video">
+                  <iframe
+                    src="https://www.youtube.com/embed/wgSZW2G7F7E"
+                    title="Pentatonic Scale Lesson (Ben Eller)"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Module 10 -->
+        <section class="module" id="m10">
+          <div class="module-hd">
+            <h2>Module 10: Practice Design — How to Level Up Fast</h2>
+            <div class="meta">
+              <span><strong>Core Principle:</strong> 20 minutes of focused practice beats 2 hours of wandering.</span>
+            </div>
+          </div>
+
+          <div class="module-bd">
+            <div>
+              <div class="callout">
+                <h4>Sample 20-minute routine</h4>
+                <ul>
+                  <li>5 minutes — chord changes (G–C–D, C–F–G, etc.)</li>
+                  <li>5 minutes — strumming pattern focus</li>
+                  <li>5 minutes — melody or riff via tab</li>
+                  <li>5 minutes — play a song you love</li>
+                </ul>
+              </div>
+
+              <div class="callout" style="margin-top:12px;">
+                <h4>Bonus: use play-along tools</h4>
+                <ul>
+                  <li>YouTube speed control</li>
+                  <li>Songsterr slowdown function</li>
+                  <li>Fender Play tempo tools (optional but good)</li>
+                </ul>
+              </div>
+
+              <div class="divider"></div>
+
+              <h3>Key Takeaways</h3>
+              <ul>
+                <li>Guitar is shapes, patterns, and repetition — not note-reading.</li>
+                <li>Because Luke knows chords and harmony, he will learn much faster than beginners.</li>
+                <li>CAGED + chord families = instant fluency.</li>
+                <li>Strumming is 80% of sounding like a guitarist.</li>
+                <li>Play songs early and often — it accelerates everything.</li>
+                <li>Practice small, consistent sessions, not marathons.</li>
+                <li>The real goal: freedom — the ability to hear something and play it.</li>
+              </ul>
+            </div>
+
+            <div class="video-card">
+              <div class="vc-hd">
+                <strong>Strumming Playlist (Marty Music)</strong>
+                <a href="https://www.youtube.com/playlist?list=PL-RYb_OMw7GdHGwEJdBDEu79SUZlQO7Rh" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/videoseries?list=PL-RYb_OMw7GdHGwEJdBDEu79SUZlQO7Rh"
+                  title="Marty Music Strumming Playlist"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Songs -->
+        <h2 id="songs">The First 25 Guitar Songs for Luke</h2>
+        <p>
+          Chosen specifically for a pianist who learns by ear, loves chord patterns, and wants quick wins with real music.
+          These are grouped by difficulty and designed to build momentum fast. Every song is playable with simple chords,
+          shape-based riffs, or common strumming patterns.
+        </p>
+
+        <div class="song-grid">
+          <div class="song-card">
+            <h3>⭐ Level 1 — The Instant Wins</h3>
+            <ol>
+              <li>Riptide — Vance Joy</li>
+              <li>Hey There Delilah — Plain White T’s</li>
+              <li>Wonderwall — Oasis</li>
+              <li>I’m Yours — Jason Mraz</li>
+              <li>Let Her Go — Passenger</li>
+              <li>Counting Stars — OneRepublic</li>
+              <li>Someone Like You — Adele (Acoustic arrangement)</li>
+              <li>Hallelujah — Leonard Cohen / Jeff Buckley</li>
+              <li>Stand By Me — Ben E. King</li>
+              <li>Love Yourself — Justin Bieber</li>
+            </ol>
+            <p style="margin-top:8px; opacity:.85;">All are based on G-family or C-family chords. Perfect for learning strumming confidence.</p>
+          </div>
+
+          <div class="song-card">
+            <h3>⭐ Level 2 — Songs That Teach a Skill</h3>
+            <ol start="11">
+              <li>Fast Car — Tracy Chapman</li>
+              <li>Photograph — Ed Sheeran</li>
+              <li>Yellow — Coldplay</li>
+              <li>Zombie — The Cranberries</li>
+              <li>Iris — Goo Goo Dolls</li>
+              <li>Blinding Lights — The Weeknd (Acoustic)</li>
+              <li>The A Team — Ed Sheeran</li>
+              <li>Stay With Me — Sam Smith</li>
+            </ol>
+          </div>
+
+          <div class="song-card">
+            <h3>⭐ Level 3 — Songs That Level Up Your Guitar Brain</h3>
+            <ol start="19">
+              <li>Blackbird — The Beatles</li>
+              <li>Time of Your Life — Green Day</li>
+              <li>Wish You Were Here — Pink Floyd</li>
+              <li>Hotel California (Acoustic) — Eagles</li>
+              <li>Skinny Love — Bon Iver</li>
+              <li>Tears in Heaven — Eric Clapton</li>
+              <li>More Than Words — Extreme</li>
+            </ol>
+          </div>
+        </div>
 
       </article>
     </section>
