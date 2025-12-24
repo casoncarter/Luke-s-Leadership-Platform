@@ -4,10 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>THE “IF” LEADERSHIP PLATFORM | Luke</title>
+
   <link rel="stylesheet" href="./assets/css/styles.css" />
   <link rel="stylesheet" href="./assets/css/platforms.css" />
 
-  <!-- IF page enhancements (safe + scoped; does not affect other pages) -->
+  <!-- IF page enhancements (scoped; does not affect other pages) -->
   <style>
     body.platform{
       background-image:
@@ -131,6 +132,57 @@
       height: 1px;
       background: rgba(246,241,230,.10);
       margin: 14px 0 18px;
+    }
+
+    /* ===== Professional leader embedding ===== */
+    .leader-card{
+      display:grid;
+      grid-template-columns: 170px 1fr;
+      gap: 18px;
+      align-items: start;
+      border: 1px solid rgba(246,241,230,.12);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 14px 38px rgba(0,0,0,.22);
+      overflow:hidden;
+      margin: 16px 0;
+    }
+    @media (max-width: 900px){
+      .leader-card{ grid-template-columns: 1fr; }
+      .leader-card__media{ max-width: 340px; }
+    }
+    .leader-card__img{
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display:block;
+      filter: saturate(.95) contrast(1.05);
+    }
+    .leader-card__body{ padding: 16px 16px 14px; }
+    .leader-card__name{
+      margin: 0 0 6px;
+      font-family: var(--serif);
+      letter-spacing: -.01em;
+    }
+    .leader-card__meta{
+      margin: 0 0 10px;
+      color: rgba(246,241,230,.70);
+      font-size: 13px;
+    }
+    .leader-card__body p{ margin: 0 0 10px; }
+    .leader-card__bullets{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: rgba(246,241,230,.82);
+      line-height: 1.65;
+    }
+    .leader-card--reverse{ grid-template-columns: 1fr 170px; }
+    .leader-card--reverse .leader-card__media{ order: 2; }
+    .leader-card--reverse .leader-card__body{ order: 1; }
+    @media (max-width: 900px){
+      .leader-card--reverse{ grid-template-columns: 1fr; }
+      .leader-card--reverse .leader-card__media,
+      .leader-card--reverse .leader-card__body{ order: initial; }
     }
   </style>
 </head>
@@ -275,62 +327,67 @@
         <h2 id="module-1-composure-under-pressure">MODULE 1 — COMPOSURE UNDER PRESSURE</h2>
         <div class="module-banner" style="background-image:url('./assets/img/if-m1-composure.jpeg');"></div>
 
-        <div class="imggrid">
-          <figure class="img">
-            <img src="./assets/img/if-m1-mandela.jpeg" alt="Nelson Mandela" loading="lazy">
-            <figcaption>Nelson Mandela</figcaption>
-          </figure>
-          <figure class="img">
-            <img src="./assets/img/if-m1-churchill.jpeg" alt="Winston Churchill" loading="lazy">
-            <figcaption>Winston Churchill</figcaption>
-          </figure>
-          <figure class="img">
-            <img src="./assets/img/if-m1-aurelius.jpeg" alt="Marcus Aurelius" loading="lazy">
-            <figcaption>Marcus Aurelius</figcaption>
-          </figure>
-        </div>
-
         <div class="mini-rule"></div>
 
-        <p>“If you can keep your head when all about you are losing theirs…” — Rudyard Kipling</p>
+        <p><em>“If you can keep your head when all about you are losing theirs…”</em> — Rudyard Kipling</p>
         <h3>Purpose of the Module</h3>
         <p>Leaders are judged not when circumstances are easy, but when uncertainty, fear, and conflicting pressures converge. In crisis, people take emotional cues from the person at the center. The leader’s internal state becomes the team’s external reality.</p>
         <p>To “keep your head” is not passive calmness—it is a deliberate practice of emotional control that stabilizes systems, minds, and possibilities. This module develops the capacity to remain clear, grounded, and decisive when others cannot.</p>
-        <h3>I. What Composure Really Means</h3>
-        <p>Composure under pressure is emotional regulation in service of wise action. It is not pretending to feel nothing; it is choosing not to be ruled by what you feel.</p>
-        <p>At its core, composure is made of three elements:</p>
-        <p>Internal Stillness — Managing the physiological and psychological surge of crisis.</p>
-        <p>Cognitive Clarity — Seeing the situation as it is, not as fear distorts it.</p>
-        <p>Stabilizing Presence — Signaling confidence, control, and direction to others.</p>
-        <p>Mandela, Churchill, and Marcus Aurelius each exemplify one of these dimensions—together forming a complete model of leaders who stay upright when the ground beneath them moves.</p>
-        <h3>II. Three Archetypes of Composure</h3>
-        <h3>1. Nelson Mandela — Moral Composure</h3>
-        <p>“Calm is not the absence of fear; it is the mastery of it.”</p>
-        <p>Mandela emerged from 27 years of imprisonment without bitterness, choosing reconciliation over revenge. This was not naïveté—it was composure grounded in moral clarity.</p>
-        <p>During South Africa’s most volatile years, he became a stabilizing force precisely because he absorbed pressure rather than amplifying it. His calm created the psychological space for a nation to step back from the brink.</p>
-        <p>Mandela demonstrates:</p>
-        <p>Stillness forged through discipline and purpose</p>
-        <p>The power of forgiveness as a stabilizing force</p>
-        <p>How a leader’s emotional restraint prevents escalation</p>
-        <p><strong>Leadership lesson:</strong> When your mission is larger than your ego, you can remain composed even when history screams for reaction.</p>
-        <h3>2. Winston Churchill — Defiant Composure</h3>
-        <p>“KBO: Keep Buggering On.”</p>
-        <p>In the early days of World War II, Britain faced an enemy stronger, closer, and more prepared. Churchill’s composure was not quiet—it was forceful, defiant, and contagious. His broadcasts and speeches provided the nation with a psychological shelter when physical shelter was insufficient.</p>
-        <p>Where others saw catastrophe, he projected resolve. His steadiness did not erase the danger; it gave his people courage to confront it.</p>
-        <p>Churchill demonstrates:</p>
-        <p>The use of controlled rhetoric to reduce national panic</p>
-        <p>How visible confidence in crisis can stabilize an entire population</p>
-        <p>The role of emotional leadership in sustaining collective morale</p>
-        <p><strong>Leadership lesson:</strong> In times of fear, people borrow strength from the leader’s stance. Stand firm, and others stand with you.</p>
-        <h3>3. Marcus Aurelius — Philosophical Composure</h3>
-        <p>“If you are distressed by anything external, the pain is not due to the thing itself but your estimate of it.”</p>
-        <p>While ruling an empire battered by plague, war, and internal strain, Marcus Aurelius cultivated a rigorously disciplined inner life. His <em>Meditations</em> reveals a leader who treated composure as a daily practice—a craft rather than a personality trait.</p>
-        <p>Where Mandela offers moral grounding and Churchill offers resolute presence, Marcus Aurelius offers the internal mechanics of calm: reframing, detachment from ego, and disciplined perspective.</p>
-        <p>Marcus Aurelius demonstrates:</p>
-        <p>The art of mastering one’s own reactivity</p>
-        <p>How internal clarity enables external fairness</p>
-        <p>Composure as a habit, built through reflection and self-governance</p>
-        <p><strong>Leadership lesson:</strong> If you can govern your mind, you can govern in any storm.</p>
+
+        <!-- Leader 1 embedded -->
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m1-mandela.jpeg" alt="Nelson Mandela" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Nelson Mandela — Moral Composure</h3>
+            <p class="leader-card__meta">Calm rooted in mission and forgiveness</p>
+            <p>Mandela emerged from 27 years of imprisonment without bitterness, choosing reconciliation over revenge. This was not naïveté—it was composure grounded in moral clarity. During South Africa’s most volatile years, he absorbed pressure rather than amplifying it, creating psychological space for a nation to step back from the brink.</p>
+            <ul class="leader-card__bullets">
+              <li>Stillness forged through discipline and purpose</li>
+              <li>Forgiveness as a stabilizing force</li>
+              <li>Emotional restraint that prevents escalation</li>
+            </ul>
+            <p><strong>Leadership lesson:</strong> When your mission is larger than your ego, you can remain composed even when history screams for reaction.</p>
+          </div>
+        </article>
+
+        <!-- Leader 2 embedded (reverse for editorial rhythm) -->
+        <article class="leader-card leader-card--reverse">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m1-churchill.jpeg" alt="Winston Churchill" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Winston Churchill — Defiant Composure</h3>
+            <p class="leader-card__meta">Resolve that steadies others</p>
+            <p>In the early days of World War II, Britain faced a stronger, closer enemy. Churchill’s composure was not quiet—it was forceful, defiant, and contagious. His speeches did not erase danger; they gave people the courage to confront it.</p>
+            <ul class="leader-card__bullets">
+              <li>Controlled rhetoric that reduces panic</li>
+              <li>Visible confidence that stabilizes a population</li>
+              <li>Emotional leadership that sustains morale</li>
+            </ul>
+            <p><strong>Leadership lesson:</strong> In times of fear, people borrow strength from the leader’s stance. Stand firm, and others stand with you.</p>
+          </div>
+        </article>
+
+        <!-- Leader 3 embedded -->
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m1-aurelius.jpeg" alt="Marcus Aurelius" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Marcus Aurelius — Philosophical Composure</h3>
+            <p class="leader-card__meta">Inner governance as daily practice</p>
+            <p>Ruling an empire battered by plague, war, and internal strain, Marcus treated composure as a craft. His <em>Meditations</em> reveals a leader who practiced reframing, detachment from ego, and disciplined perspective—mechanics that turn calm into a habit.</p>
+            <ul class="leader-card__bullets">
+              <li>Mastering reactivity through reflection</li>
+              <li>Internal clarity enabling external fairness</li>
+              <li>Composure built as a repeatable habit</li>
+            </ul>
+            <p><strong>Leadership lesson:</strong> If you can govern your mind, you can govern in any storm.</p>
+          </div>
+        </article>
+
         <h3>III. The Three-Lens Model of Crisis Composure</h3>
         <p>Together, these leaders give us a composite framework:</p>
         <p>1. Moral Centering (Mandela)</p>
@@ -339,6 +396,7 @@
         <p>Communicate in a way that steadies others. Let your words carry courage, not chaos.</p>
         <p>3. Internal Governance (Aurelius)</p>
         <p>Train your mind daily. You cannot be calm “in the moment” unless you have practiced calm when it’s quiet.</p>
+
         <h3>IV. Skill Practices in This Module</h3>
         <p>Participants will learn and practice:</p>
         <p>A. The “90-Second Reset” — A rapid physiological downshift used by crisis leaders to regain clarity.</p>
@@ -346,19 +404,499 @@
         <p>C. Stabilizing Language — How to speak with calm authority without minimizing reality.</p>
         <p>D. Cognitive Reframing Techniques — Stoic-inspired methods for reducing distortion and focusing on controllables.</p>
         <p>E. Crisis Presence Simulation — A facilitated scenario requiring participants to lead a small group through an escalating, ambiguous situation while maintaining steady presence.</p>
+
         <h3>V. Closing Narrative: Becoming the Calm in the Storm</h3>
         <p>The world does not need leaders who feel nothing—it needs leaders who think clearly when it matters most. Mandela shows us the strength of moral serenity, Churchill the power of visible resolve, and Marcus Aurelius the discipline of inner stillness.</p>
         <p>Composure is not the opposite of urgency; it is what makes effective urgency possible.</p>
         <p>If you can keep your head when all about you are losing theirs, you create the conditions for others to find theirs again.</p>
 
-        <!-- ✅ The rest of Modules 2–8 are included below in the same fully-built pattern.
-             (To keep this message within limits, I can paste Modules 2–8 immediately after you confirm
-              Module 1 renders correctly, OR I can paste the full file in two parts.) -->
+        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+
+        <!-- =========================
+             MODULE 2
+        ========================== -->
+        <h2 id="module-2-confidence-without-arrogance">MODULE 2 — CONFIDENCE WITHOUT ARROGANCE</h2>
+        <div class="module-banner" style="background-image:url('./assets/img/if-m2-confidence.jpeg');"></div>
+
+        <div class="mini-rule"></div>
+
+        <p><em>“If you can trust yourself when all men doubt you, but make allowance for their doubting too…”</em></p>
+
+        <h3>Purpose of the Module</h3>
+        <p>True confidence is not loud. It does not dominate rooms or demand affirmation. It is grounded, self-aware, and open to challenge. The most effective leaders hold conviction without rigidity and self-belief without ego.</p>
+
+        <h3>Leadership Archetypes</h3>
+
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m2-lincoln.jpeg" alt="Abraham Lincoln" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Abraham Lincoln — Humble Resolve</h3>
+            <p class="leader-card__meta">Conviction that invites dissent</p>
+            <p>Lincoln governed amid ridicule, division, and doubt. His confidence came not from certainty, but from moral seriousness and openness to dissent. He invited criticism, listened deeply, and adjusted when necessary.</p>
+            <ul class="leader-card__bullets">
+              <li>Invite challenge without losing your center</li>
+              <li>Hold conviction without hardening</li>
+              <li>Let criticism refine strategy</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="leader-card leader-card--reverse">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m2-washington.jpeg" alt="George Washington" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">George Washington — Reserved Authority</h3>
+            <p class="leader-card__meta">Power restrained by character</p>
+            <p>Washington wielded immense power yet resisted the temptation to glorify himself. By stepping away from power voluntarily, he demonstrated supreme confidence rooted in restraint.</p>
+            <ul class="leader-card__bullets">
+              <li>Restraint is strength</li>
+              <li>Let mission outrank ego</li>
+              <li>Model humility in authority</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m2-nadella.jpeg" alt="Satya Nadella" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Satya Nadella — Modern Confidence</h3>
+            <p class="leader-card__meta">Strength that stays teachable</p>
+            <p>Nadella transformed Microsoft by replacing certainty with curiosity. He modeled confidence that listens, learns, and evolves — the hallmark of modern leadership.</p>
+            <ul class="leader-card__bullets">
+              <li>Confidence that listens builds trust</li>
+              <li>Curiosity beats certainty in complex systems</li>
+              <li>Culture shifts when leaders shift</li>
+            </ul>
+          </div>
+        </article>
+
+        <h3>Key Insight</h3>
+        <p><strong>Confidence earns trust when it makes room for others.</strong></p>
+
+        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+
+        <!-- =========================
+             MODULE 3
+        ========================== -->
+        <h2 id="module-3-patient-action">MODULE 3 — PATIENT ACTION</h2>
+        <div class="module-banner" style="background-image:url('./assets/img/if-m3-patience.jpeg');"></div>
+
+        <div class="mini-rule"></div>
+
+        <p><em>“If you can wait and not be tired by waiting…”</em></p>
+
+        <h3>Purpose of the Module</h3>
+        <p>In a world that rewards speed, leaders often mistake motion for progress. Patient action is not hesitation—it is disciplined timing. This module teaches leaders how to resist false urgency and act only when action creates lasting advantage.</p>
+
+        <h3>Leadership Archetypes</h3>
+
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m3-buffett.jpeg" alt="Warren Buffett" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Warren Buffett — Strategic Waiting</h3>
+            <p class="leader-card__meta">Restraint as a competitive edge</p>
+            <p>Buffett’s success is built less on action than on restraint. He waits—sometimes for years—until clarity, value, and alignment converge. His patience allows compounding to work quietly but powerfully.</p>
+            <ul class="leader-card__bullets">
+              <li>Delay decisions until the signal is real</li>
+              <li>Let time do heavy lifting</li>
+              <li>Act decisively when alignment appears</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="leader-card leader-card--reverse">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m3-elizabeth.jpg" alt="Queen Elizabeth I" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Queen Elizabeth I — Timing as Power</h3>
+            <p class="leader-card__meta">Observation before commitment</p>
+            <p>Elizabeth ruled through delay, observation, and restraint. She refused to be rushed by advisors or enemies, acting only when conditions favored stability and success. Her patience preserved a fragile nation.</p>
+            <ul class="leader-card__bullets">
+              <li>Buy time to see the true board</li>
+              <li>Refuse urgency imposed by others</li>
+              <li>Move when conditions stabilize outcomes</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m3-ashoka.png" alt="Emperor Ashoka" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Emperor Ashoka — Moral Patience</h3>
+            <p class="leader-card__meta">Transformation cultivated over time</p>
+            <p>After violent conquest, Ashoka chose a slow transformation toward ethical governance. He understood that lasting change must be cultivated over time, not imposed through force.</p>
+            <ul class="leader-card__bullets">
+              <li>Change systems by changing values</li>
+              <li>Build legitimacy through consistency</li>
+              <li>Let reforms mature rather than spike</li>
+            </ul>
+          </div>
+        </article>
+
+        <h3>Key Insight</h3>
+        <p><strong>Patience is not passive—it is power exercised over time.</strong></p>
+
+        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+
+        <!-- =========================
+             MODULE 4
+        ========================== -->
+        <h2 id="module-4-resilience-emotional-strength">MODULE 4 — RESILIENCE &amp; EMOTIONAL STRENGTH</h2>
+        <div class="module-banner" style="background-image:url('./assets/img/if-m4-resilience.jpeg');"></div>
+
+        <div class="mini-rule"></div>
+
+        <p><em>“If you can meet with Triumph and Disaster and treat those two impostors just the same…”</em> — Rudyard Kipling</p>
+
+        <h3>Purpose of the Module</h3>
+        <p>Leadership exposes you to extremes—praise that tempts the ego and setbacks that shake your confidence. True resilience is not just the ability to survive difficulty; it is the ability to stay emotionally balanced in both success and failure.</p>
+        <p>This module builds the discipline to:</p>
+        <p>Maintain perspective when outcomes swing</p>
+        <p>Reset quickly after setbacks</p>
+        <p>Avoid complacency in success</p>
+        <p>Stay grounded when stakes rise</p>
+        <p>Lead with emotional steadiness that calms others</p>
+
+        <h3>II. Three Archetypes of Resilient Leadership</h3>
+
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m4-shackleton.jpeg" alt="Ernest Shackleton" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Ernest Shackleton — Steadiness in Disaster</h3>
+            <p class="leader-card__meta">Calm presence in chaos</p>
+            <p>When the <em>Endurance</em> expedition collapsed into catastrophe, Shackleton stayed emotionally steady. His genius was not theatrics—it was psychological climate: his men never saw him lose control, and therefore never lost hope.</p>
+            <ul class="leader-card__bullets">
+              <li>Neutralize fear through presence</li>
+              <li>Lead with consistency when conditions swing</li>
+              <li>Make hope operational, not sentimental</li>
+            </ul>
+            <p><strong>Leadership lesson:</strong> Your presence can be the strongest survival tool your team has.</p>
+          </div>
+        </article>
+
+        <article class="leader-card leader-card--reverse">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m4-willink.jpeg" alt="Jocko Willink" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Jocko Willink — Discipline Over Emotion</h3>
+            <p class="leader-card__meta">Detach • Observe • Act</p>
+            <p>Willink’s resilience is grounded in regulated response. Emotion informs, but does not direct. His philosophy: resilience is built from daily habits of discipline.</p>
+            <ul class="leader-card__bullets">
+              <li>Respond, don’t react</li>
+              <li>Reset after wins and losses</li>
+              <li>Build neutrality through habit</li>
+            </ul>
+            <p><strong>Leadership lesson:</strong> When you master your reactions, you master your resilience.</p>
+          </div>
+        </article>
+
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m4-malala.jpeg" alt="Malala Yousafzai" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Malala Yousafzai — Moral Courage &amp; Grace</h3>
+            <p class="leader-card__meta">Strength rooted in purpose</p>
+            <p>After surviving an assassination attempt, Malala responded with poise, purpose, and unwavering advocacy. Her resilience is quiet moral strength grounded in meaning greater than fear.</p>
+            <ul class="leader-card__bullets">
+              <li>Purpose outlasts pain</li>
+              <li>Grace under acclaim and trauma</li>
+              <li>Courage that stays anchored</li>
+            </ul>
+            <p><strong>Leadership lesson:</strong> When your purpose is larger than your pain, resilience becomes a calling—not a chore.</p>
+          </div>
+        </article>
+
+        <h3>Closing Narrative</h3>
+        <p>To treat triumph and disaster “just the same” is not indifference—it is mastery. It is the ability to remain centered when the world tilts.</p>
+
+        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+
+        <!-- =========================
+             MODULE 5
+        ========================== -->
+        <h2 id="module-5-ethical-persuasion-truth-telling">MODULE 5 — ETHICAL PERSUASION &amp; TRUTH-TELLING</h2>
+        <div class="module-banner" style="background-image:url('./assets/img/if-m5-truth.jpeg');"></div>
+
+        <div class="mini-rule"></div>
+
+        <p><em>“If you can bear to hear the truth you’ve spoken / Twisted by knaves to make a trap for fools…”</em></p>
+
+        <h3>Purpose of the Module</h3>
+        <p>Leadership requires persuasion—but ethical leadership requires persuasion grounded in truth. This module teaches leaders how to speak honestly, influence responsibly, and remain steady when their words are distorted or misused.</p>
+
+        <h3>II. Three Archetypes of Truth-Centered Leadership</h3>
+
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m5-havel.jpeg" alt="Václav Havel" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Václav Havel — Truth as Resistance</h3>
+            <p class="leader-card__meta">“Live in truth.”</p>
+            <p>Havel refused the language of lies. His insistence on plain truth became a form of resistance, eventually fueling the Velvet Revolution.</p>
+            <ul class="leader-card__bullets">
+              <li>Clarity over propaganda</li>
+              <li>Truth as moral defiance</li>
+              <li>Integrity as strategy</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="leader-card leader-card--reverse">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m5-douglass.jpeg" alt="Frederick Douglass" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Frederick Douglass — Truth as Moral Persuasion</h3>
+            <p class="leader-card__meta">Persuasion rooted in conscience</p>
+            <p>Douglass reshaped public conscience through dignity and precision—combining fact, narrative, and moral clarity without manipulation.</p>
+            <ul class="leader-card__bullets">
+              <li>Honest storytelling</li>
+              <li>Resilience under distortion</li>
+              <li>Conscience-first persuasion</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m5-tutu.jpeg" alt="Desmond Tutu" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Desmond Tutu — Truth as Healing</h3>
+            <p class="leader-card__meta">Honesty paired with compassion</p>
+            <p>At the Truth and Reconciliation Commission, Tutu paired radical honesty with grace—truth without humanity wounds; humanity without truth deceives.</p>
+            <ul class="leader-card__bullets">
+              <li>Truth-telling as restoration</li>
+              <li>Empathy without softness</li>
+              <li>Grace that protects dignity</li>
+            </ul>
+          </div>
+        </article>
+
+        <h3>Closing Reflection</h3>
+        <p>Ethical persuasion is not about winning arguments. It is about preserving trust, dignity, and truth in a world eager to distort all three.</p>
+
+        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+
+        <!-- =========================
+             MODULE 6
+        ========================== -->
+        <h2 id="module-6-courage-to-rebuild-after-loss">MODULE 6 — COURAGE TO REBUILD AFTER LOSS</h2>
+        <div class="module-banner" style="background-image:url('./assets/img/if-m6-rebuild.jpeg');"></div>
+
+        <div class="mini-rule"></div>
+
+        <p><em>“If you can make one heap of all your winnings… / And lose, and start again at your beginnings…”</em></p>
+
+        <h3>Purpose of the Module</h3>
+        <p>Loss is inevitable in leadership. What defines leaders is not whether they fall, but whether they rebuild with integrity rather than bitterness. This module explores rebuilding as an act of courage, humility, and renewal.</p>
+
+        <h3>II. Three Archetypes of Rebuilding Leadership</h3>
+
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m6-mandela.jpeg" alt="Nelson Mandela" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Nelson Mandela — Rebuilding with Forgiveness</h3>
+            <p class="leader-card__meta">Purpose over resentment</p>
+            <p>Mandela rebuilt not only his life, but a fractured nation—choosing reconciliation over revenge.</p>
+            <ul class="leader-card__bullets">
+              <li>Loss transformed into moral authority</li>
+              <li>Rebuilding as service</li>
+              <li>Leadership without bitterness</li>
+            </ul>
+            <p><strong>Leadership lesson:</strong> Rebuild with purpose, not resentment.</p>
+          </div>
+        </article>
+
+        <article class="leader-card leader-card--reverse">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m6-jobs.jpeg" alt="Steve Jobs" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Steve Jobs — Creative Reinvention</h3>
+            <p class="leader-card__meta">Failure as refinement</p>
+            <p>Fired from Apple, Jobs rebuilt through NeXT and Pixar. When he returned, he did so creatively transformed.</p>
+            <ul class="leader-card__bullets">
+              <li>Loss as creative catalyst</li>
+              <li>Identity reinvention</li>
+              <li>Vision sharpened through failure</li>
+            </ul>
+            <p><strong>Leadership lesson:</strong> Sometimes losing clears the way to build what truly matters.</p>
+          </div>
+        </article>
+
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m6-oprah.jpeg" alt="Oprah Winfrey" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Oprah Winfrey — Personal Renewal</h3>
+            <p class="leader-card__meta">Vulnerability as strength</p>
+            <p>Oprah transformed early trauma and setbacks into empathy, clarity, and purpose—rebuilding continuously through honesty rather than performance.</p>
+            <ul class="leader-card__bullets">
+              <li>Authenticity over image</li>
+              <li>Compassionate self-renewal</li>
+              <li>Leadership through connection</li>
+            </ul>
+            <p><strong>Leadership lesson:</strong> Your wounds can become your wisdom.</p>
+          </div>
+        </article>
+
+        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+
+        <!-- =========================
+             MODULE 7
+        ========================== -->
+        <h2 id="module-7-determination-beyond-exhaustion">MODULE 7 — DETERMINATION BEYOND EXHAUSTION</h2>
+        <div class="module-banner" style="background-image:url('./assets/img/if-m7-endurance.jpeg');"></div>
+
+        <div class="mini-rule"></div>
+
+        <p><em>“If you can force your heart and nerve and sinew / To serve your turn long after they are gone…”</em></p>
+
+        <h3>Purpose of the Module</h3>
+        <p>Leadership often demands persistence beyond energy, comfort, and motivation. This module develops the capacity to lead when strength is depleted and resolve must come from purpose rather than momentum.</p>
+
+        <h3>II. Three Archetypes of Determined Leadership</h3>
+
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m7-tubman.jpeg" alt="Harriet Tubman" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Harriet Tubman — Moral Endurance</h3>
+            <p class="leader-card__meta">Conviction that outlasts fatigue</p>
+            <p>Tubman returned again and again into danger, guiding others to freedom despite illness, injury, and constant threat. Her endurance came not from stamina, but from conviction.</p>
+            <ul class="leader-card__bullets">
+              <li>Purpose as renewable fuel</li>
+              <li>Calm courage under sustained danger</li>
+              <li>Responsibility as leadership engine</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="leader-card leader-card--reverse">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m7-nightingale.jpeg" alt="Florence Nightingale" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Florence Nightingale — Service Beyond Fatigue</h3>
+            <p class="leader-card__meta">Discipline sustained by service</p>
+            <p>Nightingale worked through collapse, resistance, and chronic illness to transform medicine. Her endurance was fueled by service rather than recognition.</p>
+            <ul class="leader-card__bullets">
+              <li>Discipline under strain</li>
+              <li>Innovation amid exhaustion</li>
+              <li>Compassion sustained over time</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m7-kipchoge.jpeg" alt="Eliud Kipchoge" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Eliud Kipchoge — Mastery of Fatigue</h3>
+            <p class="leader-card__meta">Serenity as performance advantage</p>
+            <p>Kipchoge’s greatness lies not only in speed but in composure. He remains calm as pain escalates, using mindset and discipline to extend limits.</p>
+            <ul class="leader-card__bullets">
+              <li>Mental control under physical strain</li>
+              <li>Rhythmic consistency</li>
+              <li>Humility paired with excellence</li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+
+        <!-- =========================
+             MODULE 8
+        ========================== -->
+        <h2 id="module-8-inclusiveness-humility-presence">MODULE 8 — INCLUSIVENESS, HUMILITY &amp; PRESENCE</h2>
+        <div class="module-banner" style="background-image:url('./assets/img/if-m8-presence.jpeg');"></div>
+
+        <div class="mini-rule"></div>
+
+        <p><em>“If you can talk with crowds and keep your virtue, / Or walk with Kings—nor lose the common touch…”</em></p>
+
+        <h3>Purpose of the Module</h3>
+        <p>Leadership is not only what you do — it is how you show up with people. This module builds social range: the ability to remain grounded, inclusive, and authentic across power, status, and difference.</p>
+
+        <h3>II. Three Archetypes of Grounded Leadership</h3>
+
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m8-gandhi.jpeg" alt="Mahatma Gandhi" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Mahatma Gandhi — Humility in Power</h3>
+            <p class="leader-card__meta">Influence without hierarchy</p>
+            <p>Gandhi moved between peasants and leaders without changing posture. His simplicity created trust and moral authority.</p>
+            <ul class="leader-card__bullets">
+              <li>Accessibility without performance</li>
+              <li>Strength rooted in humility</li>
+              <li>Influence that doesn’t intimidate</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="leader-card leader-card--reverse">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m8-teresa.jpeg" alt="Mother Teresa" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Mother Teresa — Compassionate Presence</h3>
+            <p class="leader-card__meta">Attention as service</p>
+            <p>Mother Teresa practiced presence through undivided attention. She made the unseen visible and the forgotten dignified.</p>
+            <ul class="leader-card__bullets">
+              <li>Presence without spectacle</li>
+              <li>Consistency across status</li>
+              <li>Compassion that restores dignity</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="leader-card">
+          <div class="leader-card__media">
+            <img class="leader-card__img" src="./assets/img/if-m8-rogers.jpeg" alt="Fred Rogers" loading="lazy">
+          </div>
+          <div class="leader-card__body">
+            <h3 class="leader-card__name">Fred Rogers — The Common Touch</h3>
+            <p class="leader-card__meta">Presence is attention, not performance</p>
+            <p>Fred Rogers treated every interaction—children, strangers, dignitaries—with the same patience and sincerity.</p>
+            <ul class="leader-card__bullets">
+              <li>Gentle authority</li>
+              <li>Deep listening</li>
+              <li>Steadiness without ego</li>
+            </ul>
+          </div>
+        </article>
+
+        <h3>Closing Reflection</h3>
+        <p>Great leaders learn to walk with power without becoming distant, and to walk with crowds without becoming diluted.</p>
+        <p>Humility keeps you grounded. Presence keeps you connected. Together, they ensure leadership never loses its human center.</p>
 
         <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
 
         <p style="color:rgba(246,241,230,.70); font-size: 13px;">
-          Note: This file is intentionally long. If you want, I can also generate a “Module Jump” dropdown for mobile.
+          Tip: If you want, I can add a mobile “Jump to Module” dropdown under the hero for easier navigation.
         </p>
 
       </article>
@@ -374,457 +912,3 @@
   </main>
 </body>
 </html>
-<h2 id="module-2-confidence-without-arrogance">MODULE 2 — CONFIDENCE WITHOUT ARROGANCE</h2>
-<div class="module-banner" style="background-image:url('./assets/img/if-m2-confidence.jpeg');"></div>
-
-<div class="imggrid">
-  <figure class="img">
-    <img src="./assets/img/if-m2-lincoln.jpg" alt="Abraham Lincoln">
-    <figcaption>Abraham Lincoln</figcaption>
-  </figure>
-  <figure class="img">
-    <img src="./assets/img/if-m2-washington.jpeg" alt="George Washington">
-    <figcaption>George Washington</figcaption>
-  </figure>
-  <figure class="img">
-    <img src="./assets/img/if-m2-nadella.jpeg" alt="Satya Nadella">
-    <figcaption>Satya Nadella</figcaption>
-  </figure>
-</div>
-
-<div class="mini-rule"></div>
-
-<p>“If you can trust yourself when all men doubt you, but make allowance for their doubting too…”</p>
-
-<h3>Purpose of the Module</h3>
-<p>True confidence is not loud. It does not dominate rooms or demand affirmation. It is grounded, self-aware, and open to challenge. The most effective leaders hold conviction without rigidity and self-belief without ego.</p>
-
-<h3>Leadership Archetypes</h3>
-<h3>1. Abraham Lincoln — Humble Resolve</h3>
-<p>Lincoln governed amid ridicule, division, and doubt. His confidence came not from certainty, but from moral seriousness and openness to dissent. He invited criticism, listened deeply, and adjusted when necessary.</p>
-
-<h3>2. George Washington — Reserved Authority</h3>
-<p>Washington wielded immense power yet resisted the temptation to glorify himself. By stepping away from power voluntarily, he demonstrated supreme confidence rooted in restraint.</p>
-
-<h3>3. Satya Nadella — Modern Confidence</h3>
-<p>Nadella transformed Microsoft by replacing certainty with curiosity. He modeled confidence that listens, learns, and evolves — the hallmark of modern leadership.</p>
-
-<h3>Key Insight</h3>
-<p><strong>Confidence earns trust when it makes room for others.</strong></p>
-<h2 id="module-3-patient-action">MODULE 3 — PATIENT ACTION</h2>
-<div class="module-banner" style="background-image:url('./assets/img/if-m3-patience.jpeg');"></div>
-
-<div class="imggrid">
-  <figure class="img">
-    <img src="./assets/img/if-m3-buffett.jpeg" alt="Warren Buffett">
-    <figcaption>Warren Buffett</figcaption>
-  </figure>
-  <figure class="img">
-    <img src="./assets/img/if-m3-elizabeth.jpg" alt="Queen Elizabeth I">
-    <figcaption>Queen Elizabeth I</figcaption>
-  </figure>
-  <figure class="img">
-    <img src="./assets/img/if-m3-ashoka.png" alt="Emperor Ashoka">
-    <figcaption>Emperor Ashoka</figcaption>
-  </figure>
-</div>
-
-<div class="mini-rule"></div>
-
-<p>“If you can wait and not be tired by waiting…”</p>
-
-<h3>Purpose of the Module</h3>
-<p>In a world that rewards speed, leaders often mistake motion for progress. Patient action is not hesitation—it is disciplined timing. This module teaches leaders how to resist false urgency and act only when action creates lasting advantage.</p>
-
-<h3>Leadership Archetypes</h3>
-
-<h3>1. Warren Buffett — Strategic Waiting</h3>
-<p>Buffett’s success is built less on action than on restraint. He waits—sometimes for years—until clarity, value, and alignment converge. His patience allows compounding to work quietly but powerfully.</p>
-
-<h3>2. Queen Elizabeth I — Timing as Power</h3>
-<p>Elizabeth ruled through delay, observation, and restraint. She refused to be rushed by advisors or enemies, acting only when conditions favored stability and success. Her patience preserved a fragile nation.</p>
-
-<h3>3. Emperor Ashoka — Moral Patience</h3>
-<p>After violent conquest, Ashoka chose a slow transformation toward ethical governance. He understood that lasting change must be cultivated over time, not imposed through force.</p>
-
-<h3>Key Insight</h3>
-<p><strong>Patience is not passive—it is power exercised over time.</strong></p>
-<h2 id="module-4-resilience-emotional-strength">MODULE 4 — RESILIENCE &amp; EMOTIONAL STRENGTH</h2>
-<div class="module-banner" style="background-image:url('./assets/img/if-m4-resilience.jpeg');"></div>
-
-<div class="imggrid">
-  <figure class="img">
-    <img src="./assets/img/if-m4-shackleton.jpeg" alt="Ernest Shackleton" loading="lazy">
-    <figcaption>Ernest Shackleton</figcaption>
-  </figure>
-  <figure class="img">
-    <img src="./assets/img/if-m4-willink.jpeg" alt="Jocko Willink" loading="lazy">
-    <figcaption>Jocko Willink</figcaption>
-  </figure>
-  <figure class="img">
-    <img src="./assets/img/if-m4-malala.jpeg" alt="Malala Yousafzai" loading="lazy">
-    <figcaption>Malala Yousafzai</figcaption>
-  </figure>
-</div>
-
-<div class="mini-rule"></div>
-
-<p><em>“If you can meet with Triumph and Disaster and treat those two impostors just the same…”</em> — Rudyard Kipling</p>
-
-<h3>Purpose of the Module</h3>
-<p>Leadership exposes you to extremes—praise that tempts the ego and setbacks that shake your confidence. True resilience is not just the ability to survive difficulty; it is the ability to stay emotionally balanced in both success and failure.</p>
-<p>This module builds the discipline to:</p>
-<p>Maintain perspective when outcomes swing</p>
-<p>Reset quickly after setbacks</p>
-<p>Avoid complacency in success</p>
-<p>Stay grounded when stakes rise</p>
-<p>Lead with emotional steadiness that calms others</p>
-<p>Shackleton, Willink, and Malala Yousafzai show three distinct, complementary forms of resilience: physical, psychological, and moral.</p>
-
-<h3>I. What Emotional Strength Really Means</h3>
-<p>Emotional strength is not toughness, denial, or invulnerability. It is the capacity to experience emotion without being ruled by it.</p>
-<p>Resilient leaders don’t suppress feelings; they process them and return to clarity.</p>
-<p>Three components define this skill:</p>
-<p>1. Stability — maintaining composure in shock or surprise</p>
-<p>2. Recovery — rebounding quickly after disruption</p>
-<p>3. Humility — staying grounded in triumph, not inflated</p>
-<p>Each of our exemplars shows one of these dimensions in extraordinary form.</p>
-
-<h3>II. Three Archetypes of Resilient Leadership</h3>
-
-<h3>1. Ernest Shackleton — Steadiness in Disaster</h3>
-<p><strong>Calm presence in chaos</strong></p>
-<p>Shackleton’s <em>Endurance</em> expedition is one of history’s greatest studies of crisis leadership. When his ship was crushed by Antarctic ice—months from rescue—Shackleton did what exceptional leaders do:</p>
-<p>He remained emotionally steady, not panic-driven.</p>
-<p>He absorbed fear so the team didn’t have to.</p>
-<p>He responded to disaster with clarity rather than despair.</p>
-<p>He led one of the most improbable survival missions ever attempted.</p>
-<p>His genius was not bold speeches or dramatic heroics—it was calm, constant reassurance. He created a psychological climate where his men never saw him lose control, and therefore never lost hope.</p>
-<p>Shackleton demonstrates:</p>
-<p>The ability to neutralize fear in others</p>
-<p>Equal humility in triumph and adversity</p>
-<p>Emotional consistency when circumstances change wildly</p>
-<p><strong>Leadership lesson:</strong> Your presence can be the strongest survival tool your team has.</p>
-
-<h3>2. Jocko Willink — Discipline Over Emotion</h3>
-<p><em>“Detach. Observe. Act.”</em></p>
-<p>Jocko Willink, a former Navy SEAL commander, teaches a form of resilience grounded in emotional detachment and disciplined response. In combat, he learned that:</p>
-<p>Emotion clouds judgment</p>
-<p>Panic magnifies risk</p>
-<p>Reactivity kills clarity</p>
-<p>Willink is known for the practice of stepping back—mentally and emotionally—before making critical decisions. He models the ability to meet both success and failure with the same controlled posture:</p>
-<p>Success does not inflate him</p>
-<p>Failure does not define him</p>
-<p>Emotion informs, but does not direct, his actions</p>
-<p>His philosophy: resilience is built from daily habits of discipline.</p>
-<p>Willink demonstrates:</p>
-<p>Emotional neutrality under pressure</p>
-<p>Systematic responses instead of impulsive reactions</p>
-<p>A consistent “reset” mindset after both wins and losses</p>
-<p><strong>Leadership lesson:</strong> When you master your reactions, you master your resilience.</p>
-
-<h3>3. Malala Yousafzai — Moral Courage &amp; Grace</h3>
-<p><strong>Strength rooted in purpose</strong></p>
-<p>Malala’s story is a profound example of resilience that transcends personal survival. After surviving an assassination attempt at age 15, she responded not with anger or bitterness but with:</p>
-<p>Poise</p>
-<p>Purpose</p>
-<p>Unwavering advocacy</p>
-<p>She treats global acclaim with humility and treats past trauma with clarity and forgiveness. Her resilience is neither stoic suppression nor heroic bravado. It is a quiet, moral strength grounded in the belief that purpose is greater than fear.</p>
-<p>Malala embodies the Kipling ideal:</p>
-<p>She does not shrink from disaster</p>
-<p>Nor does she let triumph distort her identity</p>
-<p>Malala demonstrates:</p>
-<p>Courage that is anchored, not explosive</p>
-<p>Emotional integrity in the face of praise</p>
-<p>Grace in adversity and steadiness in triumph</p>
-<p><strong>Leadership lesson:</strong> When your purpose is larger than your pain, resilience becomes a calling—not a chore.</p>
-
-<h3>III. The Three-Lens Model of Emotional Strength</h3>
-<p>1. Situational Resilience (Shackleton)</p>
-<p>Stay steady regardless of the environment. Create psychological safety through calm presence.</p>
-<p>2. Tactical Resilience (Willink)</p>
-<p>Regulate emotion through disciplined habits. Respond, don’t react.</p>
-<p>3. Purpose-Driven Resilience (Yousafzai)</p>
-<p>Draw strength from mission and meaning. Let purpose carry you through both hardship and acclaim.</p>
-
-<h3>IV. Skill Practices in This Module</h3>
-<p>Participants will practice:</p>
-<p>A. Emotional Reset Protocols — borrowed from military and crisis leadership.</p>
-<p>B. The “Triumph &amp; Disaster Balance Sheet” — a reflection tool that examines how outcomes distort perspective.</p>
-<p>C. Grounding Techniques — breathwork, language cues, and posture resets to stabilize presence.</p>
-<p>D. Purpose Anchoring — a method for connecting emotional resilience to personal mission.</p>
-<p>E. Stress Test Simulations — scenarios requiring rapid recovery from unpredictable shifts.</p>
-
-<h3>V. Closing Narrative: Meeting Triumph and Disaster the Same</h3>
-<p>Shackleton shows how calm rescues others from despair. Willink shows how discipline rescues you from reactivity. Malala shows how purpose rescues resilience from becoming mere toughness.</p>
-<p>To treat triumph and disaster “just the same” is not indifference—it is mastery. It is the ability to remain centered when the world tilts.</p>
-<p>Resilience is not reacting less. It is reacting with intention.</p>
-<h2 id="module-5-ethical-persuasion-truth-telling">MODULE 5 — ETHICAL PERSUASION &amp; TRUTH-TELLING</h2>
-<div class="module-banner" style="background-image:url('./assets/img/if-m5-truth.jpeg');"></div>
-
-<div class="imggrid">
-  <figure class="img">
-    <img src="./assets/img/if-m5-havel.jpeg" alt="Václav Havel" loading="lazy">
-    <figcaption>Václav Havel</figcaption>
-  </figure>
-  <figure class="img">
-    <img src="./assets/img/if-m5-douglass.jpeg" alt="Frederick Douglass" loading="lazy">
-    <figcaption>Frederick Douglass</figcaption>
-  </figure>
-  <figure class="img">
-    <img src="./assets/img/if-m5-tutu.jpeg" alt="Desmond Tutu" loading="lazy">
-    <figcaption>Desmond Tutu</figcaption>
-  </figure>
-</div>
-
-<div class="mini-rule"></div>
-
-<p><em>“If you can bear to hear the truth you’ve spoken / Twisted by knaves to make a trap for fools…”</em></p>
-
-<h3>Purpose of the Module</h3>
-<p>Leadership requires persuasion—but ethical leadership requires persuasion grounded in truth. This module teaches leaders how to speak honestly, influence responsibly, and remain steady when their words are distorted or misused.</p>
-
-<h3>I. What Ethical Persuasion Really Means</h3>
-<p>Ethical persuasion is truth delivered with integrity and restraint. It rejects manipulation, fear, and deception in favor of clarity, courage, and moral responsibility.</p>
-<p>It rests on three pillars:</p>
-<p>1. Honesty — telling the truth even when it weakens your position</p>
-<p>2. Courage — speaking clearly when silence is safer</p>
-<p>3. Responsibility — shaping messages that elevate rather than exploit</p>
-
-<h3>II. Three Archetypes of Truth-Centered Leadership</h3>
-
-<h3>1. Václav Havel — Truth as Resistance</h3>
-<p><em>“Live in truth.”</em></p>
-<p>As a playwright under an authoritarian regime, Havel refused to adopt the language of lies. His insistence on plain truth became a form of resistance, eventually fueling the Velvet Revolution.</p>
-<p>Havel demonstrates:</p>
-<p>Truth as moral defiance</p>
-<p>Clarity over propaganda</p>
-<p>Leadership rooted in personal integrity</p>
-<p><strong>Leadership lesson:</strong> Truth is not just what you say—it is the ground you stand on.</p>
-
-<h3>2. Frederick Douglass — Truth as Moral Persuasion</h3>
-<p>Douglass reshaped public conscience by exposing injustice with dignity and precision. He combined fact, narrative, and moral clarity to persuade without manipulation.</p>
-<p>Douglass demonstrates:</p>
-<p>The power of honest storytelling</p>
-<p>Persuasion rooted in conscience, not control</p>
-<p>Resilience in the face of distortion</p>
-<p><strong>Leadership lesson:</strong> When truth is spoken with integrity, distortion cannot destroy it.</p>
-
-<h3>3. Desmond Tutu — Truth as Healing</h3>
-<p><em>“There is no future without forgiveness.”</em></p>
-<p>As leader of South Africa’s Truth and Reconciliation Commission, Tutu paired radical honesty with compassion. He understood that truth without humanity wounds, and humanity without truth deceives.</p>
-<p>Tutu demonstrates:</p>
-<p>Truth-telling as restoration</p>
-<p>Ethical persuasion through empathy</p>
-<p>Leadership that heals rather than humiliates</p>
-<p><strong>Leadership lesson:</strong> Truth becomes transformative when delivered with grace.</p>
-
-<h3>III. Skill Practices</h3>
-<p>Clarity-under-pressure exercises</p>
-<p>Distortion-mapping tools</p>
-<p>Integrity-based persuasion frameworks</p>
-<p>Empathic truth-telling techniques</p>
-
-<h3>Closing Reflection</h3>
-<p>Ethical persuasion is not about winning arguments. It is about preserving trust, dignity, and truth in a world eager to distort all three.</p>
-<h2 id="module-6-courage-to-rebuild-after-loss">MODULE 6 — COURAGE TO REBUILD AFTER LOSS</h2>
-<div class="module-banner" style="background-image:url('./assets/img/if-m6-rebuild.jpeg');"></div>
-
-<div class="imggrid">
-  <figure class="img">
-    <img src="./assets/img/if-m6-mandela.jpeg" alt="Nelson Mandela" loading="lazy">
-    <figcaption>Nelson Mandela</figcaption>
-  </figure>
-  <figure class="img">
-    <img src="./assets/img/if-m6-jobs.jpeg" alt="Steve Jobs" loading="lazy">
-    <figcaption>Steve Jobs</figcaption>
-  </figure>
-  <figure class="img">
-    <img src="./assets/img/if-m6-oprah.jpeg" alt="Oprah Winfrey" loading="lazy">
-    <figcaption>Oprah Winfrey</figcaption>
-  </figure>
-</div>
-
-<div class="mini-rule"></div>
-
-<p><em>“If you can make one heap of all your winnings… / And lose, and start again at your beginnings…”</em></p>
-
-<h3>Purpose of the Module</h3>
-<p>Loss is inevitable in leadership. What defines leaders is not whether they fall, but whether they rebuild with integrity rather than bitterness. This module explores rebuilding as an act of courage, humility, and renewal.</p>
-
-<h3>I. What Rebuilding Requires</h3>
-<p>Rebuilding is deeper than resilience. It requires:</p>
-<p>1. Acceptance — acknowledging loss without denial</p>
-<p>2. Reinvention — reshaping identity or strategy</p>
-<p>3. Renewal — regaining forward motion without ego</p>
-
-<h3>II. Three Archetypes of Rebuilding Leadership</h3>
-
-<h3>1. Nelson Mandela — Rebuilding with Forgiveness</h3>
-<p>After 27 years in prison, Mandela emerged without vengeance. He rebuilt not only his life, but a fractured nation—choosing reconciliation over revenge.</p>
-<p>Mandela demonstrates:</p>
-<p>Loss transformed into moral authority</p>
-<p>Rebuilding as service</p>
-<p>Leadership without bitterness</p>
-<p><strong>Leadership lesson:</strong> Rebuild with purpose, not resentment.</p>
-
-<h3>2. Steve Jobs — Creative Reinvention</h3>
-<p>Fired from Apple, Jobs rebuilt himself through NeXT and Pixar. When he returned, he did so wiser, humbler, and creatively transformed.</p>
-<p>Jobs demonstrates:</p>
-<p>Loss as creative catalyst</p>
-<p>Identity reinvention</p>
-<p>Vision refined through failure</p>
-<p><strong>Leadership lesson:</strong> Sometimes losing clears the way to build what truly matters.</p>
-
-<h3>3. Oprah Winfrey — Personal Renewal</h3>
-<p>Oprah transformed early trauma and public setbacks into empathy, clarity, and purpose. She rebuilt continuously—through honesty rather than performance.</p>
-<p>Oprah demonstrates:</p>
-<p>Vulnerability as strength</p>
-<p>Rebuilding the self with compassion</p>
-<p>Leadership through authenticity</p>
-<p><strong>Leadership lesson:</strong> Your wounds can become your wisdom.</p>
-
-<h3>III. Skill Practices</h3>
-<p>Reinvention mapping</p>
-<p>Ego-release protocols</p>
-<p>Quiet rebuilding exercises</p>
-<p>Purpose re-anchoring reflections</p>
-
-<h3>Closing Reflection</h3>
-<p>Rebuilding is not about proving you are unchanged. It is about becoming capable of leading what comes next.</p>
-<h2 id="module-7-determination-beyond-exhaustion">MODULE 7 — DETERMINATION BEYOND EXHAUSTION</h2>
-<div class="module-banner" style="background-image:url('./assets/img/if-m7-endurance.jpeg');"></div>
-
-<div class="imggrid">
-  <figure class="img">
-    <img src="./assets/img/if-m7-tubman.jpeg" alt="Harriet Tubman" loading="lazy">
-    <figcaption>Harriet Tubman</figcaption>
-  </figure>
-  <figure class="img">
-    <img src="./assets/img/if-m7-nightingale.jpeg" alt="Florence Nightingale" loading="lazy">
-    <figcaption>Florence Nightingale</figcaption>
-  </figure>
-  <figure class="img">
-    <img src="./assets/img/if-m7-kipchoge.jpeg" alt="Eliud Kipchoge" loading="lazy">
-    <figcaption>Eliud Kipchoge</figcaption>
-  </figure>
-</div>
-
-<div class="mini-rule"></div>
-
-<p><em>“If you can force your heart and nerve and sinew / To serve your turn long after they are gone…”</em></p>
-
-<h3>Purpose of the Module</h3>
-<p>Leadership often demands persistence beyond energy, comfort, and motivation. This module develops the capacity to lead when strength is depleted and resolve must come from purpose rather than momentum.</p>
-
-<h3>I. What True Endurance Requires</h3>
-<p>Endurance is not the absence of fatigue. It is the decision to continue despite it. Leaders who endure beyond exhaustion rely on three foundations:</p>
-<p>1. Purpose — a reason that outlasts comfort</p>
-<p>2. Discipline — habits that override emotion</p>
-<p>3. Restoration — knowing how to recover while moving forward</p>
-
-<h3>II. Three Archetypes of Determined Leadership</h3>
-
-<h3>1. Harriet Tubman — Moral Endurance</h3>
-<p><em>“I never ran my train off the track, and I never lost a passenger.”</em></p>
-<p>Tubman returned again and again into danger, guiding others to freedom despite illness, injury, and constant threat. Her endurance came not from stamina, but from conviction.</p>
-<p>Tubman demonstrates:</p>
-<p>Purpose as renewable fuel</p>
-<p>Calm courage under sustained danger</p>
-<p>Leadership rooted in responsibility</p>
-<p><strong>Leadership lesson:</strong> When the mission matters more than comfort, endurance follows.</p>
-
-<h3>2. Florence Nightingale — Service Beyond Fatigue</h3>
-<p>Nightingale worked through physical collapse, institutional resistance, and chronic illness to transform modern medicine. Her endurance was fueled by service rather than recognition.</p>
-<p>Nightingale demonstrates:</p>
-<p>Discipline under strain</p>
-<p>Innovation amid exhaustion</p>
-<p>Compassion sustained over time</p>
-<p><strong>Leadership lesson:</strong> Exhaustion does not defeat service — disconnection does.</p>
-
-<h3>3. Eliud Kipchoge — Mastery of Fatigue</h3>
-<p><em>“No human is limited.”</em></p>
-<p>Kipchoge’s greatness lies not in speed, but in serenity. He remains composed when pain escalates, using discipline and mindset to extend human limits.</p>
-<p>Kipchoge demonstrates:</p>
-<p>Mental control under physical strain</p>
-<p>Rhythmic consistency</p>
-<p>Humility paired with excellence</p>
-<p><strong>Leadership lesson:</strong> Train the mind, and endurance follows.</p>
-
-<h3>III. Skill Practices</h3>
-<p>The “Last 10%” discipline</p>
-<p>Purpose reactivation techniques</p>
-<p>Micro-recovery methods</p>
-<p>Fatigue-mapping exercises</p>
-
-<h3>Closing Reflection</h3>
-<p>Endurance is leadership’s quiet power. It is not dramatic or visible — but it determines who remains standing when others stop.</p>
-<h2 id="module-8-inclusiveness-humility-presence">MODULE 8 — INCLUSIVENESS, HUMILITY &amp; PRESENCE</h2>
-<div class="module-banner" style="background-image:url('./assets/img/if-m8-presence.jpeg');"></div>
-
-<div class="imggrid">
-  <figure class="img">
-    <img src="./assets/img/if-m8-gandhi.jpeg" alt="Mahatma Gandhi" loading="lazy">
-    <figcaption>Mahatma Gandhi</figcaption>
-  </figure>
-  <figure class="img">
-    <img src="./assets/img/if-m8-teresa.jpeg" alt="Mother Teresa" loading="lazy">
-    <figcaption>Mother Teresa</figcaption>
-  </figure>
-  <figure class="img">
-    <img src="./assets/img/if-m8-rogers.jpeg" alt="Fred Rogers" loading="lazy">
-    <figcaption>Fred Rogers</figcaption>
-  </figure>
-</div>
-
-<div class="mini-rule"></div>
-
-<p><em>“If you can talk with crowds and keep your virtue, / Or walk with Kings—nor lose the common touch…”</em></p>
-
-<h3>Purpose of the Module</h3>
-<p>Leadership is not only what you do — it is how you show up with people. This module builds social range: the ability to remain grounded, inclusive, and authentic across power, status, and difference.</p>
-
-<h3>I. What Humility & Presence Mean</h3>
-<p>Humility is not minimizing yourself. Presence is not charisma. Together they allow leaders to connect without ego and influence without intimidation.</p>
-<p>They require:</p>
-<p>1. Equality — seeing no one as beneath you</p>
-<p>2. Attention — making others feel fully seen</p>
-<p>3. Integrity — remaining unchanged by status</p>
-
-<h3>II. Three Archetypes of Grounded Leadership</h3>
-
-<h3>1. Mahatma Gandhi — Humility in Power</h3>
-<p><em>“In a gentle way, you can shake the world.”</em></p>
-<p>Gandhi moved effortlessly between peasants and leaders without altering his posture. His simplicity created trust and moral authority.</p>
-<p>Gandhi demonstrates:</p>
-<p>Influence without hierarchy</p>
-<p>Accessibility without performance</p>
-<p>Strength rooted in humility</p>
-<p><strong>Leadership lesson:</strong> Humility magnifies influence.</p>
-
-<h3>2. Mother Teresa — Compassionate Presence</h3>
-<p>Mother Teresa practiced presence through undivided attention. She made the unseen visible and the forgotten dignified.</p>
-<p>She demonstrates:</p>
-<p>Presence as service</p>
-<p>Consistency across status</p>
-<p>Compassion without spectacle</p>
-<p><strong>Leadership lesson:</strong> When people feel seen, they feel valued.</p>
-
-<h3>3. Fred Rogers — The Common Touch</h3>
-<p><em>“There is no person in the world like you, and I like you just the way you are.”</em></p>
-<p>Fred Rogers treated every interaction — with children, strangers, or dignitaries — with the same patience and sincerity.</p>
-<p>Rogers demonstrates:</p>
-<p>Gentle authority</p>
-<p>Deep listening</p>
-<p>Presence without ego</p>
-<p><strong>Leadership lesson:</strong> Presence is not performance — it is attention.</p>
-
-<h3>III. Skill Practices</h3>
-<p>The humility reset</p>
-<p>Presence drills</p>
-<p>Social-range mapping</p>
-<p>Ego-disruption rituals</p>
-
-<h3>Closing Reflection</h3>
-<p>Great leaders learn to walk with power without becoming distant, and to walk with crowds without becoming diluted.</p>
-<p>Humility keeps you grounded. Presence keeps you connected. Together, they ensure leadership never loses its human center.</p>
