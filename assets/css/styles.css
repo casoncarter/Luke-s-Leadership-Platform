@@ -519,3 +519,233 @@ body{
   background: rgba(201,163,73,.14);
 }
 
+/* ================================
+   PLATFORM PAGE — EDITORIAL UPGRADE
+   (Drop-in for platforms.css)
+================================= */
+
+.platform .platform-cover{
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background-size: cover;
+  background-position: center;
+  margin-top: 22px;
+  position: relative;
+  min-height: 320px;
+}
+
+.platform .platform-cover::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(900px 500px at 15% 0%, rgba(201,163,73,.18), transparent 60%),
+    linear-gradient(to bottom, rgba(10,15,31,.25), rgba(10,15,31,.88));
+}
+
+.platform .platform-cover-inner{
+  position: relative;
+  z-index: 1;
+  padding: 34px 28px 26px;
+  max-width: 78ch;
+}
+
+.platform .platform-breadcrumb{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color: rgba(246,241,230,.75);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.platform .platform-breadcrumb .dot{ opacity:.65; }
+
+.platform .platform-title{
+  font-family: var(--serif);
+  letter-spacing: -0.02em;
+  font-size: 42px;
+  line-height: 1.05;
+  margin: 0 0 10px;
+}
+
+.platform .platform-subtitle{
+  color: var(--muted);
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.platform .platform-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.platform .chip{
+  display:inline-flex;
+  align-items:center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(246,241,230,.16);
+  background: rgba(255,255,255,.06);
+  font-size: 13px;
+  color: rgba(246,241,230,.92);
+}
+
+/* quick module strip */
+.platform .platform-strip{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin: 14px 0 18px;
+}
+
+.platform .strip-item{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(246,241,230,.14);
+  background: rgba(255,255,255,.04);
+  color: rgba(246,241,230,.92);
+  font-size: 13px;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.platform .strip-item .n{
+  font-family: var(--serif);
+  opacity: .85;
+}
+
+.platform .strip-item:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.07);
+  border-color: rgba(246,241,230,.22);
+}
+
+/* inside platform-main */
+.platform .content-block{
+  padding: 10px 0 18px;
+}
+
+.platform .eyebrow{
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgba(246,241,230,.70);
+  margin: 0 0 8px;
+}
+
+.platform .section-title{
+  font-family: var(--serif);
+  margin: 0 0 8px;
+}
+
+.platform .byline{
+  margin: 0 0 12px;
+  color: rgba(246,241,230,.72);
+  font-size: 13px;
+}
+
+.platform .signature{
+  margin-top: 14px;
+  color: rgba(246,241,230,.85);
+}
+
+.platform .poem{
+  border: 1px solid rgba(246,241,230,.12);
+  background: rgba(255,255,255,.03);
+  border-radius: 16px;
+  padding: 16px 16px 6px;
+}
+
+.platform .poem p{
+  margin: 0 0 10px;
+  color: rgba(246,241,230,.78);
+  font-family: var(--serif);
+  line-height: 1.55;
+}
+
+/* callout box */
+.platform .callout{
+  border: 1px solid rgba(201,163,73,.22);
+  background: rgba(201,163,73,.07);
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+  margin: 12px 0 14px;
+}
+
+.platform .callout-title{
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgba(246,241,230,.78);
+  margin: 0 0 8px;
+}
+
+/* module blocks */
+.platform .module-block{
+  margin-top: 18px;
+  border-top: 1px solid rgba(246,241,230,.10);
+  padding-top: 16px;
+}
+
+.platform .module-head{
+  border: 1px solid rgba(246,241,230,.12);
+  background: rgba(255,255,255,.03);
+  border-radius: 18px;
+  padding: 14px 14px 12px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.35);
+  margin-bottom: 14px;
+}
+
+.platform .module-kicker{
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgba(246,241,230,.70);
+  margin-bottom: 6px;
+}
+
+.platform .module-head h2{
+  margin: 0 0 6px;
+  font-family: var(--serif);
+}
+
+.platform .module-quote{
+  margin: 0;
+  color: rgba(246,241,230,.72);
+  font-size: 14px;
+}
+
+/* endcap links */
+.platform .platform-endcap{
+  display:flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(246,241,230,.10);
+}
+
+.platform .backlink,
+.platform .nextlink{
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(246,241,230,.14);
+  background: rgba(255,255,255,.04);
+  transition: background .15s ease, border-color .15s ease, transform .15s ease;
+}
+
+.platform .backlink:hover,
+.platform .nextlink:hover{
+  background: rgba(255,255,255,.07);
+  border-color: rgba(246,241,230,.22);
+  transform: translateY(-1px);
+}
