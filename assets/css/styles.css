@@ -2,29 +2,21 @@
    GLOBAL SITE STYLES
    Luke’s Leadership Platform
    (Shared across all pages)
+   — Clean + consolidated (no duplicates)
+   — Pro “editorial card” image integration
+   — Safe defaults for platform pages
 ================================= */
 
 /* ---------- CSS RESET ---------- */
 *,
 *::before,
-*::after{
-  box-sizing: border-box;
-}
+*::after{ box-sizing: border-box; }
 
-html, body{
-  margin: 0;
-  padding: 0;
-}
+html, body{ margin: 0; padding: 0; }
 
-img{
-  max-width: 100%;
-  display: block;
-}
+img{ max-width: 100%; display: block; }
 
-a{
-  text-decoration: none;
-  color: inherit;
-}
+a{ text-decoration: none; color: inherit; }
 
 /* ---------- ROOT VARIABLES ---------- */
 :root{
@@ -58,7 +50,9 @@ body{
   padding: 0 20px;
 }
 
-/* ---------- TOPBAR / NAV ---------- */
+/* ================================
+   TOPBAR / NAV
+================================= */
 .topbar{
   position: sticky;
   top: 0;
@@ -81,13 +75,11 @@ body{
   display: flex;
   flex-direction: column;
 }
-
 .nav .brand .mark{
   font-family: var(--serif);
   letter-spacing: .25em;
   font-size: 13px;
 }
-
 .nav .brand .tag{
   font-size: 12px;
   opacity: .7;
@@ -98,32 +90,41 @@ body{
 .nav .links{
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
-
 .nav .links a{
   font-size: 14px;
   padding: 8px 14px;
   border-radius: 999px;
   border: 1px solid transparent;
-  transition: all .15s ease;
+  transition: background .15s ease, border-color .15s ease, transform .15s ease;
 }
-
 .nav .links a:hover{
   background: rgba(255,255,255,.05);
   border-color: rgba(246,241,230,.12);
+  transform: translateY(-1px);
 }
-
 .nav .links a.active,
 .nav .links a[aria-current="page"]{
   border-color: rgba(201,163,73,.45);
   background: rgba(201,163,73,.08);
 }
+.nav .links a.cta{
+  border-color: rgba(201,163,73,.40);
+  background: rgba(201,163,73,.10);
+}
+.nav .links a.cta:hover{
+  border-color: rgba(201,163,73,.55);
+  background: rgba(201,163,73,.14);
+}
 
-/* ---------- HERO (Homepage) ---------- */
+/* ================================
+   HERO (base typography)
+   (Used by homepage layout below)
+================================= */
 .hero{
   padding: 80px 0 60px;
 }
-
 .hero h1{
   font-family: var(--serif);
   font-size: 48px;
@@ -131,168 +132,15 @@ body{
   line-height: 1.05;
   margin: 0 0 14px;
 }
-
 .hero p{
   max-width: 70ch;
   color: var(--muted);
   font-size: 18px;
-}
-.hero-media{
-  min-height: 300px;
-  background-size: cover;
-  background-position: center top; /* 👈 favors faces */
-  background-repeat: no-repeat;
-  filter: saturate(.95) contrast(1.05);
-}
-
-/* ---------- MODULE GRID (Homepage) ---------- */
-.modules{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  padding-bottom: 60px;
-}
-
-.module-card{
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.03);
-  box-shadow: var(--shadow);
-  padding: 22px;
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.module-card:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 22px 60px rgba(0,0,0,.55);
-}
-
-.module-card h3{
-  font-family: var(--serif);
-  margin: 0 0 8px;
-}
-
-.module-card p{
-  color: var(--muted);
   margin: 0;
-  font-size: 15px;
-}
-
-/* ---------- FOOTER ---------- */
-.footer{
-  border-top: 1px solid var(--line);
-  padding: 28px 0;
-  margin-top: 40px;
-  font-size: 13px;
-  color: rgba(246,241,230,.6);
-}
-
-.footer .container{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* ---------- UTILITIES ---------- */
-.text-center{ text-align: center; }
-.mt-2{ margin-top: 12px; }
-.mt-3{ margin-top: 24px; }
-.mt-4{ margin-top: 40px; }
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 900px){
-  .nav{
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px 0;
-  }
-
-  .hero h1{
-    font-size: 40px;
-  }
-}
-/* ================================
-   HOMEPAGE CARD IMAGE FIX
-   Prevent awkward cropping
-================================ */
-
-/* Module cards on homepage */
-.card .img{
-  height: 190px;                 /* taller image area */
-  background-size: contain;      /* show full image */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: rgba(255,255,255,.04); /* subtle matte */
-}
-
-/* Hero images (homepage only) */
-.hero-media{
-  min-height: 300px;
-  background-size: cover;
-  background-position: center top; /* favor faces */
-  background-repeat: no-repeat;
-}
-/* ================================
-   HERO CARD INTEGRATION (homepage)
-   Makes image + content feel like ONE card
-================================= */
-
-.hero-card{
-  position: relative;
-  overflow: hidden;             /* shared silhouette */
-}
-
-/* Hero image area */
-.hero-media{
-  min-height: 320px;            /* keep your height */
-  border-radius: 0;             /* card controls rounding */
-  position: relative;
-}
-
-/* Soft fade so the body doesn't feel "plopped" on */
-.hero-media::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0) 55%,
-    rgba(10,15,31,.65) 100%
-  );
-  pointer-events:none;
-}
-
-/* Pull the content up into the image area slightly */
-.hero-body{
-  position: relative;
-  margin-top: -34px;            /* <-- the key integration */
-  padding-top: 22px;
-  border-top: 1px solid rgba(255,255,255,.10);
-  background: rgba(10,15,31,.72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-/* Make the “Start here” pills feel anchored, not floating */
-.hero-body .pill{
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.06);
-}
-
-.hero-body .pill:hover{
-  background: rgba(255,255,255,.10);
-  border-color: rgba(255,255,255,.22);
-}
-
-/* Optional: tighten the “Start here” link cluster so it reads as a set */
-.hero-body .rule{
-  margin-top: 14px;
-  margin-bottom: 14px;
 }
 
 /* ================================
-   HOMEPAGE (NEW PRO STRUCTURE)
+   HOMEPAGE — PRO STRUCTURE
    Targets your actual HTML:
    .hero-grid .hero-card .hero-media .hero-body
    .grid .card .img .body .more
@@ -305,27 +153,27 @@ body{
   gap: 18px;
   align-items: stretch;
 }
-
 @media (max-width: 980px){
   .hero-grid{ grid-template-columns: 1fr; }
 }
 
-/* HERO CARDS */
+/* HERO CARD (integrated image + body) */
 .hero-card{
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
   background: rgba(255,255,255,.03);
   box-shadow: var(--shadow);
   overflow: hidden;
+  position: relative;
 }
 
-/* HERO MEDIA */
 .hero-card .hero-media{
   min-height: 340px;
   background-size: cover;
-  background-position: center top;
+  background-position: center top; /* favor faces */
   background-repeat: no-repeat;
   position: relative;
+  filter: saturate(.95) contrast(1.05);
 }
 
 /* Soft fade into body */
@@ -343,15 +191,15 @@ body{
 
 /* HERO BODY integrates with image */
 .hero-card .hero-body{
-  margin-top: -36px; /* overlaps image = seamless */
+  margin-top: -36px;
   padding: 20px 20px 22px;
   background: rgba(10,15,31,.78);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-top: 1px solid rgba(246,241,230,.10);
+  position: relative;
 }
 
-/* Kicker + sub text tuning inside hero */
 .hero-card .kicker{
   font-size: 12px;
   letter-spacing: .18em;
@@ -359,7 +207,6 @@ body{
   margin: 0 0 8px;
   color: rgba(246,241,230,.72);
 }
-
 .hero-card .sub{
   margin: 0;
   color: var(--muted);
@@ -387,7 +234,6 @@ body{
   line-height: 1;
   transition: background .15s ease, border-color .15s ease, transform .15s ease;
 }
-
 .pill:hover{
   background: rgba(255,255,255,.09);
   border-color: rgba(246,241,230,.22);
@@ -403,11 +249,9 @@ body{
 /* ================================
    PLATFORM GRID CARDS (Homepage)
 ================================= */
-
 .section{
   padding: 10px 0 30px;
 }
-
 .section h2{
   font-family: var(--serif);
   letter-spacing: -0.01em;
@@ -420,7 +264,6 @@ body{
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
 }
-
 @media (max-width: 1100px){
   .grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
@@ -432,9 +275,7 @@ body{
 }
 
 /* Link wrapper should behave like a block */
-.card-link{
-  display:block;
-}
+.card-link{ display:block; }
 
 /* Card */
 .card{
@@ -446,7 +287,6 @@ body{
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
   height: 100%;
 }
-
 .card-link:hover .card{
   transform: translateY(-3px);
   box-shadow: 0 22px 60px rgba(0,0,0,.55);
@@ -456,10 +296,18 @@ body{
 /* Card image – integrated, not “stuck on” */
 .card .img{
   height: 170px;
-  background-size: cover;          /* looks richer in cards */
-  background-position: center;
+  background-size: cover;          /* richer in cards */
+  background-position: center top; /* slightly favors faces */
   background-repeat: no-repeat;
   position: relative;
+}
+
+/* Optional: use contain for “logo-like” images only
+   Add .img--contain in HTML when needed */
+.card .img.img--contain{
+  background-size: contain;
+  background-position: center;
+  background-color: rgba(255,255,255,.04);
 }
 
 /* Image fade into body for seamless transition */
@@ -479,7 +327,6 @@ body{
 .card .body{
   padding: 14px 16px 10px;
 }
-
 .card .label{
   margin: 0 0 6px;
   font-size: 12px;
@@ -487,13 +334,11 @@ body{
   text-transform: uppercase;
   color: rgba(246,241,230,.70);
 }
-
 .card h3{
   font-family: var(--serif);
   margin: 0 0 8px;
   letter-spacing: -0.01em;
 }
-
 .card p{
   margin: 0;
   color: var(--muted);
@@ -509,19 +354,9 @@ body{
   border-top: 1px solid rgba(246,241,230,.10);
 }
 
-/* CTA nav link (Spiritual) a touch more refined */
-.nav .links a.cta{
-  border-color: rgba(201,163,73,.40);
-  background: rgba(201,163,73,.10);
-}
-.nav .links a.cta:hover{
-  border-color: rgba(201,163,73,.55);
-  background: rgba(201,163,73,.14);
-}
-
 /* ================================
    PLATFORM PAGE — EDITORIAL UPGRADE
-   (Drop-in for platforms.css)
+   (Used by all platform pages)
 ================================= */
 
 .platform .platform-cover{
@@ -562,7 +397,6 @@ body{
   font-size: 12px;
   margin-bottom: 10px;
 }
-
 .platform .platform-breadcrumb .dot{ opacity:.65; }
 
 .platform .platform-title{
@@ -585,7 +419,6 @@ body{
   flex-wrap:wrap;
   gap:10px;
 }
-
 .platform .chip{
   display:inline-flex;
   align-items:center;
@@ -604,7 +437,6 @@ body{
   gap:10px;
   margin: 14px 0 18px;
 }
-
 .platform .strip-item{
   display:inline-flex;
   align-items:center;
@@ -617,12 +449,10 @@ body{
   font-size: 13px;
   transition: transform .15s ease, background .15s ease, border-color .15s ease;
 }
-
 .platform .strip-item .n{
   font-family: var(--serif);
   opacity: .85;
 }
-
 .platform .strip-item:hover{
   transform: translateY(-1px);
   background: rgba(255,255,255,.07);
@@ -633,7 +463,6 @@ body{
 .platform .content-block{
   padding: 10px 0 18px;
 }
-
 .platform .eyebrow{
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -641,18 +470,15 @@ body{
   color: rgba(246,241,230,.70);
   margin: 0 0 8px;
 }
-
 .platform .section-title{
   font-family: var(--serif);
   margin: 0 0 8px;
 }
-
 .platform .byline{
   margin: 0 0 12px;
   color: rgba(246,241,230,.72);
   font-size: 13px;
 }
-
 .platform .signature{
   margin-top: 14px;
   color: rgba(246,241,230,.85);
@@ -664,7 +490,6 @@ body{
   border-radius: 16px;
   padding: 16px 16px 6px;
 }
-
 .platform .poem p{
   margin: 0 0 10px;
   color: rgba(246,241,230,.78);
@@ -680,7 +505,6 @@ body{
   padding: 14px 14px 12px;
   margin: 12px 0 14px;
 }
-
 .platform .callout-title{
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -695,7 +519,6 @@ body{
   border-top: 1px solid rgba(246,241,230,.10);
   padding-top: 16px;
 }
-
 .platform .module-head{
   border: 1px solid rgba(246,241,230,.12);
   background: rgba(255,255,255,.03);
@@ -704,7 +527,6 @@ body{
   box-shadow: 0 14px 40px rgba(0,0,0,.35);
   margin-bottom: 14px;
 }
-
 .platform .module-kicker{
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -712,12 +534,10 @@ body{
   color: rgba(246,241,230,.70);
   margin-bottom: 6px;
 }
-
 .platform .module-head h2{
   margin: 0 0 6px;
   font-family: var(--serif);
 }
-
 .platform .module-quote{
   margin: 0;
   color: rgba(246,241,230,.72);
@@ -733,7 +553,6 @@ body{
   padding-top: 16px;
   border-top: 1px solid rgba(246,241,230,.10);
 }
-
 .platform .backlink,
 .platform .nextlink{
   padding: 10px 12px;
@@ -742,10 +561,74 @@ body{
   background: rgba(255,255,255,.04);
   transition: background .15s ease, border-color .15s ease, transform .15s ease;
 }
-
 .platform .backlink:hover,
 .platform .nextlink:hover{
   background: rgba(255,255,255,.07);
   border-color: rgba(246,241,230,.22);
   transform: translateY(-1px);
+}
+
+/* ================================
+   MODULE GRID (legacy homepage)
+   Keep if some pages still use .modules + .module-card
+================================= */
+.modules{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  padding-bottom: 60px;
+}
+.module-card{
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  box-shadow: var(--shadow);
+  padding: 22px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.module-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 22px 60px rgba(0,0,0,.55);
+}
+.module-card h3{
+  font-family: var(--serif);
+  margin: 0 0 8px;
+}
+.module-card p{
+  color: var(--muted);
+  margin: 0;
+  font-size: 15px;
+}
+
+/* ================================
+   FOOTER
+================================= */
+.footer{
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+  margin-top: 40px;
+  font-size: 13px;
+  color: rgba(246,241,230,.6);
+}
+.footer .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ---------- UTILITIES ---------- */
+.text-center{ text-align: center; }
+.mt-2{ margin-top: 12px; }
+.mt-3{ margin-top: 24px; }
+.mt-4{ margin-top: 40px; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px){
+  .nav{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  .hero h1{ font-size: 40px; }
 }
