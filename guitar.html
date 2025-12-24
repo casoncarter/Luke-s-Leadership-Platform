@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>THE GUITAR TRAINING PLATFORM | Luke</title>
+  <title>THE DAD JOKE MASTERY PLATFORM | Luke</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/platforms.css" />
 
-  <!-- Page-only enhancements (keeps global site CSS untouched) -->
+  <!-- Page-only enhancements (no edits to shared CSS needed) -->
   <style>
     .platform-hero{
       position: relative;
@@ -18,9 +18,9 @@
       position:absolute;
       inset:-2px;
       background:
-        radial-gradient(900px 400px at 20% 10%, rgba(246,241,230,.30), transparent 60%),
-        radial-gradient(700px 420px at 85% 0%, rgba(246,241,230,.22), transparent 58%),
-        linear-gradient(180deg, rgba(11,18,38,.20), rgba(11,18,38,0));
+        radial-gradient(900px 420px at 20% 10%, rgba(246,241,230,.28), transparent 60%),
+        radial-gradient(700px 420px at 85% 0%, rgba(246,241,230,.20), transparent 58%),
+        linear-gradient(180deg, rgba(11,18,38,.18), rgba(11,18,38,0));
       pointer-events:none;
     }
 
@@ -33,14 +33,25 @@
     @media (max-width: 980px){
       .hero-grid{ grid-template-columns: 1fr; }
     }
-    .hero-card{
+
+    .hero-art{
       border: 1px solid rgba(10,15,31,.12);
       background: rgba(246,241,230,.72);
-      backdrop-filter: blur(6px);
       border-radius: 18px;
-      padding: 16px 16px 14px;
+      padding: 14px;
       box-shadow: 0 10px 30px rgba(10,15,31,.08);
+      display:flex;
+      align-items:center;
+      gap:12px;
     }
+    .hero-art img{
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      opacity: .95;
+      flex: 0 0 auto;
+    }
+    .hero-art strong{ display:block; margin-bottom:6px; }
     .pill-row{
       display:flex;
       flex-wrap:wrap;
@@ -61,7 +72,7 @@
     .module{
       border: 1px solid rgba(10,15,31,.10);
       border-radius: 18px;
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.80);
       box-shadow: 0 10px 28px rgba(10,15,31,.06);
       overflow: hidden;
       margin: 18px 0;
@@ -70,35 +81,37 @@
       padding: 14px 16px 12px;
       background: linear-gradient(180deg, rgba(11,18,38,.06), rgba(255,255,255,0));
       border-bottom: 1px solid rgba(10,15,31,.08);
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .module-hd img{
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      margin-top: 2px;
+      opacity:.92;
+      flex: 0 0 auto;
     }
     .module-hd h2{
       margin: 0 0 6px;
-      font-size: 1.25rem;
+      font-size: 1.18rem;
       letter-spacing: .02em;
     }
-    .module-hd .meta{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      align-items:center;
-      opacity:.92;
-      font-size:.95rem;
+    .module-hd .sub{
+      margin:0;
+      opacity:.9;
+      font-size:.96rem;
     }
     .module-bd{
       padding: 14px 16px 16px;
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 16px;
     }
-    @media (max-width: 980px){
-      .module-bd{ grid-template-columns: 1fr; }
-    }
-
     .callout{
       border: 1px solid rgba(10,15,31,.10);
       background: rgba(246,241,230,.58);
       border-radius: 16px;
       padding: 12px 12px 10px;
+      margin: 12px 0;
     }
     .callout h4{
       margin: 0 0 8px;
@@ -108,77 +121,42 @@
       opacity: .9;
     }
     .callout ul{ margin: 0; padding-left: 18px; }
-    .callout p{ margin: 0; }
-
-    /* Video embeds */
-    .video-card{
-      border: 1px solid rgba(10,15,31,.10);
-      border-radius: 16px;
-      background: rgba(255,255,255,.70);
-      overflow:hidden;
-    }
-    .video-card .vc-hd{
-      padding: 10px 12px;
-      border-bottom: 1px solid rgba(10,15,31,.08);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-    }
-    .video-card .vc-hd strong{ font-size: .98rem; }
-    .video-card .vc-hd a{
-      font-size: .92rem;
-      opacity: .85;
-      text-decoration: underline;
-    }
-    .video{
-      position:relative;
-      width:100%;
-      aspect-ratio: 16 / 9;
-      background: rgba(11,18,38,.08);
-    }
-    .video iframe{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      border:0;
-    }
-
-    /* Song list layout */
-    .song-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 10px;
-    }
-    @media (max-width: 980px){ .song-grid{ grid-template-columns: 1fr; } }
-    .song-card{
-      border: 1px solid rgba(10,15,31,.10);
-      border-radius: 16px;
-      background: rgba(255,255,255,.78);
-      padding: 12px 12px 10px;
-      box-shadow: 0 8px 22px rgba(10,15,31,.05);
-    }
-    .song-card h3{
-      margin:0 0 8px;
-      font-size: 1.02rem;
-      letter-spacing: .02em;
-    }
-    .song-card ol{
-      margin:0;
-      padding-left: 18px;
-    }
-
-    /* Make long platform paragraphs breathe */
-    .platform-main p{ margin: 10px 0; }
-    .platform-main h2{ margin-top: 22px; }
-    .platform-main h3{ margin-top: 18px; }
     .divider{
       height:1px;
       background: rgba(10,15,31,.10);
       margin: 18px 0;
     }
+
+    /* Arsenal grid */
+    .arsenal{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 10px;
+    }
+    @media (max-width: 980px){
+      .arsenal{ grid-template-columns: 1fr; }
+    }
+    .arsenal-card{
+      border: 1px solid rgba(10,15,31,.10);
+      border-radius: 16px;
+      background: rgba(255,255,255,.82);
+      padding: 12px 12px 10px;
+      box-shadow: 0 8px 22px rgba(10,15,31,.05);
+    }
+    .arsenal-card h3{
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      letter-spacing: .02em;
+    }
+    .arsenal-card ol{
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    /* make the long text breathe */
+    .platform-main p{ margin: 10px 0; }
+    .platform-main h2{ margin-top: 22px; }
   </style>
 </head>
 
@@ -196,9 +174,9 @@
           <a href="entrepreneurship.html">Business</a>
           <a href="power-leadership.html">Power</a>
           <a href="sports-leadership.html">Sports</a>
-          <a class="active" href="guitar.html">Guitar</a>
+          <a href="guitar.html">Guitar</a>
           <a href="art-sketch.html">Art</a>
-          <a href="dad-jokes.html">Dad Jokes</a>
+          <a class="active" href="dad-jokes.html">Dad Jokes</a>
           <a href="spiritual.html">Spiritual</a>
         </div>
       </nav>
@@ -211,22 +189,26 @@
 
       <div class="hero-grid">
         <div>
-          <h1>THE GUITAR TRAINING PLATFORM</h1>
-          <p>Play what you hear. Understand what you play. Learn fast. Have fun.</p>
+          <h1>THE DAD JOKE MASTERY PLATFORM</h1>
+          <p>A training module in the ancient art of groan-worthy greatness.</p>
+
           <div class="pill-row">
-            <div class="pill">Shape-first (CAGED)</div>
-            <div class="pill">Ear-first (not theory-first)</div>
-            <div class="pill">Song-driven</div>
-            <div class="pill">20-minute practice design</div>
+            <div class="pill">Approachability</div>
+            <div class="pill">Timing</div>
+            <div class="pill">Confidence</div>
+            <div class="pill">Social glue</div>
           </div>
         </div>
 
-        <div class="hero-card">
-          <strong>Executive Summary</strong>
-          <p style="margin:10px 0 0;">
-            Learning guitar as a pianist isn’t starting over — it’s unlocking music from a new angle. If piano is architecture, guitar is geometry:
-            shapes, patterns, and repeating structures that turn harmony into something physical and immediate.
-          </p>
+        <div class="hero-art">
+          <img src="assets/img/dadjokes-speech-bubble.svg" alt="Speech bubble icon" />
+          <div>
+            <strong>Executive Summary</strong>
+            <p style="margin:0;">
+              Dad jokes are more than simple puns — they’re a leadership style, a communication strategy, an emotional icebreaker,
+              and a secret superpower that makes awkward moments magically less awkward.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -234,631 +216,294 @@
     <section class="platform-shell">
       <aside class="platform-toc">
         <div class="toc-title">On this page</div>
-        <a href="#the-guitar-training-platform">THE GUITAR TRAINING PLATFORM</a>
-        <a href="#m1">Module 1: The Guitar Mindset — Play by Shape, Not by Note</a>
-        <a href="#m2">Module 2: The CAGED System — Your New Map of the Guitar</a>
-        <a href="#m3">Module 3: Chord Families — The Guitarist’s Harmonic Shortcuts</a>
-        <a href="#m4">Module 4: Strumming — Turning Chords Into Music</a>
-        <a href="#m5">Module 5: Ear-Based Guitar — Translating Your Piano Intuition</a>
-        <a href="#m6">Module 6: Tabs — The Guitarist’s Sheet Music</a>
-        <a href="#m7">Module 7: Song-Based Learning — The Fastest Path to Fluency</a>
-        <a href="#m8">Module 8: The Fretboard — Quick Navigation Tricks</a>
-        <a href="#m9">Module 9: Technique Essentials — The “Minimum Viable Guitarist” Skillset</a>
-        <a href="#m10">Module 10: Practice Design — How to Level Up Fast</a>
-        <a href="#songs">The First 25 Guitar Songs for Luke</a>
+        <a href="#the-dad-joke-mastery-platform">THE DAD JOKE MASTERY PLATFORM</a>
+        <a href="#m1">MODULE 1 — The Secret Power of the Dad Joke</a>
+        <a href="#m2">MODULE 2 — The Dad Joke Blueprint</a>
+        <a href="#m3">MODULE 3 — The Five Sacred Dad Joke Archetypes</a>
+        <a href="#m4">MODULE 4 — How to Deliver Dad Jokes Like a Pro</a>
+        <a href="#m5">MODULE 5 — Write Your Own Dad Jokes</a>
+        <a href="#m6">MODULE 6 — The Dad Joke Arsenal: 40 Elite Groaners</a>
+        <a href="#m7">MODULE 7 — Advanced Techniques: Situational Dad Jokes</a>
+        <a href="#closing">CLOSING MESSAGE FOR LUKE</a>
       </aside>
 
       <article class="platform-main">
 
-        <!-- Intro / Overview -->
-        <h2 id="the-guitar-training-platform">THE GUITAR TRAINING PLATFORM</h2>
-        <p><em>Play What You Hear. Understand What You Play. Learn Fast. Have Fun.</em></p>
+        <h2 id="the-dad-joke-mastery-platform">THE DAD JOKE MASTERY PLATFORM</h2>
+        <p><em>A Training Module in the Ancient Art of Groan-Worthy Greatness</em></p>
 
         <div class="callout">
-          <h4>This platform teaches guitar the way musicians actually use it</h4>
+          <h4>This platform teaches Luke</h4>
           <ul>
-            <li>Shape-based (CAGED) rather than notation-based</li>
-            <li>Ear-first, not theory-first</li>
-            <li>Song-driven, not exercise-driven</li>
-            <li>Play-focused, not practice-heavy</li>
+            <li>Why dad jokes work (psychology &amp; timing)</li>
+            <li>The types of jokes and how to construct them</li>
+            <li>How to deploy them socially</li>
+            <li>A curated arsenal of elite dad jokes</li>
+            <li>How to write his own</li>
           </ul>
         </div>
 
-        <p>
-          By mastering a few core concepts — chord shapes, transitions, strumming, fretboard patterns, and song structure —
-          Luke can quickly gain fluency and freedom on the instrument. This is the path not only to playing the guitar, but to enjoying it.
-        </p>
+        <p>All modules are intentionally fun and fast — learning by laughing.</p>
 
         <div class="divider"></div>
 
-        <!-- Module 1 -->
+        <!-- MODULE 1 -->
         <section class="module" id="m1">
           <div class="module-hd">
-            <h2>Module 1: The Guitar Mindset — Play by Shape, Not by Note</h2>
-            <div class="meta">
-              <span><strong>Core Principle:</strong> Piano thinks vertically; guitar thinks geometrically.</span>
-            </div>
-          </div>
-
-          <div class="module-bd">
+            <img src="assets/img/dadjokes-laugh.svg" alt="Laugh icon" />
             <div>
-              <p>On piano, chords stack. On guitar, chords shape.</p>
-
-              <div class="callout">
-                <h4>What to learn</h4>
-                <ul>
-                  <li>Chords are built as hand shapes, not individual notes.</li>
-                  <li>These shapes repeat up the neck (unlike the piano).</li>
-                  <li>Patterns make everything easier — especially for someone who already knows harmony.</li>
-                </ul>
-              </div>
-
-              <div class="callout" style="margin-top:12px;">
-                <h4>Starter exercise</h4>
-                <p>
-                  Pick a chord you know (G, C, D, Am). Slide it up the neck while keeping the shape.
-                  Hear how it becomes new chords instantly.
-                </p>
-              </div>
-            </div>
-
-            <div class="video-card">
-              <div class="vc-hd">
-                <strong>CAGED overview (Paul Davids)</strong>
-                <a href="https://www.youtube.com/watch?v=1p0yhiJdPRY" target="_blank" rel="noopener">Open on YouTube</a>
-              </div>
-              <div class="video">
-                <iframe
-                  src="https://www.youtube.com/embed/1p0yhiJdPRY"
-                  title="CAGED overview (Paul Davids)"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>
+              <h2>MODULE 1 — The Secret Power of the Dad Joke</h2>
+              <p class="sub">Why Groan-Inducing Humor Actually Works</p>
             </div>
           </div>
-        </section>
-
-        <!-- Module 2 -->
-        <section class="module" id="m2">
-          <div class="module-hd">
-            <h2>Module 2: The CAGED System — Your New Map of the Guitar</h2>
-            <div class="meta">
-              <span><strong>Core Principle:</strong> Five shapes = every chord, everywhere.</span>
-            </div>
-          </div>
-
           <div class="module-bd">
-            <div>
-              <p>If Luke learns these five shapes, he unlocks the entire fretboard:</p>
-              <div class="callout">
-                <ul>
-                  <li>C shape</li>
-                  <li>A shape</li>
-                  <li>G shape</li>
-                  <li>E shape</li>
-                  <li>D shape</li>
-                </ul>
-              </div>
-
-              <p style="margin-top:10px;">
-                Every major chord, every barre chord, every voicing… all come from these.
-              </p>
-
-              <div class="callout" style="margin-top:12px;">
-                <h4>Why this is perfect for a pianist</h4>
-                <p>
-                  CAGED is the guitar’s “logic.” Once you see it, you can play the instrument instead of chasing it.
-                </p>
-              </div>
-
-              <p style="margin-top:10px;">
-                <strong>Key resource:</strong> JustinGuitar CAGED Essentials (free course):<br />
-                https://www.justinguitar.com/modules/caged-system
-              </p>
-            </div>
-
-            <div class="video-card">
-              <div class="vc-hd">
-                <strong>The CAGED System (JustinGuitar)</strong>
-                <a href="https://www.youtube.com/watch?v=7MbwbWSeZjc" target="_blank" rel="noopener">Open on YouTube</a>
-              </div>
-              <div class="video">
-                <iframe
-                  src="https://www.youtube.com/embed/7MbwbWSeZjc"
-                  title="The CAGED System (JustinGuitar)"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Module 3 -->
-        <section class="module" id="m3">
-          <div class="module-hd">
-            <h2>Module 3: Chord Families — The Guitarist’s Harmonic Shortcuts</h2>
-            <div class="meta">
-              <span><strong>Core Principle:</strong> Most songs use three chord families.</span>
-            </div>
-          </div>
-
-          <div class="module-bd">
-            <div>
-              <p>Luke already understands functional harmony. These three families will feel natural:</p>
-
-              <div class="callout">
-                <h4>The Big Three</h4>
-                <ul>
-                  <li><strong>G Family:</strong> G – C – D – Em</li>
-                  <li><strong>C Family:</strong> C – F – G – Am</li>
-                  <li><strong>D Family:</strong> D – G – A – Bm</li>
-                </ul>
-              </div>
-
-              <div class="callout" style="margin-top:12px;">
-                <h4>Try this</h4>
-                <p>
-                  Choose a song he knows on piano in G major. Play it on guitar using only G-family shapes. Instant fluency.
-                </p>
-              </div>
-
-              <p style="margin-top:10px;">
-                <strong>Key Resource:</strong> Andy Guitar Easy Chords &amp; Songs:
-                https://www.andyguitar.co.uk/online-lessons/categories/beginners
-              </p>
-            </div>
-
-            <div class="video-card">
-              <div class="vc-hd">
-                <strong>3-Chord Song Families (Andy Guitar)</strong>
-                <a href="https://www.youtube.com/watch?v=JOsMVwp2KSQ" target="_blank" rel="noopener">Open on YouTube</a>
-              </div>
-              <div class="video">
-                <iframe
-                  src="https://www.youtube.com/embed/JOsMVwp2KSQ"
-                  title="3-Chord Song Families (Andy Guitar)"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Module 4 -->
-        <section class="module" id="m4">
-          <div class="module-hd">
-            <h2>Module 4: Strumming — Turning Chords Into Music</h2>
-            <div class="meta">
-              <span><strong>Core Principle:</strong> Rhythm makes the song feel alive.</span>
-            </div>
-          </div>
-
-          <div class="module-bd">
-            <div>
-              <p>The trick to sounding “like a guitarist” is not the chords… it’s the right hand.</p>
-
-              <div class="callout">
-                <h4>Learn these first</h4>
-                <ul>
-                  <li>Down, down-up, up-down-up (the universal pattern)</li>
-                  <li>16th-note feel (for pop)</li>
-                  <li>Shuffle feel (for folk &amp; blues)</li>
-                </ul>
-              </div>
-
-              <div class="callout" style="margin-top:12px;">
-                <h4>Exercise</h4>
-                <p>
-                  Mute the strings with your left hand. Practice strumming patterns without chords to master the groove.
-                </p>
-              </div>
-
-              <p style="margin-top:10px;">
-                <strong>Key Resources:</strong><br />
-                Marty Music Strumming Playlist: https://www.youtube.com/playlist?list=PL-RYb_OMw7GdHGwEJdBDEu79SUZlQO7Rh<br />
-                JustinGuitar Strumming Techniques: https://www.justinguitar.com/modules/strumming-techniques
-              </p>
-            </div>
-
-            <div class="video-card">
-              <div class="vc-hd">
-                <strong>Beginner Strumming Patterns (Marty Music)</strong>
-                <a href="https://www.youtube.com/watch?v=xItenkWdNtw" target="_blank" rel="noopener">Open on YouTube</a>
-              </div>
-              <div class="video">
-                <iframe
-                  src="https://www.youtube.com/embed/xItenkWdNtw"
-                  title="Beginner Strumming Patterns (Marty Music)"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Module 5 -->
-        <section class="module" id="m5">
-          <div class="module-hd">
-            <h2>Module 5: Ear-Based Guitar — Translating Your Piano Intuition</h2>
-            <div class="meta">
-              <span><strong>Core Principle:</strong> Luke already knows how to do this — guitar just adds shapes.</span>
-            </div>
-          </div>
-
-          <div class="module-bd">
-            <div>
-              <div class="callout">
-                <h4>What to practice</h4>
-                <ul>
-                  <li>Hear the interval → find it on one string</li>
-                  <li>Turn those intervals into chords</li>
-                  <li>Recognize common progressions (I–V–vi–IV, ii–V–I)</li>
-                </ul>
-              </div>
-
-              <div class="callout" style="margin-top:12px;">
-                <h4>Why he’ll learn fast</h4>
-                <p>
-                  Because the shapes repeat, he only needs to find something once for it to work everywhere.
-                </p>
-              </div>
-
-              <p style="margin-top:10px;">
-                <strong>Key Resources:</strong><br />
-                Functional Ear Trainer App: https://www.matthewvancise.com/fet<br />
-                JustinGuitar Ear Training: https://www.justinguitar.com/categories/ear-training
-              </p>
-            </div>
-
-            <div class="video-card">
-              <div class="vc-hd">
-                <strong>Why You Need Ear Training (JustinGuitar)</strong>
-                <a href="https://www.youtube.com/watch?v=bqUdZdhHGVI" target="_blank" rel="noopener">Open on YouTube</a>
-              </div>
-              <div class="video">
-                <iframe
-                  src="https://www.youtube.com/embed/bqUdZdhHGVI"
-                  title="Why You Need Ear Training (JustinGuitar)"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Module 6 -->
-        <section class="module" id="m6">
-          <div class="module-hd">
-            <h2>Module 6: Tabs — The Guitarist’s Sheet Music</h2>
-            <div class="meta">
-              <span><strong>Core Principle:</strong> Guitarists read grids, not staff notation.</span>
-            </div>
-          </div>
-
-          <div class="module-bd">
-            <div>
-              <div class="callout">
-                <h4>TAB is easy</h4>
-                <ul>
-                  <li>6 lines = 6 strings</li>
-                  <li>Numbers = fret numbers</li>
-                  <li>Luke will pick this up instantly.</li>
-                </ul>
-              </div>
-
-              <p style="margin-top:10px;">
-                <strong>Key Resources:</strong><br />
-                Ultimate Guitar Tabs: https://www.ultimate-guitar.com/<br />
-                Songsterr (interactive tab player): https://www.songsterr.com/
-              </p>
-            </div>
-
-            <div class="video-card">
-              <div class="vc-hd">
-                <strong>How to Read Guitar TAB (JustinGuitar)</strong>
-                <a href="https://www.youtube.com/watch?v=i10y_ZuOfjk" target="_blank" rel="noopener">Open on YouTube</a>
-              </div>
-              <div class="video">
-                <iframe
-                  src="https://www.youtube.com/embed/i10y_ZuOfjk"
-                  title="How to Read Guitar TAB (JustinGuitar)"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Module 7 -->
-        <section class="module" id="m7">
-          <div class="module-hd">
-            <h2>Module 7: Song-Based Learning — The Fastest Path to Fluency</h2>
-            <div class="meta">
-              <span><strong>Core Principle:</strong> Learn guitar by learning songs, not scales.</span>
-            </div>
-          </div>
-
-          <div class="module-bd">
-            <div>
-              <p>Songs teach:</p>
-              <div class="callout">
-                <ul>
-                  <li>Chord transitions</li>
-                  <li>Rhythm</li>
-                  <li>Voice leading</li>
-                  <li>Real-world progressions</li>
-                </ul>
-              </div>
-
-              <div class="callout" style="margin-top:12px;">
-                <h4>Perfect beginner songs (piano-friendly too)</h4>
-                <ul>
-                  <li>Riptide — Vance Joy</li>
-                  <li>Wonderwall — Oasis</li>
-                  <li>Let Her Go — Passenger</li>
-                  <li>Hey There Delilah — Plain White T’s</li>
-                  <li>I’m Yours — Jason Mraz</li>
-                  <li>Hallelujah — Jeff Buckley version</li>
-                  <li>Someone Like You — Adele (acoustic arrangement)</li>
-                </ul>
-              </div>
-
-              <p style="margin-top:10px;">
-                <strong>Key Resource:</strong><br />
-                Marty Music Song Tutorials: https://www.youtube.com/@MartyMusic<br />
-                JustinGuitar Song Lessons: https://www.justinguitar.com/songs
-              </p>
-            </div>
-
-            <div class="video-card">
-              <div class="vc-hd">
-                <strong>Wonderwall (Marty Music)</strong>
-                <a href="https://www.youtube.com/watch?v=o8wM8inaqmo" target="_blank" rel="noopener">Open on YouTube</a>
-              </div>
-              <div class="video">
-                <iframe
-                  src="https://www.youtube.com/embed/o8wM8inaqmo"
-                  title="Wonderwall Guitar Lesson (Marty Music)"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Module 8 -->
-        <section class="module" id="m8">
-          <div class="module-hd">
-            <h2>Module 8: The Fretboard — Quick Navigation Tricks</h2>
-            <div class="meta">
-              <span><strong>Core Principle:</strong> The low E and A strings are your anchors.</span>
-            </div>
-          </div>
-
-          <div class="module-bd">
-            <div>
-              <p>Learn these first:</p>
-              <div class="callout">
-                <ul>
-                  <li>Notes on E string (open → 12th)</li>
-                  <li>Notes on A string</li>
-                  <li>Power chord shapes</li>
-                  <li>Barre chord shapes (CAGED again)</li>
-                </ul>
-              </div>
-
-              <p style="margin-top:10px;">
-                Once Luke knows the E and A strings, the whole fretboard unlocks.
-              </p>
-
-              <p style="margin-top:10px;">
-                <strong>Key Resource:</strong> Fretboard Map (free PDF): https://fretboardtoolbox.com/
-              </p>
-            </div>
-
-            <div class="video-card">
-              <div class="vc-hd">
-                <strong>Notes on E &amp; A Strings</strong>
-                <a href="https://www.youtube.com/watch?v=iwDthuCRMjc" target="_blank" rel="noopener">Open on YouTube</a>
-              </div>
-              <div class="video">
-                <iframe
-                  src="https://www.youtube.com/embed/iwDthuCRMjc"
-                  title="Learning Notes on E and A Strings (Guitar Lesson)"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Module 9 -->
-        <section class="module" id="m9">
-          <div class="module-hd">
-            <h2>Module 9: Technique Essentials — The “Minimum Viable Guitarist” Skillset</h2>
-            <div class="meta">
-              <span><strong>Core Principle:</strong> You only need a few foundational techniques to sound good.</span>
-            </div>
-          </div>
-
-          <div class="module-bd">
-            <div>
-              <div class="callout">
-                <h4>Must-learn techniques</h4>
-                <ul>
-                  <li>Clean chord changes</li>
-                  <li>Palm muting</li>
-                  <li>Hammer-ons &amp; pull-offs</li>
-                  <li>Simple fingerpicking (PIMA)</li>
-                  <li>Basic scales (pentatonic is plenty)</li>
-                </ul>
-              </div>
-
-              <p style="margin-top:10px;">
-                <strong>Key Resources:</strong><br />
-                GuitarLessons365 (technique playlist): https://www.youtube.com/@guitarlessons365<br />
-                Pentatonic Scale Lesson (Ben Eller): https://www.youtube.com/watch?v=wgSZW2G7F7E
-              </p>
-            </div>
-
-            <div class="video-card">
-              <div class="vc-hd">
-                <strong>PIMA Fingerpicking (Fender Play)</strong>
-                <a href="https://www.youtube.com/watch?v=ael-nRUmMV8" target="_blank" rel="noopener">Open on YouTube</a>
-              </div>
-              <div class="video">
-                <iframe
-                  src="https://www.youtube.com/embed/ael-nRUmMV8"
-                  title="How to Use the PIMA Technique (Fender Play)"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
-
-          <div class="module-bd" style="padding-top:0;">
-            <div style="grid-column: 1 / -1;">
-              <div class="video-card">
-                <div class="vc-hd">
-                  <strong>Pentatonic Scale (Ben Eller)</strong>
-                  <a href="https://www.youtube.com/watch?v=wgSZW2G7F7E" target="_blank" rel="noopener">Open on YouTube</a>
-                </div>
-                <div class="video">
-                  <iframe
-                    src="https://www.youtube.com/embed/wgSZW2G7F7E"
-                    title="Pentatonic Scale Lesson (Ben Eller)"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Module 10 -->
-        <section class="module" id="m10">
-          <div class="module-hd">
-            <h2>Module 10: Practice Design — How to Level Up Fast</h2>
-            <div class="meta">
-              <span><strong>Core Principle:</strong> 20 minutes of focused practice beats 2 hours of wandering.</span>
-            </div>
-          </div>
-
-          <div class="module-bd">
-            <div>
-              <div class="callout">
-                <h4>Sample 20-minute routine</h4>
-                <ul>
-                  <li>5 minutes — chord changes (G–C–D, C–F–G, etc.)</li>
-                  <li>5 minutes — strumming pattern focus</li>
-                  <li>5 minutes — melody or riff via tab</li>
-                  <li>5 minutes — play a song you love</li>
-                </ul>
-              </div>
-
-              <div class="callout" style="margin-top:12px;">
-                <h4>Bonus: use play-along tools</h4>
-                <ul>
-                  <li>YouTube speed control</li>
-                  <li>Songsterr slowdown function</li>
-                  <li>Fender Play tempo tools (optional but good)</li>
-                </ul>
-              </div>
-
-              <div class="divider"></div>
-
-              <h3>Key Takeaways</h3>
+            <div class="callout">
+              <h4>Core concepts</h4>
               <ul>
-                <li>Guitar is shapes, patterns, and repetition — not note-reading.</li>
-                <li>Because Luke knows chords and harmony, he will learn much faster than beginners.</li>
-                <li>CAGED + chord families = instant fluency.</li>
-                <li>Strumming is 80% of sounding like a guitarist.</li>
-                <li>Play songs early and often — it accelerates everything.</li>
-                <li>Practice small, consistent sessions, not marathons.</li>
-                <li>The real goal: freedom — the ability to hear something and play it.</li>
+                <li>Disarms tension — a pun is a “soft landing” for any conversation.</li>
+                <li>Signals approachability — it shows you don’t take yourself too seriously.</li>
+                <li>Creates a shared moment — people bond through the little eye-roll + smile combo.</li>
+                <li>Builds confidence — delivering a joke trains timing and voice.</li>
+                <li>Teaches communication — setup → twist → laugh.</li>
               </ul>
             </div>
 
-            <div class="video-card">
-              <div class="vc-hd">
-                <strong>Strumming Playlist (Marty Music)</strong>
-                <a href="https://www.youtube.com/playlist?list=PL-RYb_OMw7GdHGwEJdBDEu79SUZlQO7Rh" target="_blank" rel="noopener">Open on YouTube</a>
+            <p><strong>Mini Case Study — Coach K’s Dad Joke Play</strong><br />
+              Even Coach K would open team meetings with light humor. Not puns, but the same principle:
+              gentle levity creates trust. Dad jokes operate on that same frequency.
+            </p>
+          </div>
+        </section>
+
+        <!-- MODULE 2 -->
+        <section class="module" id="m2">
+          <div class="module-hd">
+            <img src="assets/img/dadjokes-speech-bubble.svg" alt="Speech bubble icon" />
+            <div>
+              <h2>MODULE 2 — The Dad Joke Blueprint</h2>
+              <p class="sub">The Anatomy of a Perfect (Terrible) Joke</p>
+            </div>
+          </div>
+          <div class="module-bd">
+            <p>A classic dad joke has three parts:</p>
+            <div class="callout">
+              <ul>
+                <li><strong>The Setup</strong> (Serious Face Engaged): A normal-sounding question or statement.</li>
+                <li><strong>The Misdirection</strong> (The Audience Leans In): They think you’re going one direction.</li>
+                <li><strong>The Twist</strong> (Certified Groan Activation): A pun, unexpected meaning, or absurd logic.</li>
+              </ul>
+            </div>
+
+            <p><strong>Formula:</strong> Setup → Expectation → Twist That Makes No Sense but Still Makes Sense</p>
+            <p><strong>Example:</strong><br />
+              “Why don’t eggs tell jokes?”<br />
+              Because they’d crack each other up.
+            </p>
+          </div>
+        </section>
+
+        <!-- MODULE 3 -->
+        <section class="module" id="m3">
+          <div class="module-hd">
+            <img src="assets/img/dadjokes-mustache.svg" alt="Mustache icon" />
+            <div>
+              <h2>MODULE 3 — The Five Sacred Dad Joke Archetypes</h2>
+              <p class="sub">Your complete taxonomy of groan</p>
+            </div>
+          </div>
+          <div class="module-bd">
+            <p><strong>1. The Classic Pun</strong><br />
+              Wordplay that gently hurts the brain.<br />
+              “I’m reading a book on anti-gravity. It’s impossible to put down.”</p>
+
+            <p><strong>2. The Question/Answer Groaner</strong><br />
+              “Why did the scarecrow win an award?”<br />
+              He was outstanding in his field.</p>
+
+            <p><strong>3. The Literal Interpretation Joke</strong><br />
+              “My boss told me to have a good day… so I went home.”</p>
+
+            <p><strong>4. The Overly-Confident Misunderstanding</strong><br />
+              “I used to play piano by ear… now I use my hands.”</p>
+
+            <p><strong>5. The Unexpected Wisdom Joke</strong><br />
+              Surprisingly profound… but still dumb.<br />
+              “Never trust atoms. They make up everything.”</p>
+          </div>
+        </section>
+
+        <!-- MODULE 4 -->
+        <section class="module" id="m4">
+          <div class="module-hd">
+            <img src="assets/img/dadjokes-microphone.svg" alt="Microphone icon" />
+            <div>
+              <h2>MODULE 4 — How to Deliver Dad Jokes Like a Pro</h2>
+              <p class="sub">Timing, Expression, and Maximum Groan Factor</p>
+            </div>
+          </div>
+          <div class="module-bd">
+            <div class="callout">
+              <h4>Delivery rules</h4>
+              <ul>
+                <li>Say it completely deadpan (like you genuinely think it’s brilliant).</li>
+                <li>Hold eye contact for 0.5 seconds after the punchline.</li>
+                <li>Accept both laughter and groans as victory. The groan is the applause.</li>
+                <li>Use the environment: objects around you = on-the-fly puns.</li>
+              </ul>
+            </div>
+
+            <p><strong>Example:</strong><br />
+              At dinner, waiter asks, “How’s the food?”<br />
+              You answer: “It’s pasta-tively amazing.”</p>
+          </div>
+        </section>
+
+        <!-- MODULE 5 -->
+        <section class="module" id="m5">
+          <div class="module-hd">
+            <img src="assets/img/dadjokes-speech-bubble.svg" alt="Speech bubble icon" />
+            <div>
+              <h2>MODULE 5 — Write Your Own Dad Jokes</h2>
+              <p class="sub">A Practical Framework</p>
+            </div>
+          </div>
+          <div class="module-bd">
+            <div class="callout">
+              <h4>4-step recipe</h4>
+              <ul>
+                <li><strong>Step 1:</strong> Pick a normal object (stairs, pencils, clouds, shoes)</li>
+                <li><strong>Step 2:</strong> List verbs/ideas associated with it</li>
+                <li><strong>Step 3:</strong> Find double meanings</li>
+                <li><strong>Step 4:</strong> Combine into a twist</li>
+              </ul>
+            </div>
+
+            <p><strong>Example creation process:</strong><br />
+              Object: stairs<br />
+              Associated idea: they’re always up to something<br />
+              Joke: “Why don’t you trust stairs? They’re always up to something.”<br />
+              Boom — instant dad joke.
+            </p>
+          </div>
+        </section>
+
+        <!-- MODULE 6 -->
+        <section class="module" id="m6">
+          <div class="module-hd">
+            <img src="assets/img/dadjokes-laugh.svg" alt="Laugh icon" />
+            <div>
+              <h2>MODULE 6 — The Dad Joke Arsenal: 40 Elite Groaners</h2>
+              <p class="sub">(A starter kit for Luke to deploy at will)</p>
+            </div>
+          </div>
+          <div class="module-bd">
+            <div class="arsenal">
+              <div class="arsenal-card">
+                <h3>1–20</h3>
+                <ol>
+                  <li>I used to be addicted to soap… but I’m clean now.</li>
+                  <li>What do you call fake spaghetti? An impasta.</li>
+                  <li>I’m afraid for the calendar… its days are numbered.</li>
+                  <li>What’s blue and not very heavy? Light blue.</li>
+                  <li>Want to hear a roof joke? Never mind — it’s over your head.</li>
+                  <li>I only know 25 letters of the alphabet… I don’t know Y.</li>
+                  <li>Why do seagulls fly over the sea? Because if they flew over the bay, they’d be bagels.</li>
+                  <li>Why don’t skeletons fight each other? They don’t have the guts.</li>
+                  <li>What do you call cheese that isn’t yours? Nacho cheese.</li>
+                  <li>I’m on a seafood diet. I see food and I eat it.</li>
+                  <li>Why did the bicycle fall over? It was two-tired.</li>
+                  <li>How do you organize a space party? You planet.</li>
+                  <li>Parallel lines have so much in common… it’s a shame they’ll never meet.</li>
+                  <li>Why was the math book sad? It had too many problems.</li>
+                  <li>I used to hate facial hair… but then it grew on me.</li>
+                  <li>What do you call a factory that makes good products? A satisfactory.</li>
+                  <li>What do clouds wear? Thunderwear.</li>
+                  <li>Want to hear a construction joke? I’m still working on it.</li>
+                  <li>What did the janitor say when he jumped out of the closet? “Supplies!”</li>
+                  <li>Don’t trust stairs… they’re always up to something.</li>
+                </ol>
               </div>
-              <div class="video">
-                <iframe
-                  src="https://www.youtube.com/embed/videoseries?list=PL-RYb_OMw7GdHGwEJdBDEu79SUZlQO7Rh"
-                  title="Marty Music Strumming Playlist"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
+
+              <div class="arsenal-card">
+                <h3>21–40</h3>
+                <ol start="21">
+                  <li>What do you call a belt made of clocks? A waist of time.</li>
+                  <li>The shovel was a groundbreaking invention.</li>
+                  <li>Why can’t a leopard hide? He’s always spotted.</li>
+                  <li>What do you call an alligator in a vest? An investigator.</li>
+                  <li>I told my computer I needed a break… now it won’t stop sending me Kit-Kats.</li>
+                  <li>Why did the golfer bring two pants? In case he got a hole in one.</li>
+                  <li>Why can’t a nose be 12 inches long? Because then it would be a foot.</li>
+                  <li>How does a penguin build a house? Igloos it together.</li>
+                  <li>What do you call a fish with no eyes? Fsh.</li>
+                  <li>I don’t trust those trees. They seem kinda shady.</li>
+                  <li>Why don’t oysters donate to charity? They’re shellfish.</li>
+                  <li>What do you call a sleeping bull? A bulldozer.</li>
+                  <li>I stayed up all night wondering where the sun went… then it dawned on me.</li>
+                  <li>What’s orange and sounds like a parrot? A carrot.</li>
+                  <li>Why did the coffee file a police report? It got mugged.</li>
+                  <li>Did you hear about the circus fire? It was in tents.</li>
+                  <li>How do you make a tissue dance? You put a little boogie in it.</li>
+                  <li>What do you call a dinosaur with an extensive vocabulary? A thesaurus.</li>
+                  <li>Why can’t Elsa hold a balloon? Because she will let it go.</li>
+                  <li>My dog ate a whole bag of Scrabble tiles… next week his poop could spell disaster.</li>
+                </ol>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- Songs -->
-        <h2 id="songs">The First 25 Guitar Songs for Luke</h2>
-        <p>
-          Chosen specifically for a pianist who learns by ear, loves chord patterns, and wants quick wins with real music.
-          These are grouped by difficulty and designed to build momentum fast. Every song is playable with simple chords,
-          shape-based riffs, or common strumming patterns.
-        </p>
-
-        <div class="song-grid">
-          <div class="song-card">
-            <h3>⭐ Level 1 — The Instant Wins</h3>
-            <ol>
-              <li>Riptide — Vance Joy</li>
-              <li>Hey There Delilah — Plain White T’s</li>
-              <li>Wonderwall — Oasis</li>
-              <li>I’m Yours — Jason Mraz</li>
-              <li>Let Her Go — Passenger</li>
-              <li>Counting Stars — OneRepublic</li>
-              <li>Someone Like You — Adele (Acoustic arrangement)</li>
-              <li>Hallelujah — Leonard Cohen / Jeff Buckley</li>
-              <li>Stand By Me — Ben E. King</li>
-              <li>Love Yourself — Justin Bieber</li>
-            </ol>
-            <p style="margin-top:8px; opacity:.85;">All are based on G-family or C-family chords. Perfect for learning strumming confidence.</p>
+        <!-- MODULE 7 -->
+        <section class="module" id="m7">
+          <div class="module-hd">
+            <img src="assets/img/dadjokes-microphone.svg" alt="Microphone icon" />
+            <div>
+              <h2>MODULE 7 — Advanced Techniques: Situational Dad Jokes</h2>
+              <p class="sub">Humor as a Leadership Skill (but silly)</p>
+            </div>
           </div>
-
-          <div class="song-card">
-            <h3>⭐ Level 2 — Songs That Teach a Skill</h3>
-            <ol start="11">
-              <li>Fast Car — Tracy Chapman</li>
-              <li>Photograph — Ed Sheeran</li>
-              <li>Yellow — Coldplay</li>
-              <li>Zombie — The Cranberries</li>
-              <li>Iris — Goo Goo Dolls</li>
-              <li>Blinding Lights — The Weeknd (Acoustic)</li>
-              <li>The A Team — Ed Sheeran</li>
-              <li>Stay With Me — Sam Smith</li>
-            </ol>
+          <div class="module-bd">
+            <div class="callout">
+              <h4>Ready-to-deploy lines</h4>
+              <ul>
+                <li><strong>Meeting running long:</strong> “I’d like to wrap up… but I forgot the wrapping paper.”</li>
+                <li><strong>Someone compliments your skills:</strong> “Aw shucks… and I didn’t even wear my shucking gloves.”</li>
+                <li><strong>Around track teammates:</strong> “I tried running a marathon once… but it was too fast paced.”</li>
+                <li><strong>At guitar practice:</strong> “This chord progression is major news.”</li>
+                <li><strong>On a cold day:</strong> “I’m not built for this weather… I’m two-ply at best.”</li>
+              </ul>
+            </div>
           </div>
+        </section>
 
-          <div class="song-card">
-            <h3>⭐ Level 3 — Songs That Level Up Your Guitar Brain</h3>
-            <ol start="19">
-              <li>Blackbird — The Beatles</li>
-              <li>Time of Your Life — Green Day</li>
-              <li>Wish You Were Here — Pink Floyd</li>
-              <li>Hotel California (Acoustic) — Eagles</li>
-              <li>Skinny Love — Bon Iver</li>
-              <li>Tears in Heaven — Eric Clapton</li>
-              <li>More Than Words — Extreme</li>
-            </ol>
+        <!-- Closing -->
+        <section class="module" id="closing">
+          <div class="module-hd">
+            <img src="assets/img/dadjokes-mustache.svg" alt="Mustache icon" />
+            <div>
+              <h2>CLOSING MESSAGE FOR LUKE</h2>
+              <p class="sub">Wisdom, warmth, and ridiculousness — together</p>
+            </div>
           </div>
-        </div>
+          <div class="module-bd">
+            <p>
+              Luke,<br />
+              Mastering dad jokes is less about puns and more about perspective. It means being lighthearted, quick-witted,
+              observant, and brave enough to say something goofy even in serious rooms. Humor is a quiet form of leadership —
+              it warms the room, eases tension, and reminds people to breathe.
+            </p>
+            <p>
+              If you can hold wisdom in one hand and ridiculousness in the other, you’ll be a rare and joyful presence wherever you go.
+            </p>
+            <div class="callout">
+              <h4>And just remember…</h4>
+              <p style="margin:0;">
+                If anyone ever asks if you’re serious about dad jokes, you can say:<br />
+                <strong>“No… I’m Sirius. The brightest star in the dad-joke galaxy.”</strong>
+              </p>
+            </div>
+          </div>
+        </section>
 
       </article>
     </section>
