@@ -3,718 +3,723 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>THE ENTREPRENEURSHIP &amp; LEADERSHIP PLATFORM | Luke</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="stylesheet" href="assets/css/platforms.css" />
+  <title>Entrepreneurship & Leadership Platform | Luke’s Leadership Platform</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Entrepreneurship page system: uniform images + designed module cards */
+    .container{max-width:1100px;margin:0 auto;padding:0 18px;}
+    .section{padding:54px 0;}
+    .section--cream{background:rgba(246,241,230,.55);}
+    .section-head{max-width:920px;margin:0 auto 18px;}
+    .section-head h2{margin:0 0 8px;letter-spacing:.02em;}
+    .section-head p{margin:0;opacity:.78;}
+
+    .hero{position:relative;min-height:420px;display:grid;align-items:center;}
+    .hero-media{position:absolute;inset:0;overflow:hidden;}
+    .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center;}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg, rgba(11,18,38,.88), rgba(11,18,38,.35) 60%, rgba(11,18,38,.20));}
+    .hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:54px 18px;color:#f6f1e6;}
+    .eyebrow{margin:0 0 10px;letter-spacing:.18em;text-transform:uppercase;font-size:12px;opacity:.9;}
+    .hero h1{margin:0 0 12px;max-width:900px;letter-spacing:.02em;}
+    .hero-sub{margin:0 0 18px;max-width:780px;opacity:.9;line-height:1.5;}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 18px;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;border:1px solid rgba(246,241,230,.35);font-weight:600}
+    .btn-primary{background:#f6f1e6;color:#0b1226;border-color:transparent;}
+    .btn-ghost{background:transparent;color:#f6f1e6;}
+    .hero-badges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:520px;}
+    .badge{border:1px solid rgba(246,241,230,.22);border-radius:16px;padding:12px 14px;background:rgba(11,18,38,.35);backdrop-filter:blur(6px);}
+    .badge strong{display:block;font-size:22px;line-height:1;}
+    .badge span{opacity:.9;font-size:12px;}
+
+    .split{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:start;}
+    @media (max-width:900px){.split{grid-template-columns:1fr;}}
+    .card{border:1px solid rgba(10,15,31,.12);border-radius:18px;padding:18px;background:rgba(246,241,230,.45);box-shadow:0 10px 26px rgba(10,15,31,.08);}
+    .card--soft{background:rgba(246,241,230,.65);}
+    .card h3{margin:0 0 10px;}
+    .checklist{margin:0;padding-left:18px;display:grid;gap:8px;}
+    .card--media{display:grid;gap:12px;}
+    .media-frame{border-radius:16px;overflow:hidden;aspect-ratio:16/10;background:#0b1226;}
+    .media-frame img{width:100%;height:100%;object-fit:cover;object-position:center;}
+    .fineprint{margin:0;opacity:.78;font-size:13px;line-height:1.5;}
+
+    .module-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+    @media (max-width:900px){.module-grid{grid-template-columns:1fr;}}
+    .module-card{border:1px solid rgba(10,15,31,.12);border-radius:18px;overflow:hidden;background:rgba(246,241,230,.35);box-shadow:0 10px 26px rgba(10,15,31,.08);}
+    .module-summary{list-style:none;cursor:pointer;padding:16px 16px 14px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start;}
+    .module-summary::-webkit-details-marker{display:none;}
+    .module-kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.75;grid-column:1 / -1;}
+    .module-title{font-weight:800;letter-spacing:.02em;}
+    .module-blurb{opacity:.78;font-size:13px;line-height:1.45;margin-top:4px;grid-column:1 / -1;}
+    .module-chevron{width:30px;height:30px;border-radius:999px;display:grid;place-items:center;border:1px solid rgba(10,15,31,.16);opacity:.7;}
+    details[open] .module-chevron{transform:rotate(45deg);}
+
+    .module-body{border-top:1px solid rgba(10,15,31,.10);padding:16px;}
+    .module-media-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:14px;}
+    @media (max-width:560px){.module-media-row{grid-template-columns:1fr;}}
+    .module-figure{margin:0;border-radius:16px;overflow:hidden;aspect-ratio:16/11;background:#0b1226;}
+    .module-figure img{width:100%;height:100%;object-fit:cover;object-position:center;}
+    .module-copy h4{margin:16px 0 8px;font-size:14px;letter-spacing:.02em;}
+    .module-copy p{margin:0 0 10px;line-height:1.65;}
+    .module-copy ul{margin:0 0 12px;padding-left:18px;display:grid;gap:6px;}
+    .module-copy li{line-height:1.45;}
+    .module-meta{margin:0 0 8px;opacity:.9}
+    .module-meta strong{opacity:1}
+
+    .footer{padding:30px 0;border-top:1px solid rgba(10,15,31,.10);background:rgba(246,241,230,.45);}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+    .footer-brand{display:flex;align-items:center;gap:12px;}
+    .site-logo{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:#0b1226;color:#f6f1e6;font-weight:800;letter-spacing:.06em;}
+    .footer-links{display:flex;gap:14px;flex-wrap:wrap;opacity:.85;}
+  </style>
 </head>
 
-<body class="platform">
-  <header class="topbar">
-    <div class="container">
-      <nav class="nav">
-        <div class="brand">
-          <div class="mark">LUKE</div>
-          <div class="tag">Leadership • Craft • Character</div>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="nav-logo" href="index.html" aria-label="Luke’s Leadership Platform home">
+        <div class="site-logo">LLP</div>
+        <div class="nav-logo-text">
+          <strong>Luke’s Leadership Platform</strong>
+          <span>Entrepreneurship • Strategy • Leadership</span>
         </div>
-        <div class="links">
-          <a href="index.html">Home</a>
-          <a href="if-leadership.html">If—</a>
-          <a class="active" href="entrepreneurship.html">Business</a>
-          <a href="power-leadership.html">Power</a>
-          <a href="sports-leadership.html">Sports</a>
-          <a href="guitar.html">Guitar</a>
-          <a href="art-sketch.html">Art</a>
-          <a href="dad-jokes.html">Dad Jokes</a>
-          <a href="spiritual.html">Spiritual</a>
-        </div>
-      </nav>
-    </div>
+      </a>
+
+      <div class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="if.html">If</a>
+        <a class="nav-link active" href="entrepreneurship.html">Business</a>
+        <a class="nav-link" href="power.html">Power</a>
+        <a class="nav-link" href="sports.html">Sports</a>
+        <a class="nav-link" href="art.html">Art</a>
+        <a class="nav-link" href="guitar.html">Guitar</a>
+        <a class="nav-link" href="dadjokes.html">Dad Jokes</a>
+        <a class="nav-link" href="spiritual.html">Spiritual</a>
+      </div>
+    </nav>
   </header>
 
-  <main class="container">
-    <!-- HERO (IF-style: clean headline + image row) -->
-    <section class="platform-hero">
-      <p class="kicker">Platform</p>
-      <h1>THE ENTREPRENEURSHIP &amp; LEADERSHIP PLATFORM</h1>
-      <p class="lede">
-        A twelve-module framework for creative, strategic, and ethical growth — redesigned for clarity, navigation,
-        and a classic Ralph Lauren feel.
-      </p>
+  <main>
+    <section class="hero hero--platform">
+      <div class="hero-media" aria-hidden="true">
+        <img src="assets/img/entrepreneurship-hero.jpeg" alt="" loading="eager" decoding="async"
+             onerror="this.src='assets/img/hero.jpg';" />
+        <div class="hero-overlay"></div>
+      </div>
 
-      <!-- hero portraits (uses your existing entrepreneurship images) -->
-      <div class="leader-band" style="margin-top:18px;">
-        <div class="leader-title">
-          <strong>Signature Leaders (this platform’s tone)</strong>
+      <div class="hero-inner">
+        <p class="eyebrow">The Entrepreneurship &amp; Leadership Platform</p>
+        <h1>A Twelve-Module Framework for Creative, Strategic, and Ethical Growth</h1>
+        <p class="hero-sub">
+          A complete curriculum that blends judgment, creativity, ethics, and execution — designed for a mature high-school senior entering college.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#modules">Explore the 12 modules</a>
+          <a class="btn btn-ghost" href="#executive-summary">Executive summary</a>
         </div>
-        <div class="leader-grid">
-          <div class="leader-card">
-            <img src="assets/img/entrepreneurship/image11.jpeg" alt="Ralph Lauren">
-            <div class="leader-meta">
-              <div class="name">Ralph Lauren</div>
-              <div class="role">Identity • world-building • timeless brand craft</div>
-            </div>
+
+        <div class="hero-badges" aria-label="Highlights">
+          <div class="badge"><strong>12</strong><span>Modules</span></div>
+          <div class="badge"><strong>36</strong><span>Leader anchors</span></div>
+          <div class="badge"><strong>Real</strong><span>Frameworks + practice</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="executive-summary" class="section section--cream">
+      <div class="container">
+        <div class="section-head">
+          <h2>Executive Summary</h2>
+        </div>
+
+        <div class="split">
+          <div class="card card--soft">
+            <p>This platform is designed to equip a rising young entrepreneur with the mindset, tools, and ethical grounding needed to navigate college, career, and a rapidly changing world.</p>
+            <h4>Across twelve modules, the curriculum blends</h4>
+            <ul>
+              <li>Analytical thinking</li>
+              <li>Creativity and design</li>
+              <li>Innovation frameworks</li>
+              <li>Strategic judgment under uncertainty</li>
+              <li>Financial literacy and disciplined execution</li>
+              <li>Leadership, storytelling, and culture-building</li>
+              <li>Ethics, responsibility, and long-term thinking</li>
+              <li>Digital transformation and AI fluency</li>
+            </ul>
+            <p>Each module is anchored by three leaders whose lives and philosophies reinforce the core skill — building from problem-solving → execution → operating systems → thinking ethically → shaping the future.</p>
+            <p>What follows is a complete, integrated curriculum.</p>
           </div>
-          <div class="leader-card">
-            <img src="assets/img/entrepreneurship/image6.jpeg" alt="Jeff Bezos">
-            <div class="leader-meta">
-              <div class="name">Jeff Bezos</div>
-              <div class="role">Customer obsession • systems • long-term thinking</div>
+
+          <div class="card card--media">
+            <div class="media-frame">
+              <img src="assets/img/image15.jpeg" alt="Featured leader" loading="lazy" decoding="async" />
             </div>
-          </div>
-          <div class="leader-card">
-            <img src="assets/img/entrepreneurship/image29.jpeg" alt="Steve Jobs">
-            <div class="leader-meta">
-              <div class="name">Steve Jobs</div>
-              <div class="role">Simplicity • narrative • emotional resonance</div>
-            </div>
+            <p class="fineprint">
+              Images are pulled from <code>assets/img/</code> and displayed in consistent frames so the platform looks like a real, designed website.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="platform-shell">
-      <!-- TOC -->
-      <aside class="platform-toc">
-        <div class="toc-title">On this page</div>
-        <a href="#the-entrepreneurship-leadership-platform">THE ENTREPRENEURSHIP &amp; LEADERSHIP PLATFORM</a>
-        <a href="#executive-summary">EXECUTIVE SUMMARY</a>
-        <a href="#module-1-problem-solving-opportunity-identification">MODULE 1 — PROBLEM SOLVING &amp; OPPORTUNITY IDENTIFICATION</a>
-        <a href="#module-2-creativity-analytical-thinking">MODULE 2 — CREATIVITY × ANALYTICAL THINKING</a>
-        <a href="#module-3-innovation-design-thinking">MODULE 3 — INNOVATION &amp; DESIGN THINKING</a>
-        <a href="#module-4-business-models-value-creation">MODULE 4 — BUSINESS MODELS &amp; VALUE CREATION</a>
-        <a href="#module-5-go-to-market-strategy-growth">MODULE 5 — GO-TO-MARKET STRATEGY &amp; GROWTH</a>
-        <a href="#module-6-decision-making-under-uncertainty">MODULE 6 — DECISION-MAKING UNDER UNCERTAINTY</a>
-        <a href="#module-7-leadership-team-building">MODULE 7 — LEADERSHIP &amp; TEAM BUILDING</a>
-        <a href="#module-8-financial-literacy-for-entrepreneurs">MODULE 8 — FINANCIAL LITERACY FOR ENTREPRENEURS</a>
-        <a href="#module-9-execution-systems-operations">MODULE 9 — EXECUTION, SYSTEMS &amp; OPERATIONS</a>
-        <a href="#module-10-ethics-responsibility-long-term-thinking">MODULE 10 — ETHICS, RESPONSIBILITY &amp; LONG-TERM THINKING</a>
-        <a href="#module-11-brand-building-storytelling">MODULE 11 — BRAND-BUILDING &amp; STORYTELLING</a>
-        <a href="#module-12-digital-transformation-ai-for-entrepreneurs">MODULE 12 — DIGITAL TRANSFORMATION &amp; AI FOR ENTREPRENEURS</a>
-        <a href="#closing-chapter-key-takeaways">CLOSING CHAPTER — KEY TAKEAWAYS</a>
-      </aside>
-
-      <!-- MAIN -->
-      <article class="platform-main">
-
-        <!-- INTRO CARD -->
-        <section class="card" id="the-entrepreneurship-leadership-platform">
-          <h2>THE ENTREPRENEURSHIP &amp; LEADERSHIP PLATFORM</h2>
-          <p class="note">A Twelve-Module Framework for Creative, Strategic, and Ethical Growth</p>
-          <p>
-            This platform is designed to equip a rising young entrepreneur with the mindset, tools, strategies, and moral
-            foundations needed to navigate college, career, and a rapidly changing world.
-          </p>
-        </section>
-
-        <!-- EXECUTIVE SUMMARY -->
-        <section class="card" id="executive-summary">
-          <h2>EXECUTIVE SUMMARY</h2>
-          <p>
-            Across twelve modules, the curriculum blends analytical thinking, creativity and design, innovation frameworks,
-            strategic judgment under uncertainty, financial literacy and disciplined execution, leadership, storytelling,
-            and long-term responsibility — including digital transformation and AI fluency.
-          </p>
-
-          <ul class="bullets">
-            <li>Analytical thinking</li>
-            <li>Creativity and design</li>
-            <li>Innovation frameworks</li>
-            <li>Strategic judgment under uncertainty</li>
-            <li>Financial literacy and disciplined execution</li>
-            <li>Leadership, storytelling, and culture-building</li>
-            <li>Ethics, responsibility, and long-term thinking</li>
-            <li>Digital transformation and AI fluency</li>
-          </ul>
-
-          <p>
-            Each module is anchored by three leaders whose lives and philosophies illuminate core principles. Together,
-            they offer a comprehensive journey from seeing opportunities → building solutions → leading people → operating
-            systems → thinking ethically → shaping the future.
-          </p>
-        </section>
-
-        <!-- MODULE 1 -->
-        <section class="card" id="module-1-problem-solving-opportunity-identification">
-          <h2>MODULE 1 — PROBLEM SOLVING &amp; OPPORTUNITY IDENTIFICATION</h2>
-
-          <div class="leader-band">
-            <div class="leader-title"><strong>Anchoring Leaders</strong></div>
-            <div class="leader-grid">
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image6.jpeg" alt="Elon Musk">
-                <div class="leader-meta"><div class="name">Elon Musk</div><div class="role">Reimagine the problem • first principles</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image1.jpeg" alt="Peter Drucker">
-                <div class="leader-meta"><div class="name">Peter Drucker</div><div class="role">Define the real problem • clarity over noise</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image2.jpeg" alt="Jack Dorsey">
-                <div class="leader-meta"><div class="name">Jack Dorsey</div><div class="role">Distill to the essential • simplicity scales</div></div>
-              </div>
-            </div>
-          </div>
-
-          <p class="note">Narrative: Seeing What Others Miss</p>
-          <p>
-            Every entrepreneur begins with a moment — not of brilliance, but of awareness. A shift in perspective. A crack
-            in the surface where possibility leaks through. Most people walk past these cracks. A few turn toward them.
-            The exceptional learn to widen them into doorways.
-          </p>
-          <p>
-            This module teaches the first and most essential skill of entrepreneurship: how to notice what others ignore,
-            define what truly matters, and transform a problem into a path.
-          </p>
-
-          <h3>Elon Musk — Reimagine the Problem</h3>
-          <p>
-            Musk’s signature gift is not rockets or electric cars. It is the ability to look directly at a problem and ask:
-            <em>What is actually true here — and what have we simply accepted?</em>
-          </p>
-          <ul class="bullets">
-            <li>Don’t accept inherited definitions of a problem</li>
-            <li>Reduce challenges to first principles</li>
-            <li>Start with constraints, not conventions</li>
-            <li>Let curiosity lead you to unconventional solutions</li>
-          </ul>
-
-          <h3>Peter Drucker — Define the Real Problem</h3>
-          <p>
-            Drucker believed most failures come not from poor execution, but from solving the wrong problem. Opportunities
-            rarely appear as opportunities; they appear as inefficiencies, frictions, and unanswered questions.
-          </p>
-          <ul class="bullets">
-            <li>Study people, not markets</li>
-            <li>Keep a “problem notebook” — write down frictions you notice</li>
-            <li>Ask: What’s the real job to be done?</li>
-            <li>Separate symptoms from causes</li>
-          </ul>
-
-          <h3>Jack Dorsey — Distill to the Essential</h3>
-          <p>
-            Dorsey’s genius rests in noticing complexity — then cutting through it with disciplined simplicity. Innovation
-            isn’t always about doing more; often it’s about removing what is unnecessary until only the essential remains.
-          </p>
-          <ul class="bullets">
-            <li>Complexity hides opportunity; simplicity reveals it</li>
-            <li>Don’t start by adding features — remove them</li>
-            <li>Ask: What is the cleanest expression of this idea?</li>
-            <li>Simplicity scales; clutter collapses</li>
-          </ul>
-
-          <h3>Key Takeaways</h3>
-          <p>
-            Your advantage will come from something quieter: your ability to pay attention — deeply, curiously, creatively.
-            Notice frustrations. Notice patterns. Notice where people struggle or settle. From these small moments, entire
-            futures are built.
-          </p>
-        </section>
-
-        <!-- MODULE 2 -->
-        <section class="card" id="module-2-creativity-analytical-thinking">
-          <h2>MODULE 2 — CREATIVITY × ANALYTICAL THINKING</h2>
-
-          <div class="leader-band">
-            <div class="leader-title"><strong>Anchoring Leaders</strong></div>
-            <div class="leader-grid">
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image3.jpeg" alt="Reed Hastings">
-                <div class="leader-meta"><div class="name">Reed Hastings</div><div class="role">Data with imagination • pattern → insight</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image4.jpeg" alt="Tim Brown">
-                <div class="leader-meta"><div class="name">Tim Brown</div><div class="role">Creativity with structure • design thinking</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image5.jpeg" alt="Leonardo da Vinci">
-                <div class="leader-meta"><div class="name">Leonardo da Vinci</div><div class="role">Curiosity without boundaries • intersections</div></div>
-              </div>
-            </div>
-          </div>
-
-          <p class="note">Narrative: The Fusion That Creates Breakthroughs</p>
-          <p>
-            Innovation happens when imagination and logic work together. This module teaches how to move between ideas and
-            structures — art and math — what might be and what can work.
-          </p>
-
-          <h3>Reed Hastings — Data With Imagination</h3>
-          <p>Data doesn’t replace intuition — it sharpens it.</p>
-          <ul class="bullets">
-            <li>Use data to reveal patterns, not make decisions for you</li>
-            <li>Let evidence guide creativity rather than restrict it</li>
-            <li>Run small experiments before big commitments</li>
-            <li>Blend instinct with insight</li>
-          </ul>
-
-          <h3>Tim Brown — Creativity With Structure</h3>
-          <p>
-            Design thinking makes creativity repeatable: empathize, define, ideate, prototype, learn. Creativity becomes
-            intentional exploration.
-          </p>
-          <ul class="bullets">
-            <li>Practice divergent and convergent thinking</li>
-            <li>Use constraints to spark creativity</li>
-            <li>Treat prototyping as a mindset</li>
-            <li>Ideas grow stronger when tested, not protected</li>
-          </ul>
-
-          <h3>Leonardo da Vinci — Curiosity Without Boundaries</h3>
-          <p>Innovation often emerges at the intersection. Let your interests collide.</p>
-          <ul class="bullets">
-            <li>Study outside your major; let unexpected fields inform your thinking</li>
-            <li>Observe constantly — sketch, jot, question</li>
-            <li>Treat curiosity as a lifelong practice</li>
-            <li>Let imagination breathe before shaping it with logic</li>
-          </ul>
-
-          <h3>Key Takeaways</h3>
-          <p>
-            Let data sharpen intuition. Let structure guide imagination. Let curiosity lead beyond the obvious. You’re not
-            choosing between being creative or analytical — you’re learning to be both.
-          </p>
-        </section>
-
-        <!-- MODULE 3 -->
-        <section class="card" id="module-3-innovation-design-thinking">
-          <h2>MODULE 3 — INNOVATION &amp; DESIGN THINKING</h2>
-
-          <div class="leader-band">
-            <div class="leader-title"><strong>Anchoring Leaders</strong></div>
-            <div class="leader-grid">
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image6.jpeg" alt="Jeff Bezos">
-                <div class="leader-meta"><div class="name">Jeff Bezos</div><div class="role">Customer obsession • work backward</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image7.jpeg" alt="Steve Blank">
-                <div class="leader-meta"><div class="name">Steve Blank</div><div class="role">Lean learning • test assumptions fast</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image8.jpeg" alt="Brian Chesky">
-                <div class="leader-meta"><div class="name">Brian Chesky</div><div class="role">Empathy as advantage • design that works</div></div>
-              </div>
-            </div>
-          </div>
-
-          <p class="note">Narrative: Inventing the Future by Understanding the Present</p>
-          <p>
-            Innovation doesn’t begin with technology. It begins with observation — real people, real frustrations, real
-            behaviors. This module teaches how to learn from users, experiment intelligently, and design solutions that
-            create real value.
-          </p>
-
-          <h3>Jeff Bezos — Obsess Over the Customer</h3>
-          <p><em>Start with the customer and work backward.</em></p>
-          <ul class="bullets">
-            <li>Map the customer journey and find friction points</li>
-            <li>Prototype small and test with real users</li>
-            <li>View mistakes as data, not failures</li>
-            <li>Ground innovation in needs that don’t change</li>
-          </ul>
-
-          <h3>Steve Blank — Test Before You Build</h3>
-          <p>Replace assumptions with experiments. Speed of learning beats polish.</p>
-          <ul class="bullets">
-            <li>Document hypotheses and test systematically</li>
-            <li>Build an MVP</li>
-            <li>Interview users; gather real insights</li>
-            <li>Iterate rapidly</li>
-          </ul>
-
-          <h3>Brian Chesky — Empathy as Competitive Advantage</h3>
-          <p>Design is how it works — and it works best when it feels personal.</p>
-          <ul class="bullets">
-            <li>Spend time with users in real settings</li>
-            <li>Ask questions that reveal emotional truths</li>
-            <li>Prototype quickly; refine with feedback</li>
-            <li>Great products solve human problems</li>
-          </ul>
-
-          <h3>Key Takeaways</h3>
-          <p>
-            Innovators pay attention — to behaviors, frictions, and unspoken needs. Innovation is the practice of empathy,
-            experimentation, and courage.
-          </p>
-        </section>
-
-        <!-- MODULE 4 -->
-        <section class="card" id="module-4-business-models-value-creation">
-          <h2>MODULE 4 — BUSINESS MODELS &amp; VALUE CREATION</h2>
-
-          <div class="leader-band">
-            <div class="leader-title"><strong>Anchoring Leaders</strong></div>
-            <div class="leader-grid">
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image9.jpeg" alt="Jensen Huang">
-                <div class="leader-meta"><div class="name">Jensen Huang</div><div class="role">Value stacks • ecosystems • compounding advantage</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image10.jpeg" alt="Evan Spiegel">
-                <div class="leader-meta"><div class="name">Evan Spiegel</div><div class="role">Behavioral design • instinct → product</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image11.jpeg" alt="Ralph Lauren">
-                <div class="leader-meta"><div class="name">Ralph Lauren</div><div class="role">Identity value • meaning • aspiration</div></div>
-              </div>
-            </div>
-          </div>
-
-          <p class="note">Narrative: How Value Is Created, Captured, and Compounded</p>
-          <p>
-            A great idea is not enough — what matters is how that idea creates value. Value can be functional or symbolic,
-            simple or layered. This module teaches the architecture of value.
-          </p>
-
-          <h3>Jensen Huang — Build Value in Layers</h3>
-          <ul class="bullets">
-            <li>Think in systems, not single offerings</li>
-            <li>Ask: What comes before and after my product?</li>
-            <li>Create value that increases over time</li>
-            <li>Support partners so your success becomes their success</li>
-          </ul>
-
-          <h3>Evan Spiegel — Design Around Human Behavior</h3>
-          <ul class="bullets">
-            <li>Watch behavior more than opinions</li>
-            <li>Build around emotional needs</li>
-            <li>Simplify until it feels effortless</li>
-            <li>Protect identity; not everything must expand</li>
-          </ul>
-
-          <h3>Ralph Lauren — Create Value Through Identity</h3>
-          <ul class="bullets">
-            <li>Build a clear identity for what you create</li>
-            <li>Understand how people want to see themselves</li>
-            <li>Use story as a strategic asset</li>
-            <li>Consistency compounds over decades</li>
-          </ul>
-
-          <h3>Key Takeaways</h3>
-          <p>
-            Value is never one-dimensional. The best entrepreneurs create value people can use, feel, and return to.
-          </p>
-        </section>
-
-        <!-- MODULE 5 -->
-        <section class="card" id="module-5-go-to-market-strategy-growth">
-          <h2>MODULE 5 — GO-TO-MARKET STRATEGY &amp; GROWTH</h2>
-
-          <div class="leader-band">
-            <div class="leader-title"><strong>Anchoring Leaders</strong></div>
-            <div class="leader-grid">
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image12.jpeg" alt="Marc Benioff">
-                <div class="leader-meta"><div class="name">Marc Benioff</div><div class="role">Category creation • movement building</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image13.jpeg" alt="Philip Kotler">
-                <div class="leader-meta"><div class="name">Philip Kotler</div><div class="role">Strategy before tactics • STP clarity</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image14.jpeg" alt="Howard Schultz">
-                <div class="leader-meta"><div class="name">Howard Schultz</div><div class="role">Experience • loyalty • “third place”</div></div>
-              </div>
-            </div>
-          </div>
-
-          <p class="note">Narrative: How Ideas Reach the World</p>
-          <p>
-            Go-to-market is the bridge between creation and impact. This module teaches how to grow an idea from zero to
-            traction through strategy, story, and experience.
-          </p>
-
-          <h3>Marc Benioff — Create the Movement</h3>
-          <ul class="bullets">
-            <li>Lead with a point of view</li>
-            <li>Build community early</li>
-            <li>Define the category you will lead</li>
-            <li>Use narrative to create believers</li>
-          </ul>
-
-          <h3>Philip Kotler — Strategy Before Tactics</h3>
-          <ul class="bullets">
-            <li>Find your smallest, most passionate initial segment</li>
-            <li>Clarify your one-sentence positioning</li>
-            <li>Fit message to customer worldview</li>
-            <li>Prioritize resonance over reach</li>
-          </ul>
-
-          <h3>Howard Schultz — Create Experiences People Return To</h3>
-          <ul class="bullets">
-            <li>Design rituals that keep users engaged</li>
-            <li>Consistency builds trust</li>
-            <li>Emotion is a growth engine</li>
-            <li>Loyal customers become advocates</li>
-          </ul>
-
-          <h3>Key Takeaways</h3>
-          <p>
-            Growth isn’t about being louder — it’s about being clearer, truer, and more human.
-          </p>
-        </section>
-
-        <!-- MODULE 6 -->
-        <section class="card" id="module-6-decision-making-under-uncertainty">
-          <h2>MODULE 6 — DECISION-MAKING UNDER UNCERTAINTY</h2>
-
-          <div class="leader-band">
-            <div class="leader-title"><strong>Anchoring Leaders</strong></div>
-            <div class="leader-grid">
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image15.jpeg" alt="Ken Griffin">
-                <div class="leader-meta"><div class="name">Ken Griffin</div><div class="role">Precision in chaos • probabilistic rigor</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image16.jpeg" alt="Warren Buffett">
-                <div class="leader-meta"><div class="name">Warren Buffett</div><div class="role">Temperament • patience • emotional control</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image17.jpeg" alt="Satya Nadella">
-                <div class="leader-meta"><div class="name">Satya Nadella</div><div class="role">Perspective • empathy • culture of truth</div></div>
-              </div>
-            </div>
-          </div>
-
-          <p class="note">Narrative: Clarity When the Path Is Unclear</p>
-          <p>
-            Entrepreneurship requires deciding with incomplete information, real stakes, and a foggy future. This module
-            teaches rational, disciplined decision-making under uncertainty.
-          </p>
-
-          <h3>Ken Griffin — Precision in Chaos</h3>
-          <ul class="bullets">
-            <li>Break decisions into knowns, unknowns, assumptions</li>
-            <li>Use expected-value thinking</li>
-            <li>Set risk limits</li>
-            <li>Speed + rigor beats certainty</li>
-          </ul>
-
-          <h3>Warren Buffett — Emotional Control Is a Superpower</h3>
-          <ul class="bullets">
-            <li>Don’t let urgency force premature decisions</li>
-            <li>Recognize cognitive biases</li>
-            <li>Favor long-term clarity over short-term stimulation</li>
-            <li>Let temperament protect judgment</li>
-          </ul>
-
-          <h3>Satya Nadella — Clarity Through Empathy &amp; Perspective</h3>
-          <ul class="bullets">
-            <li>Ask: Who is affected, and how?</li>
-            <li>Combine data with context</li>
-            <li>Build environments where information flows honestly</li>
-            <li>Let humility sharpen analysis</li>
-          </ul>
-
-          <h3>Key Takeaways</h3>
-          <p>
-            Seek clarity, not prediction. Build the kind of mindset that chooses well — repeatedly.
-          </p>
-        </section>
-
-        <!-- MODULE 7 -->
-        <section class="card" id="module-7-leadership-team-building">
-          <h2>MODULE 7 — LEADERSHIP &amp; TEAM BUILDING</h2>
-
-          <div class="leader-band">
-            <div class="leader-title"><strong>Anchoring Leaders</strong></div>
-            <div class="leader-grid">
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image18.jpeg" alt="Herb Kelleher">
-                <div class="leader-meta"><div class="name">Herb Kelleher</div><div class="role">Joyful culture • trust • loyalty</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image19.jpeg" alt="Ed Catmull">
-                <div class="leader-meta"><div class="name">Ed Catmull</div><div class="role">Candor • creative systems • safety</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image20.jpeg" alt="Indra Nooyi">
-                <div class="leader-meta"><div class="name">Indra Nooyi</div><div class="role">Strategic empathy • high standards</div></div>
-              </div>
-            </div>
-          </div>
-
-          <p class="note">Narrative: Leadership as Culture, Creativity, and Care</p>
-          <p>
-            True leadership creates environments where people feel trusted, inspired, and empowered to do meaningful work.
-            This module teaches leadership through culture, creativity, communication, and character.
-          </p>
-
-          <h3>Key Takeaways</h3>
-          <p>
-            Culture inspires. Creativity empowers. Empathy unites. Leadership isn’t something you wait to practice — it’s
-            something you express consistently.
-          </p>
-        </section>
-
-        <!-- MODULE 8 -->
-        <section class="card" id="module-8-financial-literacy-for-entrepreneurs">
-          <h2>MODULE 8 — FINANCIAL LITERACY FOR ENTREPRENEURS</h2>
-
-          <div class="leader-band">
-            <div class="leader-title"><strong>Anchoring Leaders</strong></div>
-            <div class="leader-grid">
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image25.jpeg" alt="Charlie Munger">
-                <div class="leader-meta"><div class="name">Charlie Munger</div><div class="role">Mental models • rational decision-making</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image22.jpeg" alt="Sara Blakely">
-                <div class="leader-meta"><div class="name">Sara Blakely</div><div class="role">Resourcefulness • discipline with scarcity</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image21.jpeg" alt="Sam Walton">
-                <div class="leader-meta"><div class="name">Sam Walton</div><div class="role">Unit economics • cash discipline • efficiency</div></div>
-              </div>
-            </div>
-          </div>
-
-          <p>
-            Financial literacy is not jargon — it’s choices: what you do with limited resources when the future is uncertain.
-            Master money early to build freedom, opportunity, and resilience.
-          </p>
-        </section>
-
-        <!-- MODULE 9 -->
-        <section class="card" id="module-9-execution-systems-operations">
-          <h2>MODULE 9 — EXECUTION, SYSTEMS &amp; OPERATIONS</h2>
-
-          <div class="leader-band">
-            <div class="leader-title"><strong>Anchoring Leaders</strong></div>
-            <div class="leader-grid">
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image24.jpeg" alt="Tim Cook">
-                <div class="leader-meta"><div class="name">Tim Cook</div><div class="role">Precision execution • reliability at scale</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image23.jpeg" alt="W. Edwards Deming">
-                <div class="leader-meta"><div class="name">W. Edwards Deming</div><div class="role">Systems thinking • continuous improvement</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image26.jpeg" alt="Sheryl Sandberg">
-                <div class="leader-meta"><div class="name">Sheryl Sandberg</div><div class="role">Alignment • scalable communication</div></div>
-              </div>
-            </div>
-          </div>
-
-          <p>
-            Execution turns ambition into results. Systems turn results into momentum. Momentum becomes mastery.
-          </p>
-        </section>
-
-        <!-- MODULE 10 -->
-        <section class="card" id="module-10-ethics-responsibility-long-term-thinking">
-          <h2>MODULE 10 — ETHICS, RESPONSIBILITY &amp; LONG-TERM THINKING</h2>
-
-          <div class="leader-band">
-            <div class="leader-title"><strong>Anchoring Leaders</strong></div>
-            <div class="leader-grid">
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image27.jpeg" alt="Yvon Chouinard">
-                <div class="leader-meta"><div class="name">Yvon Chouinard</div><div class="role">Principles • stewardship • integrity</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image6.jpeg" alt="Jeff Bezos">
-                <div class="leader-meta"><div class="name">Jeff Bezos</div><div class="role">Decades, not quarters • Day 1 mindset</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image28.jpeg" alt="Ratan Tata">
-                <div class="leader-meta"><div class="name">Ratan Tata</div><div class="role">Humanity • trust • quiet strength</div></div>
-              </div>
-            </div>
-          </div>
-
-          <p>
-            Ethics and ambition are not opposites — they reinforce each other. Responsibility builds trust. Trust builds
-            longevity. Longevity builds impact.
-          </p>
-        </section>
-
-        <!-- MODULE 11 -->
-        <section class="card" id="module-11-brand-building-storytelling">
-          <h2>MODULE 11 — BRAND-BUILDING &amp; STORYTELLING</h2>
-
-          <div class="leader-band">
-            <div class="leader-title"><strong>Anchoring Leaders</strong></div>
-            <div class="leader-grid">
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image29.jpeg" alt="Steve Jobs">
-                <div class="leader-meta"><div class="name">Steve Jobs</div><div class="role">Simplicity • emotion • narrative</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image30.jpeg" alt="Walt Disney">
-                <div class="leader-meta"><div class="name">Walt Disney</div><div class="role">World-building • consistency • delight</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image31.jpeg" alt="Simon Sinek">
-                <div class="leader-meta"><div class="name">Simon Sinek</div><div class="role">Purpose • “why” clarity • trust</div></div>
-              </div>
-            </div>
-          </div>
-
-          <p>
-            A brand is a promise — wrapped in a story — delivered through an experience. Tell a story that’s true, simple,
-            and consistent with your values and vision.
-          </p>
-        </section>
-
-        <!-- MODULE 12 -->
-        <section class="card" id="module-12-digital-transformation-ai-for-entrepreneurs">
-          <h2>MODULE 12 — DIGITAL TRANSFORMATION &amp; AI FOR ENTREPRENEURS</h2>
-
-          <div class="leader-band">
-            <div class="leader-title"><strong>Anchoring Leaders</strong></div>
-            <div class="leader-grid">
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image32.jpeg" alt="Fei-Fei Li">
-                <div class="leader-meta"><div class="name">Fei-Fei Li</div><div class="role">Human-centered AI • ethics</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image33.jpeg" alt="Sam Altman">
-                <div class="leader-meta"><div class="name">Sam Altman</div><div class="role">Ambition • possibility • responsibility</div></div>
-              </div>
-              <div class="leader-card">
-                <img src="assets/img/entrepreneurship/image34.jpeg" alt="Demis Hassabis">
-                <div class="leader-meta"><div class="name">Demis Hassabis</div><div class="role">AI for discovery • scientific frontier</div></div>
-              </div>
-            </div>
-          </div>
-
-          <p>
-            Digital transformation is not about technology replacing humans. It’s about technology amplifying what is best
-            in us — creativity, knowledge, empathy, and discovery.
-          </p>
-        </section>
-
-        <!-- CLOSING -->
-        <section class="card" id="closing-chapter-key-takeaways">
-          <h2>CLOSING CHAPTER — KEY TAKEAWAYS</h2>
-          <p>
-            This platform has explored the complete arc of entrepreneurial development — from seeing problems to shaping
-            the future. Across all modules, a few universal principles emerge:
-          </p>
-
-          <ol class="bullets">
-            <li><strong>Curiosity</strong> is the beginning of all insight.</li>
-            <li><strong>Creativity</strong> is stronger when paired with structure.</li>
-            <li><strong>Value</strong> comes from understanding people.</li>
-            <li><strong>Judgment</strong> outperforms raw intelligence.</li>
-            <li><strong>Money</strong> is a tool — master it early.</li>
-            <li><strong>Execution</strong> wins. Ideas don’t.</li>
-            <li><strong>Leadership</strong> is service.</li>
-            <li><strong>Ethics</strong> create longevity.</li>
-            <li><strong>Storytelling</strong> multiplies impact.</li>
-            <li><strong>Technology</strong> amplifies who you already are.</li>
-          </ol>
-
-          <p class="note">
-            Final Note: The world you are entering is full of complexity and opportunity. This platform equips you not
-            only to navigate it, but to shape it — with creativity, clarity, courage, and character.
-          </p>
-        </section>
-
-      </article>
+    <section id="modules" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Modules</h2>
+          <p>Each module is a complete lesson with narrative, frameworks, takeaways, and exercises — anchored by three leaders.</p>
+        </div>
+
+        <div class="module-grid">
+
+<!-- MODULE 1 -->
+<details class="module-card" id="m1">
+  <summary class="module-summary">
+    <div class="module-kicker">Module 1</div>
+    <div class="module-title">PROBLEM SOLVING &amp; OPPORTUNITY IDENTIFICATION</div>
+    <div class="module-blurb">Click to open the full module curriculum, frameworks, and exercises.</div>
+    <div class="module-chevron" aria-hidden="true">+</div>
+  </summary>
+  <div class="module-body">
+    <div class="module-media-row">
+      <figure class="module-figure"><img src="assets/img/image1.jpeg" alt="Problem Solving &amp; Opportunity Identification leader 1" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image2.jpeg" alt="Problem Solving &amp; Opportunity Identification leader 2" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image3.jpeg" alt="Problem Solving &amp; Opportunity Identification leader 3" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="module-copy">
+      <p class="module-meta"><strong>Anchoring Leaders: Elon Musk, Peter Drucker, Jack Dorsey</strong></p>
+      <p class="module-meta">Tone: Blended Inspirational + Actionable (for a mature 17-year-old entering college)</p>
+      <h4>Narrative: Seeing What Others Miss</h4>
+      <p>Every entrepreneur begins with a moment — not of brilliance, but of noticing what others overlook and turning it into a path.</p>
+      <p>The world is full of problems disguised as “normal.” Most people accept them. Some complain about them. The exceptional learn to widen them into doorways.</p>
+      <p>This module teaches your son the first and most essential skill in entrepreneurship: the ability to identify real problems, define what truly matters, and transform a problem into a path.</p>
+      <p>And for this foundation, we turn to three leaders who mastered the art of seeing differently.</p>
+      <p><strong>Elon Musk — Reimagine the Problem</strong></p>
+      <p>Musk’s signature gift is not rockets or electric cars. It is the ability to look directly at a problem and ask:</p>
+      <p>“What is actually true here — and what have we simply accepted?”</p>
+      <p>He breaks challenges down to physics, cost curves, and natural constraints — and rebuilds from there. Everything else — tradition, industry norms, “the way things are done” — is noise.</p>
+      <p>For a young entrepreneur entering college, this is a powerful approach: don’t just solve the problem. Challenge the assumption and rebuild your understanding from the ground up.</p>
+      <h4>Actionable takeaways for your son</h4>
+      <ul>
+        <li>Don’t accept inherited definitions of a problem</li>
+        <li>Reduce challenges to first principles</li>
+        <li>Start with constraints, not conventions</li>
+      </ul>
+      <p><strong>Peter Drucker — Define the Real Need</strong></p>
+      <p>Drucker, the father of modern management, believed that entrepreneurship begins with clarity.</p>
+      <p>Not “What product should I build?”</p>
+      <p>But “What need exists — and who is served?”</p>
+      <p>He taught leaders to observe systems, incentives, and human behavior with discipline and humility. Problems are rarely solved by intuition alone; they are solved by asking better questions.</p>
+      <h4>Actionable takeaways for your son</h4>
+      <ul>
+        <li>Learn to diagnose before you prescribe</li>
+        <li>Ask: “Who is the customer? What do they value?”</li>
+        <li>Distinguish symptoms from root causes</li>
+      </ul>
+      <p><strong>Jack Dorsey — Simplicity as an Opportunity Filter</strong></p>
+      <p>Dorsey built products around one obsession: reducing friction.</p>
+      <p>Square existed because he saw small businesses blocked by complexity. Twitter succeeded because it stripped communication to something fast and simple.</p>
+      <p>His lesson: opportunities often live where things are unnecessarily hard.</p>
+      <h4>Actionable takeaways for your son</h4>
+      <ul>
+        <li>Find friction and remove it</li>
+        <li>Simplify the customer experience</li>
+        <li>Let constraints sharpen creativity</li>
+      </ul>
+      <h4>Exercises</h4>
+      <ul>
+        <li>Opportunity Journal: Write down 5 frustrations per day for one week. Choose one and analyze it with first principles (Musk), diagnosis (Drucker), and simplification (Dorsey).</li>
+        <li>“Why ladder” drill: For one chosen problem, ask “why?” five times to locate root cause.</li>
+        <li>Friction map: List steps a user must take to complete a task; highlight where effort spikes.</li>
+      </ul>
+      <h4>Reflection</h4>
+      <p>Entrepreneurship begins with perception. What does your son notice that others normalize? If he trains this skill now, he will carry it into every class, internship, and career decision.</p>
+    </div>
+  </div>
+</details>
+
+<!-- MODULE 2 -->
+<details class="module-card" id="m2">
+  <summary class="module-summary">
+    <div class="module-kicker">Module 2</div>
+    <div class="module-title">CREATIVITY × ANALYTICAL THINKING</div>
+    <div class="module-blurb">Click to open the full module curriculum, frameworks, and exercises.</div>
+    <div class="module-chevron" aria-hidden="true">+</div>
+  </summary>
+  <div class="module-body">
+    <div class="module-media-row">
+      <figure class="module-figure"><img src="assets/img/image4.jpeg" alt="Creativity × Analytical Thinking leader 1" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image5.jpeg" alt="Creativity × Analytical Thinking leader 2" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image6.jpeg" alt="Creativity × Analytical Thinking leader 3" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="module-copy">
+      <p class="module-meta"><strong>Anchoring Leaders: Reed Hastings, Tim Brown, Leonardo da Vinci</strong></p>
+      <p class="module-meta">Tone: Thoughtful + Expansive + Structured (for a student who loves both logic and creativity)</p>
+      <h4>Narrative: The Competitive Advantage of “Both/And”</h4>
+      <p>Most people think creativity and analytical thinking live on opposite sides of the brain. But modern entrepreneurship belongs to those who can do both: imagine something new and then build it with rigor.</p>
+      <p>This module teaches your son how to unite these two strengths — and how that fusion becomes a real competitive advantage.</p>
+      <p><strong>Reed Hastings — Data + Taste</strong></p>
+      <p>Netflix succeeded because Hastings blended data science with creative intuition. He used analytics to understand behavior, but he also invested in storytelling, culture, and product experience.</p>
+      <p>His lesson: the best builders measure what’s true, but they also sense what matters.</p>
+      <h4>Actionable takeaways</h4>
+      <ul>
+        <li>Use data to reduce uncertainty — not to avoid judgment</li>
+        <li>Hold opinions, but update them with evidence</li>
+        <li>Build feedback loops for both numbers and experience</li>
+      </ul>
+      <p><strong>Tim Brown — Design Thinking as a Method</strong></p>
+      <p>Tim Brown (IDEO) teaches that creativity isn’t randomness — it’s a process. Design thinking is a repeatable method for generating ideas, testing them, and refining them through empathy and iteration.</p>
+      <h4>Actionable takeaways</h4>
+      <ul>
+        <li>Start with empathy: understand the user’s lived experience</li>
+        <li>Prototype quickly to learn cheaply</li>
+        <li>Iterate based on real feedback, not ego</li>
+      </ul>
+      <p><strong>Leonardo da Vinci — Curiosity Without Borders</strong></p>
+      <p>Da Vinci had no categories. Art, science, anatomy, mechanics — all were one exploration. His lesson for your son: curiosity across domains is not a distraction. It’s an advantage.</p>
+      <h4>Actionable takeaways</h4>
+      <ul>
+        <li>Cross-train your mind by exploring outside your “major”</li>
+        <li>Keep a notebook for questions, sketches, and hypotheses</li>
+        <li>Make connections across disciplines</li>
+      </ul>
+      <h4>Exercises</h4>
+      <ul>
+        <li>“Both/And” Challenge: Pick one business idea. Write (1) the creative vision, then (2) the analytical model (assumptions, numbers, constraints).</li>
+        <li>Rapid prototypes: Create 3 versions of the same idea in 30 minutes (sketches, storyboards, UI screens, paper models).</li>
+        <li>Curiosity map: List 10 topics you’re curious about; circle 3 and design a one-week micro-study plan.</li>
+      </ul>
+      <h4>Reflection</h4>
+      <p>The future belongs to builders who can think in systems and still see beauty, meaning, and human desire. If your son can integrate creativity with analytical rigor, he becomes rare.</p>
+    </div>
+  </div>
+</details>
+
+<!-- MODULE 3 -->
+<details class="module-card" id="m3">
+  <summary class="module-summary">
+    <div class="module-kicker">Module 3</div>
+    <div class="module-title">INNOVATION &amp; DESIGN THINKING</div>
+    <div class="module-blurb">Click to open the full module curriculum, frameworks, and exercises.</div>
+    <div class="module-chevron" aria-hidden="true">+</div>
+  </summary>
+  <div class="module-body">
+    <div class="module-media-row">
+      <figure class="module-figure"><img src="assets/img/image7.jpeg" alt="Innovation &amp; Design Thinking leader 1" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image8.jpeg" alt="Innovation &amp; Design Thinking leader 2" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image9.jpeg" alt="Innovation &amp; Design Thinking leader 3" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="module-copy">
+      <p class="module-meta"><strong>Anchoring Leaders: Jeff Bezos, Steve Blank, Brian Chesky</strong></p>
+      <p class="module-meta">Tone: Practical + Modern + Builder-focused</p>
+      <h4>Narrative: Innovation Is a System</h4>
+      <p>Innovation is often romanticized as inspiration. In reality, innovation is a system: a disciplined way of discovering what people need and building solutions that scale.</p>
+      <p>This module teaches your son the core frameworks behind modern innovation and startup building.</p>
+      <p><strong>Jeff Bezos — Customer Obsession</strong></p>
+      <p>Bezos built Amazon around one principle: obsess over the customer, not the competition. He believed that if you make decisions from the customer backward, you will outlast cycles and competitors.</p>
+      <h4>Takeaways</h4>
+      <ul>
+    <!-- =======================
+         CONTINUED MODULES (5–8)
+    ======================== -->
+    <section class="section">
+      <div class="container">
+        <div class="module-grid">
+
+<!-- MODULE 5 -->
+<details class="module-card" id="m5">
+  <summary class="module-summary">
+    <div class="module-kicker">Module 5</div>
+    <div class="module-title">EXECUTION, OPERATING SYSTEMS &amp; DISCIPLINE</div>
+    <div class="module-blurb">Click to open the full module curriculum, frameworks, and exercises.</div>
+    <div class="module-chevron" aria-hidden="true">+</div>
+  </summary>
+  <div class="module-body">
+    <div class="module-media-row">
+      <figure class="module-figure"><img src="assets/img/image13.jpeg" alt="Execution, Operating Systems &amp; Discipline leader 1" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image14.jpeg" alt="Execution, Operating Systems &amp; Discipline leader 2" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image15.jpeg" alt="Execution, Operating Systems &amp; Discipline leader 3" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="module-copy">
+      <p class="module-meta"><strong>Anchoring Leaders: Ray Dalio, James Clear, Jeff Weiner</strong></p>
+      <p class="module-meta">Tone: Systems-driven + Practical</p>
+      <h4>Narrative: Talent Doesn’t Scale — Systems Do</h4>
+      <p>Big goals don’t fail because people lack ambition. They fail because they lack systems.</p>
+      <p>This module helps your son develop a personal operating system — habits, feedback loops, and discipline that compound.</p>
+      <p><strong>Ray Dalio — Principles + Feedback</strong></p>
+      <p>Dalio built Bridgewater by turning his thinking into principles and systems. His idea: pain + reflection = progress.</p>
+      <h4>Takeaways</h4>
+      <ul>
+        <li>Write principles that guide decisions</li>
+        <li>Create feedback loops (people, metrics, reflection)</li>
+        <li>Turn mistakes into structured learning</li>
+      </ul>
+      <p><strong>James Clear — Habits as Identity</strong></p>
+      <p>Clear teaches that habits are not just actions — they are votes for the type of person you want to become.</p>
+      <h4>Takeaways</h4>
+      <ul>
+        <li>Design your environment to support behavior</li>
+        <li>Make habits small and consistent</li>
+        <li>Focus on identity (“I am the kind of person who…”)</li>
+      </ul>
+      <p><strong>Jeff Weiner — Compassionate Management</strong></p>
+      <p>Weiner built LinkedIn with a focus on compassionate leadership and disciplined execution — high standards without losing humanity.</p>
+      <h4>Takeaways</h4>
+      <ul>
+        <li>Lead with clarity, but treat people with dignity</li>
+        <li>Time-block priorities</li>
+        <li>Build routines that protect deep work</li>
+      </ul>
+      <h4>Exercises</h4>
+      <ul>
+        <li>Create your “Operating System” document: principles, values, routines, and decision rules.</li>
+        <li>Weekly review: wins, losses, lessons, next actions.</li>
+        <li>Environment audit: remove friction for good habits; add friction for bad ones.</li>
+      </ul>
+      <h4>Reflection</h4>
+      <p>Consistency is a superpower. If your son builds a system now, he will carry it through college and beyond.</p>
+    </div>
+  </div>
+</details>
+
+<!-- MODULE 6 -->
+<details class="module-card" id="m6">
+  <summary class="module-summary">
+    <div class="module-kicker">Module 6</div>
+    <div class="module-title">FINANCE, CAPITAL &amp; INVESTOR THINKING</div>
+    <div class="module-blurb">Click to open the full module curriculum, frameworks, and exercises.</div>
+    <div class="module-chevron" aria-hidden="true">+</div>
+  </summary>
+  <div class="module-body">
+    <div class="module-media-row">
+      <figure class="module-figure"><img src="assets/img/image16.jpeg" alt="Finance, Capital &amp; Investor Thinking leader 1" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image17.jpeg" alt="Finance, Capital &amp; Investor Thinking leader 2" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image18.jpeg" alt="Finance, Capital &amp; Investor Thinking leader 3" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="module-copy">
+      <p class="module-meta"><strong>Anchoring Leaders: Ken Griffin, Howard Marks, Cathie Wood</strong></p>
+      <p class="module-meta">Tone: Clear + Sophisticated (but teachable)</p>
+      <h4>Narrative: Money Is Decision-Making Under Uncertainty</h4>
+      <p>Finance isn’t just math. It’s judgment. It’s the discipline of making decisions under uncertainty and managing risk with humility.</p>
+      <p>This module teaches your son to think like an investor: probability, downside protection, and long-term compounding.</p>
+      <p><strong>Ken Griffin — Edge and Discipline</strong></p>
+      <p>Griffin built Citadel on rigorous research, risk management, and relentless learning. His lesson: intelligence without discipline is noise.</p>
+      <h4>Takeaways</h4>
+      <ul>
+        <li>Risk management is as important as upside</li>
+        <li>Build research habits</li>
+        <li>Decision quality matters more than outcomes</li>
+      </ul>
+      <p><strong>Howard Marks — Second-Level Thinking</strong></p>
+      <p>Marks teaches that markets reward those who think beyond the obvious. “Second-level thinking” means asking: what is priced in? what could surprise?</p>
+      <h4>Takeaways</h4>
+      <ul>
+        <li>Separate fundamentals from sentiment</li>
+        <li>Look for mispricing and psychology</li>
+        <li>Understand cycles</li>
+      </ul>
+      <p><strong>Cathie Wood — Conviction + Time Horizon</strong></p>
+      <p>Wood invests in disruptive innovation with deep conviction and long time horizons. Her lesson: the future is shaped by technology, but conviction must be backed by research.</p>
+      <h4>Takeaways</h4>
+      <ul>
+        <li>Time horizon is a strategy</li>
+        <li>Learn to underwrite a thesis</li>
+        <li>Conviction must be earned</li>
+      </ul>
+      <h4>Exercises</h4>
+      <ul>
+        <li>Build an “investment memo” for one company: thesis, risks, valuation logic, time horizon.</li>
+        <li>Probability thinking: assign probabilities to 3 outcomes and compute expected value.</li>
+        <li>Risk map: identify worst-case scenarios and how to mitigate them.</li>
+      </ul>
+      <h4>Reflection</h4>
+      <p>Finance teaches humility. The goal is not certainty — it’s disciplined thinking in uncertainty.</p>
+    </div>
+  </div>
+</details>
+
+<!-- MODULE 7 -->
+<details class="module-card" id="m7">
+  <summary class="module-summary">
+    <div class="module-kicker">Module 7</div>
+    <div class="module-title">STORYTELLING, BRAND &amp; POSITIONING</div>
+    <div class="module-blurb">Click to open the full module curriculum, frameworks, and exercises.</div>
+    <div class="module-chevron" aria-hidden="true">+</div>
+  </summary>
+  <div class="module-body">
+    <div class="module-media-row">
+      <figure class="module-figure"><img src="assets/img/image19.jpeg" alt="Storytelling, Brand &amp; Positioning leader 1" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image20.jpeg" alt="Storytelling, Brand &amp; Positioning leader 2" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image21.jpeg" alt="Storytelling, Brand &amp; Positioning leader 3" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="module-copy">
+      <p class="module-meta"><strong>Anchoring Leaders: Steve Jobs, Ralph Lauren, Oprah Winfrey</strong></p>
+      <p class="module-meta">Tone: Meaning-driven + Craft-focused</p>
+      <h4>Narrative: People Don’t Buy Products — They Buy Meaning</h4>
+      <p>Brand is not a logo. It’s an idea people want to belong to.</p>
+      <p>This module teaches your son how to create clarity, trust, and identity through storytelling and positioning.</p>
+      <p><strong>Steve Jobs — Simplicity and Narrative</strong></p>
+      <p>Jobs didn’t just build products; he built stories about the future. His obsession with simplicity created trust.</p>
+      <h4>Takeaways</h4>
+      <ul>
+        <li>Clarity is a competitive advantage</li>
+        <li>Storytelling makes ideas memorable</li>
+        <li>Design communicates values</li>
+      </ul>
+      <p><strong>Ralph Lauren — Identity and Lifestyle</strong></p>
+      <p>Lauren built a world, not a shirt. His genius was turning clothing into a story of aspiration and timelessness.</p>
+      <h4>Takeaways</h4>
+      <ul>
+        <li>Brand is identity</li>
+        <li>Consistency builds trust</li>
+        <li>Timeless beats trendy</li>
+      </ul>
+      <p><strong>Oprah Winfrey — Trust and Connection</strong></p>
+      <p>Oprah’s empire was built on credibility and connection. Her lesson: trust compounds.</p>
+      <h4>Takeaways</h4>
+      <ul>
+        <li>Build authenticity</li>
+        <li>Create emotional resonance</li>
+        <li>Long-term relationships matter</li>
+      </ul>
+      <h4>Exercises</h4>
+      <ul>
+        <li>Write a one-sentence positioning statement: “For ___ who ___, our product is ___ that ___.”</li>
+        <li>Story arc: define the “before,” “challenge,” and “after” of your customer’s journey.</li>
+        <li>Brand moodboard: pick 10 images/words that represent the identity you want to build.</li>
+      </ul>
+      <h4>Reflection</h4>
+      <p>Your son is building a life story, too — one shaped by clarity, values, and the ability to communicate meaning.</p>
+    </div>
+  </div>
+</details>
+
+<!-- MODULE 8 -->
+<details class="module-card" id="m8">
+  <summary class="module-summary">
+    <div class="module-kicker">Module 8</div>
+    <div class="module-title">LEADERSHIP, CULTURE &amp; TEAM BUILDING</div>
+    <div class="module-blurb">Click to open the full module curriculum, frameworks, and exercises.</div>
+    <div class="module-chevron" aria-hidden="true">+</div>
+  </summary>
+  <div class="module-body">
+    <div class="module-media-row">
+      <figure class="module-figure"><img src="assets/img/image22.jpeg" alt="Leadership, Culture &amp; Team Building leader 1" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image23.jpeg" alt="Leadership, Culture &amp; Team Building leader 2" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image24.jpeg" alt="Leadership, Culture &amp; Team Building leader 3" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="module-copy">
+      <p class="module-meta"><strong>Anchoring Leaders: Satya Nadella, Coach K, Sheryl Sandberg</strong></p>
+      <p class="module-meta">Tone: High standards + Human leadership</p>
+      <h4>Narrative: Culture Is the Invisible Operating System</h4>
+      <p>Great teams don’t happen by accident. Culture is the invisible operating system — what people do when nobody is watching.</p>
+      <p>This module teaches your son how to lead with empathy, accountability, and standards.</p>
+      <p><strong>Satya Nadella — Growth Mindset Culture</strong></p>
+      <p>Nadella transformed Microsoft by shifting culture from “know-it-all” to “learn-it-all.”</p>
+      <h4>Takeaways</h4>
+      <ul>
+        <li>Culture is shaped by what leaders reward</li>
+        <li>Curiosity beats ego</li>
+        <li>Empathy increases performance</li>
+      </ul>
+      <p><strong>Coach K — Standards and Trust</strong></p>
+      <p>Coach K built legendary teams through trust, clarity, and relentless standards.</p>
+      <h4>Takeaways</h4>
+      <ul>
+        <li>Set standards early</li>
+        <li>Build trust through consistency</li>
+        <li>Hold people accountable with respect</li>
+      </ul>
+      <p><strong>Sheryl Sandberg — Empowerment and Execution</strong></p>
+      <p>Sandberg emphasizes empowerment: hiring well, setting clear expectations, and giving people ownership.</p>
+      <h4>Takeaways</h4>
+      <ul>
+        <li>Great leaders create other leaders</li>
+        <li>Clarity enables autonomy</li>
+        <li>Execution requires alignment</li>
+      </ul>
+      <h4>Exercises</h4>
+      <ul>
+        <li>Write your “team principles”: how you want to work, communicate, and resolve conflict.</li>
+        <li>Culture audit: what behaviors are rewarded in your current teams (school, sports, clubs)?</li>
+        <li>Leadership practice: run a meeting with a clear agenda and follow-up actions.</li>
+      </ul>
+      <h4>Reflection</h4>
+      <p>Leadership is not a title — it’s behavior. The earlier your son practices, the more natural it becomes.</p>
+    </div>
+  </div>
+</details>
+
+        </div>
+      </div>
     </section>
+
+    <!-- CONTINUE: paste Part 3 immediately after this comment (Modules 9–12 + footer) -->
+    <!-- =======================
+         CONTINUED MODULES (9–12)
+    ======================== -->
+    <section class="section">
+      <div class="container">
+        <div class="module-grid">
+
+<!-- MODULE 9 -->
+<details class="module-card" id="m9">
+  <summary class="module-summary">
+    <div class="module-kicker">Module 9</div>
+    <div class="module-title">NEGOTIATION, INFLUENCE &amp; POWER DYNAMICS</div>
+    <div class="module-blurb">Click to open the full module curriculum, frameworks, and exercises.</div>
+    <div class="module-chevron" aria-hidden="true">+</div>
+  </summary>
+  <div class="module-body">
+    <div class="module-media-row">
+      <figure class="module-figure"><img src="assets/img/image25.jpeg" alt="Negotiation, Influence &amp; Power Dynamics leader 1" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image26.jpeg" alt="Negotiation, Influence &amp; Power Dynamics leader 2" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image27.jpeg" alt="Negotiation, Influence &amp; Power Dynamics leader 3" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="module-copy">
+      <p class="module-meta"><strong>Anchoring Leaders: Chris Voss, Barack Obama, Sara Blakely</strong></p>
+      <p class="module-meta">Tone: Tactical + Ethical + Confident</p>
+      <h4>Narrative: Outcomes Are Negotiated</h4>
+      <p>In business — and life — outcomes are negotiated. Negotiation isn’t manipulation; it’s understanding incentives, psychology, and leverage.</p>
+      <h4>Key skills</h4>
+      <ul>
+        <li>Active listening</li>
+        <li>Tactical empathy</li>
+        <li>BATNA (Best Alternative)</li>
+        <li>Anchoring and framing</li>
+      </ul>
+      <h4>Exercises</h4>
+      <ul>
+        <li>Practice “mirroring” and “labeling” in everyday conversations.</li>
+        <li>Before a request, write your BATNA and the other person’s BATNA.</li>
+        <li>Role-play a negotiation: internship offer, group project roles, or club leadership position.</li>
+      </ul>
+      <h4>Reflection</h4>
+      <p>Confidence grows when preparation becomes a habit. Negotiation rewards calm, empathy, and clarity.</p>
+    </div>
+  </div>
+</details>
+
+<!-- MODULE 10 -->
+<details class="module-card" id="m10">
+  <summary class="module-summary">
+    <div class="module-kicker">Module 10</div>
+    <div class="module-title">ETHICS, RESPONSIBILITY &amp; LONG-TERM THINKING</div>
+    <div class="module-blurb">Click to open the full module curriculum, frameworks, and exercises.</div>
+    <div class="module-chevron" aria-hidden="true">+</div>
+  </summary>
+  <div class="module-body">
+    <div class="module-media-row">
+      <figure class="module-figure"><img src="assets/img/image28.jpeg" alt="Ethics, Responsibility &amp; Long-term Thinking leader 1" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image29.jpeg" alt="Ethics, Responsibility &amp; Long-term Thinking leader 2" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image30.jpeg" alt="Ethics, Responsibility &amp; Long-term Thinking leader 3" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="module-copy">
+      <p class="module-meta"><strong>Anchoring Leaders: Paul Polman, Abraham Lincoln, Melinda French Gates</strong></p>
+      <p class="module-meta">Tone: Serious + Grounded + Values-forward</p>
+      <h4>Narrative: The Future Is Shaped by Values</h4>
+      <p>Power without ethics is fragile. This module teaches long-term thinking, responsibility, and integrity as strategic advantages.</p>
+      <h4>Exercises</h4>
+      <ul>
+        <li>Write a personal “values constitution” and decision rules for hard tradeoffs.</li>
+        <li>Case study: analyze a company scandal and identify early warning signals.</li>
+        <li>Build a “second-order effects” map for one business decision.</li>
+      </ul>
+      <h4>Reflection</h4>
+      <p>Your son’s reputation will compound like capital. Make integrity a non-negotiable advantage.</p>
+    </div>
+  </div>
+</details>
+
+<!-- MODULE 11 -->
+<details class="module-card" id="m11">
+  <summary class="module-summary">
+    <div class="module-kicker">Module 11</div>
+    <div class="module-title">VENTURE CREATION: FROM IDEA TO LAUNCH</div>
+    <div class="module-blurb">Click to open the full module curriculum, frameworks, and exercises.</div>
+    <div class="module-chevron" aria-hidden="true">+</div>
+  </summary>
+  <div class="module-body">
+    <div class="module-media-row">
+      <figure class="module-figure"><img src="assets/img/image31.jpeg" alt="Venture Creation: From Idea to Launch leader 1" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image32.jpeg" alt="Venture Creation: From Idea to Launch leader 2" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image33.jpeg" alt="Venture Creation: From Idea to Launch leader 3" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="module-copy">
+      <p class="module-meta"><strong>Anchoring Leaders: Y Combinator (startup playbook), Reid Hoffman, Whitney Wolfe Herd</strong></p>
+      <p class="module-meta">Tone: Builder playbook + Launch-focused</p>
+      <h4>Narrative: Build, Ship, Learn</h4>
+      <p>This module is a practical capstone: validate a problem, build a prototype, and launch something real.</p>
+      <h4>Launch plan</h4>
+      <ul>
+        <li>Define user + pain point</li>
+        <li>Build an MVP (minimum viable product)</li>
+        <li>Test with real users</li>
+        <li>Iterate and relaunch</li>
+      </ul>
+      <h4>Reflection</h4>
+      <p>Ideas don’t change lives. Shipped work does.</p>
+    </div>
+  </div>
+</details>
+
+<!-- MODULE 12 -->
+<details class="module-card" id="m12">
+  <summary class="module-summary">
+    <div class="module-kicker">Module 12</div>
+    <div class="module-title">DIGITAL TRANSFORMATION &amp; AI FOR ENTREPRENEURS</div>
+    <div class="module-blurb">Click to open the full module curriculum, frameworks, and exercises.</div>
+    <div class="module-chevron" aria-hidden="true">+</div>
+  </summary>
+  <div class="module-body">
+    <div class="module-media-row">
+      <figure class="module-figure"><img src="assets/img/image34.jpeg" alt="Digital Transformation &amp; AI for Entrepreneurs leader 1" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image34.jpeg" alt="Digital Transformation &amp; AI for Entrepreneurs leader 2" loading="lazy" decoding="async"></figure>
+      <figure class="module-figure"><img src="assets/img/image34.jpeg" alt="Digital Transformation &amp; AI for Entrepreneurs leader 3" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="module-copy">
+      <p class="module-meta"><strong>Anchoring Leaders: Jensen Huang, Sam Altman, Fei-Fei Li</strong></p>
+      <p class="module-meta">Tone: Modern + Practical + Responsible</p>
+      <h4>Narrative: Leverage Is the New Differentiator</h4>
+      <p>AI and automation are changing how companies are built. This module teaches your son how to think about leverage responsibly: what to automate, what to augment, and how to keep human judgment central.</p>
+      <h4>Exercises</h4>
+      <ul>
+        <li>Create a workflow that automates one repetitive task (research, note-taking, summaries).</li>
+        <li>Design a “human-in-the-loop” system: where AI helps, where humans must decide.</li>
+        <li>Ethics check: identify risks (bias, privacy, misuse) and mitigation strategies.</li>
+      </ul>
+      <h4>Reflection</h4>
+      <p>The best entrepreneurs won’t just use AI — they’ll use it wisely, responsibly, and with taste.</p>
+    </div>
+  </div>
+</details>
+
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <div class="site-logo">LLP</div>
+          <div>
+            <strong>Luke’s Leadership Platform</strong>
+            <div class="fineprint">Business / Entrepreneurship platform • Images from <code>assets/img/</code></div>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="if.html">If</a>
+          <a href="entrepreneurship.html">Business</a>
+          <a href="power.html">Power</a>
+          <a href="sports.html">Sports</a>
+        </div>
+      </div>
+    </footer>
   </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
+        
