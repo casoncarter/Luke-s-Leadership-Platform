@@ -6,6 +6,158 @@
   <title>THE DAD JOKE MASTERY PLATFORM | Luke</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/platforms.css" />
+
+  <!-- Page-only enhancements (no edits to shared CSS needed) -->
+  <style>
+    .platform-hero{
+      position: relative;
+      overflow: hidden;
+    }
+    .platform-hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(900px 420px at 20% 10%, rgba(246,241,230,.28), transparent 60%),
+        radial-gradient(700px 420px at 85% 0%, rgba(246,241,230,.20), transparent 58%),
+        linear-gradient(180deg, rgba(11,18,38,.18), rgba(11,18,38,0));
+      pointer-events:none;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: end;
+    }
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+    }
+
+    .hero-art{
+      border: 1px solid rgba(10,15,31,.12);
+      background: rgba(246,241,230,.72);
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: 0 10px 30px rgba(10,15,31,.08);
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .hero-art img{
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      opacity: .95;
+      flex: 0 0 auto;
+    }
+    .hero-art strong{ display:block; margin-bottom:6px; }
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+    .pill{
+      border: 1px solid rgba(10,15,31,.14);
+      background: rgba(255,255,255,.60);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: .92rem;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    /* Module cards */
+    .module{
+      border: 1px solid rgba(10,15,31,.10);
+      border-radius: 18px;
+      background: rgba(255,255,255,.80);
+      box-shadow: 0 10px 28px rgba(10,15,31,.06);
+      overflow: hidden;
+      margin: 18px 0;
+    }
+    .module-hd{
+      padding: 14px 16px 12px;
+      background: linear-gradient(180deg, rgba(11,18,38,.06), rgba(255,255,255,0));
+      border-bottom: 1px solid rgba(10,15,31,.08);
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .module-hd img{
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      margin-top: 2px;
+      opacity:.92;
+      flex: 0 0 auto;
+    }
+    .module-hd h2{
+      margin: 0 0 6px;
+      font-size: 1.18rem;
+      letter-spacing: .02em;
+    }
+    .module-hd .sub{
+      margin:0;
+      opacity:.9;
+      font-size:.96rem;
+    }
+    .module-bd{
+      padding: 14px 16px 16px;
+    }
+    .callout{
+      border: 1px solid rgba(10,15,31,.10);
+      background: rgba(246,241,230,.58);
+      border-radius: 16px;
+      padding: 12px 12px 10px;
+      margin: 12px 0;
+    }
+    .callout h4{
+      margin: 0 0 8px;
+      font-size: .98rem;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      opacity: .9;
+    }
+    .callout ul{ margin: 0; padding-left: 18px; }
+    .divider{
+      height:1px;
+      background: rgba(10,15,31,.10);
+      margin: 18px 0;
+    }
+
+    /* Arsenal grid */
+    .arsenal{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 10px;
+    }
+    @media (max-width: 980px){
+      .arsenal{ grid-template-columns: 1fr; }
+    }
+    .arsenal-card{
+      border: 1px solid rgba(10,15,31,.10);
+      border-radius: 16px;
+      background: rgba(255,255,255,.82);
+      padding: 12px 12px 10px;
+      box-shadow: 0 8px 22px rgba(10,15,31,.05);
+    }
+    .arsenal-card h3{
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      letter-spacing: .02em;
+    }
+    .arsenal-card ol{
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    /* make the long text breathe */
+    .platform-main p{ margin: 10px 0; }
+    .platform-main h2{ margin-top: 22px; }
+  </style>
 </head>
 
 <body class="platform">
@@ -34,88 +186,324 @@
   <main class="container">
     <section class="platform-hero">
       <p class="kicker">Platform</p>
-      <h1>THE DAD JOKE MASTERY PLATFORM</h1>
-      <p>Full platform content preserved from the Word documents — redesigned for clarity, navigation, and a classic Ralph Lauren feel.</p>
+
+      <div class="hero-grid">
+        <div>
+          <h1>THE DAD JOKE MASTERY PLATFORM</h1>
+          <p>A training module in the ancient art of groan-worthy greatness.</p>
+
+          <div class="pill-row">
+            <div class="pill">Approachability</div>
+            <div class="pill">Timing</div>
+            <div class="pill">Confidence</div>
+            <div class="pill">Social glue</div>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <img src="assets/img/dadjokes-speech-bubble.svg" alt="Speech bubble icon" />
+          <div>
+            <strong>Executive Summary</strong>
+            <p style="margin:0;">
+              Dad jokes are more than simple puns — they’re a leadership style, a communication strategy, an emotional icebreaker,
+              and a secret superpower that makes awkward moments magically less awkward.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="platform-shell">
       <aside class="platform-toc">
         <div class="toc-title">On this page</div>
-            <a href="#the-dad-joke-mastery-platform">THE DAD JOKE MASTERY PLATFORM</a>
-            <a href="#module-1-the-secret-power-of-the-dad-joke">MODULE 1 — The Secret Power of the Dad Joke</a>
-            <a href="#module-2-the-dad-joke-blueprint">MODULE 2 — The Dad Joke Blueprint</a>
-            <a href="#module-3-the-five-sacred-dad-joke-archetypes">MODULE 3 — The Five Sacred Dad Joke Archetypes</a>
-            <a href="#module-4-how-to-deliver-dad-jokes-like-a-pro">MODULE 4 — How to Deliver Dad Jokes Like a Pro</a>
-            <a href="#module-5-write-your-own-dad-jokes">MODULE 5 — Write Your Own Dad Jokes</a>
-            <a href="#module-6-the-dad-joke-arsenal-40-elite-groaners">MODULE 6 — The Dad Joke Arsenal: 40 Elite Groaners</a>
-            <a href="#module-7-advanced-techniques-situational-dad-jokes">MODULE 7 — Advanced Techniques: Situational Dad Jokes</a>
-            <a href="#closing-message-for-luke">CLOSING MESSAGE FOR LUKE</a>
+        <a href="#the-dad-joke-mastery-platform">THE DAD JOKE MASTERY PLATFORM</a>
+        <a href="#m1">MODULE 1 — The Secret Power of the Dad Joke</a>
+        <a href="#m2">MODULE 2 — The Dad Joke Blueprint</a>
+        <a href="#m3">MODULE 3 — The Five Sacred Dad Joke Archetypes</a>
+        <a href="#m4">MODULE 4 — How to Deliver Dad Jokes Like a Pro</a>
+        <a href="#m5">MODULE 5 — Write Your Own Dad Jokes</a>
+        <a href="#m6">MODULE 6 — The Dad Joke Arsenal: 40 Elite Groaners</a>
+        <a href="#m7">MODULE 7 — Advanced Techniques: Situational Dad Jokes</a>
+        <a href="#closing">CLOSING MESSAGE FOR LUKE</a>
       </aside>
 
       <article class="platform-main">
-        
-<h2 id="the-dad-joke-mastery-platform">THE DAD JOKE MASTERY PLATFORM</h2><p>A Training Module in the Ancient Art of Groan-Worthy Greatness</p><p>Executive Summary</p><p>Dad jokes are more than simple puns — they are a way of life.
-They are a leadership style, a communication strategy, an emotional icebreaker, and a secret superpower that makes awkward moments magically less awkward.</p><p>This platform teaches Luke:</p><p>Why dad jokes work (psychology &amp; timing)</p><p>The types of jokes and how to construct them</p><p>How to deploy them socially</p><p>A curated arsenal of elite dad jokes</p><p>How to write his own</p><p>All modules are intentionally fun and fast — learning by laughing.</p><h2 id="module-1-the-secret-power-of-the-dad-joke">MODULE 1 — The Secret Power of the Dad Joke</h2><p>Why Groan-Inducing Humor Actually Works</p><p>Core Concepts</p><p>Disarms tension — A pun is a “soft landing” for any conversation.</p><p>Signals approachability — It shows you don’t take yourself too seriously.</p><p>Creates a shared moment — People bond through the little eye-roll + smile combo.</p><p>Builds confidence — Delivering a joke, even a silly one, trains timing and voice.</p><p>Teaches communication — Dad jokes force clarity: setup → twist → laugh.</p><p>Mini Case Study — Coach K’s Dad Joke Play
-Even Coach K would open team meetings with light humor. Not puns, but the same principle: gentle levity creates trust. Dad jokes operate on that same frequency.</p><h2 id="module-2-the-dad-joke-blueprint">MODULE 2 — The Dad Joke Blueprint</h2><p>The Anatomy of a Perfect (Terrible) Joke</p><p>A classic dad joke has three parts:</p><p>The Setup (Serious Face Engaged)
-A normal-sounding question or statement.</p><p>The Misdirection (The Audience Leans In)
-They think you’re going one direction.</p><p>The Twist (Certified Groan Activation)
-A pun, unexpected meaning, or absurd logic.</p><p>Formula:</p><p>Setup → Expectation → Twist That Makes No Sense but Still Makes Sense</p><p>Example:
-“Why don’t eggs tell jokes?”
-Because they’d crack each other up.</p><h2 id="module-3-the-five-sacred-dad-joke-archetypes">MODULE 3 — The Five Sacred Dad Joke Archetypes</h2><p>1. The Classic Pun</p><p>Wordplay that gently hurts the brain.</p><p>“I’m reading a book on anti-gravity. It’s impossible to put down.”</p><p>2. The Question/Answer Groaner</p><p>“Why did the scarecrow win an award?”
-He was outstanding in his field.</p><p>3. The Literal Interpretation Joke</p><p>“My boss told me to have a good day… so I went home.”</p><p>4. The Overly-Confident Misunderstanding</p><p>“I used to play piano by ear… now I use my hands.”</p><p>5. The Unexpected Wisdom Joke</p><p>Surprisingly profound… but still dumb.</p><p>“Never trust atoms. They make up everything.”</p><h2 id="module-4-how-to-deliver-dad-jokes-like-a-pro">MODULE 4 — How to Deliver Dad Jokes Like a Pro</h2><p>Timing, Expression, and Maximum Groan Factor</p><p>1. Say it completely deadpan
-Like you genuinely think this joke is brilliant.</p><p>2. Hold eye contact for 0.5 seconds after the punchline
-Allows the joke to land (or crash).</p><p>3. Accept both laughter and groans as victory
-The groan is the applause.</p><p>4. Use the environment
-See objects around you and create on-the-fly puns.</p><p>Example:
-At dinner, waiter asks, “How’s the food?”
-You answer:</p><p>“It’s pasta-tively amazing.”</p><h2 id="module-5-write-your-own-dad-jokes">MODULE 5 — Write Your Own Dad Jokes</h2><p>A Practical Framework</p><p>Step 1 — Pick a normal object
-(e.g., stairs, pencils, clouds, shoes)</p><p>Step 2 — List verbs or ideas associated with it
-Stairs: climb, fall, step, elevate, up/down.</p><p>Step 3 — Find double meanings
-“Step up,” “falling down,” “high vs. low.”</p><p>Step 4 — Combine into a twist
-Example creation process:</p><p>Object: stairs</p><p>Associated idea: they’re always up to something</p><p>Joke: “Why don’t you trust stairs? They’re always up to something.”</p><p>Boom — instant dad joke.</p><h2 id="module-6-the-dad-joke-arsenal-40-elite-groaners">MODULE 6 — The Dad Joke Arsenal: 40 Elite Groaners</h2><p>(A starter kit for Luke to deploy at will)</p><p>1. I used to be addicted to soap… but I’m clean now.
-2. What do you call fake spaghetti? An impasta.
-3. I’m afraid for the calendar… its days are numbered.
-4. What’s blue and not very heavy? Light blue.
-5. Want to hear a roof joke? Never mind — it’s over your head.
-6. I only know 25 letters of the alphabet… I don’t know Y.
-7. Why do seagulls fly over the sea? Because if they flew over the bay, they’d be bagels.
-8. Why don’t skeletons fight each other? They don’t have the guts.
-9. What do you call cheese that isn’t yours? Nacho cheese.
-10. I’m on a seafood diet. I see food and I eat it.</p><p>11. Why did the bicycle fall over? It was two-tired.
-12. How do you organize a space party? You planet.
-13. Parallel lines have so much in common… it’s a shame they’ll never meet.
-14. Why was the math book sad? It had too many problems.
-15. I used to hate facial hair… but then it grew on me.
-16. What do you call a factory that makes good products? A satisfactory.
-17. What do clouds wear? Thunderwear.
-18. Want to hear a construction joke? I’m still working on it.
-19. What did the janitor say when he jumped out of the closet? “Supplies!”
-20. Don’t trust stairs… they’re always up to something.</p><p>21. What do you call a belt made of clocks? A waist of time.
-22. The shovel was a groundbreaking invention.
-23. Why can’t a leopard hide? He’s always spotted.
-24. What do you call an alligator in a vest? An investigator.
-25. I told my computer I needed a break… now it won’t stop sending me Kit-Kats.
-26. Why did the golfer bring two pants? In case he got a hole in one.
-27. Why can’t a nose be 12 inches long? Because then it would be a foot.
-28. How does a penguin build a house? Igloos it together.
-29. What do you call a fish with no eyes? Fsh.
-30. I don’t trust those trees. They seem kinda shady.</p><p>31. Why don’t oysters donate to charity? They’re shellfish.
-32. What do you call a sleeping bull? A bulldozer.
-33. I stayed up all night wondering where the sun went… then it dawned on me.
-34. What’s orange and sounds like a parrot? A carrot.
-35. Why did the coffee file a police report? It got mugged.
-36. Did you hear about the circus fire? It was in tents.
-37. How do you make a tissue dance? You put a little boogie in it.
-38. What do you call a dinosaur with an extensive vocabulary? A thesaurus.
-39. Why can’t Elsa hold a balloon? Because she will let it go.
-40. My dog ate a whole bag of Scrabble tiles… next week his poop could spell disaster.</p><h2 id="module-7-advanced-techniques-situational-dad-jokes">MODULE 7 — Advanced Techniques: Situational Dad Jokes</h2><p>Humor as a Leadership Skill (but silly)</p><p>Meeting Running Long:
-“I’d like to wrap up… but I forgot the wrapping paper.”</p><p>Someone Compliments Your Skills:
-“Aw shucks… and I didn’t even wear my shucking gloves.”</p><p>Anytime Luke’s around track teammates:
-“I tried running a marathon once… but it was too fast paced.”</p><p>At guitar practice:
-“This chord progression is major news.”</p><p>On a cold day:
-“I’m not built for this weather… I’m two-ply at best.”</p><h2 id="closing-message-for-luke">CLOSING MESSAGE FOR LUKE</h2><p>Luke,
-Mastering dad jokes is less about puns and more about perspective. It means being lighthearted, quick-witted, observant, and brave enough to say something goofy even in serious rooms. Humor is a quiet form of leadership — it warms the room, eases tension, and reminds people to breathe.</p><p>If you can hold wisdom in one hand and ridiculousness in the other, you’ll be a rare and joyful presence wherever you go.</p><p>And just remember…
-If anyone ever asks if you’re serious about dad jokes, you can say:</p><p>“No… I’m Sirius. The brightest star in the dad-joke galaxy.”</p>
+
+        <h2 id="the-dad-joke-mastery-platform">THE DAD JOKE MASTERY PLATFORM</h2>
+        <p><em>A Training Module in the Ancient Art of Groan-Worthy Greatness</em></p>
+
+        <div class="callout">
+          <h4>This platform teaches Luke</h4>
+          <ul>
+            <li>Why dad jokes work (psychology &amp; timing)</li>
+            <li>The types of jokes and how to construct them</li>
+            <li>How to deploy them socially</li>
+            <li>A curated arsenal of elite dad jokes</li>
+            <li>How to write his own</li>
+          </ul>
+        </div>
+
+        <p>All modules are intentionally fun and fast — learning by laughing.</p>
+
+        <div class="divider"></div>
+
+        <!-- MODULE 1 -->
+        <section class="module" id="m1">
+          <div class="module-hd">
+            <img src="assets/img/dadjokes-laugh.svg" alt="Laugh icon" />
+            <div>
+              <h2>MODULE 1 — The Secret Power of the Dad Joke</h2>
+              <p class="sub">Why Groan-Inducing Humor Actually Works</p>
+            </div>
+          </div>
+          <div class="module-bd">
+            <div class="callout">
+              <h4>Core concepts</h4>
+              <ul>
+                <li>Disarms tension — a pun is a “soft landing” for any conversation.</li>
+                <li>Signals approachability — it shows you don’t take yourself too seriously.</li>
+                <li>Creates a shared moment — people bond through the little eye-roll + smile combo.</li>
+                <li>Builds confidence — delivering a joke trains timing and voice.</li>
+                <li>Teaches communication — setup → twist → laugh.</li>
+              </ul>
+            </div>
+
+            <p><strong>Mini Case Study — Coach K’s Dad Joke Play</strong><br />
+              Even Coach K would open team meetings with light humor. Not puns, but the same principle:
+              gentle levity creates trust. Dad jokes operate on that same frequency.
+            </p>
+          </div>
+        </section>
+
+        <!-- MODULE 2 -->
+        <section class="module" id="m2">
+          <div class="module-hd">
+            <img src="assets/img/dadjokes-speech-bubble.svg" alt="Speech bubble icon" />
+            <div>
+              <h2>MODULE 2 — The Dad Joke Blueprint</h2>
+              <p class="sub">The Anatomy of a Perfect (Terrible) Joke</p>
+            </div>
+          </div>
+          <div class="module-bd">
+            <p>A classic dad joke has three parts:</p>
+            <div class="callout">
+              <ul>
+                <li><strong>The Setup</strong> (Serious Face Engaged): A normal-sounding question or statement.</li>
+                <li><strong>The Misdirection</strong> (The Audience Leans In): They think you’re going one direction.</li>
+                <li><strong>The Twist</strong> (Certified Groan Activation): A pun, unexpected meaning, or absurd logic.</li>
+              </ul>
+            </div>
+
+            <p><strong>Formula:</strong> Setup → Expectation → Twist That Makes No Sense but Still Makes Sense</p>
+            <p><strong>Example:</strong><br />
+              “Why don’t eggs tell jokes?”<br />
+              Because they’d crack each other up.
+            </p>
+          </div>
+        </section>
+
+        <!-- MODULE 3 -->
+        <section class="module" id="m3">
+          <div class="module-hd">
+            <img src="assets/img/dadjokes-mustache.svg" alt="Mustache icon" />
+            <div>
+              <h2>MODULE 3 — The Five Sacred Dad Joke Archetypes</h2>
+              <p class="sub">Your complete taxonomy of groan</p>
+            </div>
+          </div>
+          <div class="module-bd">
+            <p><strong>1. The Classic Pun</strong><br />
+              Wordplay that gently hurts the brain.<br />
+              “I’m reading a book on anti-gravity. It’s impossible to put down.”</p>
+
+            <p><strong>2. The Question/Answer Groaner</strong><br />
+              “Why did the scarecrow win an award?”<br />
+              He was outstanding in his field.</p>
+
+            <p><strong>3. The Literal Interpretation Joke</strong><br />
+              “My boss told me to have a good day… so I went home.”</p>
+
+            <p><strong>4. The Overly-Confident Misunderstanding</strong><br />
+              “I used to play piano by ear… now I use my hands.”</p>
+
+            <p><strong>5. The Unexpected Wisdom Joke</strong><br />
+              Surprisingly profound… but still dumb.<br />
+              “Never trust atoms. They make up everything.”</p>
+          </div>
+        </section>
+
+        <!-- MODULE 4 -->
+        <section class="module" id="m4">
+          <div class="module-hd">
+            <img src="assets/img/dadjokes-microphone.svg" alt="Microphone icon" />
+            <div>
+              <h2>MODULE 4 — How to Deliver Dad Jokes Like a Pro</h2>
+              <p class="sub">Timing, Expression, and Maximum Groan Factor</p>
+            </div>
+          </div>
+          <div class="module-bd">
+            <div class="callout">
+              <h4>Delivery rules</h4>
+              <ul>
+                <li>Say it completely deadpan (like you genuinely think it’s brilliant).</li>
+                <li>Hold eye contact for 0.5 seconds after the punchline.</li>
+                <li>Accept both laughter and groans as victory. The groan is the applause.</li>
+                <li>Use the environment: objects around you = on-the-fly puns.</li>
+              </ul>
+            </div>
+
+            <p><strong>Example:</strong><br />
+              At dinner, waiter asks, “How’s the food?”<br />
+              You answer: “It’s pasta-tively amazing.”</p>
+          </div>
+        </section>
+
+        <!-- MODULE 5 -->
+        <section class="module" id="m5">
+          <div class="module-hd">
+            <img src="assets/img/dadjokes-speech-bubble.svg" alt="Speech bubble icon" />
+            <div>
+              <h2>MODULE 5 — Write Your Own Dad Jokes</h2>
+              <p class="sub">A Practical Framework</p>
+            </div>
+          </div>
+          <div class="module-bd">
+            <div class="callout">
+              <h4>4-step recipe</h4>
+              <ul>
+                <li><strong>Step 1:</strong> Pick a normal object (stairs, pencils, clouds, shoes)</li>
+                <li><strong>Step 2:</strong> List verbs/ideas associated with it</li>
+                <li><strong>Step 3:</strong> Find double meanings</li>
+                <li><strong>Step 4:</strong> Combine into a twist</li>
+              </ul>
+            </div>
+
+            <p><strong>Example creation process:</strong><br />
+              Object: stairs<br />
+              Associated idea: they’re always up to something<br />
+              Joke: “Why don’t you trust stairs? They’re always up to something.”<br />
+              Boom — instant dad joke.
+            </p>
+          </div>
+        </section>
+
+        <!-- MODULE 6 -->
+        <section class="module" id="m6">
+          <div class="module-hd">
+            <img src="assets/img/dadjokes-laugh.svg" alt="Laugh icon" />
+            <div>
+              <h2>MODULE 6 — The Dad Joke Arsenal: 40 Elite Groaners</h2>
+              <p class="sub">(A starter kit for Luke to deploy at will)</p>
+            </div>
+          </div>
+          <div class="module-bd">
+            <div class="arsenal">
+              <div class="arsenal-card">
+                <h3>1–20</h3>
+                <ol>
+                  <li>I used to be addicted to soap… but I’m clean now.</li>
+                  <li>What do you call fake spaghetti? An impasta.</li>
+                  <li>I’m afraid for the calendar… its days are numbered.</li>
+                  <li>What’s blue and not very heavy? Light blue.</li>
+                  <li>Want to hear a roof joke? Never mind — it’s over your head.</li>
+                  <li>I only know 25 letters of the alphabet… I don’t know Y.</li>
+                  <li>Why do seagulls fly over the sea? Because if they flew over the bay, they’d be bagels.</li>
+                  <li>Why don’t skeletons fight each other? They don’t have the guts.</li>
+                  <li>What do you call cheese that isn’t yours? Nacho cheese.</li>
+                  <li>I’m on a seafood diet. I see food and I eat it.</li>
+                  <li>Why did the bicycle fall over? It was two-tired.</li>
+                  <li>How do you organize a space party? You planet.</li>
+                  <li>Parallel lines have so much in common… it’s a shame they’ll never meet.</li>
+                  <li>Why was the math book sad? It had too many problems.</li>
+                  <li>I used to hate facial hair… but then it grew on me.</li>
+                  <li>What do you call a factory that makes good products? A satisfactory.</li>
+                  <li>What do clouds wear? Thunderwear.</li>
+                  <li>Want to hear a construction joke? I’m still working on it.</li>
+                  <li>What did the janitor say when he jumped out of the closet? “Supplies!”</li>
+                  <li>Don’t trust stairs… they’re always up to something.</li>
+                </ol>
+              </div>
+
+              <div class="arsenal-card">
+                <h3>21–40</h3>
+                <ol start="21">
+                  <li>What do you call a belt made of clocks? A waist of time.</li>
+                  <li>The shovel was a groundbreaking invention.</li>
+                  <li>Why can’t a leopard hide? He’s always spotted.</li>
+                  <li>What do you call an alligator in a vest? An investigator.</li>
+                  <li>I told my computer I needed a break… now it won’t stop sending me Kit-Kats.</li>
+                  <li>Why did the golfer bring two pants? In case he got a hole in one.</li>
+                  <li>Why can’t a nose be 12 inches long? Because then it would be a foot.</li>
+                  <li>How does a penguin build a house? Igloos it together.</li>
+                  <li>What do you call a fish with no eyes? Fsh.</li>
+                  <li>I don’t trust those trees. They seem kinda shady.</li>
+                  <li>Why don’t oysters donate to charity? They’re shellfish.</li>
+                  <li>What do you call a sleeping bull? A bulldozer.</li>
+                  <li>I stayed up all night wondering where the sun went… then it dawned on me.</li>
+                  <li>What’s orange and sounds like a parrot? A carrot.</li>
+                  <li>Why did the coffee file a police report? It got mugged.</li>
+                  <li>Did you hear about the circus fire? It was in tents.</li>
+                  <li>How do you make a tissue dance? You put a little boogie in it.</li>
+                  <li>What do you call a dinosaur with an extensive vocabulary? A thesaurus.</li>
+                  <li>Why can’t Elsa hold a balloon? Because she will let it go.</li>
+                  <li>My dog ate a whole bag of Scrabble tiles… next week his poop could spell disaster.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 7 -->
+        <section class="module" id="m7">
+          <div class="module-hd">
+            <img src="assets/img/dadjokes-microphone.svg" alt="Microphone icon" />
+            <div>
+              <h2>MODULE 7 — Advanced Techniques: Situational Dad Jokes</h2>
+              <p class="sub">Humor as a Leadership Skill (but silly)</p>
+            </div>
+          </div>
+          <div class="module-bd">
+            <div class="callout">
+              <h4>Ready-to-deploy lines</h4>
+              <ul>
+                <li><strong>Meeting running long:</strong> “I’d like to wrap up… but I forgot the wrapping paper.”</li>
+                <li><strong>Someone compliments your skills:</strong> “Aw shucks… and I didn’t even wear my shucking gloves.”</li>
+                <li><strong>Around track teammates:</strong> “I tried running a marathon once… but it was too fast paced.”</li>
+                <li><strong>At guitar practice:</strong> “This chord progression is major news.”</li>
+                <li><strong>On a cold day:</strong> “I’m not built for this weather… I’m two-ply at best.”</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Closing -->
+        <section class="module" id="closing">
+          <div class="module-hd">
+            <img src="assets/img/dadjokes-mustache.svg" alt="Mustache icon" />
+            <div>
+              <h2>CLOSING MESSAGE FOR LUKE</h2>
+              <p class="sub">Wisdom, warmth, and ridiculousness — together</p>
+            </div>
+          </div>
+          <div class="module-bd">
+            <p>
+              Luke,<br />
+              Mastering dad jokes is less about puns and more about perspective. It means being lighthearted, quick-witted,
+              observant, and brave enough to say something goofy even in serious rooms. Humor is a quiet form of leadership —
+              it warms the room, eases tension, and reminds people to breathe.
+            </p>
+            <p>
+              If you can hold wisdom in one hand and ridiculousness in the other, you’ll be a rare and joyful presence wherever you go.
+            </p>
+            <div class="callout">
+              <h4>And just remember…</h4>
+              <p style="margin:0;">
+                If anyone ever asks if you’re serious about dad jokes, you can say:<br />
+                <strong>“No… I’m Sirius. The brightest star in the dad-joke galaxy.”</strong>
+              </p>
+            </div>
+          </div>
+        </section>
 
       </article>
     </section>
