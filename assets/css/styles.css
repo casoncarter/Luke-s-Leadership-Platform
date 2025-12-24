@@ -233,3 +233,60 @@ body{
   background-position: center top; /* favor faces */
   background-repeat: no-repeat;
 }
+/* ================================
+   HERO CARD INTEGRATION (homepage)
+   Makes image + content feel like ONE card
+================================= */
+
+.hero-card{
+  position: relative;
+  overflow: hidden;             /* shared silhouette */
+}
+
+/* Hero image area */
+.hero-media{
+  min-height: 320px;            /* keep your height */
+  border-radius: 0;             /* card controls rounding */
+  position: relative;
+}
+
+/* Soft fade so the body doesn't feel "plopped" on */
+.hero-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 55%,
+    rgba(10,15,31,.65) 100%
+  );
+  pointer-events:none;
+}
+
+/* Pull the content up into the image area slightly */
+.hero-body{
+  position: relative;
+  margin-top: -34px;            /* <-- the key integration */
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.10);
+  background: rgba(10,15,31,.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Make the “Start here” pills feel anchored, not floating */
+.hero-body .pill{
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+}
+
+.hero-body .pill:hover{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.22);
+}
+
+/* Optional: tighten the “Start here” link cluster so it reads as a set */
+.hero-body .rule{
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
