@@ -981,3 +981,39 @@ body{
   height: 100%;
   border: 0;
 }
+/* =========================
+   GLOBAL PLATFORM CONTRAST FIX
+   Makes any light “card” surface use dark text automatically
+========================= */
+.platform .module,
+.platform .callout,
+.platform .hero-art,
+.platform .poem-card,
+.platform .lead-card,
+.platform .leader-card,
+.platform .content-block,
+.platform details.tech{
+  color: rgba(10,15,31,.92);
+}
+
+.platform .module :is(p,li,span,em,strong),
+.platform .callout :is(p,li,span,em,strong),
+.platform details.tech :is(p,li,span,em,strong){
+  color: rgba(10,15,31,.90);
+}
+
+/* headings on light surfaces */
+.platform .module :is(h1,h2,h3,h4),
+.platform .callout :is(h1,h2,h3,h4),
+.platform details.tech :is(h1,h2,h3,h4){
+  color: rgba(10,15,31,.98);
+}
+
+/* “muted” text should still be readable */
+.platform .module .module-kicker,
+.platform .module .small,
+.platform .module .meta,
+.platform .callout .small{
+  color: rgba(10,15,31,.70) !important;
+  opacity: 1 !important;
+}
