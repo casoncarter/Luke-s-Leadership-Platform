@@ -1,13 +1,17 @@
-/* ================================
-   GLOBAL SITE STYLES
-   Luke’s Leadership Platform
-   (Shared across all pages)
-   — Clean + consolidated (no duplicates)
-   — Pro “editorial card” image integration
-   — Safe defaults for platform pages
-================================= */
+/* =========================================================
+   styles.css — GLOBAL SITE STYLES
+   Luke’s Leadership Platform (Shared across all pages)
 
-/* ---------- CSS RESET ---------- */
+   Goals:
+   - Clean + consolidated (no broken blocks, no duplicates)
+   - Dark “Ralph Lauren” base theme
+   - Premium card system for homepage + platforms
+   - Safe, predictable readability rules (no “light on light”)
+========================================================= */
+
+/* --------------------
+   CSS RESET
+-------------------- */
 *,
 *::before,
 *::after{ box-sizing: border-box; }
@@ -18,11 +22,20 @@ img{ max-width: 100%; display: block; }
 
 a{ text-decoration: none; color: inherit; }
 
-/* ---------- ROOT VARIABLES ---------- */
+:focus-visible{
+  outline: 2px solid rgba(201,163,73,.55);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* --------------------
+   ROOT VARIABLES
+-------------------- */
 :root{
   --ink:#0a0f1f;
   --navy:#0b1226;
   --cream:#f6f1e6;
+
   --muted:rgba(246,241,230,.75);
   --line:rgba(246,241,230,.12);
   --gold:#c9a349;
@@ -34,11 +47,7 @@ a{ text-decoration: none; color: inherit; }
   --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
   --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 
-  /* ----------------------------------
-     NEW: SURFACE-AWARE CONTRAST TOKENS
-     (Do NOT change base dark theme;
-     only improves readability on light cards)
-  ----------------------------------- */
+  /* Light-surface tokens (for cards on light backgrounds) */
   --ink-98: rgba(10,15,31,.98);
   --ink-92: rgba(10,15,31,.92);
   --ink-78: rgba(10,15,31,.78);
@@ -49,7 +58,9 @@ a{ text-decoration: none; color: inherit; }
   --surface-glass: rgba(255,255,255,.86);
 }
 
-/* ---------- BASE BODY ---------- */
+/* --------------------
+   BASE BODY
+-------------------- */
 body{
   font-family: var(--sans);
   background: linear-gradient(180deg, var(--ink), var(--navy));
@@ -57,16 +68,18 @@ body{
   line-height: 1.6;
 }
 
-/* ---------- CONTAINER ---------- */
+/* --------------------
+   CONTAINER
+-------------------- */
 .container{
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* ================================
+/* =========================================================
    TOPBAR / NAV
-================================= */
+========================================================= */
 .topbar{
   position: sticky;
   top: 0;
@@ -100,7 +113,7 @@ body{
   margin-top: 2px;
 }
 
-/* Nav links */
+/* Links */
 .nav .links{
   display: flex;
   gap: 8px;
@@ -132,13 +145,10 @@ body{
   background: rgba(201,163,73,.14);
 }
 
-/* ================================
+/* =========================================================
    HERO (base typography)
-   (Used by homepage layout below)
-================================= */
-.hero{
-  padding: 80px 0 60px;
-}
+========================================================= */
+.hero{ padding: 80px 0 60px; }
 .hero h1{
   font-family: var(--serif);
   font-size: 48px;
@@ -153,12 +163,12 @@ body{
   margin: 0;
 }
 
-/* ================================
+/* =========================================================
    HOMEPAGE — PRO STRUCTURE
-   Targets your actual HTML:
+   Targets:
    .hero-grid .hero-card .hero-media .hero-body
    .grid .card .img .body .more
-================================= */
+========================================================= */
 
 /* HERO GRID */
 .hero-grid{
@@ -171,7 +181,7 @@ body{
   .hero-grid{ grid-template-columns: 1fr; }
 }
 
-/* HERO CARD (integrated image + body) */
+/* HERO CARD */
 .hero-card{
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
@@ -180,30 +190,21 @@ body{
   overflow: hidden;
   position: relative;
 }
-
 .hero-card .hero-media{
   min-height: 340px;
   background-size: cover;
-  background-position: center top; /* favor faces */
+  background-position: center top;
   background-repeat: no-repeat;
   position: relative;
   filter: saturate(.95) contrast(1.05);
 }
-
-/* Soft fade into body */
 .hero-card .hero-media::after{
   content:"";
   position:absolute;
   inset:0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0) 55%,
-    rgba(10,15,31,.70) 100%
-  );
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(10,15,31,.70) 100%);
   pointer-events:none;
 }
-
-/* HERO BODY integrates with image */
 .hero-card .hero-body{
   margin-top: -36px;
   padding: 20px 20px 22px;
@@ -213,7 +214,6 @@ body{
   border-top: 1px solid rgba(246,241,230,.10);
   position: relative;
 }
-
 .hero-card .kicker{
   font-size: 12px;
   letter-spacing: .18em;
@@ -227,7 +227,6 @@ body{
   font-size: 16px;
   line-height: 1.7;
 }
-
 .hero-card .meta{
   display:flex;
   flex-wrap:wrap;
@@ -260,19 +259,14 @@ body{
   margin: 16px 0;
 }
 
-/* ================================
-   PLATFORM GRID CARDS (Homepage)
-================================= */
-.section{
-  padding: 10px 0 30px;
-}
+/* PLATFORM GRID CARDS (Homepage) */
+.section{ padding: 10px 0 30px; }
 .section h2{
   font-family: var(--serif);
   letter-spacing: -0.01em;
   margin: 0 0 14px;
 }
 
-/* Grid of platform cards */
 .grid{
   display:grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -288,10 +282,8 @@ body{
   .grid{ grid-template-columns: 1fr; }
 }
 
-/* Link wrapper should behave like a block */
 .card-link{ display:block; }
 
-/* Card */
 .card{
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
@@ -306,41 +298,26 @@ body{
   box-shadow: 0 22px 60px rgba(0,0,0,.55);
   border-color: rgba(201,163,73,.28);
 }
-
-/* Card image – integrated, not “stuck on” */
 .card .img{
   height: 170px;
-  background-size: cover;          /* richer in cards */
-  background-position: center top; /* slightly favors faces */
+  background-size: cover;
+  background-position: center top;
   background-repeat: no-repeat;
   position: relative;
 }
-
-/* Optional: use contain for “logo-like” images only
-   Add .img--contain in HTML when needed */
 .card .img.img--contain{
   background-size: contain;
   background-position: center;
   background-color: rgba(255,255,255,.04);
 }
-
-/* Image fade into body for seamless transition */
 .card .img::after{
   content:"";
   position:absolute;
   inset:0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0) 55%,
-    rgba(10,15,31,.65) 100%
-  );
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(10,15,31,.65) 100%);
   pointer-events:none;
 }
-
-/* Card body */
-.card .body{
-  padding: 14px 16px 10px;
-}
+.card .body{ padding: 14px 16px 10px; }
 .card .label{
   margin: 0 0 6px;
   font-size: 12px;
@@ -359,8 +336,6 @@ body{
   font-size: 14px;
   line-height: 1.6;
 }
-
-/* Bottom "Open platform" row */
 .card .more{
   padding: 10px 16px 14px;
   color: rgba(246,241,230,.86);
@@ -368,11 +343,10 @@ body{
   border-top: 1px solid rgba(246,241,230,.10);
 }
 
-/* ================================
+/* =========================================================
    PLATFORM PAGE — EDITORIAL UPGRADE
-   (Used by all platform pages)
-================================= */
-
+   (Shared structural pieces used by platform pages)
+========================================================= */
 .platform .platform-cover{
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
@@ -384,7 +358,6 @@ body{
   position: relative;
   min-height: 320px;
 }
-
 .platform .platform-cover::after{
   content:"";
   position:absolute;
@@ -393,14 +366,12 @@ body{
     radial-gradient(900px 500px at 15% 0%, rgba(201,163,73,.18), transparent 60%),
     linear-gradient(to bottom, rgba(10,15,31,.25), rgba(10,15,31,.88));
 }
-
 .platform .platform-cover-inner{
   position: relative;
   z-index: 1;
   padding: 34px 28px 26px;
   max-width: 78ch;
 }
-
 .platform .platform-breadcrumb{
   display:flex;
   align-items:center;
@@ -412,7 +383,6 @@ body{
   margin-bottom: 10px;
 }
 .platform .platform-breadcrumb .dot{ opacity:.65; }
-
 .platform .platform-title{
   font-family: var(--serif);
   letter-spacing: -0.02em;
@@ -420,14 +390,12 @@ body{
   line-height: 1.05;
   margin: 0 0 10px;
 }
-
 .platform .platform-subtitle{
   color: var(--muted);
   margin: 0 0 14px;
   font-size: 16px;
   line-height: 1.7;
 }
-
 .platform .platform-chips{
   display:flex;
   flex-wrap:wrap;
@@ -463,10 +431,7 @@ body{
   font-size: 13px;
   transition: transform .15s ease, background .15s ease, border-color .15s ease;
 }
-.platform .strip-item .n{
-  font-family: var(--serif);
-  opacity: .85;
-}
+.platform .strip-item .n{ font-family: var(--serif); opacity: .85; }
 .platform .strip-item:hover{
   transform: translateY(-1px);
   background: rgba(255,255,255,.07);
@@ -474,9 +439,7 @@ body{
 }
 
 /* inside platform-main */
-.platform .content-block{
-  padding: 10px 0 18px;
-}
+.platform .content-block{ padding: 10px 0 18px; }
 .platform .eyebrow{
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -498,6 +461,7 @@ body{
   color: rgba(246,241,230,.85);
 }
 
+/* Basic “poem” block (dark-theme default) */
 .platform .poem{
   border: 1px solid rgba(246,241,230,.12);
   background: rgba(255,255,255,.03);
@@ -511,7 +475,7 @@ body{
   line-height: 1.55;
 }
 
-/* callout box (kept as your gold-tint style for dark pages) */
+/* callout box (dark-theme default) */
 .platform .callout{
   border: 1px solid rgba(201,163,73,.22);
   background: rgba(201,163,73,.07);
@@ -527,7 +491,7 @@ body{
   margin: 0 0 8px;
 }
 
-/* module blocks */
+/* module header blocks (dark-theme default) */
 .platform .module-block{
   margin-top: 18px;
   border-top: 1px solid rgba(246,241,230,.10);
@@ -582,10 +546,9 @@ body{
   transform: translateY(-1px);
 }
 
-/* ================================
-   MODULE GRID (legacy homepage)
-   Keep if some pages still use .modules + .module-card
-================================= */
+/* =========================================================
+   LEGACY MODULE GRID (if any pages still use these)
+========================================================= */
 .modules{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -614,9 +577,9 @@ body{
   font-size: 15px;
 }
 
-/* ================================
+/* =========================================================
    FOOTER
-================================= */
+========================================================= */
 .footer{
   border-top: 1px solid var(--line);
   padding: 28px 0;
@@ -630,13 +593,17 @@ body{
   align-items: center;
 }
 
-/* ---------- UTILITIES ---------- */
+/* =========================================================
+   UTILITIES
+========================================================= */
 .text-center{ text-align: center; }
 .mt-2{ margin-top: 12px; }
 .mt-3{ margin-top: 24px; }
 .mt-4{ margin-top: 40px; }
 
-/* ---------- RESPONSIVE ---------- */
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 @media (max-width: 900px){
   .nav{
     flex-direction: column;
@@ -647,30 +614,30 @@ body{
   .hero h1{ font-size: 40px; }
 }
 
-/* ================================
-   VIDEO EMBED UTILITY
-================================= */
-.video-embed {
+/* =========================================================
+   VIDEO EMBED UTILITY (generic)
+========================================================= */
+.video-embed{
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 */
+  padding-top: 56.25%;
   margin: 24px 0;
 }
-.video-embed iframe {
+.video-embed iframe{
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  border: 0;
 }
 
-/* =========================================
-   GLOBAL CONTRAST — SURFACE-AWARE (FINAL)
-   Fixes “light on light” WITHOUT breaking IF
-   or any dark/hero sections.
-========================================= */
+/* =========================================================
+   PLATFORM — SURFACE-AWARE READABILITY (IMPORTANT)
+   Makes light cards readable WITHOUT breaking dark sections.
+   (This replaces the many conflicting “contrast hotfix” blocks.)
+========================================================= */
 
-/* 1) Light-surface components get dark ink automatically
-      (scoped to platform pages only) */
+/* Any element you intentionally render as a LIGHT surface */
 .platform :is(
   .module,
   .module-card-light,
@@ -680,63 +647,57 @@ body{
   .card-light,
   .panel-light,
   .callout-light,
-  .quote-light
+  .quote-light,
+  details.tech
 ){
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--ink-92);
 }
 
-/* 2) Common light-card patterns used on your newer pages
-      (these names show up in Guitar + other modules) */
-.platform :is(.module, .video-card, .song-card) h1,
-.platform :is(.module, .video-card, .song-card) h2,
-.platform :is(.module, .video-card, .song-card) h3,
-.platform :is(.module, .video-card, .song-card) h4{
+/* Headings inside light surfaces */
+.platform :is(.module,.video-card,.song-card,details.tech) :is(h1,h2,h3,h4){
   color: var(--ink-98);
 }
 
-/* 3) Video-card header/link readability on light surfaces */
-.platform .video-card{
-  background: var(--surface);
-  border: 1px solid var(--border);
-}
-.platform .video-card .vc-hd{
+/* Body text inside light surfaces */
+.platform :is(.module,.video-card,.song-card,details.tech) :is(p,li,span,small,em,strong){
   color: var(--ink-92);
 }
-.platform .video-card .vc-hd a{
+
+/* Muted/meta text inside light surfaces */
+.platform :is(.module,.video-card,.song-card,details.tech) :is(.meta,.muted,.kicker,.caption,.label,.byline,.small,.fineprint){
   opacity: 1 !important;
+  color: var(--ink-78) !important;
+}
+
+/* Links inside light surfaces */
+.platform :is(.module,.video-card,.song-card,details.tech) a{
   color: var(--ink-78);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-/* 4) Pills on light surfaces (your pages sometimes reuse .pill) */
-.platform :is(.module, .video-card, .song-card, .hero-card, .platform-main) .pill{
+/* Pills when they appear inside light surfaces */
+.platform :is(.module,.video-card,.song-card,details.tech) .pill{
   background: var(--surface-glass);
   border: 1px solid rgba(10,15,31,.16);
   color: var(--ink-92);
 }
 
-/* 5) “Meta / muted” text inside light cards should be secondary, not faint */
-.platform :is(.module, .video-card, .song-card) :is(.meta, .muted, .kicker, .caption, .label){
-  opacity: 1 !important;
-  color: var(--ink-78) !important;
-}
-
-/* 6) Divider (when used on light surfaces) */
-.platform :is(.module, .video-card, .song-card) .divider{
+/* Divider lines inside light surfaces */
+.platform :is(.module,.video-card,.song-card,details.tech) .divider{
   background: rgba(10,15,31,.14);
 }
 
-/* =========================================
-   ON-DARK UTILITY (Optional, safe)
-   Use when a section has a navy/dark background
-   but the page-specific rules got overridden.
-========================================= */
+/* =========================================================
+   OPTIONAL: ON-DARK UTILITY
+   Apply .on-dark to a wrapper if you ever need to force
+   dark-background readability (rare, but safe).
+========================================================= */
 .on-dark{ color: rgba(246,241,230,.92); }
 .on-dark h1, .on-dark h2, .on-dark h3, .on-dark h4{ color: rgba(246,241,230,.98); }
-.on-dark :is(.meta, .muted, .kicker, .label, .caption){
+.on-dark :is(.meta,.muted,.kicker,.label,.caption,.byline){
   opacity: 1 !important;
   color: rgba(246,241,230,.78) !important;
 }
@@ -746,12 +707,10 @@ body{
   text-underline-offset: 2px;
 }
 
-/* =========================================
-   DAD JOKES + SPIRITUAL: common “quote/callout”
-   blocks were too pale. This fixes them
-   WITHOUT touching homepage .card styles.
-   (Scoped to platform main content only.)
-========================================= */
+/* =========================================================
+   QUOTE / CALLOUT FAMILY (platform-main only)
+   Safe block styling for dad-jokes + spiritual + anywhere else.
+========================================================= */
 .platform .platform-main :is(
   .quote, .pullquote, .blockquote, blockquote,
   .reflection, .devotional, .prayer,
@@ -761,301 +720,6 @@ body{
   background: var(--surface-soft);
   border: 1px solid var(--border);
   color: var(--ink-92);
-  border-radius
-/* ===== Cleaner divider (replaces crest image) ===== */
-.divider-mark{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin: 22px 0;
-  opacity: .95;
-}
-.divider-mark::before,
-.divider-mark::after{
-  content:"";
-  height:1px;
-  flex:1;
-  background: linear-gradient(90deg,
-    transparent,
-    rgba(246,241,230,.18),
-    rgba(201,163,73,.30),
-    rgba(246,241,230,.18),
-    transparent
-  );
-}
-.divider-mark span{
-  font-family: var(--serif);
-  letter-spacing:.18em;
-  text-transform: uppercase;
-  font-size: 12px;
-  color: rgba(246,241,230,.70);
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(246,241,230,.12);
-  background: rgba(10,15,31,.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-/* ===== Poem “feature artifact” ===== */
-.poem-card{
-  border: 1px solid rgba(246,241,230,.14);
-  border-radius: var(--radius-lg);
-  background:
-    radial-gradient(800px 280px at 10% 0%, rgba(201,163,73,.16), transparent 60%),
-    linear-gradient(180deg, rgba(255,255,255,.05), rgba(10,15,31,.55));
-  box-shadow: 0 18px 50px rgba(0,0,0,.45);
-  overflow:hidden;
-}
-
-/* Header strip */
-.poem-card .poem-head{
-  padding: 18px 18px 14px;
-  border-bottom: 1px solid rgba(246,241,230,.10);
-  background: rgba(10,15,31,.35);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.poem-title{
-  font-family: var(--serif);
-  margin: 0 0 4px;
-  letter-spacing: -.01em;
-  font-size: 26px;
-}
-.poem-by{
-  margin: 0;
-  color: rgba(246,241,230,.72);
-  font-size: 14px;
-}
-
-/* Body */
-.poem{
-  padding: 18px 18px 16px;
-  position: relative;
-}
-.poem::before{
-  content:"";
-  position:absolute;
-  left: 18px;
-  top: 18px;
-  bottom: 18px;
-  width: 3px;
-  border-radius: 999px;
-  background: linear-gradient(
-    to bottom,
-    rgba(201,163,73,.55),
-    rgba(246,241,230,.12)
-  );
-}
-
-/* Poem lines */
-.poem p{
-  margin: 0 0 6px;
-  padding-left: 16px; /* makes room for the gold rule */
-  color: rgba(246,241,230,.90);
-  font-family: var(--serif);
-  font-size: 16px;
-  line-height: 1.55;
-}
-
-/* Optional: make every 4th line breathe a bit more */
-.poem p:nth-child(4n){
-  margin-bottom: 12px;
-}
-/* =========================================
-   PLATFORM READABILITY HOTFIX (Business exec summary + all light cards)
-   Paste at VERY BOTTOM of styles.css
-========================================= */
-
-/* 1) Any light surface should ALWAYS use dark ink */
-.platform :is(
-  .module-card,
-  .module-head,
-  .module,
-  .content-block,
-  .callout,
-  .poem,
-  .poem-card,
-  .song-card,
-  .video-card,
-  .leader-card,
-  .lead-card,
-  .platform-main .card,
-  .platform-main .panel,
-  .platform-main .section,
-  .platform-main .box
-){
-  color: rgba(10,15,31,.92);
-}
-
-/* 2) Paragraphs/lists inside those surfaces: dark readable defaults */
-.platform :is(
-  .module-card,
-  .module-head,
-  .module,
-  .content-block,
-  .callout,
-  .poem,
-  .poem-card,
-  .song-card,
-  .video-card,
-  .leader-card,
-  .lead-card,
-  .platform-main .card,
-  .platform-main .panel,
-  .platform-main .section,
-  .platform-main .box
-) :is(p, li, span, small){
-  color: rgba(10,15,31,.90);
-}
-
-/* 3) “Muted” text INSIDE light cards should be dark-muted (not cream) */
-.platform :is(
-  .module-card,
-  .module-head,
-  .module,
-  .content-block,
-  .callout,
-  .poem,
-  .poem-card,
-  .song-card,
-  .video-card,
-  .leader-card,
-  .lead-card,
-  .platform-main .card,
-  .platform-main .panel,
-  .platform-main .section,
-  .platform-main .box
-) :is(.muted, .meta, .subtle, .caption, .fineprint, .kicker, .byline, .label){
-  opacity: 1 !important;
-  color: rgba(10,15,31,.70) !important;
-}
-
-/* 4) Headings inside light cards should be fully dark */
-.platform :is(
-  .module-card,
-  .module-head,
-  .module,
-  .content-block,
-  .callout,
-  .poem-card,
-  .leader-card,
-  .lead-card,
-  .platform-main .card,
-  .platform-main .panel,
-  .platform-main .section,
-  .platform-main .box
-) :is(h1,h2,h3,h4){
-  color: rgba(10,15,31,.98);
-}
-
-/* 5) Links inside light cards should be readable + consistent */
-.platform :is(
-  .module-card,
-  .module-head,
-  .module,
-  .content-block,
-  .callout,
-  .poem-card,
-  .leader-card,
-  .lead-card,
-  .platform-main .card,
-  .platform-main .panel,
-  .platform-main .section,
-  .platform-main .box
-) a{
-  color: rgba(10,15,31,.78);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-/* 6) If Business executive summary uses a specific wrapper, catch it */
-.platform :is(.executive-summary, .exec-summary, .summary, #executive-summary){
-  color: rgba(10,15,31,.92);
-}
-.platform :is(.executive-summary, .exec-summary, .summary, #executive-summary) :is(p,li){
-  color: rgba(10,15,31,.90);
-}
-/* More reliable embeds */
-.video iframe{
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-/* =========================
-   GLOBAL PLATFORM CONTRAST FIX
-   Makes any light “card” surface use dark text automatically
-========================= */
-.platform .module,
-.platform .callout,
-.platform .hero-art,
-.platform .poem-card,
-.platform .lead-card,
-.platform .leader-card,
-.platform .content-block,
-.platform details.tech{
-  color: rgba(10,15,31,.92);
-}
-
-.platform .module :is(p,li,span,em,strong),
-.platform .callout :is(p,li,span,em,strong),
-.platform details.tech :is(p,li,span,em,strong){
-  color: rgba(10,15,31,.90);
-}
-
-/* headings on light surfaces */
-.platform .module :is(h1,h2,h3,h4),
-.platform .callout :is(h1,h2,h3,h4),
-.platform details.tech :is(h1,h2,h3,h4){
-  color: rgba(10,15,31,.98);
-}
-
-/* “muted” text should still be readable */
-.platform .module .module-kicker,
-.platform .module .small,
-.platform .module .meta,
-.platform .callout .small{
-  color: rgba(10,15,31,.70) !important;
-  opacity: 1 !important;
-}
-/* ===== CRITICAL CONTRAST FIX (hero + intro) ===== */
-
-/* Force the hero panel to be light, regardless of global platform background */
-.platform-hero{
-  background: linear-gradient(180deg, rgba(246,241,230,.96), rgba(255,255,255,.92)) !important;
-  border: 1px solid rgba(10,15,31,.12) !important;
-}
-
-/* Make sure hero text is dark and readable */
-.platform-hero h1,
-.platform-hero p,
-.platform-hero .kicker,
-.platform-hero .pill,
-.platform-hero .hero-card,
-.platform-hero .hero-card p{
-  color: rgba(10,15,31,.95) !important;
-}
-
-/* Kicker line + subtle contrast */
-.platform-hero .kicker{
-  color: rgba(11,18,38,.78) !important;
-}
-
-/* If your global CSS makes callouts darker, force the intro callout to be light too */
-.platform-main .callout{
-  background: rgba(246,241,230,.78) !important;
-  border: 1px solid rgba(10,15,31,.14) !important;
-}
-.platform-main .callout h4{
-  color: rgba(11,18,38,.86) !important;
-}
-.platform-main .callout li,
-.platform-main .callout p{
-  color: rgba(10,15,31,.92) !important;
-}
-/* Optional: give the main content area a light canvas */
-.platform-shell{
-  background: rgba(255,255,255,.00) !important;
-}
-.platform-main{
-  background: rgba(255,255,255,.00) !important;
+  border-radius: 16px;
+  padding: 14px 14px 12px;
 }
