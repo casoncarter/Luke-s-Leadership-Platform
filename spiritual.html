@@ -60,27 +60,73 @@
       text-decoration: none;
     }
 
-    /* Platform header section (kicker + title area) – ensure contrast */
-    body.platform--spiritual .platform-hero .kicker{
-      color: rgba(10,15,31,.78);
-      font-weight: 900;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    body.platform--spiritual .platform-hero h1{
-      color: rgba(10,15,31,.96);
-    }
-
     /* Guardrails: always readable text in main content */
     body.platform{ color: rgba(10,15,31,.92); }
     .platform-main p, .platform-main li{ color: rgba(10,15,31,.86); }
     .platform-main h1, .platform-main h2, .platform-main h3{ color: rgba(10,15,31,.95); }
 
+    /* =======================
+       TOP READABILITY FIXES
+       (hero header card + stronger contrast)
+       ======================= */
+
+    /* Give the hero area a designed “section” frame */
+    body.platform--spiritual .platform-hero{
+      position: relative;
+      padding-top: 18px;
+      margin-top: 18px;
+    }
+
+    /* Add a premium header card behind the title block */
+    .hero-headcard{
+      position: relative;
+      border-radius: 20px;
+      padding: 18px 18px 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(246,241,230,.58));
+      border: 1px solid rgba(10,15,31,.12);
+      box-shadow: 0 16px 44px rgba(10,15,31,.08);
+      overflow: hidden;
+      margin: 0 0 14px;
+    }
+    .hero-headcard::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(900px 420px at 0% 0%, rgba(107,76,230,.12), transparent 60%),
+        radial-gradient(900px 420px at 100% 0%, rgba(15,106,166,.10), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-headcard > *{ position: relative; z-index: 1; }
+
+    /* Platform header section (kicker + title area) – ensure contrast */
+    body.platform--spiritual .platform-hero .kicker{
+      color: rgba(10,15,31,.82);
+      font-weight: 950;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      margin: 0 0 6px;
+    }
+    body.platform--spiritual .platform-hero h1{
+      color: rgba(10,15,31,.98);
+      margin: 0 0 8px;
+      letter-spacing: .01em;
+    }
+    body.platform--spiritual .platform-hero .small{
+      color: rgba(10,15,31,.86);
+      opacity: 1;
+      font-weight: 650;
+      line-height: 1.55;
+      margin: 0;
+      max-width: 78ch;
+    }
+
     /* Make TOC feel “on brand” + readable (prevents light-on-light issues) */
     body.platform--spiritual .platform-toc{
-      background: rgba(255,255,255,.74);
+      background: rgba(255,255,255,.78);
       border: 1px solid rgba(10,15,31,.12);
       box-shadow: 0 12px 34px rgba(10,15,31,.06);
+      backdrop-filter: blur(8px);
     }
     body.platform--spiritual .platform-toc .toc-title{
       color: rgba(10,15,31,.92);
@@ -106,7 +152,7 @@
       background: linear-gradient(180deg, rgba(246,241,230,.78), rgba(246,241,230,.38));
       border: 1px solid rgba(10,15,31,.12);
       box-shadow: 0 16px 44px rgba(10,15,31,.08);
-      margin: 10px 0 18px;
+      margin: 0 0 18px;
     }
     @media (max-width: 980px){
       .hero-spirit{grid-template-columns:1fr;}
@@ -114,10 +160,11 @@
 
     .hero-spirit h1{margin:8px 0 10px;}
     .hero-spirit .sub{
-      opacity:.86;
+      opacity:.90;
       margin:0 0 12px;
       max-width: 68ch;
-      line-height:1.55;
+      line-height:1.58;
+      color: rgba(10,15,31,.90);
     }
 
     .pillrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;}
@@ -125,10 +172,10 @@
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 10px; border-radius:999px;
       border:1px solid rgba(10,15,31,.14);
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.82);
       font-size:.92rem;
-      opacity:.98;
-      font-weight:600;
+      opacity: 1;
+      font-weight:700;
       color: rgba(10,15,31,.92);
     }
 
@@ -150,7 +197,7 @@
     .hero-media .overlay{
       position:absolute; inset:auto 0 0 0;
       padding:12px 12px 12px;
-      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.58));
+      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.62));
       color:#fff;
       font-size:.92rem;
       display:flex;
@@ -165,7 +212,7 @@
       border:1px solid rgba(255,255,255,.35);
       background: rgba(255,255,255,.14);
       color:#fff;
-      font-weight:800;
+      font-weight:900;
       white-space:nowrap;
     }
 
@@ -175,7 +222,7 @@
       padding:18px;
       border-radius:18px;
       border:1px solid rgba(10,15,31,.12);
-      background: rgba(255,255,255,.86);
+      background: rgba(255,255,255,.88);
       box-shadow: 0 12px 34px rgba(10,15,31,.06);
       margin: 16px 0;
       color: rgba(10,15,31,.92);
@@ -196,7 +243,7 @@
       margin-bottom:12px;
     }
     .module-head h2{margin:0;}
-    .module-kicker{opacity:.78; font-size:.95rem; margin:4px 0 0; line-height:1.45;}
+    .module-kicker{opacity:.82; font-size:.95rem; margin:4px 0 0; line-height:1.45;}
 
     .letter{
       border-radius:16px;
@@ -220,7 +267,7 @@
       padding:10px 12px;
       margin:10px 0;
       border-radius:12px;
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.80);
     }
     .quote em{opacity:.92;}
 
@@ -257,18 +304,19 @@
       display:inline-flex; gap:8px; align-items:center;
       padding:9px 10px; border-radius:12px;
       border:1px solid rgba(10,15,31,.12);
-      background: rgba(255,255,255,.82);
-      font-weight:800;
+      background: rgba(255,255,255,.84);
+      font-weight:900;
       font-size:.92rem;
-      opacity:.98;
+      opacity: 1;
+      color: rgba(10,15,31,.92);
     }
-    .linkchip span{opacity:.7; font-weight:800;}
+    .linkchip span{opacity:.72; font-weight:900;}
 
     details.accord{
       margin-top:12px;
       border-radius:14px;
       border:1px solid rgba(10,15,31,.12);
-      background: rgba(255,255,255,.86);
+      background: rgba(255,255,255,.88);
       padding:10px 12px;
     }
     details.accord summary{
@@ -293,11 +341,11 @@
       padding:12px;
       border-radius:14px;
       border:1px solid rgba(10,15,31,.10);
-      background: rgba(255,255,255,.88);
+      background: rgba(255,255,255,.90);
       min-height: 96px;
     }
     .practice strong{display:block; margin-bottom:6px;}
-    .practice p{margin:0; opacity:.84; line-height:1.35;}
+    .practice p{margin:0; opacity:.86; line-height:1.35;}
 
     .small{opacity:.82; font-size:.95rem;}
 
@@ -336,9 +384,11 @@
 
     <!-- HERO -->
     <section class="platform-hero">
-      <p class="kicker">Platform</p>
-      <h1>Spiritual Leadership Platform</h1>
-      <p class="small">A visual-first spiritual formation platform — anchored in Scripture, shaped by great thinkers, and built for daily practice.</p>
+      <div class="hero-headcard">
+        <p class="kicker">Platform</p>
+        <h1>Spiritual Leadership Platform</h1>
+        <p class="small">A visual-first spiritual formation platform — anchored in Scripture, shaped by great thinkers, and built for daily practice.</p>
+      </div>
 
       <div class="hero-spirit">
         <div>
