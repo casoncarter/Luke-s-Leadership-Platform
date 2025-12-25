@@ -1,0 +1,139 @@
+/* =========================================================
+   platforms-overrides.css
+   SAFE, PAGE-SCOPED fixes for contrast + “professional card” look
+   Only applies to pages whose <body> includes:
+   platform--guitar / platform--art / platform--dad / platform--spiritual
+   Does NOT touch header/nav/topbar.
+========================================================= */
+
+/* ---------- Shared: readable “light cards” on dark shell ---------- */
+body.platform.platform--guitar .platform-main,
+body.platform.platform--art .platform-main,
+body.platform.platform--dad .platform-main,
+body.platform.platform--spiritual .platform-main{
+  /* keep RL shell, but make content areas read cleanly */
+}
+
+body.platform.platform--guitar .light-card,
+body.platform.platform--art .light-card,
+body.platform.platform--dad .light-card,
+body.platform.platform--spiritual .light-card{
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  padding: 16px 16px 14px;
+  color: var(--rl-ink);
+}
+
+body.platform.platform--guitar .light-card h2,
+body.platform.platform--art .light-card h2,
+body.platform.platform--dad .light-card h2,
+body.platform.platform--spiritual .light-card h2,
+body.platform.platform--guitar .light-card h3,
+body.platform.platform--art .light-card h3,
+body.platform.platform--dad .light-card h3,
+body.platform.platform--spiritual .light-card h3{
+  color: var(--rl-ink);
+}
+
+body.platform.platform--guitar .light-card p,
+body.platform.platform--art .light-card p,
+body.platform.platform--dad .light-card p,
+body.platform.platform--spiritual .light-card p,
+body.platform.platform--guitar .light-card li,
+body.platform.platform--art .light-card li,
+body.platform.platform--dad .light-card li,
+body.platform.platform--spiritual .light-card li{
+  color: rgba(10,15,31,.78);
+}
+
+/* ---------- Guitar: “THIS PLATFORM TEACHES…” box must be visible ---------- */
+body.platform.platform--guitar .guitar-callout{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(246,241,230,.16);
+  border-radius: 18px;
+  padding: 14px 14px 12px;
+}
+
+body.platform.platform--guitar .guitar-callout *{
+  color: rgba(246,241,230,.90) !important;
+}
+
+body.platform.platform--guitar .guitar-callout strong{
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: 12px;
+  display:block;
+  margin-bottom: 8px;
+  opacity: .95;
+}
+
+/* ---------- Art: stop “light text on light background” in exec summary ---------- */
+body.platform.platform--art .exec-summary,
+body.platform.platform--art .executive-summary{
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  color: var(--rl-ink);
+}
+
+body.platform.platform--art .exec-summary *,
+body.platform.platform--art .executive-summary *{
+  color: var(--rl-ink) !important;
+}
+
+body.platform.platform--art .exec-summary p,
+body.platform.platform--art .executive-summary p{
+  color: rgba(10,15,31,.78) !important;
+}
+
+/* ---------- Dad Jokes: fix the “PLATFORM / WHAT YOU’LL BUILD” readability ---------- */
+body.platform.platform--dad .dad-block{
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  color: var(--rl-ink);
+}
+
+body.platform.platform--dad .dad-block *{
+  color: var(--rl-ink) !important;
+}
+
+body.platform.platform--dad .dad-block p,
+body.platform.platform--dad .dad-block li{
+  color: rgba(10,15,31,.78) !important;
+}
+
+body.platform.platform--dad .dad-block .kicker{
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  opacity: .8;
+}
+
+/* ---------- Spiritual: rescue any washed-out sections ---------- */
+body.platform.platform--spiritual .spirit-card{
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  color: var(--rl-ink);
+}
+
+body.platform.platform--spiritual .spirit-card *{
+  color: var(--rl-ink) !important;
+}
+
+body.platform.platform--spiritual .spirit-card p,
+body.platform.platform--spiritual .spirit-card li{
+  color: rgba(10,15,31,.78) !important;
+}
+
+/* ---------- Important: NEVER touch header/nav/topbar ---------- */
+/* (intentionally no rules for .topbar, nav, header) */
