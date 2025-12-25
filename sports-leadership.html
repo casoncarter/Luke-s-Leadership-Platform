@@ -3,1146 +3,917 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>🎨 THE ADVANCED SKETCH & VISUAL ART PLATFORM | Luke</title>
+  <title>THE SPORTS LEADERSHIP PLATFORM | Luke</title>
+  <meta name="description" content="Leadership lessons forged through discipline, adversity, preparation, and character—through Coach K, distance running, and legendary athletes." />
 
-  <!-- Global site CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/platforms.css" />
 
-  <!-- Page-only polish (keeps global system intact) -->
+  <!-- Page-only enhancements (keeps global site CSS untouched) -->
   <style>
-    /* =============== ART PLATFORM ENHANCEMENTS (page-only) =============== */
-    body.platform-art{
-      background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(255,214,102,.18), transparent 60%),
-        radial-gradient(900px 600px at 100% 0%, rgba(116,217,255,.14), transparent 55%),
-        radial-gradient(900px 600px at 40% 110%, rgba(189,137,255,.12), transparent 55%),
-        linear-gradient(180deg, rgba(246,241,230,.55), rgba(246,241,230,0) 40%),
-        var(--cream);
-    }
+    /* ================================
+       SPORTS PLATFORM — PAGE-ONLY POLISH
+       Fixes contrast + makes layout “pro”
+    ================================= */
 
-    /* ---------- HERO ---------- */
-    .art-hero{
-      position:relative;
-      overflow:hidden;
-      border-radius: 22px;
-      padding: clamp(22px, 4vw, 34px);
-      background:
-        linear-gradient(135deg, rgba(11,18,38,.92), rgba(10,15,31,.94)),
-        radial-gradient(900px 500px at 10% 0%, rgba(255,214,102,.20), transparent 60%),
-        radial-gradient(900px 500px at 100% 10%, rgba(116,217,255,.18), transparent 55%);
-      color: rgba(255,255,255,.92);
-      box-shadow: 0 18px 50px rgba(0,0,0,.14);
-      border: 1px solid rgba(255,255,255,.10);
-    }
-    .art-hero-grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-      align-items: center;
-    }
-    @media (max-width: 980px){
-      .art-hero-grid{ grid-template-columns: 1fr; }
-    }
+    /* Force readable defaults (high-contrast) */
+    body.platform{ color: rgba(10,15,31,.94); }
+    .platform-main, .platform-main p, .platform-main li{ color: rgba(10,15,31,.94); }
+    .platform-main a{ color: rgba(10,15,31,.92); text-decoration: none; }
+    .platform-main a:hover{ text-decoration: underline; }
 
-    .art-hero h1{
-      margin:0 0 10px;
-      letter-spacing: .02em;
-      line-height: 1.08;
-      font-size: clamp(28px, 3.2vw, 42px);
-      color: #fff;
-    }
-    .art-hero .kicker{
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      font-weight: 800;
+    /* If global “kicker/small” are too light, override here */
+    .kicker{
+      margin: 0 0 8px;
       letter-spacing: .12em;
       text-transform: uppercase;
-      font-size: 12px;
-      color: rgba(255,255,255,.78);
-      margin-bottom: 6px;
+      font-weight: 700;
+      font-size: .82rem;
+      color: rgba(10,15,31,.78);
     }
-    .art-hero .kicker .dot{
-      width:9px;height:9px;border-radius:50%;
-      background: rgba(255,214,102,.95);
-      box-shadow: 0 0 0 5px rgba(255,214,102,.12);
-    }
-
-    .hero-sub{
-      margin: 0 0 14px;
-      font-size: 16px;
+    .small{
+      color: rgba(10,15,31,.86);
+      margin: 8px 0 0;
       line-height: 1.55;
-      color: rgba(255,255,255,.80);
-      max-width: 62ch;
     }
+    h1, h2, h3, h4{ color: var(--ink, #0a0f1f); }
 
-    .hero-badges{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      margin-top: 12px;
+    /* Hero */
+    .platform-hero{
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid rgba(10,15,31,.10);
+      background: linear-gradient(180deg, rgba(246,241,230,.92), rgba(246,241,230,.72));
+      box-shadow: 0 14px 36px rgba(10,15,31,.10);
+      padding: 20px 18px;
+      margin: 10px 0 18px;
     }
-    .hero-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.12);
-      color: rgba(255,255,255,.88);
-      font-size: 13px;
-      backdrop-filter: blur(6px);
+    .platform-hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(900px 420px at 20% 10%, rgba(11,18,38,.14), transparent 60%),
+        radial-gradient(700px 420px at 85% 0%, rgba(11,18,38,.10), transparent 58%),
+        linear-gradient(180deg, rgba(11,18,38,.10), rgba(11,18,38,0));
+      pointer-events:none;
     }
-    .hero-badge b{ color:#fff; }
+    .platform-hero > *{ position:relative; z-index:1; }
 
-    .art-hero-side{
-      display:grid;
-      gap: 12px;
-    }
-
-    .art-hero-card{
-      border-radius: 18px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      padding: 16px;
-    }
-    .art-hero-card h3{
-      margin: 0 0 10px;
-      font-size: 14px;
-      letter-spacing:.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.84);
-    }
-    .art-hero-card ul{
-      margin: 0;
-      padding-left: 18px;
-      color: rgba(255,255,255,.80);
-      line-height: 1.55;
-      font-size: 14px;
-    }
-
-    .hero-image{
-      border-radius: 18px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      box-shadow: 0 18px 44px rgba(0,0,0,.20);
-    }
-    .hero-image img{
-      width: 100%;
-      height: auto;
-      display:block;
-    }
-    .hero-image figcaption{
-      padding: 10px 12px;
-      font-size: 12px;
-      color: rgba(255,255,255,.78);
-      background: rgba(0,0,0,.22);
-      border-top: 1px solid rgba(255,255,255,.10);
-    }
-
-    /* ---------- SECTION HEAD ---------- */
-    .section-head--art{
-      display:flex;
-      justify-content: space-between;
-      align-items:flex-end;
-      gap: 14px;
-      margin: 26px 0 12px;
-    }
-    .section-head--art h2{ margin:0; }
-    .section-head--art p{
-      margin:0;
-      max-width: 80ch;
-      opacity: .85;
-    }
-
-    /* ---------- MODULE CARDS ---------- */
-    .modules-grid{
-      display:grid;
-      gap: 14px;
-    }
-
-    .module-card{
-      background: rgba(255,255,255,.86);
-      border: 1px solid rgba(11,18,38,.10);
-      border-radius: 18px;
-      box-shadow: 0 10px 28px rgba(0,0,0,.08);
-      overflow:hidden;
-    }
-    .module-card__inner{
+    .hero-grid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
-      gap: 0;
+      gap: 18px;
       align-items: stretch;
-    }
-    @media (max-width: 980px){
-      .module-card__inner{ grid-template-columns: 1fr; }
-    }
-
-    .module-card__content{
-      padding: 18px 18px 16px;
-      color: var(--ink);
-    }
-    .module-top{
-      display:flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-    .module-top h3{
-      margin: 0;
-      font-size: 18px;
-      line-height: 1.25;
-      letter-spacing: .01em;
-      color: var(--ink);
-    }
-    .module-num{
-      font-weight: 800;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      font-size: 12px;
-      color: rgba(11,18,38,.62);
-      white-space: nowrap;
-    }
-
-    .module-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      margin: 10px 0 12px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: rgba(11,18,38,.06);
-      border: 1px solid rgba(11,18,38,.10);
-      color: rgba(11,18,38,.84);
-      font-size: 13px;
-      line-height: 1.25;
-    }
-    .module-pill b{ color: var(--ink); }
-
-    .module-cols{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
       margin-top: 10px;
     }
-    @media (max-width: 640px){
-      .module-cols{ grid-template-columns: 1fr; }
-    }
-
-    .module-box{
-      border-radius: 14px;
-      background: rgba(246,241,230,.82);
-      border: 1px solid rgba(11,18,38,.10);
-      padding: 12px;
-    }
-    .module-box h4{
-      margin: 0 0 8px;
-      font-size: 12px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: rgba(11,18,38,.76);
-    }
-    .module-box ul{
-      margin: 0;
-      padding-left: 18px;
-      color: rgba(11,18,38,.86);
-      line-height: 1.5;
-      font-size: 14px;
-    }
-
-    .resource-row{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      margin-top: 12px;
-      align-items: center;
-    }
-    .resource-link{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: rgba(11,18,38,.92);
-      color: rgba(255,255,255,.94);
-      border: 1px solid rgba(11,18,38,.92);
-      font-weight: 800;
-      font-size: 13px;
-    }
-    .resource-link:hover{ filter: brightness(1.06); }
-
-    /* ---------- MEDIA PANE (IMAGES + VIDEO) ---------- */
-    .module-media{
-      padding: 14px;
-      background:
-        radial-gradient(900px 380px at 20% 0%, rgba(255,214,102,.18), transparent 62%),
-        radial-gradient(700px 380px at 100% 10%, rgba(116,217,255,.16), transparent 58%),
-        linear-gradient(180deg, rgba(11,18,38,.92), rgba(10,15,31,.94));
-      border-left: 1px solid rgba(255,255,255,.10);
-      display:flex;
-      align-items: stretch;
-      justify-content:center;
-    }
     @media (max-width: 980px){
-      .module-media{ border-left: 0; border-top: 1px solid rgba(255,255,255,.10); }
+      .hero-grid{ grid-template-columns: 1fr; }
     }
 
-    .media-stack{
-      width: 100%;
-      max-width: 520px;
-      display:grid;
-      gap: 12px;
-      align-content: start;
+    .hero-card{
+      border: 1px solid rgba(10,15,31,.12);
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(6px);
+      border-radius: 18px;
+      padding: 14px 14px 12px;
+      box-shadow: 0 10px 26px rgba(10,15,31,.10);
+      color: rgba(10,15,31,.94);
     }
-
-    .art-stills{
-      display:grid;
-      gap: 10px;
-    }
-    .art-stills.two{
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    @media (max-width: 520px){
-      .art-stills.two{ grid-template-columns: 1fr; }
-    }
-
-    .still-card{
-      border-radius: 14px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      box-shadow: 0 18px 44px rgba(0,0,0,.20);
-    }
-    .still-card img{
-      width:100%;
-      height:auto;
+    .hero-card strong{
       display:block;
+      letter-spacing: .02em;
+      color: var(--ink, #0a0f1f);
+      font-weight: 800;
     }
-    .still-cap{
-      padding: 9px 11px;
-      font-size: 12px;
-      color: rgba(255,255,255,.82);
-      background: rgba(0,0,0,.22);
-      border-top: 1px solid rgba(255,255,255,.10);
-    }
+    .hero-card p{ margin: 10px 0 0; opacity: .98; line-height: 1.6; }
 
-    .video-shell{
-      width: 100%;
-      border-radius: 14px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.14);
-      box-shadow: 0 18px 44px rgba(0,0,0,.20);
-      background: rgba(0,0,0,.25);
+    .hero-media{
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(10,15,31,.12);
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 10px 26px rgba(10,15,31,.10);
+      min-height: 260px;
     }
-    .video-shell .ratio{
-      position: relative;
-      padding-top: 56.25%;
-    }
-    .video-shell iframe{
-      position:absolute;
-      inset:0;
+    .hero-media img{
       width:100%;
       height:100%;
-      border:0;
-    }
-    .video-caption{
-      padding: 10px 12px;
-      font-size: 12px;
-      color: rgba(255,255,255,.82);
-      background: rgba(0,0,0,.22);
-      border-top: 1px solid rgba(255,255,255,.10);
+      object-fit: cover;
+      display:block;
     }
 
-    /* ---------- GALLERY BREAKS ---------- */
-    .gallery-break{
-      margin: 16px 0 2px;
-      border-radius: 18px;
-      overflow:hidden;
-      border: 1px solid rgba(11,18,38,.10);
-      box-shadow: 0 10px 28px rgba(0,0,0,.08);
-      background: rgba(255,255,255,.86);
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
     }
-    .gallery-break__inner{
+    .pill{
+      border: 1px solid rgba(10,15,31,.14);
+      background: rgba(255,255,255,.76);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: .92rem;
+      line-height: 1;
+      white-space: nowrap;
+      color: rgba(10,15,31,.92);
+      box-shadow: 0 6px 14px rgba(10,15,31,.06);
+    }
+
+    /* TOC contrast fixes (global platforms.css can be too light) */
+    .platform-shell{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      padding: 12px;
+      grid-template-columns: 280px 1fr;
+      gap: 18px;
+      align-items:start;
+      margin-top: 14px;
     }
     @media (max-width: 980px){
-      .gallery-break__inner{ grid-template-columns: 1fr 1fr; }
+      .platform-shell{ grid-template-columns: 1fr; }
     }
-    @media (max-width: 560px){
-      .gallery-break__inner{ grid-template-columns: 1fr; }
+    .platform-toc{
+      position: sticky;
+      top: 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(10,15,31,.12);
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 10px 26px rgba(10,15,31,.06);
+      padding: 12px;
+      color: rgba(10,15,31,.92);
     }
-    .gallery-break img{
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 14px;
+    .platform-toc .toc-title{
+      font-weight: 900;
+      letter-spacing: .02em;
+      margin: 2px 0 10px;
+      color: var(--ink, #0a0f1f);
+    }
+    .platform-toc a{
       display:block;
-      border: 1px solid rgba(11,18,38,.10);
+      padding: 8px 10px;
+      border-radius: 12px;
+      margin: 6px 0;
+      border: 1px solid rgba(10,15,31,.08);
+      background: rgba(246,241,230,.55);
+      color: rgba(10,15,31,.92);
+      text-decoration: none;
     }
-    @media (max-width: 560px){
-      .gallery-break img{ height: 200px; }
+    .platform-toc a:hover{
+      background: rgba(246,241,230,.78);
+      border-color: rgba(10,15,31,.14);
     }
 
-    /* ---------- FOOTER NOTE ---------- */
-    .art-footer-note{
-      margin-top: 18px;
-      border-radius: 16px;
-      padding: 14px 14px;
+    /* Modules */
+    .module{
+      border: 1px solid rgba(10,15,31,.10);
+      border-radius: 18px;
       background: rgba(255,255,255,.86);
-      border: 1px solid rgba(11,18,38,.10);
-      color: rgba(11,18,38,.86);
-      box-shadow: 0 10px 28px rgba(0,0,0,.08);
+      box-shadow: 0 10px 28px rgba(10,15,31,.06);
+      overflow: hidden;
+      margin: 18px 0;
     }
-    .art-footer-note b{ color: var(--ink); }
-    .mono{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 12px;
-      padding: 2px 6px;
-      border-radius: 8px;
+    .module-hd{
+      padding: 14px 16px 12px;
+      background: linear-gradient(180deg, rgba(11,18,38,.06), rgba(255,255,255,0));
+      border-bottom: 1px solid rgba(10,15,31,.08);
+    }
+    .module-hd h2{
+      margin: 0 0 6px;
+      font-size: 1.25rem;
+      letter-spacing: .02em;
+      color: var(--ink, #0a0f1f);
+    }
+    .module-hd .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      font-size:.98rem;
+      color: rgba(10,15,31,.92);
+    }
+    .module-hd .meta strong{ color: var(--ink, #0a0f1f); }
+
+    .module-bd{
+      padding: 14px 16px 16px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 16px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .module-bd{ grid-template-columns: 1fr; }
+    }
+
+    .callout{
+      border: 1px solid rgba(10,15,31,.10);
+      background: rgba(246,241,230,.66);
+      border-radius: 16px;
+      padding: 12px 12px 10px;
+      color: rgba(10,15,31,.94);
+    }
+    .callout h4{
+      margin: 0 0 8px;
+      font-size: .98rem;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      opacity: .92;
+      color: var(--ink, #0a0f1f);
+    }
+    .callout ul{ margin: 0; padding-left: 18px; }
+    .callout li{ margin: 6px 0; }
+
+    .core-note{
+      margin-top: 12px;
+      border: 1px solid rgba(10,15,31,.10);
+      background: rgba(255,255,255,.78);
+      border-radius: 14px;
+      padding: 12px;
+      color: rgba(10,15,31,.92);
+    }
+    .core-note p{ margin: 0; line-height: 1.6; }
+
+    .quote{
+      border-left: 4px solid rgba(10,15,31,.18);
+      padding: 10px 12px;
+      background: rgba(246,241,230,.58);
+      border: 1px solid rgba(10,15,31,.10);
+      border-radius: 12px;
+      margin: 12px 0 0;
+      font-style: italic;
+      color: rgba(10,15,31,.92);
+    }
+
+    /* Athlete / coach cards (consistent frames) */
+    .athlete-stack{ display:flex; flex-direction:column; gap:10px; }
+    .athlete-card{
+      display:grid;
+      grid-template-columns: 92px 1fr;
+      gap: 12px;
+      align-items:center;
+      border-radius: 16px;
+      border: 1px solid rgba(10,15,31,.10);
+      background: rgba(255,255,255,.82);
+      padding: 10px;
+      box-shadow: 0 8px 18px rgba(10,15,31,.05);
+      color: rgba(10,15,31,.92);
+    }
+    .athlete-card img{
+      width:92px;
+      height:92px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(10,15,31,.10);
       background: rgba(11,18,38,.06);
-      border: 1px solid rgba(11,18,38,.10);
-      white-space: nowrap;
     }
+    .athlete-card strong{ display:block; color: var(--ink, #0a0f1f); }
+    .athlete-card span{ font-size:.92rem; opacity:.92; color: rgba(10,15,31,.88); }
+
+    /* Key takeaways block */
+    .takeaways{
+      border: 1px solid rgba(10,15,31,.10);
+      border-radius: 18px;
+      background: rgba(246,241,230,.70);
+      box-shadow: 0 10px 28px rgba(10,15,31,.05);
+      padding: 16px;
+      margin: 20px 0 26px;
+      color: rgba(10,15,31,.94);
+    }
+    .takeaways h2{ margin: 0 0 10px; }
+    .takeaways ul{ margin: 0; padding-left: 18px; }
+    .takeaways li{ margin: 8px 0; }
+
+    /* Footer */
+    .platform-footer{
+      margin: 22px 0 34px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(10,15,31,.10);
+      background: rgba(255,255,255,.78);
+      color: rgba(10,15,31,.92);
+      display:flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items:center;
+      flex-wrap: wrap;
+      box-shadow: 0 10px 26px rgba(10,15,31,.06);
+    }
+    .platform-footer a{
+      border: 1px solid rgba(10,15,31,.14);
+      background: rgba(246,241,230,.70);
+      padding: 10px 12px;
+      border-radius: 999px;
+      text-decoration:none;
+      color: rgba(10,15,31,.92);
+      font-weight: 700;
+    }
+    .platform-footer a:hover{ background: rgba(246,241,230,.86); }
   </style>
 </head>
 
-<body class="platform platform-art">
-  <!-- Keep your existing site header/nav if you already have one; this is a safe default -->
-  <header class="site-header">
-    <div class="container">
-      <a class="brand" href="index.html" aria-label="Luke’s Leadership Platform Home">
-        <span class="brand__mark">L</span>
-        <span class="brand__text">Luke</span>
-      </a>
-
-      <nav class="site-nav" aria-label="Primary">
+<body class="platform">
+<header class="topbar">
+  <div class="container">
+    <nav class="nav">
+      <div class="brand">
+        <div class="mark">LUKE</div>
+        <div class="tag">Leadership • Craft • Character</div>
+      </div>
+      <div class="links">
         <a href="index.html">Home</a>
-        <a href="entrepreneurship.html">Entrepreneurship</a>
-        <a href="if.html">If</a>
+        <a href="if-leadership.html">If—</a>
+        <a href="entrepreneurship.html">Business</a>
+        <a href="power-leadership.html">Power</a>
+        <a class="active" href="sports-leadership.html">Sports</a>
         <a href="guitar.html">Guitar</a>
-        <a class="is-active" href="sketch.html">Art</a>
-      </nav>
-    </div>
-  </header>
+        <a href="art-sketch.html">Art</a>
+        <a href="dad-jokes.html">Dad Jokes</a>
+        <a href="spiritual.html">Spiritual</a>
+      </div>
+    </nav>
+  </div>
+</header>
 
-  <main class="container section">
-    <!-- HERO -->
-    <section class="art-hero">
-      <div class="art-hero-grid">
-        <div>
-          <div class="kicker"><span class="dot" aria-hidden="true"></span> Advanced Platform</div>
-          <h1>🎨 The Advanced Sketch & Visual Art Platform</h1>
-          <p class="hero-sub"><em>“See More. Choose More. Create More.”</em></p>
+<main class="container">
 
-          <p class="hero-sub">
-            Great artists aren’t defined by technique alone. They’re defined by <b>visual judgment</b>—the ability to
-            see, simplify, stylize, and communicate something real. This platform is designed to challenge Luke not to
-            draw better—but to draw with <b>voice</b>.
-          </p>
+  <!-- HERO -->
+  <section class="platform-hero">
+    <p class="kicker">Platform</p>
+    <h1>THE SPORTS LEADERSHIP PLATFORM</h1>
+    <p class="small">Lessons from Coach K, Distance Runners, and Legendary Athletes</p>
 
-          <div class="hero-badges" role="list" aria-label="Core growth targets">
-            <span class="hero-badge" role="listitem"><b>Vision</b> & perception</span>
-            <span class="hero-badge" role="listitem"><b>Interpretation</b> & style</span>
-            <span class="hero-badge" role="listitem"><b>Risk</b> & experimentation</span>
-            <span class="hero-badge" role="listitem"><b>Story</b> & composition</span>
+    <div class="hero-grid">
+      <div>
+        <div class="hero-card">
+          <strong>Executive Summary</strong>
+
+          <p>Sport is one of the greatest classrooms of leadership. It dema...treat others, and how they carry themselves when adversity hits.</p>
+          <p>Few leaders embody these lessons better than Coach Mike Krzyze...ncy, self-mastery, mental toughness, and purpose-driven pursuit.</p>
+          <p>And then there are leaders closer to home—like Meredith Valmon...a real, living example of elite leadership he sees every week.</p>
+          <p>This platform distills the universal truths of sports leadersh...can apply these lessons in sports, school, friendship, and life.</p>
+
+          <div class="pill-row">
+            <div class="pill">🏀 Coach K</div>
+            <div class="pill">🏃 Distance Runners</div>
+            <div class="pill">🔥 Competitive Fire</div>
+            <div class="pill">🧠 Mental Toughness</div>
+            <div class="pill">🤝 Servant Leadership</div>
           </div>
         </div>
-
-        <div class="art-hero-side">
-          <figure class="hero-image">
-            <img src="assets/img/art-hero.jpeg" alt="Featured hero artwork for the Advanced Sketch & Visual Art Platform" loading="lazy">
-            <figcaption>Featured still: <span class="mono">art-hero.jpeg</span></figcaption>
-          </figure>
-
-          <aside class="art-hero-card" aria-label="What this platform builds">
-            <h3>What this platform builds</h3>
-            <ul>
-              <li>Advanced observation and visual simplification</li>
-              <li>Intentional lines, edges, values, and shapes</li>
-              <li>Stylization that stays grounded in structure</li>
-              <li>Composition and visual storytelling choices</li>
-              <li>A repeatable growth loop that compounds</li>
-            </ul>
-          </aside>
-        </div>
       </div>
-    </section>
 
-    <!-- MODULES -->
-    <div class="section-head section-head--art">
-      <div>
-        <h2>Modules</h2>
-        <p>Each module introduces one advanced artistic “superpower” with exercises, thinking tools, curated resources, and still-image anchors from the platform folder.</p>
+      <div class="hero-media">
+        <img src="assets/img/sports-hero.jpeg" alt="Sports leadership hero image" />
       </div>
     </div>
+  </section>
 
-    <section class="modules-grid" aria-label="Art modules list">
+  <section class="platform-shell">
+    <aside class="platform-toc">
+      <div class="toc-title">On this page</div>
+      <a href="#module-1">Module 1 — Values &amp; Identity</a>
+      <a href="#module-2">Module 2 — Communication &amp; Trust</a>
+      <a href="#module-3">Module 3 — Standards Over Rules</a>
+      <a href="#module-4">Module 4 — Discipline</a>
+      <a href="#module-5">Module 5 — Adversity</a>
+      <a href="#module-6">Module 6 — Servant Leadership</a>
+      <a href="#module-7">Module 7 — Emotional Control</a>
+      <a href="#module-8">Module 8 — Preparation</a>
+      <a href="#module-9">Module 9 — Pressure</a>
+      <a href="#module-10">Module 10 — Legacy</a>
+      <a href="#key-takeaways">Key Takeaways</a>
+    </aside>
+
+    <article class="platform-main">
 
       <!-- MODULE 1 -->
-      <article class="module-card" id="module-1">
-        <div class="module-card__inner">
-          <div class="module-card__content">
-            <div class="module-top">
-              <h3>The Artist’s Eye — Leveling Up Visual Perception</h3>
-              <div class="module-num">Module 01</div>
+      <section class="module" id="module-1">
+        <div class="module-hd">
+          <h2>Module 1 — Leadership Begins with Values and Identity</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Teams don’t succeed by accident—they succeed because they share who they are and what they stand for.</span>
+          </div>
+        </div>
+
+        <div class="module-bd">
+          <div>
+            <div class="callout">
+              <h4>Framework</h4>
+              <ul>
+                <li>Define your core values (effort, honesty, respect, accountability).</li>
+                <li>Align behaviors with those values—every day.</li>
+                <li>Build a shared identity: What do we want to be known for?</li>
+                <li>Leaders go first: consistency creates trust.</li>
+              </ul>
             </div>
 
-            <div class="module-pill"><b>Core Principle:</b> Great drawing begins with better seeing.</div>
-
-            <div class="module-cols">
-              <div class="module-box">
-                <h4>Exercises</h4>
-                <ul>
-                  <li>10-minute “visual scan” sketches: draw only the biggest shapes you see.</li>
-                  <li>Thumbnail 5 objects as 3–5 simple shapes each (no details).</li>
-                  <li>Pick a reference and reduce it into <b>10–12 shapes</b> (then redraw from memory).</li>
-                </ul>
-              </div>
-              <div class="module-box">
-                <h4>Thinking Tool</h4>
-                <ul>
-                  <li>Ask: “What is the <b>biggest truth</b> I can capture first?”</li>
-                  <li>Prioritize structure and silhouette before texture and detail.</li>
-                  <li>Train the eye to group complexity into readable masses.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="resource-row">
-              <a class="resource-link" href="https://ctrlpaint.myshopify.com/collections/free" target="_blank" rel="noopener">Key Resource: Ctrl+Paint Foundations</a>
+            <div class="core-note">
+              <p><strong>Case Studies (what to notice):</strong> Identity is not a slogan—it’s a set of repeated behaviors. Values become real when leaders model them first.</p>
             </div>
           </div>
 
-          <div class="module-media" aria-label="Module 1 media: still images and video">
-            <div class="media-stack">
-              <div class="art-stills two">
-                <figure class="still-card">
-                  <img src="assets/img/art-m1-eye.jpeg" alt="Module 1 still image: The artist's eye study" loading="lazy">
-                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m1-eye.jpeg</span></figcaption>
-                </figure>
-                <figure class="still-card">
-                  <img src="assets/img/art-m1-observation.jpeg" alt="Module 1 still image: Observation study" loading="lazy">
-                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m1-observation.jpeg</span></figcaption>
-                </figure>
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/coach-k.jpeg" alt="Coach K" />
+              <div>
+                <strong>Coach K — Duke &amp; Team USA</strong>
+                <span>Every season began with a collaborative “standards meeting,” establishing identity and purpose through shared values.</span>
               </div>
-
-              <div class="video-shell">
-                <div class="ratio">
-                  <iframe
-                    src="https://www.youtube.com/embed/8FzHV2h29zE"
-                    title="Visual perception practice: building visual library"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-                </div>
-                <div class="video-caption">Optional support lesson: building a visual library and seeing major shapes first.</div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/eliud-kipchoge.jpeg" alt="Eliud Kipchoge" />
+              <div>
+                <strong>Eliud Kipchoge — Discipline as Identity</strong>
+                <span>His philosophy—“Only the disciplined ones are free”—governs how he trains and leads.</span>
               </div>
             </div>
           </div>
         </div>
-      </article>
+      </section>
 
       <!-- MODULE 2 -->
-      <article class="module-card" id="module-2">
-        <div class="module-card__inner">
-          <div class="module-card__content">
-            <div class="module-top">
-              <h3>Line Mastery — Intentional, Expressive, Controlled</h3>
-              <div class="module-num">Module 02</div>
+      <section class="module" id="module-2">
+        <div class="module-hd">
+          <h2>Module 2 — Communication + Trust = Strong Teams</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Great teams don’t just work together. They talk, listen, and trust.</span>
+          </div>
+        </div>
+
+        <div class="module-bd">
+          <div>
+            <div class="callout">
+              <h4>Framework</h4>
+              <ul>
+                <li>Communicate early, often, and clearly.</li>
+                <li>Listen deeply—communication is two-way.</li>
+                <li>Create an environment where honesty is safe.</li>
+                <li>Trust grows from reliability and follow-through.</li>
+              </ul>
             </div>
 
-            <div class="module-pill"><b>Core Principle:</b> Advanced artists don’t draw lines. They choose them.</div>
-
-            <div class="module-cols">
-              <div class="module-box">
-                <h4>Focus areas</h4>
-                <ul>
-                  <li>Line weight for emphasis and emotional tone</li>
-                  <li>Edge hierarchy (lost edges vs. found edges)</li>
-                  <li>Stylization through rhythm and simplification</li>
-                  <li>Confidence lines: fewer strokes, clearer intent</li>
-                </ul>
-              </div>
-              <div class="module-box">
-                <h4>Exercise</h4>
-                <ul>
-                  <li>Draw the same face using only thin lines, then only thick lines.</li>
-                  <li>Do a “no sketch” pass: commit lines once, slowly, with intention.</li>
-                  <li>Do a “3-stroke limit” per feature to force decision-making.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="resource-row">
-              <a class="resource-link" href="https://www.youtube.com/watch?v=wgDNDOKnArk" target="_blank" rel="noopener">Key Resource: Line Control Lesson</a>
+            <div class="core-note">
+              <p><strong>Leadership lens:</strong> Strong teams don’t avoid hard conversations—they normalize them. Clarity and consistency build trust faster than hype.</p>
             </div>
           </div>
 
-          <div class="module-media" aria-label="Module 2 media: still image and video">
-            <div class="media-stack">
-              <div class="art-stills">
-                <figure class="still-card">
-                  <img src="assets/img/art-m2-line.jpeg" alt="Module 2 still image: Line mastery study" loading="lazy">
-                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m2-line.jpeg</span></figcaption>
-                </figure>
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/tom-brady.jpeg" alt="Tom Brady" />
+              <div>
+                <strong>Tom Brady — The Trust Builder</strong>
+                <span>Master of honest, real-time communication that lifts teammates.</span>
               </div>
-
-              <div class="video-shell">
-                <div class="ratio">
-                  <iframe
-                    src="https://www.youtube.com/embed/wgDNDOKnArk"
-                    title="Line mastery — intentional line control"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-                </div>
-                <div class="video-caption">Line mastery (embed): practice control, rhythm, and intentional mark-making.</div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/derek-jeter.jpeg" alt="Derek Jeter" />
+              <div>
+                <strong>Derek Jeter — Calm, Clear, Dependable</strong>
+                <span>A captain whose communication earned respect across decades.</span>
               </div>
             </div>
           </div>
         </div>
-      </article>
+      </section>
 
       <!-- MODULE 3 -->
-      <article class="module-card" id="module-3">
-        <div class="module-card__inner">
-          <div class="module-card__content">
-            <div class="module-top">
-              <h3>Form Fluency — Making Drawings Look 3D Instantly</h3>
-              <div class="module-num">Module 03</div>
-            </div>
-
-            <div class="module-pill"><b>Core Principle:</b> If you can simplify form, you can draw anything.</div>
-
-            <div class="module-cols">
-              <div class="module-box">
-                <h4>Exercises</h4>
-                <ul>
-                  <li>Turn objects into basic volumes: box, cylinder, sphere.</li>
-                  <li>Draw the same form at 3 rotations (front / 3/4 / side).</li>
-                  <li>Build heads from simple planes before details.</li>
-                </ul>
-              </div>
-              <div class="module-box">
-                <h4>Habit</h4>
-                <ul>
-                  <li>Ask: “What 3D form is this, underneath the surface?”</li>
-                  <li>Use contour + cross-contour to “wrap” the form.</li>
-                  <li>Practice “planes first” (large planes → medium forms → details).</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="resource-row">
-              <a class="resource-link" href="https://www.youtube.com/@moderndayjames" target="_blank" rel="noopener">Key Resource: ModernDayJames (Channel)</a>
-            </div>
-          </div>
-
-          <div class="module-media" aria-label="Module 3 media: still image and video">
-            <div class="media-stack">
-              <div class="art-stills">
-                <figure class="still-card">
-                  <img src="assets/img/art-m3-form.jpeg" alt="Module 3 still image: Form study showing 3D structure" loading="lazy">
-                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m3-form.jpeg</span></figcaption>
-                </figure>
-              </div>
-
-              <div class="video-shell">
-                <div class="ratio">
-                  <iframe
-                    src="https://www.youtube.com/embed/sXgaNuxf1vk"
-                    title="Practice strategy to build form fluency"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-                </div>
-                <div class="video-caption">Practice strategy support: structure-first study habits that compound form fluency.</div>
-              </div>
-            </div>
+      <section class="module" id="module-3">
+        <div class="module-hd">
+          <h2>Module 3 — Standards Over Rules</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Rules restrict. Standards inspire.</span>
           </div>
         </div>
-      </article>
 
-      <!-- GALLERY BREAK (1–3) -->
-      <section class="gallery-break" aria-label="Gallery break: early foundations stills">
-        <div class="gallery-break__inner">
-          <img src="assets/img/art-m1-eye.jpeg" alt="Gallery still: Module 1 eye study" loading="lazy">
-          <img src="assets/img/art-m2-line.jpeg" alt="Gallery still: Module 2 line study" loading="lazy">
-          <img src="assets/img/art-m3-form.jpeg" alt="Gallery still: Module 3 form study" loading="lazy">
+        <div class="module-bd">
+          <div>
+            <div class="callout">
+              <h4>Framework</h4>
+              <ul>
+                <li>Rules come from authority; standards come from shared identity.</li>
+                <li>Standards reflect who we are, not what we avoid.</li>
+                <li>Great leaders protect standards even when no one is watching.</li>
+              </ul>
+            </div>
+
+            <div class="core-note">
+              <p><strong>Why it matters:</strong> Standards create self-policing culture. Teams that rely only on rules often collapse when authority isn’t present.</p>
+            </div>
+          </div>
+
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/pat-summitt.jpeg" alt="Pat Summitt" />
+              <div>
+                <strong>Pat Summitt — The Definite Dozen</strong>
+                <span>Standards that shape character and accountability.</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/shalane-flanagan.jpeg" alt="Shalane Flanagan" />
+              <div>
+                <strong>Shalane Flanagan — Culture Architect</strong>
+                <span>Excellence built through daily professional norms.</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- MODULE 4 -->
-      <article class="module-card" id="module-4">
-        <div class="module-card__inner">
-          <div class="module-card__content">
-            <div class="module-top">
-              <h3>Shading Intelligence — Light as Design, Not Accuracy</h3>
-              <div class="module-num">Module 04</div>
+      <section class="module" id="module-4">
+        <div class="module-hd">
+          <h2>Module 4 — The Power of Discipline and Daily Excellence</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Motivation fades. Discipline remains.</span>
+          </div>
+        </div>
+
+        <div class="module-bd">
+          <div>
+            <div class="core-note">
+              <p>Motivation fades. Discipline remains.</p>
+              <p>This is the distance run...set—leadership built on daily effort, not occasional intensity.</p>
             </div>
 
-            <div class="module-pill"><b>Core Principle:</b> Values create clarity. Clarity creates impact.</div>
-
-            <div class="module-cols">
-              <div class="module-box">
-                <h4>Exercises</h4>
-                <ul>
-                  <li>3-value studies (light / mid / dark) from photo reference.</li>
-                  <li>Draw the same subject with <b>two</b> different lighting setups.</li>
-                  <li>Squint test: does the subject read clearly from far away?</li>
-                </ul>
-              </div>
-              <div class="module-box">
-                <h4>Thinking tool</h4>
-                <ul>
-                  <li><b>Value hierarchy:</b> what deserves contrast, what stays quiet?</li>
-                  <li>Design the light to support the focal point.</li>
-                  <li>Separate “local value” from “light/shadow” thinking.</li>
-                </ul>
-              </div>
+            <div class="callout" style="margin-top:12px;">
+              <h4>Framework</h4>
+              <ul>
+                <li>Show up every day, especially on the hard days.</li>
+                <li>Build routines that anchor focus and stability.</li>
+                <li>Measure success by effort, not applause.</li>
+                <li>Trust the compounding effect of consistency.</li>
+              </ul>
             </div>
 
-            <div class="resource-row">
-              <a class="resource-link" href="https://www.youtube.com/watch?v=V3WmrWUEIJo" target="_blank" rel="noopener">Key Resource: Shading & Value Design</a>
-            </div>
+            <div class="quote">“To give anything less than your best is to sacrifice the gift.” — Steve Prefontaine</div>
           </div>
 
-          <div class="module-media" aria-label="Module 4 media: still images and video">
-            <div class="media-stack">
-              <div class="art-stills two">
-                <figure class="still-card">
-                  <img src="assets/img/art-m4-light.jpeg" alt="Module 4 still image: Light study" loading="lazy">
-                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m4-light.jpeg</span></figcaption>
-                </figure>
-                <figure class="still-card">
-                  <img src="assets/img/art-m4-shading.jpeg" alt="Module 4 still image: Shading study" loading="lazy">
-                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m4-shading.jpeg</span></figcaption>
-                </figure>
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/eliud-kipchoge.jpeg" alt="Eliud Kipchoge" />
+              <div>
+                <strong>Eliud Kipchoge — Master of the Process</strong>
+                <span>His quiet, monastic approach to training embodies the highest standard of discipline.</span>
               </div>
-
-              <div class="video-shell">
-                <div class="ratio">
-                  <iframe
-                    src="https://www.youtube.com/embed/V3WmrWUEIJo"
-                    title="Shading Intelligence — light as design"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-                </div>
-                <div class="video-caption">Shading intelligence (embed): simplify values, design contrast, control edges.</div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/des-linden.jpeg" alt="Des Linden" />
+              <div>
+                <strong>Des Linden — “Keep Showing Up”</strong>
+                <span>Her Boston win was built on years of steady, unglamorous effort.</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/steve-prefontaine.jpeg" alt="Steve Prefontaine" />
+              <div>
+                <strong>Steve Prefontaine — Courage as Commitment</strong>
+                <span>He led with effort: “To give anything less than your best is to sacrifice the gift.”</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/meredith-valmon.jpeg" alt="Meredith Valmon (Rainey)" />
+              <div>
+                <strong>Meredith Valmon (Rainey) — Discipline + Deliberate Training</strong>
+                <span>As an 800m Olympian, Meredith mastered one of track’s most g... loud. It’s the quiet, repeated choice to do the right work.</span>
               </div>
             </div>
           </div>
         </div>
-      </article>
+      </section>
 
       <!-- MODULE 5 -->
-      <article class="module-card" id="module-5">
-        <div class="module-card__inner">
-          <div class="module-card__content">
-            <div class="module-top">
-              <h3>Character & Portrait Stylization — Beyond Accuracy</h3>
-              <div class="module-num">Module 05</div>
+      <section class="module" id="module-5">
+        <div class="module-hd">
+          <h2>Module 5 — Adversity as a Leadership Advantage</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Setbacks are not interruptions—they are the curriculum.</span>
+          </div>
+        </div>
+
+        <div class="module-bd">
+          <div>
+            <div class="core-note">
+              <p>Setbacks are not interruptions—they are the curriculum.</p>
+              <p>Adversity is where leaders are revealed. It is the ... what you do next.</p>
             </div>
 
-            <div class="module-pill"><b>Core Principle:</b> Stylization is structure + choice, not distortion.</div>
-
-            <div class="module-cols">
-              <div class="module-box">
-                <h4>Exercises</h4>
-                <ul>
-                  <li>Draw a portrait three ways: realistic, simplified, and stylized.</li>
-                  <li>Pick 3 features to exaggerate (and 3 to simplify).</li>
-                  <li>Do “shape-language” studies: round vs. angular vs. tapered.</li>
-                </ul>
-              </div>
-              <div class="module-box">
-                <h4>Thinking tool</h4>
-                <ul>
-                  <li>Ask: “What’s the <b>identity</b> of this face?”</li>
-                  <li>Keep landmarks true, then stylize rhythm + proportion.</li>
-                  <li>Use consistent rules across the whole drawing (not random edits).</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="resource-row">
-              <a class="resource-link" href="https://www.youtube.com/watch?v=H8yu29x831Q" target="_blank" rel="noopener">Key Resource: Stylized Portrait Technique</a>
+            <div class="callout" style="margin-top:12px;">
+              <h4>Framework</h4>
+              <ul>
+                <li>Adversity reveals what you believe and who you are.</li>
+                <li>Respond with ownership: “What can I control next?”</li>
+                <li>Use setbacks to build empathy and resilience.</li>
+                <li>Let hardship deepen your leadership, not harden it.</li>
+              </ul>
             </div>
           </div>
 
-          <div class="module-media" aria-label="Module 5 media: still image and video">
-            <div class="media-stack">
-              <div class="art-stills">
-                <figure class="still-card">
-                  <img src="assets/img/art-m5-portrait.jpeg" alt="Module 5 still image: Portrait stylization study" loading="lazy">
-                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m5-portrait.jpeg</span></figcaption>
-                </figure>
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/michael-jordan.jpeg" alt="Michael Jordan" />
+              <div>
+                <strong>Michael Jordan — Failure as Fuel</strong>
+                <span>Cut from his high school varsity team, he turned rejection into drive.</span>
               </div>
-
-              <div class="video-shell">
-                <div class="ratio">
-                  <iframe
-                    src="https://www.youtube.com/embed/H8yu29x831Q"
-                    title="Stylized Portrait Drawing Tutorial"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-                </div>
-                <div class="video-caption">Portrait stylization support: keep structure true, then push choices intentionally.</div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/kenenisa-bekele.jpeg" alt="Kenenisa Bekele" />
+              <div>
+                <strong>Kenenisa Bekele — The Art of the Comeback</strong>
+                <span>Resilience through time + work; setbacks didn’t define him—response did.</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/meredith-valmon.jpeg" alt="Meredith Valmon (Rainey)" />
+              <div>
+                <strong>Meredith Valmon (Rainey) — Resilience Through Injury</strong>
+                <span>Rebuild with patience and purpose; leadership is staying steady through the long middle.</span>
               </div>
             </div>
           </div>
         </div>
-      </article>
+      </section>
 
       <!-- MODULE 6 -->
-      <article class="module-card" id="module-6">
-        <div class="module-card__inner">
-          <div class="module-card__content">
-            <div class="module-top">
-              <h3>Composition & Visual Storytelling — The Artist as Director</h3>
-              <div class="module-num">Module 06</div>
-            </div>
-
-            <div class="module-pill"><b>Core Principle:</b> Composition is the choreography of attention.</div>
-
-            <div class="module-cols">
-              <div class="module-box">
-                <h4>Exercises</h4>
-                <ul>
-                  <li>10 thumbnails: one idea, 10 different compositions.</li>
-                  <li>Use 3 focal tools: contrast, framing, leading lines.</li>
-                  <li>“Camera” practice: crop and zoom to change emotion.</li>
-                </ul>
-              </div>
-              <div class="module-box">
-                <h4>Thinking tool</h4>
-                <ul>
-                  <li>Ask: “What do I want the viewer to feel first?”</li>
-                  <li>Build a clear focal point, then support it with quieter shapes.</li>
-                  <li>Balance clarity (read) with mystery (interest).</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="resource-row">
-              <a class="resource-link" href="https://www.youtube.com/watch?v=O8i7OKbWmRM" target="_blank" rel="noopener">Key Resource: Composition Lesson</a>
-            </div>
-          </div>
-
-          <div class="module-media" aria-label="Module 6 media: still image and video">
-            <div class="media-stack">
-              <div class="art-stills">
-                <figure class="still-card">
-                  <img src="assets/img/art-m6-composition.jpeg" alt="Module 6 still image: Composition and visual storytelling study" loading="lazy">
-                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m6-composition.jpeg</span></figcaption>
-                </figure>
-              </div>
-
-              <div class="video-shell">
-                <div class="ratio">
-                  <iframe
-                    src="https://www.youtube.com/embed/O8i7OKbWmRM"
-                    title="Composition & Visual Storytelling"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-                </div>
-                <div class="video-caption">Composition support: focal point control, staging, and storytelling clarity.</div>
-              </div>
-            </div>
+      <section class="module" id="module-6">
+        <div class="module-hd">
+          <h2>Module 6 — Servant Leadership: Lifting Others First</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Leaders serve the mission by serving the people.</span>
           </div>
         </div>
-      </article>
 
-      <!-- GALLERY BREAK (4–6) -->
-      <section class="gallery-break" aria-label="Gallery break: value, portrait, composition stills">
-        <div class="gallery-break__inner">
-          <img src="assets/img/art-m4-shading.jpeg" alt="Gallery still: Module 4 shading study" loading="lazy">
-          <img src="assets/img/art-m5-portrait.jpeg" alt="Gallery still: Module 5 portrait study" loading="lazy">
-          <img src="assets/img/art-m6-composition.jpeg" alt="Gallery still: Module 6 composition study" loading="lazy">
+        <div class="module-bd">
+          <div>
+            <div class="core-note">
+              <p>Leaders serve the mission by serving the people.</p>
+              <p>Servant leadership is not weakness. It is strength ... the people around you.</p>
+            </div>
+
+            <div class="callout" style="margin-top:12px;">
+              <h4>Framework</h4>
+              <ul>
+                <li>Make teammates better—especially the quiet ones.</li>
+                <li>Lead with humility: your role is to elevate the group.</li>
+                <li>Share credit; take responsibility.</li>
+                <li>Serve consistently, not performatively.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/mia-hamm.jpeg" alt="Mia Hamm" />
+              <div>
+                <strong>Mia Hamm — Team Above Self</strong>
+                <span>Leadership through humility and relentless work.</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/eliud-kipchoge.jpeg" alt="Eliud Kipchoge" />
+              <div>
+                <strong>Eliud Kipchoge — Servant Leader</strong>
+                <span>Respect, community, and shared success as a leadership signature.</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/meredith-valmon.jpeg" alt="Meredith Valmon (Rainey)" />
+              <div>
+                <strong>Meredith Valmon (Rainey) — Coaching as Service</strong>
+                <span>Develop people, not just athletes—impact multiplies through others.</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- MODULE 7 -->
-      <article class="module-card" id="module-7">
-        <div class="module-card__inner">
-          <div class="module-card__content">
-            <div class="module-top">
-              <h3>Style Development — Becoming More “Luke”</h3>
-              <div class="module-num">Module 07</div>
-            </div>
-
-            <div class="module-pill"><b>Core Principle:</b> Style is consistency of choices over time.</div>
-
-            <div class="module-cols">
-              <div class="module-box">
-                <h4>Exercises</h4>
-                <ul>
-                  <li>Make a 12-image “style board” of what you love (mood, line, shape, color/value).</li>
-                  <li>Draw one subject 5 ways (shape language shifts each time).</li>
-                  <li>Pick 3 “rules” and apply them for a week (then break one on purpose).</li>
-                </ul>
-              </div>
-              <div class="module-box">
-                <h4>Thinking tool</h4>
-                <ul>
-                  <li>Track recurring choices: shapes, edges, simplification, mood.</li>
-                  <li>Ask: “What do I want my drawings to <b>feel</b> like?”</li>
-                  <li>Keep a “style log” (3 bullets after each piece).</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="resource-row">
-              <a class="resource-link" href="https://www.youtube.com/watch?v=sXgaNuxf1vk" target="_blank" rel="noopener">Key Resource: Practice & Style Strategy</a>
-            </div>
-          </div>
-
-          <div class="module-media" aria-label="Module 7 media: still image and video">
-            <div class="media-stack">
-              <div class="art-stills">
-                <figure class="still-card">
-                  <img src="assets/img/art-m7-style.jpeg" alt="Module 7 still image: Style development study" loading="lazy">
-                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m7-style.jpeg</span></figcaption>
-                </figure>
-              </div>
-
-              <div class="video-shell">
-                <div class="ratio">
-                  <iframe
-                    src="https://www.youtube.com/embed/sXgaNuxf1vk"
-                    title="Build style through practice strategy"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-                </div>
-                <div class="video-caption">Style support: build consistency through repeatable practice choices.</div>
-              </div>
-            </div>
+      <section class="module" id="module-7">
+        <div class="module-hd">
+          <h2>Module 7 — Competitive Fire with Emotional Control</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Leaders feel emotion, but they don’t let emotion lead them.</span>
           </div>
         </div>
-      </article>
 
-      <!-- MODULE 8 -->
-      <article class="module-card" id="module-8">
-        <div class="module-card__inner">
-          <div class="module-card__content">
-            <div class="module-top">
-              <h3>Advanced Anatomy — The Artist’s Superpower</h3>
-              <div class="module-num">Module 08</div>
+        <div class="module-bd">
+          <div>
+            <div class="core-note">
+              <p>Leaders feel emotion, but they don’t let emotion lead them.</p>
+              <p>Competitive greatness is not just intensity—it’... pressure you bring to the moment.</p>
             </div>
 
-            <div class="module-pill"><b>Core Principle:</b> Anatomy is not memorization—it’s understanding structure.</div>
-
-            <div class="module-cols">
-              <div class="module-box">
-                <h4>Exercises</h4>
-                <ul>
-                  <li>Hands: 10 quick gesture hands + 2 slow structure hands.</li>
-                  <li>Torso: ribcage + pelvis as simple forms, then connect.</li>
-                  <li>Pick one body part per week (repeat for 4 weeks).</li>
-                </ul>
-              </div>
-              <div class="module-box">
-                <h4>Thinking tool</h4>
-                <ul>
-                  <li>Learn “landmarks” (bony points) first—then muscles.</li>
-                  <li>Think in simple forms under the surface.</li>
-                  <li>Draw through: treat forms as transparent to understand volume.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="resource-row">
-              <a class="resource-link" href="https://www.youtube.com/playlist?list=PLtG4P3lq8RHFBeVaruf2JjyQmZJH4__Zv" target="_blank" rel="noopener">Key Resource: Proko Anatomy Playlist</a>
+            <div class="callout" style="margin-top:12px;">
+              <h4>Framework</h4>
+              <ul>
+                <li>Compete with intensity, but stay composed.</li>
+                <li>Detach your identity from outcomes.</li>
+                <li>Use routines to reset (breath, self-talk, next-play focus).</li>
+                <li>Emotional control is contagious—teams mirror leaders.</li>
+              </ul>
             </div>
           </div>
 
-          <div class="module-media" aria-label="Module 8 media: still image and playlist video">
-            <div class="media-stack">
-              <div class="art-stills">
-                <figure class="still-card">
-                  <img src="assets/img/art-m8-anatomy.jpeg" alt="Module 8 still image: Anatomy study" loading="lazy">
-                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m8-anatomy.jpeg</span></figcaption>
-                </figure>
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/serena-williams.jpeg" alt="Serena Williams" />
+              <div>
+                <strong>Serena Williams — Intensity Under Control</strong>
+                <span>Passion with precision; focus that doesn’t fracture under stress.</span>
               </div>
-
-              <div class="video-shell">
-                <div class="ratio">
-                  <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=PLtG4P3lq8RHFBeVaruf2JjyQmZJH4__Zv"
-                    title="Anatomy for Artists — Playlist"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-                </div>
-                <div class="video-caption">Reliable playlist embed: anatomy fundamentals and structure-based learning.</div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/mo-farah.jpeg" alt="Mo Farah" />
+              <div>
+                <strong>Mo Farah — Calm Amid Chaos</strong>
+                <span>Composed execution when decisions and timing matter most.</span>
               </div>
             </div>
           </div>
-        </div>
-      </article>
-
-      <!-- MODULE 9 -->
-      <article class="module-card" id="module-9">
-        <div class="module-card__inner">
-          <div class="module-card__content">
-            <div class="module-top">
-              <h3>Creative Risk-Taking — Break Your Own Rules</h3>
-              <div class="module-num">Module 09</div>
-            </div>
-
-            <div class="module-pill"><b>Core Principle:</b> Growth happens when you risk being bad on purpose.</div>
-
-            <div class="module-cols">
-              <div class="module-box">
-                <h4>Exercises</h4>
-                <ul>
-                  <li>Do 5 “ugly drawings” fast—then pick 1 to refine seriously.</li>
-                  <li>Limit yourself to 2 values or 3 shapes only.</li>
-                  <li>Make one drawing where the goal is “weird but clear.”</li>
-                </ul>
-              </div>
-              <div class="module-box">
-                <h4>Thinking tool</h4>
-                <ul>
-                  <li>Ask: “What am I afraid to try—and why?”</li>
-                  <li>Separate “identity” from “output.” The drawing is data.</li>
-                  <li>One risk per piece: push proportion, push shape, push value, or push line.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="resource-row">
-              <a class="resource-link" href="https://www.youtube.com/watch?v=yOIaI3Q_8UQ" target="_blank" rel="noopener">Key Resource: Drawfee “Choose Your Own Adventure”</a>
-            </div>
-          </div>
-
-          <div class="module-media" aria-label="Module 9 media: still image and video">
-            <div class="media-stack">
-              <div class="art-stills">
-                <figure class="still-card">
-                  <img src="assets/img/art-m9-risk.jpeg" alt="Module 9 still image: Creative risk-taking study" loading="lazy">
-                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m9-risk.jpeg</span></figcaption>
-                </figure>
-              </div>
-
-              <div class="video-shell">
-                <div class="ratio">
-                  <iframe
-                    src="https://www.youtube.com/embed/yOIaI3Q_8UQ"
-                    title="Creative risk-taking — Drawfee episode"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-                </div>
-                <div class="video-caption">Risk-taking support: playful constraints and “try it anyway” creative momentum.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- MODULE 10 -->
-      <article class="module-card" id="module-10">
-        <div class="module-card__inner">
-          <div class="module-card__content">
-            <div class="module-top">
-              <h3>The Artist’s Growth Loop — Your Personal Evolution Engine</h3>
-              <div class="module-num">Module 10</div>
-            </div>
-
-            <div class="module-pill"><b>Core Principle:</b> Consistent feedback loops create inevitable improvement.</div>
-
-            <div class="module-cols">
-              <div class="module-box">
-                <h4>The loop</h4>
-                <ul>
-                  <li><b>Input:</b> study one skill intentionally</li>
-                  <li><b>Output:</b> create something real (small is fine)</li>
-                  <li><b>Review:</b> identify 1–2 specific improvements</li>
-                  <li><b>Repeat:</b> apply the fix immediately in the next piece</li>
-                </ul>
-              </div>
-              <div class="module-box">
-                <h4>Weekly system</h4>
-                <ul>
-                  <li>2 short studies + 1 “finished” piece</li>
-                  <li>1 mini critique: what worked / what didn’t / what’s next</li>
-                  <li>Track one metric: value clarity, proportion accuracy, gesture energy, etc.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="resource-row">
-              <a class="resource-link" href="https://www.youtube.com/watch?v=nJkqeaDqXdk" target="_blank" rel="noopener">Key Resource: Practice Effectively</a>
-            </div>
-          </div>
-
-          <div class="module-media" aria-label="Module 10 media: still images and video">
-            <div class="media-stack">
-              <div class="art-stills two">
-                <figure class="still-card">
-                  <img src="assets/img/art-m10-growth.jpeg" alt="Module 10 still image: Growth study" loading="lazy">
-                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m10-growth.jpeg</span></figcaption>
-                </figure>
-                <figure class="still-card">
-                  <img src="assets/img/art-m10-growth-loop.jpeg" alt="Module 10 still image: Growth loop diagram or study" loading="lazy">
-                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m10-growth-loop.jpeg</span></figcaption>
-                </figure>
-              </div>
-
-              <div class="video-shell">
-                <div class="ratio">
-                  <iframe
-                    src="https://www.youtube.com/embed/nJkqeaDqXdk"
-                    title="How to Practice Effectively (art growth loop)"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-                </div>
-                <div class="video-caption">Growth-loop support: turning feedback into a repeatable, compounding system.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- GALLERY BREAK (7–10) -->
-      <section class="gallery-break" aria-label="Gallery break: style, anatomy, risk, growth stills">
-        <div class="gallery-break__inner">
-          <img src="assets/img/art-m7-style.jpeg" alt="Gallery still: Module 7 style study" loading="lazy">
-          <img src="assets/img/art-m8-anatomy.jpeg" alt="Gallery still: Module 8 anatomy study" loading="lazy">
-          <img src="assets/img/art-m10-growth.jpeg" alt="Gallery still: Module 10 growth study" loading="lazy">
         </div>
       </section>
 
-    </section>
+      <!-- MODULE 8 -->
+      <section class="module" id="module-8">
+        <div class="module-hd">
+          <h2>Module 8 — Preparation Builds Confidence</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Confidence is earned in silence.</span>
+          </div>
+        </div>
 
-    <div class="art-footer-note" role="note">
-      <b>Video embed tip:</b>
-      if any video ever fails again, switch the iframe URL to the embed format
-      <span class="mono">https://www.youtube.com/embed/VIDEO_ID</span>
-      (and for playlists use <span class="mono">/embed/videoseries?list=PLAYLIST_ID</span>).
-      <br><br>
-      <b>Image path rule:</b> all still images on this page load from <span class="mono">assets/img/</span> using the exact filenames you provided.
-    </div>
-  </main>
+        <div class="module-bd">
+          <div>
+            <div class="core-note">
+              <p>Confidence is earned in silence.</p>
+              <p>Preparation is how you remove fear from big moments... The prepared athlete becomes free.</p>
+            </div>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p style="margin:0; opacity:.8;">© Luke’s Leadership Platform</p>
-    </div>
-  </footer>
+            <div class="callout" style="margin-top:12px;">
+              <h4>Framework</h4>
+              <ul>
+                <li>Prepare early; remove chaos from game day.</li>
+                <li>Rehearse fundamentals until they are automatic.</li>
+                <li>Build routines: sleep, nutrition, warmup, mindset.</li>
+                <li>Preparation creates freedom under pressure.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/kobe-bryant.jpeg" alt="Kobe Bryant" />
+              <div>
+                <strong>Kobe Bryant — Mastery Through Preparation</strong>
+                <span>The routine is the advantage: excellence built before anyone is watching.</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/joan-benoit.jpeg" alt="Joan Benoit Samuelson" />
+              <div>
+                <strong>Joan Benoit Samuelson — Quiet Consistency</strong>
+                <span>Olympic preparation mastery: repetition, precision, steadiness.</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/meredith-valmon.jpeg" alt="Meredith Valmon (Rainey)" />
+              <div>
+                <strong>Meredith Valmon (Rainey) — Precision in Preparation</strong>
+                <span>Details create confidence; confidence becomes performance under pressure.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 9 -->
+      <section class="module" id="module-9">
+        <div class="module-hd">
+          <h2>Module 9 — Leadership Under Pressure</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Pressure reveals who you are and what you believe.</span>
+          </div>
+        </div>
+
+        <div class="module-bd">
+          <div>
+            <div class="core-note">
+              <p>Pressure reveals who you are and what you believe.</p>
+              <p>Pressure is not something to fear. It is informa... to your team.</p>
+            </div>
+
+            <div class="callout" style="margin-top:12px;">
+              <h4>Framework</h4>
+              <ul>
+                <li>Pressure is information: it shows where you need reps.</li>
+                <li>Stay present: next play, next breath, next decision.</li>
+                <li>Anchor to values: calm is a choice.</li>
+                <li>Great leaders transfer confidence to the group.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/coach-k.jpeg" alt="Coach K" />
+              <div>
+                <strong>Coach K — Olympic-Level Poise</strong>
+                <span>Calm leadership when everything is at stake; clarity in the biggest moments.</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/eliud-kipchoge.jpeg" alt="Eliud Kipchoge" />
+              <div>
+                <strong>Eliud Kipchoge — Composure at the Edge</strong>
+                <span>Calm execution under extreme demand; the mind stays steady when the body is loud.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 10 -->
+      <section class="module" id="module-10">
+        <div class="module-hd">
+          <h2>Module 10 — Legacy, Impact, and Leadership Beyond Sport</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Trophies fade. Impact endures.</span>
+          </div>
+        </div>
+
+        <div class="module-bd">
+          <div>
+            <div class="core-note">
+              <p>Trophies fade. Impact endures.</p>
+              <p>Legacy is not the highlight reel. It’s the trail...rue leader’s impact shows up in other people’s future success.</p>
+            </div>
+
+            <div class="callout" style="margin-top:12px;">
+              <h4>Framework</h4>
+              <ul>
+                <li>Mentor those who follow you.</li>
+                <li>Lead with humility and integrity.</li>
+                <li>Measure success by service and impact.</li>
+                <li>Leave environments better than you found them.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/bill-russell.jpeg" alt="Bill Russell" />
+              <div>
+                <strong>Bill Russell — Leadership Beyond Championships</strong>
+                <span>A champion of justice, humility, and courage.</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/eliud-kipchoge.jpeg" alt="Eliud Kipchoge" />
+              <div>
+                <strong>Eliud Kipchoge — Community Builder</strong>
+                <span>Supports education and youth development in Kenya.</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/meredith-valmon.jpeg" alt="Meredith Valmon (Rainey)" />
+              <div>
+                <strong>Meredith Valmon (Rainey) — Legacy Through Coaching</strong>
+                <span>Her greate...rue leader’s impact shows up in other people’s future success.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KEY TAKEAWAYS -->
+      <section class="takeaways" id="key-takeaways">
+        <h2>Key Takeaways</h2>
+        <ul>
+          <li>Leadership begins with values and grows through consistency.</li>
+          <li>Champions communicate clearly and build trust.</li>
+          <li>Standards, not rules, create excellence.</li>
+          <li>Discipline is a superpower—small habits build great leaders.</li>
+          <li>Adversity is not the enemy; it is the trainer.</li>
+          <li>Great leaders serve, support, and elevate others.</li>
+          <li>Pressure is a privilege—embrace it.</li>
+          <li>Preparation fuels confidence; confidence fuels performance.</li>
+          <li>Legacy is defined by the people you influence, not the medals you earn.</li>
+          <li>Sports will come and go, but these lessons endure. They shape ... you compete, how you lead, and the kind of person you become.</li>
+        </ul>
+      </section>
+
+      <div class="platform-footer">
+        <div><strong>Next:</strong> Keep the same standards off the field—school, friendships, and life.</div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="power-leadership.html">← Power</a>
+          <a href="guitar.html">Guitar →</a>
+        </div>
+      </div>
+
+    </article>
+  </section>
+
+</main>
 </body>
 </html>
