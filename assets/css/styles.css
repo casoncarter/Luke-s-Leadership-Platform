@@ -33,6 +33,20 @@ a{ text-decoration: none; color: inherit; }
 
   --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
   --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+
+  /* ----------------------------------
+     NEW: SURFACE-AWARE CONTRAST TOKENS
+     (Do NOT change base dark theme;
+     only improves readability on light cards)
+  ----------------------------------- */
+  --ink-98: rgba(10,15,31,.98);
+  --ink-92: rgba(10,15,31,.92);
+  --ink-78: rgba(10,15,31,.78);
+
+  --border: rgba(10,15,31,.12);
+  --surface: rgba(255,255,255,.92);
+  --surface-soft: rgba(246,241,230,.84);
+  --surface-glass: rgba(255,255,255,.86);
 }
 
 /* ---------- BASE BODY ---------- */
@@ -497,7 +511,7 @@ body{
   line-height: 1.55;
 }
 
-/* callout box */
+/* callout box (kept as your gold-tint style for dark pages) */
 .platform .callout{
   border: 1px solid rgba(201,163,73,.22);
   background: rgba(201,163,73,.07);
@@ -632,150 +646,119 @@ body{
   }
   .hero h1{ font-size: 40px; }
 }
+
+/* ================================
+   VIDEO EMBED UTILITY
+================================= */
 .video-embed {
   position: relative;
   width: 100%;
   padding-top: 56.25%; /* 16:9 */
   margin: 24px 0;
 }
-
 .video-embed iframe {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
 }
+
 /* =========================================
-   GLOBAL CONTRAST + SURFACE SYSTEM (Fix)
-   Applies across all platform/module pages
+   GLOBAL CONTRAST — SURFACE-AWARE (FINAL)
+   Fixes “light on light” WITHOUT breaking IF
+   or any dark/hero sections.
 ========================================= */
 
-/* 1) Stronger global ink + muted colors */
-:root{
-  --ink: #0a0f1f;
-  --ink-90: rgba(10,15,31,.92);
-  --ink-75: rgba(10,15,31,.76);
-  --ink-60: rgba(10,15,31,.62);
-
-  --border: rgba(10,15,31,.12);
-
-  /* surfaces */
-  --surface: rgba(255,255,255,.92);
-  --surface-soft: rgba(246,241,230,.82);
-  --surface-glass: rgba(255,255,255,.86);
+/* 1) Light-surface components get dark ink automatically
+      (scoped to platform pages only) */
+.platform :is(
+  .module,
+  .module-card-light,
+  .video-card,
+  .song-card,
+  .hero-card-light,
+  .card-light,
+  .panel-light,
+  .callout-light,
+  .quote-light
+){
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--ink-92);
 }
 
-/* 2) Default readable body text in platform pages */
-.platform,
-.platform .platform-main,
-.platform .platform-main p,
-.platform .platform-main li,
-.platform .platform-main .meta{
-  color: var(--ink-90);
+/* 2) Common light-card patterns used on your newer pages
+      (these names show up in Guitar + other modules) */
+.platform :is(.module, .video-card, .song-card) h1,
+.platform :is(.module, .video-card, .song-card) h2,
+.platform :is(.module, .video-card, .song-card) h3,
+.platform :is(.module, .video-card, .song-card) h4{
+  color: var(--ink-98);
 }
 
-/* 3) Headings: always crisp */
-.platform h1,
-.platform h2,
-.platform h3,
-.platform h4{
-  color: rgba(10,15,31,.98);
-}
-
-/* 4) Standardize all “card/module” surfaces */
-.platform .module,
-.platform .song-card,
-.platform .video-card,
-.platform .hero-card{
+/* 3) Video-card header/link readability on light surfaces */
+.platform .video-card{
   background: var(--surface);
   border: 1px solid var(--border);
 }
-
-/* 5) Callouts: cream but not washed out */
-.platform .callout{
-  background: var(--surface-soft);
-  border: 1px solid var(--border);
-  color: var(--ink-90);
+.platform .video-card .vc-hd{
+  color: var(--ink-92);
 }
-
-/* 6) Kill stacked opacity that makes text unreadable */
-.platform .module-hd .meta{
+.platform .video-card .vc-hd a{
   opacity: 1 !important;
-  color: var(--ink-75);
-}
-
-.platform .callout h4{
-  opacity: 1 !important;
-  color: var(--ink-75);
-}
-
-/* 7) Links inside cards/callouts should NOT fade */
-.platform .video-card .vc-hd a,
-.platform .callout a,
-.platform .platform-main a{
-  opacity: 1 !important;
-  color: var(--ink-75);
+  color: var(--ink-78);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-/* 8) Pills: readable everywhere */
-.platform .pill{
+/* 4) Pills on light surfaces (your pages sometimes reuse .pill) */
+.platform :is(.module, .video-card, .song-card, .hero-card, .platform-main) .pill{
   background: var(--surface-glass);
   border: 1px solid rgba(10,15,31,.16);
-  color: var(--ink-90);
+  color: var(--ink-92);
 }
 
-/* 9) Divider slightly stronger */
-.platform .divider{
+/* 5) “Meta / muted” text inside light cards should be secondary, not faint */
+.platform :is(.module, .video-card, .song-card) :is(.meta, .muted, .kicker, .caption, .label){
+  opacity: 1 !important;
+  color: var(--ink-78) !important;
+}
+
+/* 6) Divider (when used on light surfaces) */
+.platform :is(.module, .video-card, .song-card) .divider{
   background: rgba(10,15,31,.14);
 }
-/* =========================================
-   Dad Jokes + Spiritual — Callout Contrast Fix
-   Catches page-specific callouts + quote blocks
-========================================= */
 
-/* 1) Any callout-ish block: make it a real surface */
-.platform :is(
-  .callout,
-  .quote, .pullquote, .blockquote,
+/* =========================================
+   ON-DARK UTILITY (Optional, safe)
+   Use when a section has a navy/dark background
+   but the page-specific rules got overridden.
+========================================= */
+.on-dark{ color: rgba(246,241,230,.92); }
+.on-dark h1, .on-dark h2, .on-dark h3, .on-dark h4{ color: rgba(246,241,230,.98); }
+.on-dark :is(.meta, .muted, .kicker, .label, .caption){
+  opacity: 1 !important;
+  color: rgba(246,241,230,.78) !important;
+}
+.on-dark a{
+  color: rgba(246,241,230,.86);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* =========================================
+   DAD JOKES + SPIRITUAL: common “quote/callout”
+   blocks were too pale. This fixes them
+   WITHOUT touching homepage .card styles.
+   (Scoped to platform main content only.)
+========================================= */
+.platform .platform-main :is(
+  .quote, .pullquote, .blockquote, blockquote,
   .reflection, .devotional, .prayer,
   .scripture, .verse, .passage,
-  .note, .aside, .highlight, .insight,
-  .card, .panel
+  .note, .aside, .highlight, .insight
 ){
   background: var(--surface-soft);
   border: 1px solid var(--border);
-  color: var(--ink-90);
-}
-
-/* 2) If those blocks have headings/labels, don’t let them fade */
-.platform :is(
-  .callout h4,
-  .quote h4, .pullquote h4, .reflection h4,
-  .scripture h4, .verse h4, .note h4,
-  .callout .label, .quote .label, .reflection .label,
-  .scripture .label, .verse .label
-){
-  opacity: 1 !important;
-  color: var(--ink-75);
-}
-
-/* 3) Fix “muted text” classes that are too light */
-.platform :is(
-  .muted, .meta, .subtle, .fineprint, .caption, .kicker
-){
-  opacity: 1 !important;
-  color: var(--ink-75) !important;
-}
-
-/* 4) Quote text should still be readable (not pale gray) */
-.platform :is(.quote, .pullquote, .blockquote, blockquote){
-  color: var(--ink-90);
-}
-.platform :is(.scripture, .verse, blockquote){
-  font-style: italic;
-  line-height: 1.6;
-}
-
-
+  color: var(--ink-92);
+  border-radius
