@@ -12,12 +12,8 @@
   <!-- Page-only stabilization + pro layout/contrast fixes -->
   <style>
     /* =========================================================
-       DAD JOKES — PRO CONTRAST + LAYOUT (NO CONTENT CUTS)
-       Fixes:
-       - nav contrast (no light-on-light)
-       - hero readability + hierarchy (IF/Homepage polish)
-       - module card spacing + consistent typography
-       - image panels + badges refined
+       DAD JOKES — PRO CONTRAST + LAYOUT (CONTENT BOLSTERED)
+       Preserves layout, improves depth to match Word doc.
        ========================================================= */
 
     /* ---------- PAGE BASE ---------- */
@@ -118,6 +114,7 @@
     .dj-hero-copy p{
       color:rgba(10,15,31,.88);
       margin: 0;
+      line-height: 1.6;
     }
 
     .dj-pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
@@ -154,7 +151,13 @@
       color:#0a0f1f;
     }
     .dj-hero-caption strong{ display:block; margin-bottom:6px; }
-    .dj-hero-caption p{ margin:0; color: rgba(10,15,31,.88); }
+    .dj-hero-caption p{ margin:0; color: rgba(10,15,31,.88); line-height: 1.55; }
+    .dj-hero-caption ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: rgba(10,15,31,.88);
+    }
+    .dj-hero-caption li{ margin: 6px 0; }
 
     /* ---------- MODULES ---------- */
     .module{
@@ -220,6 +223,7 @@
     .dj-sub{
       color:rgba(10,15,31,.74);
       margin: 0 0 12px;
+      line-height: 1.45;
     }
 
     .callout{
@@ -238,7 +242,7 @@
       color: rgba(10,15,31,.86);
     }
     .callout ul{ margin:0; padding-left: 18px; }
-    .callout li{ color: rgba(10,15,31,.92); }
+    .callout li{ color: rgba(10,15,31,.92); margin: 6px 0; }
 
     .divider{
       height:1px;
@@ -263,6 +267,36 @@
       padding:12px;
       box-shadow:0 8px 22px rgba(10,15,31,.08);
       color:#0a0f1f;
+    }
+    .arsenal-card p{ margin: 6px 0 0; color: rgba(10,15,31,.86); line-height: 1.55; }
+
+    /* Two-column joke list (desktop), single column (mobile) */
+    .dj-joke-list{
+      margin: 10px 0 0;
+      padding-left: 20px;
+      color: rgba(10,15,31,.90);
+      line-height: 1.55;
+      column-count: 2;
+      column-gap: 22px;
+    }
+    .dj-joke-list li{
+      break-inside: avoid;
+      margin: 6px 0;
+      padding-right: 10px;
+    }
+    @media (max-width:980px){
+      .dj-joke-list{ column-count: 1; }
+    }
+
+    .quote{
+      margin: 12px 0 0;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(10,15,31,.12);
+      background: rgba(255,255,255,.86);
+      border-left: 4px solid rgba(10,15,31,.18);
+      font-style: italic;
+      color: rgba(10,15,31,.92);
     }
 
     /* ---------- SMALL GLOBAL SAFETIES FOR THIS PAGE ---------- */
@@ -298,186 +332,93 @@
 
 <main class="container">
 
-<!-- HERO -->
-<section class="platform-hero">
-  <div class="dj-hero-grid">
-    <div class="dj-hero-copy">
-      <p class="kicker">Platform</p>
-      <h1>THE DAD JOKE MASTERY PLATFORM</h1>
-      <p>A training module in the ancient art of groan-worthy greatness.</p>
+  <!-- HERO -->
+  <section class="platform-hero">
+    <div class="dj-hero-grid">
+      <div class="dj-hero-copy">
+        <p class="kicker">Platform</p>
+        <h1>THE DAD JOKE MASTERY PLATFORM</h1>
+        <p>A Training Module in the Ancient Art of Groan-Worthy Greatness</p>
 
-      <div class="dj-pill-row">
-        <div class="dj-pill">Approachability</div>
-        <div class="dj-pill">Timing</div>
-        <div class="dj-pill">Confidence</div>
-        <div class="dj-pill">Social glue</div>
-      </div>
+        <div class="dj-pill-row">
+          <div class="dj-pill">Approachability</div>
+          <div class="dj-pill">Timing</div>
+          <div class="dj-pill">Confidence</div>
+          <div class="dj-pill">Social glue</div>
+        </div>
 
-      <div class="divider"></div>
+        <div class="divider"></div>
 
-      <div class="callout">
-        <h4>What you’ll build</h4>
-        <ul>
-          <li>Instant rapport (humor as social leadership)</li>
-          <li>Better speaking presence</li>
-          <li>Observation + pattern recognition</li>
-          <li>A reliable personal joke arsenal</li>
-        </ul>
-      </div>
-    </div>
+        <div class="callout">
+          <h4>What you’ll build</h4>
+          <ul>
+            <li>Instant rapport (humor as social leadership)</li>
+            <li>Better speaking presence</li>
+            <li>Observation + pattern recognition</li>
+            <li>A reliable personal joke arsenal</li>
+            <li>The courage to bring lightness into a room</li>
+          </ul>
+        </div>
 
-    <div class="dj-hero-media">
-      <img src="assets/img/dadjokes-hero.jpeg" alt="Dad jokes hero image" />
-      <div class="dj-hero-caption">
-        <strong>Executive Summary</strong>
-        <p>
-          Dad jokes are a leadership move: they lower defenses, build connection,
-          and create shared moments. Groans are just applause with character.
+        <div class="callout">
+          <h4>This platform teaches Luke</h4>
+          <ul>
+            <li>Why dad jokes work (psychology &amp; timing)</li>
+            <li>The types of jokes and how to construct them</li>
+            <li>How to deploy them socially</li>
+            <li>A curated arsenal of elite dad jokes</li>
+            <li>How to write his own</li>
+          </ul>
+        </div>
+
+        <p style="margin-top:10px;color:rgba(10,15,31,.82);">
+          All modules are intentionally fun and fast — learning by laughing.
         </p>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- MODULE 1 -->
-<section class="module" id="m1">
-  <div class="dj-module-grid">
-    <div class="dj-module-media">
-      <img src="assets/img/dadjokes-m1-setup.jpeg" alt="Module 1 image" />
-      <div class="dj-module-badge">Module 1</div>
-    </div>
-    <div class="dj-module-content">
-      <h2>The Secret Power of the Dad Joke</h2>
-      <p class="dj-sub">Why groan-inducing humor actually works</p>
-
-      <div class="callout">
-        <ul>
-          <li>Disarms tension</li>
-          <li>Signals approachability</li>
-          <li>Creates shared moments</li>
-          <li>Builds timing and confidence</li>
-          <li>Trains structure: setup → twist</li>
-        </ul>
-      </div>
-
-      <p><strong>Leadership insight:</strong> Great leaders often begin with levity to lower defenses. Dad jokes are the playful version of the same strategy.</p>
-    </div>
-  </div>
-</section>
-
-<!-- MODULE 2 -->
-<section class="module" id="m2">
-  <div class="dj-module-grid">
-    <div class="dj-module-media">
-      <img src="assets/img/dadjokes-m2-wordplay.jpeg" alt="Module 2 image" />
-      <div class="dj-module-badge">Module 2</div>
-    </div>
-    <div class="dj-module-content">
-      <h2>The Dad Joke Blueprint</h2>
-      <p class="dj-sub">The anatomy of a perfect terrible joke</p>
-
-      <div class="callout">
-        <ul>
-          <li><strong>Setup</strong> — normal statement</li>
-          <li><strong>Misdirection</strong> — expected ending</li>
-          <li><strong>Twist</strong> — logic collapses</li>
-        </ul>
-      </div>
-
-      <p><strong>Example:</strong><br />Why don’t eggs tell jokes? Because they’d crack each other up.</p>
-    </div>
-  </div>
-</section>
-
-<!-- MODULE 3 -->
-<section class="module" id="m3">
-  <div class="dj-module-grid">
-    <div class="dj-module-media">
-      <img src="assets/img/dadjokes-m3-timing.jpeg" alt="Module 3 image" />
-      <div class="dj-module-badge">Module 3</div>
-    </div>
-    <div class="dj-module-content">
-      <h2>The Five Sacred Dad Joke Archetypes</h2>
-      <p class="dj-sub">Your taxonomy of groan</p>
-
-      <p>Classic pun • Question/answer • Literal misunderstanding • Overconfidence • Unexpected wisdom</p>
-    </div>
-  </div>
-</section>
-
-<!-- MODULE 4 -->
-<section class="module" id="m4">
-  <div class="dj-module-grid">
-    <div class="dj-module-media">
-      <img src="assets/img/dadjokes-m4-delivery.jpeg" alt="Module 4 image" />
-      <div class="dj-module-badge">Module 4</div>
-    </div>
-    <div class="dj-module-content">
-      <h2>How to Deliver Dad Jokes Like a Pro</h2>
-      <div class="callout">
-        <ul>
-          <li>Deadpan delivery</li>
-          <li>Pause after punchline</li>
-          <li>Groans = success</li>
-          <li>Use your surroundings</li>
-        </ul>
+      <div class="dj-hero-media">
+        <img src="assets/img/dadjokes-hero.jpeg" alt="Dad jokes hero image" />
+        <div class="dj-hero-caption">
+          <strong>Executive Summary</strong>
+          <p>
+            Dad jokes are more than simple puns — they are a way of life. They are a leadership style, a communication strategy,
+            an emotional icebreaker, and a secret superpower that makes awkward moments magically less awkward.
+          </p>
+          <ul>
+            <li><strong>They lower defenses</strong> and make people feel safe.</li>
+            <li><strong>They create shared moments</strong> (eye-roll + smile = bonding).</li>
+            <li><strong>They build confidence</strong> in your voice, timing, and presence.</li>
+            <li><strong>They train structure</strong>: setup → misdirection → twist.</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- MODULE 5 -->
-<section class="module" id="m5">
-  <div class="dj-module-grid">
-    <div class="dj-module-media">
-      <img src="assets/img/dadjokes-m5-clean-humor.jpeg" alt="Module 5 image" />
-      <div class="dj-module-badge">Module 5</div>
-    </div>
-    <div class="dj-module-content">
-      <h2>Write Your Own Dad Jokes</h2>
-      <div class="callout">
-        <ul>
-          <li>Pick an object</li>
-          <li>List associations</li>
-          <li>Find double meanings</li>
-          <li>Land the twist</li>
-        </ul>
+  <!-- MODULE 1 -->
+  <section class="module" id="m1">
+    <div class="dj-module-grid">
+      <div class="dj-module-media">
+        <img src="assets/img/dadjokes-m1-setup.jpeg" alt="Module 1 image" />
+        <div class="dj-module-badge">Module 1</div>
       </div>
-    </div>
-  </div>
-</section>
+      <div class="dj-module-content">
+        <h2>MODULE 1 — The Secret Power of the Dad Joke</h2>
+        <p class="dj-sub">Why groan-inducing humor actually works</p>
 
-<!-- MODULE 6 -->
-<section class="module" id="m6">
-  <div class="dj-module-grid">
-    <div class="dj-module-media">
-      <img src="assets/img/dadjokes-m6-callbacks.jpeg" alt="Module 6 image" />
-      <div class="dj-module-badge">Module 6</div>
-    </div>
-    <div class="dj-module-content">
-      <h2>The Dad Joke Arsenal</h2>
-      <div class="arsenal">
-        <div class="arsenal-card"><strong>1–20</strong> (classic groaners)</div>
-        <div class="arsenal-card"><strong>21–40</strong> (advanced deployment)</div>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="callout">
+          <h4>Core concepts</h4>
+          <ul>
+            <li><strong>Disarms tension</strong> — A pun is a “soft landing” for any conversation.</li>
+            <li><strong>Signals approachability</strong> — It shows you don’t take yourself too seriously.</li>
+            <li><strong>Creates a shared moment</strong> — People bond through the little eye-roll + smile combo.</li>
+            <li><strong>Builds confidence</strong> — Delivering a joke trains timing and voice.</li>
+            <li><strong>Teaches communication</strong> — Dad jokes force clarity: setup → twist → laugh.</li>
+          </ul>
+        </div>
 
-<!-- MODULE 7 -->
-<section class="module" id="m7">
-  <div class="dj-module-grid">
-    <div class="dj-module-media">
-      <img src="assets/img/dadjokes-m7-character.jpeg" alt="Module 7 image" />
-      <div class="dj-module-badge">Module 7</div>
-    </div>
-    <div class="dj-module-content">
-      <h2>Situational Dad Jokes</h2>
-      <p>Context is king. The best jokes feel discovered, not scripted.</p>
-    </div>
-  </div>
-</section>
+        <p><strong>Leadership insight:</strong> Great leaders often begin with levity to lower defenses. Dad jokes are the playful version of the same strategy.</p>
 
-</main>
-</body>
-</html>
+        <div class="quote">
+          <strong>Mini Case Study — Coach K’s Dad Joke Play</strong><br />
+          Even Coach K would open team meetings with light humor. Not
