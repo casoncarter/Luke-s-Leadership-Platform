@@ -21,6 +21,7 @@
         var(--cream);
     }
 
+    /* ---------- HERO ---------- */
     .art-hero{
       position:relative;
       overflow:hidden;
@@ -36,11 +37,11 @@
     }
     .art-hero-grid{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.1fr .9fr;
       gap: 18px;
       align-items: center;
     }
-    @media (max-width: 860px){
+    @media (max-width: 980px){
       .art-hero-grid{ grid-template-columns: 1fr; }
     }
 
@@ -55,11 +56,12 @@
       display:inline-flex;
       gap:10px;
       align-items:center;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: .12em;
       text-transform: uppercase;
       font-size: 12px;
       color: rgba(255,255,255,.78);
+      margin-bottom: 6px;
     }
     .art-hero .kicker .dot{
       width:9px;height:9px;border-radius:50%;
@@ -71,7 +73,7 @@
       margin: 0 0 14px;
       font-size: 16px;
       line-height: 1.55;
-      color: rgba(255,255,255,.78);
+      color: rgba(255,255,255,.80);
       max-width: 62ch;
     }
 
@@ -89,11 +91,16 @@
       border-radius: 999px;
       background: rgba(255,255,255,.08);
       border: 1px solid rgba(255,255,255,.12);
-      color: rgba(255,255,255,.86);
+      color: rgba(255,255,255,.88);
       font-size: 13px;
       backdrop-filter: blur(6px);
     }
     .hero-badge b{ color:#fff; }
+
+    .art-hero-side{
+      display:grid;
+      gap: 12px;
+    }
 
     .art-hero-card{
       border-radius: 18px;
@@ -106,16 +113,37 @@
       font-size: 14px;
       letter-spacing:.08em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.82);
+      color: rgba(255,255,255,.84);
     }
     .art-hero-card ul{
       margin: 0;
       padding-left: 18px;
-      color: rgba(255,255,255,.78);
+      color: rgba(255,255,255,.80);
       line-height: 1.55;
       font-size: 14px;
     }
 
+    .hero-image{
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 18px 44px rgba(0,0,0,.20);
+    }
+    .hero-image img{
+      width: 100%;
+      height: auto;
+      display:block;
+    }
+    .hero-image figcaption{
+      padding: 10px 12px;
+      font-size: 12px;
+      color: rgba(255,255,255,.78);
+      background: rgba(0,0,0,.22);
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
+
+    /* ---------- SECTION HEAD ---------- */
     .section-head--art{
       display:flex;
       justify-content: space-between;
@@ -127,16 +155,17 @@
     .section-head--art p{
       margin:0;
       max-width: 80ch;
-      opacity: .8;
+      opacity: .85;
     }
 
+    /* ---------- MODULE CARDS ---------- */
     .modules-grid{
       display:grid;
       gap: 14px;
     }
 
     .module-card{
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.86);
       border: 1px solid rgba(11,18,38,.10);
       border-radius: 18px;
       box-shadow: 0 10px 28px rgba(0,0,0,.08);
@@ -154,6 +183,7 @@
 
     .module-card__content{
       padding: 18px 18px 16px;
+      color: var(--ink);
     }
     .module-top{
       display:flex;
@@ -174,7 +204,8 @@
       letter-spacing: .14em;
       text-transform: uppercase;
       font-size: 12px;
-      color: rgba(11,18,38,.58);
+      color: rgba(11,18,38,.62);
+      white-space: nowrap;
     }
 
     .module-pill{
@@ -186,7 +217,7 @@
       border-radius: 999px;
       background: rgba(11,18,38,.06);
       border: 1px solid rgba(11,18,38,.10);
-      color: rgba(11,18,38,.78);
+      color: rgba(11,18,38,.84);
       font-size: 13px;
       line-height: 1.25;
     }
@@ -204,7 +235,7 @@
 
     .module-box{
       border-radius: 14px;
-      background: rgba(246,241,230,.78);
+      background: rgba(246,241,230,.82);
       border: 1px solid rgba(11,18,38,.10);
       padding: 12px;
     }
@@ -213,12 +244,12 @@
       font-size: 12px;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: rgba(11,18,38,.70);
+      color: rgba(11,18,38,.76);
     }
     .module-box ul{
       margin: 0;
       padding-left: 18px;
-      color: rgba(11,18,38,.80);
+      color: rgba(11,18,38,.86);
       line-height: 1.5;
       font-size: 14px;
     }
@@ -237,13 +268,14 @@
       padding: 10px 12px;
       border-radius: 999px;
       background: rgba(11,18,38,.92);
-      color: rgba(255,255,255,.92);
+      color: rgba(255,255,255,.94);
       border: 1px solid rgba(11,18,38,.92);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 13px;
     }
     .resource-link:hover{ filter: brightness(1.06); }
 
+    /* ---------- MEDIA PANE (IMAGES + VIDEO) ---------- */
     .module-media{
       padding: 14px;
       background:
@@ -252,16 +284,55 @@
         linear-gradient(180deg, rgba(11,18,38,.92), rgba(10,15,31,.94));
       border-left: 1px solid rgba(255,255,255,.10);
       display:flex;
-      align-items:center;
+      align-items: stretch;
       justify-content:center;
     }
     @media (max-width: 980px){
       .module-media{ border-left: 0; border-top: 1px solid rgba(255,255,255,.10); }
     }
 
-    .video-shell{
+    .media-stack{
       width: 100%;
       max-width: 520px;
+      display:grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .art-stills{
+      display:grid;
+      gap: 10px;
+    }
+    .art-stills.two{
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 520px){
+      .art-stills.two{ grid-template-columns: 1fr; }
+    }
+
+    .still-card{
+      border-radius: 14px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      box-shadow: 0 18px 44px rgba(0,0,0,.20);
+    }
+    .still-card img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    .still-cap{
+      padding: 9px 11px;
+      font-size: 12px;
+      color: rgba(255,255,255,.82);
+      background: rgba(0,0,0,.22);
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
+
+    .video-shell{
+      width: 100%;
       border-radius: 14px;
       overflow:hidden;
       border: 1px solid rgba(255,255,255,.14);
@@ -282,21 +353,64 @@
     .video-caption{
       padding: 10px 12px;
       font-size: 12px;
-      color: rgba(255,255,255,.78);
+      color: rgba(255,255,255,.82);
       background: rgba(0,0,0,.22);
       border-top: 1px solid rgba(255,255,255,.10);
     }
 
+    /* ---------- GALLERY BREAKS ---------- */
+    .gallery-break{
+      margin: 16px 0 2px;
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid rgba(11,18,38,.10);
+      box-shadow: 0 10px 28px rgba(0,0,0,.08);
+      background: rgba(255,255,255,.86);
+    }
+    .gallery-break__inner{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 12px;
+    }
+    @media (max-width: 980px){
+      .gallery-break__inner{ grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px){
+      .gallery-break__inner{ grid-template-columns: 1fr; }
+    }
+    .gallery-break img{
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 14px;
+      display:block;
+      border: 1px solid rgba(11,18,38,.10);
+    }
+    @media (max-width: 560px){
+      .gallery-break img{ height: 200px; }
+    }
+
+    /* ---------- FOOTER NOTE ---------- */
     .art-footer-note{
       margin-top: 18px;
       border-radius: 16px;
       padding: 14px 14px;
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.86);
       border: 1px solid rgba(11,18,38,.10);
-      color: rgba(11,18,38,.80);
+      color: rgba(11,18,38,.86);
       box-shadow: 0 10px 28px rgba(0,0,0,.08);
     }
     .art-footer-note b{ color: var(--ink); }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 8px;
+      background: rgba(11,18,38,.06);
+      border: 1px solid rgba(11,18,38,.10);
+      white-space: nowrap;
+    }
   </style>
 </head>
 
@@ -342,16 +456,23 @@
           </div>
         </div>
 
-        <aside class="art-hero-card" aria-label="What this platform builds">
-          <h3>What this platform builds</h3>
-          <ul>
-            <li>Advanced observation and visual simplification</li>
-            <li>Intentional lines, edges, values, and shapes</li>
-            <li>Stylization that stays grounded in structure</li>
-            <li>Composition and visual storytelling choices</li>
-            <li>A repeatable growth loop that compounds</li>
-          </ul>
-        </aside>
+        <div class="art-hero-side">
+          <figure class="hero-image">
+            <img src="assets/img/art-hero.jpeg" alt="Featured hero artwork for the Advanced Sketch & Visual Art Platform" loading="lazy">
+            <figcaption>Featured still: <span class="mono">art-hero.jpeg</span></figcaption>
+          </figure>
+
+          <aside class="art-hero-card" aria-label="What this platform builds">
+            <h3>What this platform builds</h3>
+            <ul>
+              <li>Advanced observation and visual simplification</li>
+              <li>Intentional lines, edges, values, and shapes</li>
+              <li>Stylization that stays grounded in structure</li>
+              <li>Composition and visual storytelling choices</li>
+              <li>A repeatable growth loop that compounds</li>
+            </ul>
+          </aside>
+        </div>
       </div>
     </section>
 
@@ -359,14 +480,14 @@
     <div class="section-head section-head--art">
       <div>
         <h2>Modules</h2>
-        <p>Each module introduces one advanced artistic “superpower” with exercises, thinking tools, and curated resources.</p>
+        <p>Each module introduces one advanced artistic “superpower” with exercises, thinking tools, curated resources, and still-image anchors from the platform folder.</p>
       </div>
     </div>
 
     <section class="modules-grid" aria-label="Art modules list">
 
       <!-- MODULE 1 -->
-      <article class="module-card">
+      <article class="module-card" id="module-1">
         <div class="module-card__inner">
           <div class="module-card__content">
             <div class="module-top">
@@ -390,6 +511,7 @@
                 <ul>
                   <li>Ask: “What is the <b>biggest truth</b> I can capture first?”</li>
                   <li>Prioritize structure and silhouette before texture and detail.</li>
+                  <li>Train the eye to group complexity into readable masses.</li>
                 </ul>
               </div>
             </div>
@@ -399,25 +521,37 @@
             </div>
           </div>
 
-          <div class="module-media">
-            <div class="video-shell">
-              <div class="ratio">
-                <!-- Ctrl+Paint is not reliably embeddable; use a stable “how to see” video -->
-                <iframe
-                  src="https://www.youtube.com/embed/8FzHV2h29zE"
-                  title="Building Your Visual Library — The Human Head (visual perception)"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
+          <div class="module-media" aria-label="Module 1 media: still images and video">
+            <div class="media-stack">
+              <div class="art-stills two">
+                <figure class="still-card">
+                  <img src="assets/img/art-m1-eye.jpeg" alt="Module 1 still image: The artist's eye study" loading="lazy">
+                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m1-eye.jpeg</span></figcaption>
+                </figure>
+                <figure class="still-card">
+                  <img src="assets/img/art-m1-observation.jpeg" alt="Module 1 still image: Observation study" loading="lazy">
+                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m1-observation.jpeg</span></figcaption>
+                </figure>
               </div>
-              <div class="video-caption">Optional: a strong “how to see” lesson for building visual library. :contentReference[oaicite:0]{index=0}</div>
+
+              <div class="video-shell">
+                <div class="ratio">
+                  <iframe
+                    src="https://www.youtube.com/embed/8FzHV2h29zE"
+                    title="Visual perception practice: building visual library"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">Optional support lesson: building a visual library and seeing major shapes first.</div>
+              </div>
             </div>
           </div>
         </div>
       </article>
 
       <!-- MODULE 2 -->
-      <article class="module-card">
+      <article class="module-card" id="module-2">
         <div class="module-card__inner">
           <div class="module-card__content">
             <div class="module-top">
@@ -431,10 +565,10 @@
               <div class="module-box">
                 <h4>Focus areas</h4>
                 <ul>
-                  <li>Line weight for emotional effect</li>
+                  <li>Line weight for emphasis and emotional tone</li>
                   <li>Edge hierarchy (lost edges vs. found edges)</li>
-                  <li>Stylization through exaggeration</li>
-                  <li>The “Confidence Arc” technique</li>
+                  <li>Stylization through rhythm and simplification</li>
+                  <li>Confidence lines: fewer strokes, clearer intent</li>
                 </ul>
               </div>
               <div class="module-box">
@@ -442,6 +576,7 @@
                 <ul>
                   <li>Draw the same face using only thin lines, then only thick lines.</li>
                   <li>Do a “no sketch” pass: commit lines once, slowly, with intention.</li>
+                  <li>Do a “3-stroke limit” per feature to force decision-making.</li>
                 </ul>
               </div>
             </div>
@@ -451,24 +586,33 @@
             </div>
           </div>
 
-          <div class="module-media">
-            <div class="video-shell">
-              <div class="ratio">
-                <iframe
-                  src="https://www.youtube.com/embed/wgDNDOKnArk"
-                  title="Line mastery — intentional line control"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
+          <div class="module-media" aria-label="Module 2 media: still image and video">
+            <div class="media-stack">
+              <div class="art-stills">
+                <figure class="still-card">
+                  <img src="assets/img/art-m2-line.jpeg" alt="Module 2 still image: Line mastery study" loading="lazy">
+                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m2-line.jpeg</span></figcaption>
+                </figure>
               </div>
-              <div class="video-caption">Line mastery (embed). (From the curriculum doc.)</div>
+
+              <div class="video-shell">
+                <div class="ratio">
+                  <iframe
+                    src="https://www.youtube.com/embed/wgDNDOKnArk"
+                    title="Line mastery — intentional line control"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">Line mastery (embed): practice control, rhythm, and intentional mark-making.</div>
+              </div>
             </div>
           </div>
         </div>
       </article>
 
       <!-- MODULE 3 -->
-      <article class="module-card">
+      <article class="module-card" id="module-3">
         <div class="module-card__inner">
           <div class="module-card__content">
             <div class="module-top">
@@ -492,6 +636,7 @@
                 <ul>
                   <li>Ask: “What 3D form is this, underneath the surface?”</li>
                   <li>Use contour + cross-contour to “wrap” the form.</li>
+                  <li>Practice “planes first” (large planes → medium forms → details).</li>
                 </ul>
               </div>
             </div>
@@ -501,25 +646,42 @@
             </div>
           </div>
 
-          <div class="module-media">
-            <div class="video-shell">
-              <div class="ratio">
-                <!-- Use a single embeddable MDJ-style “learn strategically” video -->
-                <iframe
-                  src="https://www.youtube.com/embed/sXgaNuxf1vk"
-                  title="Learn Art Tactically — practice strategy"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
+          <div class="module-media" aria-label="Module 3 media: still image and video">
+            <div class="media-stack">
+              <div class="art-stills">
+                <figure class="still-card">
+                  <img src="assets/img/art-m3-form.jpeg" alt="Module 3 still image: Form study showing 3D structure" loading="lazy">
+                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m3-form.jpeg</span></figcaption>
+                </figure>
               </div>
-              <div class="video-caption">Practice strategy to build form fluency. :contentReference[oaicite:1]{index=1}</div>
+
+              <div class="video-shell">
+                <div class="ratio">
+                  <iframe
+                    src="https://www.youtube.com/embed/sXgaNuxf1vk"
+                    title="Practice strategy to build form fluency"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">Practice strategy support: structure-first study habits that compound form fluency.</div>
+              </div>
             </div>
           </div>
         </div>
       </article>
 
+      <!-- GALLERY BREAK (1–3) -->
+      <section class="gallery-break" aria-label="Gallery break: early foundations stills">
+        <div class="gallery-break__inner">
+          <img src="assets/img/art-m1-eye.jpeg" alt="Gallery still: Module 1 eye study" loading="lazy">
+          <img src="assets/img/art-m2-line.jpeg" alt="Gallery still: Module 2 line study" loading="lazy">
+          <img src="assets/img/art-m3-form.jpeg" alt="Gallery still: Module 3 form study" loading="lazy">
+        </div>
+      </section>
+
       <!-- MODULE 4 -->
-      <article class="module-card">
+      <article class="module-card" id="module-4">
         <div class="module-card__inner">
           <div class="module-card__content">
             <div class="module-top">
@@ -534,15 +696,16 @@
                 <h4>Exercises</h4>
                 <ul>
                   <li>3-value studies (light / mid / dark) from photo reference.</li>
-                  <li>Paint/draw the same subject with <b>two</b> different lighting setups.</li>
+                  <li>Draw the same subject with <b>two</b> different lighting setups.</li>
                   <li>Squint test: does the subject read clearly from far away?</li>
                 </ul>
               </div>
               <div class="module-box">
                 <h4>Thinking tool</h4>
                 <ul>
-                  <li>“Value hierarchy”: what deserves contrast, what stays quiet?</li>
+                  <li><b>Value hierarchy:</b> what deserves contrast, what stays quiet?</li>
                   <li>Design the light to support the focal point.</li>
+                  <li>Separate “local value” from “light/shadow” thinking.</li>
                 </ul>
               </div>
             </div>
@@ -552,24 +715,37 @@
             </div>
           </div>
 
-          <div class="module-media">
-            <div class="video-shell">
-              <div class="ratio">
-                <iframe
-                  src="https://www.youtube.com/embed/V3WmrWUEIJo"
-                  title="Shading Intelligence — light as design"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
+          <div class="module-media" aria-label="Module 4 media: still images and video">
+            <div class="media-stack">
+              <div class="art-stills two">
+                <figure class="still-card">
+                  <img src="assets/img/art-m4-light.jpeg" alt="Module 4 still image: Light study" loading="lazy">
+                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m4-light.jpeg</span></figcaption>
+                </figure>
+                <figure class="still-card">
+                  <img src="assets/img/art-m4-shading.jpeg" alt="Module 4 still image: Shading study" loading="lazy">
+                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m4-shading.jpeg</span></figcaption>
+                </figure>
               </div>
-              <div class="video-caption">Shading intelligence (embed). (From the curriculum doc.)</div>
+
+              <div class="video-shell">
+                <div class="ratio">
+                  <iframe
+                    src="https://www.youtube.com/embed/V3WmrWUEIJo"
+                    title="Shading Intelligence — light as design"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">Shading intelligence (embed): simplify values, design contrast, control edges.</div>
+              </div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- MODULE 5 (FIXED EMBED) -->
-      <article class="module-card">
+      <!-- MODULE 5 -->
+      <article class="module-card" id="module-5">
         <div class="module-card__inner">
           <div class="module-card__content">
             <div class="module-top">
@@ -593,6 +769,7 @@
                 <ul>
                   <li>Ask: “What’s the <b>identity</b> of this face?”</li>
                   <li>Keep landmarks true, then stylize rhythm + proportion.</li>
+                  <li>Use consistent rules across the whole drawing (not random edits).</li>
                 </ul>
               </div>
             </div>
@@ -602,24 +779,33 @@
             </div>
           </div>
 
-          <div class="module-media">
-            <div class="video-shell">
-              <div class="ratio">
-                <iframe
-                  src="https://www.youtube.com/embed/H8yu29x831Q"
-                  title="Stylized Portrait Drawing Tutorial"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
+          <div class="module-media" aria-label="Module 5 media: still image and video">
+            <div class="media-stack">
+              <div class="art-stills">
+                <figure class="still-card">
+                  <img src="assets/img/art-m5-portrait.jpeg" alt="Module 5 still image: Portrait stylization study" loading="lazy">
+                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m5-portrait.jpeg</span></figcaption>
+                </figure>
               </div>
-              <div class="video-caption">Replaced the non-embeddable/broken Module 5 link with a stable portrait stylization tutorial. :contentReference[oaicite:2]{index=2}</div>
+
+              <div class="video-shell">
+                <div class="ratio">
+                  <iframe
+                    src="https://www.youtube.com/embed/H8yu29x831Q"
+                    title="Stylized Portrait Drawing Tutorial"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">Portrait stylization support: keep structure true, then push choices intentionally.</div>
+              </div>
             </div>
           </div>
         </div>
       </article>
 
       <!-- MODULE 6 -->
-      <article class="module-card">
+      <article class="module-card" id="module-6">
         <div class="module-card__inner">
           <div class="module-card__content">
             <div class="module-top">
@@ -642,7 +828,8 @@
                 <h4>Thinking tool</h4>
                 <ul>
                   <li>Ask: “What do I want the viewer to feel first?”</li>
-                  <li>Build a clear focal point, then support it.</li>
+                  <li>Build a clear focal point, then support it with quieter shapes.</li>
+                  <li>Balance clarity (read) with mystery (interest).</li>
                 </ul>
               </div>
             </div>
@@ -652,24 +839,42 @@
             </div>
           </div>
 
-          <div class="module-media">
-            <div class="video-shell">
-              <div class="ratio">
-                <iframe
-                  src="https://www.youtube.com/embed/O8i7OKbWmRM"
-                  title="Composition & Visual Storytelling"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
+          <div class="module-media" aria-label="Module 6 media: still image and video">
+            <div class="media-stack">
+              <div class="art-stills">
+                <figure class="still-card">
+                  <img src="assets/img/art-m6-composition.jpeg" alt="Module 6 still image: Composition and visual storytelling study" loading="lazy">
+                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m6-composition.jpeg</span></figcaption>
+                </figure>
               </div>
-              <div class="video-caption">Composition & storytelling (embed). (From the curriculum doc.)</div>
+
+              <div class="video-shell">
+                <div class="ratio">
+                  <iframe
+                    src="https://www.youtube.com/embed/O8i7OKbWmRM"
+                    title="Composition & Visual Storytelling"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">Composition support: focal point control, staging, and storytelling clarity.</div>
+              </div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- MODULE 7 (FIXED EMBED) -->
-      <article class="module-card">
+      <!-- GALLERY BREAK (4–6) -->
+      <section class="gallery-break" aria-label="Gallery break: value, portrait, composition stills">
+        <div class="gallery-break__inner">
+          <img src="assets/img/art-m4-shading.jpeg" alt="Gallery still: Module 4 shading study" loading="lazy">
+          <img src="assets/img/art-m5-portrait.jpeg" alt="Gallery still: Module 5 portrait study" loading="lazy">
+          <img src="assets/img/art-m6-composition.jpeg" alt="Gallery still: Module 6 composition study" loading="lazy">
+        </div>
+      </section>
+
+      <!-- MODULE 7 -->
+      <article class="module-card" id="module-7">
         <div class="module-card__inner">
           <div class="module-card__content">
             <div class="module-top">
@@ -683,16 +888,17 @@
               <div class="module-box">
                 <h4>Exercises</h4>
                 <ul>
-                  <li>Make a 12-image “style board” of what you love.</li>
+                  <li>Make a 12-image “style board” of what you love (mood, line, shape, color/value).</li>
                   <li>Draw one subject 5 ways (shape language shifts each time).</li>
-                  <li>Pick 3 “rules” and apply them for a week (then break one).</li>
+                  <li>Pick 3 “rules” and apply them for a week (then break one on purpose).</li>
                 </ul>
               </div>
               <div class="module-box">
                 <h4>Thinking tool</h4>
                 <ul>
-                  <li>Track your recurring choices: shapes, edges, simplification, mood.</li>
+                  <li>Track recurring choices: shapes, edges, simplification, mood.</li>
                   <li>Ask: “What do I want my drawings to <b>feel</b> like?”</li>
+                  <li>Keep a “style log” (3 bullets after each piece).</li>
                 </ul>
               </div>
             </div>
@@ -702,24 +908,33 @@
             </div>
           </div>
 
-          <div class="module-media">
-            <div class="video-shell">
-              <div class="ratio">
-                <iframe
-                  src="https://www.youtube.com/embed/sXgaNuxf1vk"
-                  title="Learn Art Tactically — build style through strategy"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
+          <div class="module-media" aria-label="Module 7 media: still image and video">
+            <div class="media-stack">
+              <div class="art-stills">
+                <figure class="still-card">
+                  <img src="assets/img/art-m7-style.jpeg" alt="Module 7 still image: Style development study" loading="lazy">
+                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m7-style.jpeg</span></figcaption>
+                </figure>
               </div>
-              <div class="video-caption">Replaced the broken Module 7 embed with a stable “how to practice / build style” lesson. :contentReference[oaicite:3]{index=3}</div>
+
+              <div class="video-shell">
+                <div class="ratio">
+                  <iframe
+                    src="https://www.youtube.com/embed/sXgaNuxf1vk"
+                    title="Build style through practice strategy"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">Style support: build consistency through repeatable practice choices.</div>
+              </div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- MODULE 8 (FIXED EMBED: PLAYLIST) -->
-      <article class="module-card">
+      <!-- MODULE 8 -->
+      <article class="module-card" id="module-8">
         <div class="module-card__inner">
           <div class="module-card__content">
             <div class="module-top">
@@ -743,6 +958,7 @@
                 <ul>
                   <li>Learn “landmarks” (bony points) first—then muscles.</li>
                   <li>Think in simple forms under the surface.</li>
+                  <li>Draw through: treat forms as transparent to understand volume.</li>
                 </ul>
               </div>
             </div>
@@ -752,24 +968,33 @@
             </div>
           </div>
 
-          <div class="module-media">
-            <div class="video-shell">
-              <div class="ratio">
-                <iframe
-                  src="https://www.youtube.com/embed/videoseries?list=PLtG4P3lq8RHFBeVaruf2JjyQmZJH4__Zv"
-                  title="Anatomy for Artists — Playlist"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
+          <div class="module-media" aria-label="Module 8 media: still image and playlist video">
+            <div class="media-stack">
+              <div class="art-stills">
+                <figure class="still-card">
+                  <img src="assets/img/art-m8-anatomy.jpeg" alt="Module 8 still image: Anatomy study" loading="lazy">
+                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m8-anatomy.jpeg</span></figcaption>
+                </figure>
               </div>
-              <div class="video-caption">Replaced the broken Module 8 embed with a reliable anatomy playlist embed. :contentReference[oaicite:4]{index=4}</div>
+
+              <div class="video-shell">
+                <div class="ratio">
+                  <iframe
+                    src="https://www.youtube.com/embed/videoseries?list=PLtG4P3lq8RHFBeVaruf2JjyQmZJH4__Zv"
+                    title="Anatomy for Artists — Playlist"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">Reliable playlist embed: anatomy fundamentals and structure-based learning.</div>
+              </div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- MODULE 9 (FIXED EMBED) -->
-      <article class="module-card">
+      <!-- MODULE 9 -->
+      <article class="module-card" id="module-9">
         <div class="module-card__inner">
           <div class="module-card__content">
             <div class="module-top">
@@ -793,6 +1018,7 @@
                 <ul>
                   <li>Ask: “What am I afraid to try—and why?”</li>
                   <li>Separate “identity” from “output.” The drawing is data.</li>
+                  <li>One risk per piece: push proportion, push shape, push value, or push line.</li>
                 </ul>
               </div>
             </div>
@@ -802,24 +1028,33 @@
             </div>
           </div>
 
-          <div class="module-media">
-            <div class="video-shell">
-              <div class="ratio">
-                <iframe
-                  src="https://www.youtube.com/embed/yOIaI3Q_8UQ"
-                  title="Drawfee Break — Choose Your Own Adventure"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
+          <div class="module-media" aria-label="Module 9 media: still image and video">
+            <div class="media-stack">
+              <div class="art-stills">
+                <figure class="still-card">
+                  <img src="assets/img/art-m9-risk.jpeg" alt="Module 9 still image: Creative risk-taking study" loading="lazy">
+                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m9-risk.jpeg</span></figcaption>
+                </figure>
               </div>
-              <div class="video-caption">Replaced the non-embeddable Module 9 channel link with a stable Drawfee episode embed. :contentReference[oaicite:5]{index=5}</div>
+
+              <div class="video-shell">
+                <div class="ratio">
+                  <iframe
+                    src="https://www.youtube.com/embed/yOIaI3Q_8UQ"
+                    title="Creative risk-taking — Drawfee episode"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">Risk-taking support: playful constraints and “try it anyway” creative momentum.</div>
+              </div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- MODULE 10 (FIXED EMBED) -->
-      <article class="module-card">
+      <!-- MODULE 10 -->
+      <article class="module-card" id="module-10">
         <div class="module-card__inner">
           <div class="module-card__content">
             <div class="module-top">
@@ -854,28 +1089,53 @@
             </div>
           </div>
 
-          <div class="module-media">
-            <div class="video-shell">
-              <div class="ratio">
-                <iframe
-                  src="https://www.youtube.com/embed/nJkqeaDqXdk"
-                  title="How to Practice Effectively (art growth loop)"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
+          <div class="module-media" aria-label="Module 10 media: still images and video">
+            <div class="media-stack">
+              <div class="art-stills two">
+                <figure class="still-card">
+                  <img src="assets/img/art-m10-growth.jpeg" alt="Module 10 still image: Growth study" loading="lazy">
+                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m10-growth.jpeg</span></figcaption>
+                </figure>
+                <figure class="still-card">
+                  <img src="assets/img/art-m10-growth-loop.jpeg" alt="Module 10 still image: Growth loop diagram or study" loading="lazy">
+                  <figcaption class="still-cap">Still anchor: <span class="mono">art-m10-growth-loop.jpeg</span></figcaption>
+                </figure>
               </div>
-              <div class="video-caption">Added a stable “how to practice” embed to anchor the growth loop. :contentReference[oaicite:6]{index=6}</div>
+
+              <div class="video-shell">
+                <div class="ratio">
+                  <iframe
+                    src="https://www.youtube.com/embed/nJkqeaDqXdk"
+                    title="How to Practice Effectively (art growth loop)"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
+                <div class="video-caption">Growth-loop support: turning feedback into a repeatable, compounding system.</div>
+              </div>
             </div>
           </div>
         </div>
       </article>
 
+      <!-- GALLERY BREAK (7–10) -->
+      <section class="gallery-break" aria-label="Gallery break: style, anatomy, risk, growth stills">
+        <div class="gallery-break__inner">
+          <img src="assets/img/art-m7-style.jpeg" alt="Gallery still: Module 7 style study" loading="lazy">
+          <img src="assets/img/art-m8-anatomy.jpeg" alt="Gallery still: Module 8 anatomy study" loading="lazy">
+          <img src="assets/img/art-m10-growth.jpeg" alt="Gallery still: Module 10 growth study" loading="lazy">
+        </div>
+      </section>
+
     </section>
 
     <div class="art-footer-note" role="note">
-      <b>Tip:</b> If any video ever fails again, switch the iframe URL to the “embed” format:
-      <span style="white-space:nowrap;">https://www.youtube.com/embed/VIDEO_ID</span>
-      (and for playlists use <span style="white-space:nowrap;">/embed/videoseries?list=PLAYLIST_ID</span>).
+      <b>Video embed tip:</b>
+      if any video ever fails again, switch the iframe URL to the embed format
+      <span class="mono">https://www.youtube.com/embed/VIDEO_ID</span>
+      (and for playlists use <span class="mono">/embed/videoseries?list=PLAYLIST_ID</span>).
+      <br><br>
+      <b>Image path rule:</b> all still images on this page load from <span class="mono">assets/img/</span> using the exact filenames you provided.
     </div>
   </main>
 
