@@ -13,10 +13,87 @@
   <style>
     /* =============== SPIRITUAL PLATFORM (FINAL, FULL FILE) =============== */
 
+    /* --- THEME: fix header contrast + platform coloring --- */
+    body.platform--spiritual{
+      /* warm + premium, readable */
+      background:
+        radial-gradient(1200px 700px at 12% -10%, rgba(214,164,255,.14), transparent 60%),
+        radial-gradient(900px 600px at 100% 0%, rgba(140,210,255,.16), transparent 55%),
+        radial-gradient(900px 700px at 30% 110%, rgba(255,214,102,.14), transparent 55%),
+        linear-gradient(180deg, rgba(246,241,230,.62), rgba(255,255,255,.92));
+      --spirit-accent: #6b4ce6;   /* deep violet */
+      --spirit-accent2:#0f6aa6;   /* deep azure */
+      --spirit-ink: #0a0f1f;
+      --spirit-navy:#0b1226;
+    }
+
+    /* Header/topbar: guaranteed readable on every screen */
+    body.platform--spiritual .topbar{
+      background: linear-gradient(180deg, rgba(11,18,38,.94), rgba(11,18,38,.86));
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 10px 30px rgba(10,15,31,.18);
+    }
+    body.platform--spiritual .topbar .brand .mark{
+      color:#fff;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.10);
+    }
+    body.platform--spiritual .topbar .brand .tag{
+      color: rgba(255,255,255,.82);
+    }
+    body.platform--spiritual .topbar .links a{
+      color: rgba(255,255,255,.86);
+      opacity: 1;
+    }
+    body.platform--spiritual .topbar .links a:hover{
+      color:#fff;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+    body.platform--spiritual .topbar .links a.active{
+      color:#fff;
+      font-weight: 900;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+      text-decoration: none;
+    }
+
+    /* Platform header section (kicker + title area) – ensure contrast */
+    body.platform--spiritual .platform-hero .kicker{
+      color: rgba(10,15,31,.78);
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    body.platform--spiritual .platform-hero h1{
+      color: rgba(10,15,31,.96);
+    }
+
     /* Guardrails: always readable text in main content */
     body.platform{ color: rgba(10,15,31,.92); }
     .platform-main p, .platform-main li{ color: rgba(10,15,31,.86); }
     .platform-main h1, .platform-main h2, .platform-main h3{ color: rgba(10,15,31,.95); }
+
+    /* Make TOC feel “on brand” + readable (prevents light-on-light issues) */
+    body.platform--spiritual .platform-toc{
+      background: rgba(255,255,255,.74);
+      border: 1px solid rgba(10,15,31,.12);
+      box-shadow: 0 12px 34px rgba(10,15,31,.06);
+    }
+    body.platform--spiritual .platform-toc .toc-title{
+      color: rgba(10,15,31,.92);
+      font-weight: 900;
+    }
+    body.platform--spiritual .platform-toc a{
+      color: rgba(10,15,31,.86);
+    }
+    body.platform--spiritual .platform-toc a:hover{
+      color: rgba(10,15,31,.96);
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
 
     /* Hero wrapper (matches “premium card” feel) */
     .hero-spirit{
