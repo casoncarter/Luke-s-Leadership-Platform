@@ -861,3 +861,117 @@ body{
 .poem p:nth-child(4n){
   margin-bottom: 12px;
 }
+/* =========================================
+   PLATFORM READABILITY HOTFIX (Business exec summary + all light cards)
+   Paste at VERY BOTTOM of styles.css
+========================================= */
+
+/* 1) Any light surface should ALWAYS use dark ink */
+.platform :is(
+  .module-card,
+  .module-head,
+  .module,
+  .content-block,
+  .callout,
+  .poem,
+  .poem-card,
+  .song-card,
+  .video-card,
+  .leader-card,
+  .lead-card,
+  .platform-main .card,
+  .platform-main .panel,
+  .platform-main .section,
+  .platform-main .box
+){
+  color: rgba(10,15,31,.92);
+}
+
+/* 2) Paragraphs/lists inside those surfaces: dark readable defaults */
+.platform :is(
+  .module-card,
+  .module-head,
+  .module,
+  .content-block,
+  .callout,
+  .poem,
+  .poem-card,
+  .song-card,
+  .video-card,
+  .leader-card,
+  .lead-card,
+  .platform-main .card,
+  .platform-main .panel,
+  .platform-main .section,
+  .platform-main .box
+) :is(p, li, span, small){
+  color: rgba(10,15,31,.90);
+}
+
+/* 3) “Muted” text INSIDE light cards should be dark-muted (not cream) */
+.platform :is(
+  .module-card,
+  .module-head,
+  .module,
+  .content-block,
+  .callout,
+  .poem,
+  .poem-card,
+  .song-card,
+  .video-card,
+  .leader-card,
+  .lead-card,
+  .platform-main .card,
+  .platform-main .panel,
+  .platform-main .section,
+  .platform-main .box
+) :is(.muted, .meta, .subtle, .caption, .fineprint, .kicker, .byline, .label){
+  opacity: 1 !important;
+  color: rgba(10,15,31,.70) !important;
+}
+
+/* 4) Headings inside light cards should be fully dark */
+.platform :is(
+  .module-card,
+  .module-head,
+  .module,
+  .content-block,
+  .callout,
+  .poem-card,
+  .leader-card,
+  .lead-card,
+  .platform-main .card,
+  .platform-main .panel,
+  .platform-main .section,
+  .platform-main .box
+) :is(h1,h2,h3,h4){
+  color: rgba(10,15,31,.98);
+}
+
+/* 5) Links inside light cards should be readable + consistent */
+.platform :is(
+  .module-card,
+  .module-head,
+  .module,
+  .content-block,
+  .callout,
+  .poem-card,
+  .leader-card,
+  .lead-card,
+  .platform-main .card,
+  .platform-main .panel,
+  .platform-main .section,
+  .platform-main .box
+) a{
+  color: rgba(10,15,31,.78);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* 6) If Business executive summary uses a specific wrapper, catch it */
+.platform :is(.executive-summary, .exec-summary, .summary, #executive-summary){
+  color: rgba(10,15,31,.92);
+}
+.platform :is(.executive-summary, .exec-summary, .summary, #executive-summary) :is(p,li){
+  color: rgba(10,15,31,.90);
+}
