@@ -10,72 +10,302 @@
   <link rel="stylesheet" href="assets/css/platforms.css" />
 
   <style>
-    /* IMPORTANT:
-       This page previously redefined .container globally.
-       To avoid breaking the shared site layout, we scope the custom system
-       to .biz only. (No more global .container overrides.)
-    */
+    /* ==========================================================
+       BUSINESS / ENTREPRENEURSHIP — PROFESSIONAL RL-INSPIRED SKIN
+       - No global .container overrides
+       - Strong contrast on cream
+       - Homepage-like module cards (no tiny plus accordions)
+       - Leader images are featured up front in every module
+       ========================================================== */
 
-    .biz .section{padding:54px 0;}
-    .biz .section--cream{background:rgba(246,241,230,.55);}
-    .biz .section-head{max-width:920px;margin:0 auto 18px;}
+    body.biz{
+      --ink:#0a0f1f;
+      --navy:#0b1226;
+      --cream:#f6f1e6;
+      --paper:rgba(246,241,230,.72);
+      --paper2:rgba(246,241,230,.48);
+      --line:rgba(10,15,31,.12);
+      --line2:rgba(10,15,31,.16);
+      --shadow:0 18px 40px rgba(10,15,31,.10);
+      --shadow2:0 10px 26px rgba(10,15,31,.08);
+      --radius:20px;
+      --radius2:16px;
+    }
+
+    .biz .section{padding:64px 0;}
+    .biz .section--cream{background:linear-gradient(180deg, rgba(246,241,230,.92), rgba(246,241,230,.62));}
+    .biz .section--navy{background:linear-gradient(180deg, rgba(11,18,38,.96), rgba(11,18,38,.88)); color:var(--cream);}
+    .biz .section-head{max-width:980px;margin:0 auto 18px;}
     .biz .section-head h2{margin:0 0 8px;letter-spacing:.02em;}
-    .biz .section-head p{margin:0;opacity:.78;}
+    .biz .section-head p{margin:0;color:rgba(10,15,31,.78); line-height:1.55;}
+    .biz .section--navy .section-head p{color:rgba(246,241,230,.84);}
 
-    .biz .hero{position:relative;min-height:420px;display:grid;align-items:center;}
+    /* ---------- HERO ---------- */
+    .biz .hero{position:relative;min-height:460px;display:grid;align-items:center;}
     .biz .hero-media{position:absolute;inset:0;overflow:hidden;}
     .biz .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center;}
-    .biz .hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg, rgba(11,18,38,.88), rgba(11,18,38,.35) 60%, rgba(11,18,38,.20));}
-    .biz .hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:54px 18px;color:#f6f1e6;}
+    .biz .hero-overlay{
+      position:absolute;inset:0;
+      background:
+        linear-gradient(90deg, rgba(11,18,38,.92), rgba(11,18,38,.55) 55%, rgba(11,18,38,.20)),
+        radial-gradient(1200px 700px at 20% 20%, rgba(246,241,230,.08), transparent 60%);
+    }
+    .biz .hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:56px 18px;color:var(--cream);}
     .biz .eyebrow{margin:0 0 10px;letter-spacing:.18em;text-transform:uppercase;font-size:12px;opacity:.9;}
-    .biz .hero h1{margin:0 0 12px;max-width:900px;letter-spacing:.02em;}
-    .biz .hero-sub{margin:0 0 18px;max-width:780px;opacity:.9;line-height:1.5;}
+    .biz .hero h1{margin:0 0 12px;max-width:980px;letter-spacing:.02em;}
+    .biz .hero-sub{margin:0 0 18px;max-width:820px;opacity:.92;line-height:1.55;}
     .biz .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 18px;}
-    .biz .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;border:1px solid rgba(246,241,230,.35);font-weight:600}
-    .biz .btn-primary{background:#f6f1e6;color:#0b1226;border-color:transparent;}
-    .biz .btn-ghost{background:transparent;color:#f6f1e6;}
-    .biz .hero-badges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:520px;}
-    .biz .badge{border:1px solid rgba(246,241,230,.22);border-radius:16px;padding:12px 14px;background:rgba(11,18,38,.35);backdrop-filter:blur(6px);}
+    .biz .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:11px 16px;border-radius:999px;border:1px solid rgba(246,241,230,.35);
+      font-weight:700; letter-spacing:.01em;
+      transition:transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
+      will-change:transform;
+    }
+    .biz .btn:hover{transform:translateY(-1px);}
+    .biz .btn-primary{background:var(--cream);color:var(--navy);border-color:transparent;}
+    .biz .btn-ghost{background:transparent;color:var(--cream);}
+    .biz .btn-ghost:hover{border-color:rgba(246,241,230,.55);}
+    .biz .hero-badges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:560px;margin-top:6px;}
+    .biz .badge{
+      border:1px solid rgba(246,241,230,.22);
+      border-radius:18px;padding:14px 14px;background:rgba(11,18,38,.36);
+      backdrop-filter:blur(8px);
+      box-shadow:0 10px 26px rgba(0,0,0,.14);
+    }
     .biz .badge strong{display:block;font-size:22px;line-height:1;}
-    .biz .badge span{opacity:.9;font-size:12px;}
+    .biz .badge span{opacity:.92;font-size:12px;letter-spacing:.02em;}
 
-    .biz .split{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:start;}
+    /* ---------- CARDS / LAYOUT ---------- */
+    .biz .split{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:start;}
     @media (max-width:900px){.biz .split{grid-template-columns:1fr;}}
-    .biz .card{border:1px solid rgba(10,15,31,.12);border-radius:18px;padding:18px;background:rgba(246,241,230,.45);box-shadow:0 10px 26px rgba(10,15,31,.08);}
-    .biz .card--soft{background:rgba(246,241,230,.65);}
-    .biz .media-frame{border-radius:16px;overflow:hidden;aspect-ratio:16/10;background:#0b1226;}
-    .biz .media-frame img{width:100%;height:100%;object-fit:cover;object-position:center;}
-    .biz .fineprint{margin:0;opacity:.78;font-size:13px;line-height:1.5;}
+    .biz .card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:20px;
+      background:var(--paper);
+      box-shadow:var(--shadow2);
+    }
+    .biz .card--paper2{background:var(--paper2);}
+    .biz .card h3{margin:0 0 10px;letter-spacing:.02em;}
+    .biz .fineprint{margin:10px 0 0;opacity:.72;font-size:13px;line-height:1.5;color:rgba(10,15,31,.78);}
+    .biz .hr{height:1px;background:rgba(10,15,31,.10);margin:14px 0;}
 
-    .biz .module-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
-    @media (max-width:900px){.biz .module-grid{grid-template-columns:1fr;}}
-    .biz .module-card{border:1px solid rgba(10,15,31,.12);border-radius:18px;overflow:hidden;background:rgba(246,241,230,.35);box-shadow:0 10px 26px rgba(10,15,31,.08);}
-    .biz .module-summary{list-style:none;cursor:pointer;padding:16px 16px 14px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start;}
-    .biz .module-summary::-webkit-details-marker{display:none;}
-    .biz .module-kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.75;grid-column:1 / -1;}
-    .biz .module-title{font-weight:800;letter-spacing:.02em;}
-    .biz .module-blurb{opacity:.78;font-size:13px;line-height:1.45;margin-top:4px;grid-column:1 / -1;}
-    .biz .module-chevron{width:30px;height:30px;border-radius:999px;display:grid;place-items:center;border:1px solid rgba(10,15,31,.16);opacity:.7;}
-    .biz details[open] .module-chevron{transform:rotate(45deg);}
+    .biz .media-frame{
+      border-radius:var(--radius2);
+      overflow:hidden;
+      background:var(--navy);
+      box-shadow:0 10px 26px rgba(10,15,31,.12);
+    }
+    .biz .media-frame img{width:100%;height:100%;object-fit:cover;display:block;}
+    .biz .portrait{aspect-ratio:4/5;}
+    .biz .portrait img{object-position:center 18%;} /* fixes “face cutoff” tendency */
 
-    .biz .module-body{border-top:1px solid rgba(10,15,31,.10);padding:16px;}
-    .biz .module-media-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:14px;}
-    @media (max-width:560px){.biz .module-media-row{grid-template-columns:1fr;}}
-    .biz .module-figure{margin:0;border-radius:16px;overflow:hidden;aspect-ratio:16/11;background:#0b1226;}
-    .biz .module-figure img{width:100%;height:100%;object-fit:cover;object-position:center;}
-    .biz .module-copy h4{margin:16px 0 8px;font-size:14px;letter-spacing:.02em;}
-    .biz .module-copy p{margin:0 0 10px;line-height:1.65;}
-    .biz .module-copy ul{margin:0 0 12px;padding-left:18px;display:grid;gap:6px;}
-    .biz .module-copy li{line-height:1.45;}
+    /* ---------- EXEC SUMMARY (high contrast) ---------- */
+    .biz .exec-copy p{
+      margin:0 0 12px;
+      color:rgba(10,15,31,.86);
+      line-height:1.7;
+      font-size:16px;
+    }
+    .biz .exec-copy p:last-child{margin-bottom:0;}
 
-    .biz .cta-strip{margin-top:22px;border-radius:18px;padding:18px;border:1px solid rgba(10,15,31,.12);background:rgba(11,18,38,.06);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+    .biz .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;}
+    .biz .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      border:1px solid rgba(10,15,31,.14);
+      background:rgba(246,241,230,.55);
+      padding:8px 12px;border-radius:999px;
+      color:rgba(10,15,31,.82);
+      font-size:13px;
+      letter-spacing:.01em;
+    }
+
+    /* ---------- MODULE INDEX (homepage-style grid) ---------- */
+    .biz .module-index{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:16px;
+    }
+    @media (max-width:980px){.biz .module-index{grid-template-columns:repeat(2, minmax(0,1fr));}}
+    @media (max-width:640px){.biz .module-index{grid-template-columns:1fr;}}
+    .biz .module-tile{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(246,241,230,.78), rgba(246,241,230,.46));
+      box-shadow:var(--shadow2);
+      overflow:hidden;
+      transition:transform .14s ease, box-shadow .14s ease, border-color .14s ease;
+    }
+    .biz .module-tile:hover{
+      transform:translateY(-2px);
+      border-color:rgba(10,15,31,.20);
+      box-shadow:var(--shadow);
+    }
+    .biz .tile-top{
+      padding:16px 16px 12px;
+      display:grid;
+      gap:6px;
+    }
+    .biz .tile-kicker{
+      font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+      color:rgba(10,15,31,.62);
+    }
+    .biz .tile-title{
+      margin:0;
+      font-weight:900;
+      letter-spacing:.02em;
+      color:var(--ink);
+      line-height:1.18;
+      font-size:16px;
+    }
+    .biz .tile-leaders{
+      margin:0;
+      color:rgba(10,15,31,.72);
+      font-size:13px;
+      line-height:1.45;
+    }
+    .biz .tile-thumbs{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:8px;
+      padding:0 16px 14px;
+    }
+    .biz .thumb{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(10,15,31,.10);
+      aspect-ratio:16/11;
+      background:var(--navy);
+    }
+    .biz .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+    .biz .tile-actions{
+      padding:0 16px 16px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .biz .tile-link{
+      display:inline-flex;align-items:center;gap:10px;
+      font-weight:800;
+      letter-spacing:.01em;
+      color:var(--navy);
+    }
+    .biz .tile-dot{
+      width:34px;height:34px;border-radius:999px;
+      display:grid;place-items:center;
+      border:1px solid rgba(10,15,31,.16);
+      background:rgba(246,241,230,.55);
+    }
+
+    /* ---------- FULL MODULE SECTIONS ---------- */
+    .biz .module-full{
+      border:1px solid var(--line);
+      border-radius:calc(var(--radius) + 2px);
+      background:linear-gradient(180deg, rgba(246,241,230,.82), rgba(246,241,230,.50));
+      box-shadow:var(--shadow2);
+      overflow:hidden;
+      margin:0 0 18px;
+    }
+    .biz .module-full__head{
+      padding:18px 18px 16px;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:16px;
+      align-items:start;
+      border-bottom:1px solid rgba(10,15,31,.10);
+    }
+    @media (max-width:900px){.biz .module-full__head{grid-template-columns:1fr;}}
+    .biz .module-full__kicker{
+      font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+      color:rgba(10,15,31,.62);
+      margin:0 0 8px;
+    }
+    .biz .module-full__title{
+      margin:0 0 10px;
+      font-weight:950;
+      letter-spacing:.02em;
+      color:var(--ink);
+      line-height:1.12;
+    }
+    .biz .module-full__meta{
+      margin:0;
+      color:rgba(10,15,31,.74);
+      line-height:1.55;
+      font-size:14px;
+    }
+    .biz .leader-triptych{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:10px;
+    }
+    @media (max-width:520px){.biz .leader-triptych{grid-template-columns:1fr;}}
+    .biz .leader-shot{
+      border-radius:16px;
+      overflow:hidden;
+      aspect-ratio:16/11;
+      background:var(--navy);
+      border:1px solid rgba(10,15,31,.12);
+      box-shadow:0 10px 20px rgba(10,15,31,.10);
+    }
+    .biz .leader-shot img{width:100%;height:100%;object-fit:cover;display:block;}
+    .biz .module-full__body{padding:18px;}
+
+    .biz .module-copy p{
+      margin:0 0 12px;
+      color:rgba(10,15,31,.86);
+      line-height:1.7;
+    }
+    .biz .module-copy ul{
+      margin:0 0 14px;
+      padding-left:18px;
+      display:grid;
+      gap:8px;
+      color:rgba(10,15,31,.84);
+    }
+    .biz .module-copy li{line-height:1.55;}
+    .biz .module-copy h4{
+      margin:18px 0 10px;
+      font-size:14px;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      color:rgba(10,15,31,.78);
+    }
+
+    .biz .module-nav{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 18px;
+      border-top:1px solid rgba(10,15,31,.10);
+      background:rgba(246,241,230,.46);
+    }
+    .biz .module-nav a{font-weight:800;color:var(--navy);}
+    .biz .module-nav .small{font-size:13px;color:rgba(10,15,31,.72);font-weight:650;}
+
+    /* ---------- CTA STRIP ---------- */
+    .biz .cta-strip{
+      margin-top:24px;
+      border-radius:var(--radius);
+      padding:20px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(11,18,38,.06), rgba(11,18,38,.03));
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      box-shadow:var(--shadow2);
+    }
     .biz .cta-strip h3{margin:0 0 6px;}
-    .biz .cta-strip p{margin:0;opacity:.78;max-width:720px;line-height:1.5;}
+    .biz .cta-strip p{margin:0;opacity:.84;max-width:760px;line-height:1.55;color:rgba(10,15,31,.82);}
   </style>
 </head>
 
 <body class="platform biz">
-  <!-- Standard header used by IF / Guitar / Dad Jokes -->
   <header class="topbar">
     <div class="container">
       <nav class="nav">
@@ -99,6 +329,7 @@
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero hero--platform">
       <div class="hero-media" aria-hidden="true">
         <img src="assets/img/module-business.jpeg" alt="" loading="eager" decoding="async" />
@@ -113,18 +344,19 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#modules">Explore the 12 modules</a>
+          <a class="btn btn-primary" href="#module-index">Explore the 12 modules</a>
           <a class="btn btn-ghost" href="#executive-summary">Executive summary</a>
         </div>
 
         <div class="hero-badges" aria-label="Highlights">
           <div class="badge"><strong>12</strong><span>Modules</span></div>
-          <div class="badge"><strong>34</strong><span>Image assets</span></div>
-          <div class="badge"><strong>1</strong><span>Unified design system</span></div>
+          <div class="badge"><strong>34</strong><span>Leader images</span></div>
+          <div class="badge"><strong>1</strong><span>Unified design</span></div>
         </div>
       </div>
     </section>
 
+    <!-- EXEC SUMMARY -->
     <section id="executive-summary" class="section section--cream">
       <div class="container">
         <div class="section-head">
@@ -133,456 +365,249 @@
         </div>
 
         <div class="split">
-          <div class="card card--soft">
+          <div class="card exec-copy">
             <p>Across twelve modules, this curriculum blends analytical thinking, creativity, innovation frameworks, strategic judgment under uncertainty, financial literacy, leadership, storytelling, ethics, and modern AI fluency.</p>
             <p>Each module is anchored by leaders whose lives and philosophies reinforce the core skill — and each module includes concrete exercises so this becomes practice, not just reading.</p>
+
+            <div class="hr"></div>
+
+            <div class="pill-row" aria-label="Core pillars">
+              <span class="pill">Analytical thinking</span>
+              <span class="pill">Design &amp; innovation</span>
+              <span class="pill">Judgment</span>
+              <span class="pill">Financial literacy</span>
+              <span class="pill">Execution</span>
+              <span class="pill">Ethics</span>
+              <span class="pill">Brand</span>
+              <span class="pill">AI fluency</span>
+            </div>
+
+            <p class="fineprint">All images on this page load from <code>assets/img/</code>, and all leader images are constrained to consistent frames so the page looks clean and professional.</p>
           </div>
 
-          <div class="card">
-            <div class="hero-media" style="background-image:url('assets/img/luke-portrait.jpeg'); background-position: center top;"></div>
-
-            <p class="fineprint">All images on this page load from <code>assets/img/</code> (no other paths), and all module images are constrained to consistent frames so the page looks clean and professional.</p>
+          <div class="card card--paper2">
+            <div class="media-frame portrait">
+              <img src="assets/img/luke-portrait.jpeg" alt="Luke portrait" loading="lazy" decoding="async" />
+            </div>
+            <p class="fineprint">Portrait crop tuned to avoid the “cutoff face” issue.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="modules" class="section">
+    <!-- MODULE INDEX -->
+    <section id="module-index" class="section">
       <div class="container">
         <div class="section-head">
           <h2>Modules</h2>
-          <p>Click any module to open the full curriculum (content is fully embedded — no placeholders).</p>
+          <p>Homepage-style overview. Click any module to jump to the full curriculum (no accordion, no tiny plus sign).</p>
         </div>
 
-        <div class="module-grid">
-<details class="module-card" id="m1">
-  <summary class="module-summary">
-    <div class="module-kicker">Module 1</div>
-    <div class="module-title">PROBLEM SOLVING &amp; OPPORTUNITY IDENTIFICATION</div>
-    <div class="module-blurb">Open the full module curriculum, frameworks, and exercises.</div>
-    <div class="module-chevron" aria-hidden="true">+</div>
-  </summary>
-  <div class="module-body">
-    <div class="module-media-row">
-      <figure class="module-figure"><img src="assets/img/image1.jpeg" alt="Module 1 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image2.jpeg" alt="Module 1 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image3.jpeg" alt="Module 1 leader image" loading="lazy" decoding="async"></figure>
-    </div>
-    <div class="module-copy">
-<p>Anchoring Leaders: Elon Musk, Peter Drucker, Jack Dorsey</p>
-<p>Tone: Blended Inspirational + Actionable (for a mature 17-year-old entering college)</p>
-<p>Narrative: Seeing What Others Miss</p>
-<p>Every entrepreneur begins with a moment — not of brilliance, but of noticing what others overlook and turning it into a path.</p>
-<p>The world is full of problems disguised as “normal.” Most people accept them. Some complain about them. The exceptional learn to widen them into doorways.</p>
-<p>This module teaches your son the first and most essential skill in entrepreneurship: the ability to identify real problems, define what truly matters, and transform a problem into a path.</p>
-<p>And for this foundation, we turn to three leaders who mastered the art of seeing differently.</p>
-<p>Elon Musk — Reimagine the Problem</p>
-<p>Musk’s signature gift is not rockets or electric cars. It is the ability to look directly at a problem and ask:</p>
-<p>“What is actually true here — and what have we simply accepted?”</p>
-<p>He breaks challenges down to physics, cost curves, and natural constraints — and rebuilds from there. Everything else — tradition, industry norms, “the way things are done” — is noise.</p>
-<p>For a young entrepreneur entering college, this is a powerful approach: don’t just solve the problem. Challenge the assumption and rebuild your understanding from the ground up.</p>
-<p>Actionable takeaways for your son:</p>
-<ul>
-  <li>Don’t accept inherited definitions of a problem</li>
-  <li>Reduce challenges to first principles</li>
-  <li>Start with constraints, not conventions</li>
-</ul>
-<p>Peter Drucker — Define the Real Need</p>
-<p>Drucker, the father of modern management, believed that entrepreneurship begins with clarity.</p>
-<p>Not “What product should I build?”</p>
-<p>But “What need exists — and who is served?”</p>
-<p>He taught leaders to observe systems, incentives, and human behavior with discipline and humility. Problems are rarely solved by intuition alone; they are solved by asking better questions.</p>
-<p>Actionable takeaways for your son:</p>
-<ul>
-  <li>Learn to diagnose before you prescribe</li>
-  <li>Ask: “Who is the customer? What do they value?”</li>
-  <li>Distinguish symptoms from root causes</li>
-</ul>
-<p>Jack Dorsey — Simplicity as an Opportunity Filter</p>
-<p>Dorsey built products around one obsession: reducing friction.</p>
-<p>Square existed because he saw small businesses blocked by complexity. Twitter succeeded because it stripped communication to something fast and simple.</p>
-<p>His lesson: opportunities often live where things are unnecessarily hard.</p>
-<p>Actionable takeaways for your son:</p>
-<ul>
-  <li>Find friction and remove it</li>
-  <li>Simplify the customer experience</li>
-  <li>Let constraints sharpen creativity</li>
-</ul>
-<p>Exercises</p>
-<ul>
-  <li>Opportunity Journal: Write down 5 frustrations per day for one week. Choose one and analyze it with first principles (Musk), diagnosis (Drucker), and simplification (Dorsey).</li>
-  <li>“Why ladder” drill: For one chosen problem, ask “why?” five times to locate root cause.</li>
-  <li>Friction map: List steps a user must take to complete a task; highlight where effort spikes.</li>
-</ul>
-<p>Reflection</p>
-<p>Entrepreneurship begins with perception. What does your son notice that others normalize? If he trains this skill now, he will carry it into every class, internship, and career decision.</p>
-    </div>
-  </div>
-</details>
+        <div class="module-index">
 
-<details class="module-card" id="m2">
-  <summary class="module-summary">
-    <div class="module-kicker">Module 2</div>
-    <div class="module-title">CREATIVITY × ANALYTICAL THINKING</div>
-    <div class="module-blurb">Open the full module curriculum, frameworks, and exercises.</div>
-    <div class="module-chevron" aria-hidden="true">+</div>
-  </summary>
-  <div class="module-body">
-    <div class="module-media-row">
-      <figure class="module-figure"><img src="assets/img/image4.jpeg" alt="Module 2 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image5.jpeg" alt="Module 2 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image6.jpeg" alt="Module 2 leader image" loading="lazy" decoding="async"></figure>
-    </div>
-    <div class="module-copy">
-<p>Anchoring Leaders: Reed Hastings, Tim Brown, Leonardo da Vinci</p>
-<p>Tone: Thoughtful + Expansive + Structured (for a student who loves both logic and creativity)</p>
-<p>Narrative: The Competitive Advantage of “Both/And”</p>
-<p>Most people think creativity and analytical thinking live on opposite sides of the brain. But modern entrepreneurship belongs to those who can do both: imagine something new and then build it with rigor.</p>
-<p>This module teaches your son how to unite these two strengths — and how that fusion becomes a real competitive advantage.</p>
-<p>Reed Hastings — Data + Taste</p>
-<p>Netflix succeeded because Hastings blended data science with creative intuition. He used analytics to understand behavior, but he also invested in storytelling, culture, and product experience.</p>
-<p>His lesson: the best builders measure what’s true, but they also sense what matters.</p>
-<ul>
-  <li>Use data to reduce uncertainty — not to avoid judgment</li>
-  <li>Hold opinions, but update them with evidence</li>
-  <li>Build feedback loops for both numbers and experience</li>
-</ul>
-<p>Tim Brown — Design Thinking as a Method</p>
-<p>Tim Brown (IDEO) teaches that creativity isn’t randomness — it’s a process. Design thinking is a repeatable method for generating ideas, testing them, and refining them through empathy and iteration.</p>
-<ul>
-  <li>Start with empathy: understand the user’s lived experience</li>
-  <li>Prototype quickly to learn cheaply</li>
-  <li>Iterate based on real feedback, not ego</li>
-</ul>
-<p>Leonardo da Vinci — Curiosity Without Borders</p>
-<p>Da Vinci had no categories. Art, science, anatomy, mechanics — all were one exploration. His lesson for your son: curiosity across domains is not a distraction. It’s an advantage.</p>
-<ul>
-  <li>Cross-train your mind by exploring outside your “major”</li>
-  <li>Keep a notebook for questions, sketches, and hypotheses</li>
-  <li>Make connections across disciplines</li>
-</ul>
-<p>Exercises</p>
-<ul>
-  <li>“Both/And” Challenge: Pick one business idea. Write (1) the creative vision, then (2) the analytical model (assumptions, numbers, constraints).</li>
-  <li>Rapid prototypes: Create 3 versions of the same idea in 30 minutes (sketches, storyboards, UI screens, paper models).</li>
-  <li>Curiosity map: List 10 topics you’re curious about; circle 3 and design a one-week micro-study plan.</li>
-</ul>
-<p>Reflection</p>
-<p>The future belongs to builders who can think in systems and still see beauty, meaning, and human desire. If your son can integrate creativity with analytical rigor, he becomes rare.</p>
-    </div>
-  </div>
-</details>
+          <!-- 1 -->
+          <article class="module-tile">
+            <div class="tile-top">
+              <div class="tile-kicker">Module 1</div>
+              <h3 class="tile-title">PROBLEM SOLVING &amp; OPPORTUNITY IDENTIFICATION</h3>
+              <p class="tile-leaders">Elon Musk • Peter Drucker • Jack Dorsey</p>
+            </div>
+            <div class="tile-thumbs">
+              <div class="thumb"><img src="assets/img/image1.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image2.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image3.jpeg" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="tile-actions">
+              <a class="tile-link" href="#module-1">View module</a><span class="tile-dot" aria-hidden="true">→</span>
+            </div>
+          </article>
 
-<details class="module-card" id="m3">
-  <summary class="module-summary">
-    <div class="module-kicker">Module 3</div>
-    <div class="module-title">INNOVATION &amp; DESIGN THINKING</div>
-    <div class="module-blurb">Open the full module curriculum, frameworks, and exercises.</div>
-    <div class="module-chevron" aria-hidden="true">+</div>
-  </summary>
-  <div class="module-body">
-    <div class="module-media-row">
-      <figure class="module-figure"><img src="assets/img/image7.jpeg" alt="Module 3 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image8.jpeg" alt="Module 3 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image9.jpeg" alt="Module 3 leader image" loading="lazy" decoding="async"></figure>
-    </div>
-    <div class="module-copy">
-<p>Anchoring Leaders: Jeff Bezos, Steve Blank, Brian Chesky</p>
-<p>Tone: Practical + Modern + Builder-focused</p>
-<p>Narrative: Innovation Is a System</p>
-<p>Innovation is often romanticized as inspiration. In reality, innovation is a system: a disciplined way of discovering what people need and building solutions that scale.</p>
-<p>This module teaches your son the core frameworks behind modern innovation and startup building.</p>
-<p>Jeff Bezos — Customer Obsession</p>
-<p>Bezos built Amazon around one principle: obsess over the customer, not the competition. He believed that if you make decisions from the customer backward, you will outlast cycles and competitors.</p>
-<ul>
-  <li>Start with the customer’s pain point</li>
-  <li>Build long-term trust through consistency</li>
-  <li>Use invention to reduce cost and friction</li>
-</ul>
-<p>Steve Blank — “Get Out of the Building”</p>
-<p>Blank teaches that you don’t “execute” a plan — you discover one. Entrepreneurs must test assumptions through real conversations and real behavior.</p>
-<ul>
-  <li>Assumptions are guesses until tested</li>
-  <li>Talk to users early, often, and honestly</li>
-  <li>Let evidence shape the product</li>
-</ul>
-<p>Brian Chesky — Design + Trust</p>
-<p>Airbnb succeeded because Chesky understood experience design and trust. He didn’t just build a marketplace; he built a feeling of safety and belonging.</p>
-<ul>
-  <li>Design the entire experience, not just the product</li>
-  <li>Trust is a feature</li>
-  <li>Details create loyalty</li>
-</ul>
-<p>Exercises</p>
-<ul>
-  <li>Customer-backward memo: Write a “press release” from the future announcing your product and the customer problem it solves.</li>
-  <li>Assumption list: For an idea, list 10 assumptions; select the riskiest 3 and design simple tests.</li>
-  <li>Trust audit: Identify what a user must believe to adopt your product; list design elements that increase trust.</li>
-</ul>
-<p>Reflection</p>
-<p>Innovation isn’t magic. It’s curiosity, discipline, and iteration. The earlier your son learns this system, the faster he can build in the real world.</p>
-    </div>
-  </div>
-</details>
+          <!-- 2 -->
+          <article class="module-tile">
+            <div class="tile-top">
+              <div class="tile-kicker">Module 2</div>
+              <h3 class="tile-title">CREATIVITY × ANALYTICAL THINKING</h3>
+              <p class="tile-leaders">Reed Hastings • Tim Brown • Leonardo da Vinci</p>
+            </div>
+            <div class="tile-thumbs">
+              <div class="thumb"><img src="assets/img/image4.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image5.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image6.jpeg" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="tile-actions">
+              <a class="tile-link" href="#module-2">View module</a><span class="tile-dot" aria-hidden="true">→</span>
+            </div>
+          </article>
 
-<details class="module-card" id="m4">
-  <summary class="module-summary">
-    <div class="module-kicker">Module 4</div>
-    <div class="module-title">BUSINESS MODELS &amp; VALUE CREATION</div>
-    <div class="module-blurb">Open the full module curriculum, frameworks, and exercises.</div>
-    <div class="module-chevron" aria-hidden="true">+</div>
-  </summary>
-  <div class="module-body">
-    <div class="module-media-row">
-      <figure class="module-figure"><img src="assets/img/image10.jpeg" alt="Module 4 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image11.jpeg" alt="Module 4 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image12.jpeg" alt="Module 4 leader image" loading="lazy" decoding="async"></figure>
-    </div>
-    <div class="module-copy">
-<p>Anchoring Leaders: Warren Buffett, Sara Blakely, Marc Benioff</p>
-<p>Tone: Strategic + Practical + Customer-driven</p>
-<p>Narrative: Value Isn’t Created by Ideas — It’s Created by Models</p>
-<p>Many young entrepreneurs fall in love with an idea. But ideas don’t create value on their own. Value is created by a business model: the structure that turns a solution into something sustainable.</p>
-<p>This module teaches your son how to think about value creation, pricing, distribution, retention, and the engine that makes a company durable.</p>
-<p>Exercises</p>
-<ul>
-  <li>Pick 3 companies you admire. Identify how each makes money, how it acquires customers, and what keeps customers loyal.</li>
-  <li>For an idea, write 3 business model versions (subscription, transaction, licensing) and compare tradeoffs.</li>
-  <li>Create a simple unit economics model (CAC, LTV, gross margin) using assumptions.</li>
-</ul>
-<p>Reflection</p>
-<p>A great business model turns a good idea into something that lasts.</p>
-    </div>
-  </div>
-</details>
-<details class="module-card" id="m5">
-  <summary class="module-summary">
-    <div class="module-kicker">Module 5</div>
-    <div class="module-title">GO-TO-MARKET STRATEGY &amp; GROWTH</div>
-    <div class="module-blurb">Open the full module curriculum, frameworks, and exercises.</div>
-    <div class="module-chevron" aria-hidden="true">+</div>
-  </summary>
-  <div class="module-body">
-    <div class="module-media-row">
-      <figure class="module-figure"><img src="assets/img/image13.jpeg" alt="Module 5 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image14.jpeg" alt="Module 5 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image15.jpeg" alt="Module 5 leader image" loading="lazy" decoding="async"></figure>
-    </div>
-    <div class="module-copy">
-<p>Anchoring Leaders: Steve Jobs, Reed Hastings, Whitney Wolfe Herd</p>
-<p>Tone: Modern + Tactical + Brand-aware</p>
-<p>Narrative: Growth Is Engineered</p>
-<p>Growth is not luck. It’s engineered through clarity: who you serve, how you reach them, and why they stay.</p>
-<p>Exercises</p>
-<ul>
-  <li>Define ICP (ideal customer profile) and write a “customer promise.”</li>
-  <li>Map 3 channels (content, partnerships, paid) and design a test for each.</li>
-  <li>Write your retention loop: what brings a user back?</li>
-</ul>
-<p>Reflection</p>
-<p>Great products don’t automatically grow. Great go-to-market systems make them visible.</p>
-    </div>
-  </div>
-</details>
+          <!-- 3 -->
+          <article class="module-tile">
+            <div class="tile-top">
+              <div class="tile-kicker">Module 3</div>
+              <h3 class="tile-title">INNOVATION &amp; DESIGN THINKING</h3>
+              <p class="tile-leaders">Jeff Bezos • Steve Blank • Brian Chesky</p>
+            </div>
+            <div class="tile-thumbs">
+              <div class="thumb"><img src="assets/img/image7.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image8.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image9.jpeg" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="tile-actions">
+              <a class="tile-link" href="#module-3">View module</a><span class="tile-dot" aria-hidden="true">→</span>
+            </div>
+          </article>
 
-<details class="module-card" id="m6">
-  <summary class="module-summary">
-    <div class="module-kicker">Module 6</div>
-    <div class="module-title">DECISION-MAKING UNDER UNCERTAINTY</div>
-    <div class="module-blurb">Open the full module curriculum, frameworks, and exercises.</div>
-    <div class="module-chevron" aria-hidden="true">+</div>
-  </summary>
-  <div class="module-body">
-    <div class="module-media-row">
-      <figure class="module-figure"><img src="assets/img/image16.jpeg" alt="Module 6 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image17.jpeg" alt="Module 6 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image18.jpeg" alt="Module 6 leader image" loading="lazy" decoding="async"></figure>
-    </div>
-    <div class="module-copy">
-<p>Anchoring Leaders: Ray Dalio, Howard Marks, Annie Duke</p>
-<p>Tone: Clear + Probabilistic + Grounded</p>
-<p>Narrative: Good Decisions Don’t Require Certainty</p>
-<p>Entrepreneurship is uncertainty. The goal is not perfect certainty — it’s disciplined judgment.</p>
-<p>Exercises</p>
-<ul>
-  <li>For 3 decisions, write: options, probabilities, downside, expected value.</li>
-  <li>Keep a “decision journal” and review outcomes monthly.</li>
-  <li>Practice “pre-mortems”: imagine failure and identify root causes early.</li>
-</ul>
-<p>Reflection</p>
-<p>Confidence grows when you learn to make good decisions even without guarantees.</p>
-    </div>
-  </div>
-</details>
+          <!-- 4 -->
+          <article class="module-tile">
+            <div class="tile-top">
+              <div class="tile-kicker">Module 4</div>
+              <h3 class="tile-title">BUSINESS MODELS &amp; VALUE CREATION</h3>
+              <p class="tile-leaders">Warren Buffett • Sara Blakely • Marc Benioff</p>
+            </div>
+            <div class="tile-thumbs">
+              <div class="thumb"><img src="assets/img/image10.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image11.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image12.jpeg" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="tile-actions">
+              <a class="tile-link" href="#module-4">View module</a><span class="tile-dot" aria-hidden="true">→</span>
+            </div>
+          </article>
 
-<details class="module-card" id="m7">
-  <summary class="module-summary">
-    <div class="module-kicker">Module 7</div>
-    <div class="module-title">LEADERSHIP &amp; TEAM BUILDING</div>
-    <div class="module-blurb">Open the full module curriculum, frameworks, and exercises.</div>
-    <div class="module-chevron" aria-hidden="true">+</div>
-  </summary>
-  <div class="module-body">
-    <div class="module-media-row">
-      <figure class="module-figure"><img src="assets/img/image19.jpeg" alt="Module 7 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image20.jpeg" alt="Module 7 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image21.jpeg" alt="Module 7 leader image" loading="lazy" decoding="async"></figure>
-    </div>
-    <div class="module-copy">
-<p>Anchoring Leaders: Satya Nadella, Coach K, Sheryl Sandberg</p>
-<p>Tone: High standards + Human leadership</p>
-<p>Narrative: Culture Is the Invisible Operating System</p>
-<p>Great teams don’t happen by accident. Culture is what people do when nobody is watching.</p>
-<ul>
-  <li>Write “team principles” for communication and accountability.</li>
-  <li>Run one meeting with agenda + follow-ups.</li>
-  <li>Audit what behaviors are rewarded in your current teams.</li>
-</ul>
-<p>Reflection</p>
-<p>Leadership is not a title — it’s behavior.</p>
-    </div>
-  </div>
-</details>
+          <!-- 5 -->
+          <article class="module-tile">
+            <div class="tile-top">
+              <div class="tile-kicker">Module 5</div>
+              <h3 class="tile-title">GO-TO-MARKET STRATEGY &amp; GROWTH</h3>
+              <p class="tile-leaders">Steve Jobs • Reed Hastings • Whitney Wolfe Herd</p>
+            </div>
+            <div class="tile-thumbs">
+              <div class="thumb"><img src="assets/img/image13.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image14.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image15.jpeg" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="tile-actions">
+              <a class="tile-link" href="#module-5">View module</a><span class="tile-dot" aria-hidden="true">→</span>
+            </div>
+          </article>
 
-<details class="module-card" id="m8">
-  <summary class="module-summary">
-    <div class="module-kicker">Module 8</div>
-    <div class="module-title">FINANCIAL LITERACY FOR ENTREPRENEURS</div>
-    <div class="module-blurb">Open the full module curriculum, frameworks, and exercises.</div>
-    <div class="module-chevron" aria-hidden="true">+</div>
-  </summary>
-  <div class="module-body">
-    <div class="module-media-row">
-      <figure class="module-figure"><img src="assets/img/image22.jpeg" alt="Module 8 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image23.jpeg" alt="Module 8 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image24.jpeg" alt="Module 8 leader image" loading="lazy" decoding="async"></figure>
-    </div>
-    <div class="module-copy">
-<p>Anchoring Leaders: Ken Griffin, Warren Buffett, Indra Nooyi</p>
-<p>Tone: Practical + Disciplined</p>
-<p>Narrative: Numbers Tell the Truth</p>
-<p>Entrepreneurs who understand cash flow, margin, and unit economics make better decisions.</p>
-<ul>
-  <li>Build a simple P&amp;L with assumptions.</li>
-  <li>Model unit economics (CAC vs LTV).</li>
-  <li>Identify where cash risk actually lives.</li>
-</ul>
-<p>Reflection</p>
-<p>Financial literacy turns intuition into informed judgment.</p>
-    </div>
-  </div>
-</details>
-<details class="module-card" id="m9">
-  <summary class="module-summary">
-    <div class="module-kicker">Module 9</div>
-    <div class="module-title">EXECUTION, SYSTEMS &amp; OPERATIONS</div>
-    <div class="module-blurb">Open the full module curriculum, frameworks, and exercises.</div>
-    <div class="module-chevron" aria-hidden="true">+</div>
-  </summary>
-  <div class="module-body">
-    <div class="module-media-row">
-      <figure class="module-figure"><img src="assets/img/image25.jpeg" alt="Module 9 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image26.jpeg" alt="Module 9 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image27.jpeg" alt="Module 9 leader image" loading="lazy" decoding="async"></figure>
-    </div>
-    <div class="module-copy">
-<p>Anchoring Leaders: Jeff Bezos, James Clear, Tim Cook</p>
-<p>Tone: Systems-driven + Practical</p>
-<p>Narrative: Talent Doesn’t Scale — Systems Do</p>
-<ul>
-  <li>Create a weekly review system.</li>
-  <li>Define “inputs” you control vs “outputs” you want.</li>
-  <li>Build routines that protect deep work.</li>
-</ul>
-<p>Reflection</p>
-<p>Execution is the bridge between ideas and impact.</p>
-    </div>
-  </div>
-</details>
+          <!-- 6 -->
+          <article class="module-tile">
+            <div class="tile-top">
+              <div class="tile-kicker">Module 6</div>
+              <h3 class="tile-title">DECISION-MAKING UNDER UNCERTAINTY</h3>
+              <p class="tile-leaders">Ray Dalio • Howard Marks • Annie Duke</p>
+            </div>
+            <div class="tile-thumbs">
+              <div class="thumb"><img src="assets/img/image16.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image17.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image18.jpeg" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="tile-actions">
+              <a class="tile-link" href="#module-6">View module</a><span class="tile-dot" aria-hidden="true">→</span>
+            </div>
+          </article>
 
-<details class="module-card" id="m10">
-  <summary class="module-summary">
-    <div class="module-kicker">Module 10</div>
-    <div class="module-title">ETHICS, RESPONSIBILITY &amp; LONG-TERM THINKING</div>
-    <div class="module-blurb">Open the full module curriculum, frameworks, and exercises.</div>
-    <div class="module-chevron" aria-hidden="true">+</div>
-  </summary>
-  <div class="module-body">
-    <div class="module-media-row">
-      <figure class="module-figure"><img src="assets/img/image28.jpeg" alt="Module 10 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image29.jpeg" alt="Module 10 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image30.jpeg" alt="Module 10 leader image" loading="lazy" decoding="async"></figure>
-    </div>
-    <div class="module-copy">
-<p>Anchoring Leaders: Paul Polman, Abraham Lincoln, Melinda French Gates</p>
-<p>Tone: Serious + Values-forward</p>
-<p>Narrative: The Future Is Shaped by Values</p>
-<ul>
-  <li>Write a personal “values constitution.”</li>
-  <li>Map second-order effects of key decisions.</li>
-  <li>Study an ethics failure and identify early warning signs.</li>
-</ul>
-<p>Reflection</p>
-<p>Integrity compounds like capital.</p>
-    </div>
-  </div>
-</details>
+          <!-- 7 -->
+          <article class="module-tile">
+            <div class="tile-top">
+              <div class="tile-kicker">Module 7</div>
+              <h3 class="tile-title">LEADERSHIP &amp; TEAM BUILDING</h3>
+              <p class="tile-leaders">Satya Nadella • Coach K • Sheryl Sandberg</p>
+            </div>
+            <div class="tile-thumbs">
+              <div class="thumb"><img src="assets/img/image19.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image20.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image21.jpeg" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="tile-actions">
+              <a class="tile-link" href="#module-7">View module</a><span class="tile-dot" aria-hidden="true">→</span>
+            </div>
+          </article>
 
-<details class="module-card" id="m11">
-  <summary class="module-summary">
-    <div class="module-kicker">Module 11</div>
-    <div class="module-title">BRAND-BUILDING &amp; STORYTELLING</div>
-    <div class="module-blurb">Open the full module curriculum, frameworks, and exercises.</div>
-    <div class="module-chevron" aria-hidden="true">+</div>
-  </summary>
-  <div class="module-body">
-    <div class="module-media-row">
-      <figure class="module-figure"><img src="assets/img/image31.jpeg" alt="Module 11 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image32.jpeg" alt="Module 11 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image33.jpeg" alt="Module 11 leader image" loading="lazy" decoding="async"></figure>
-    </div>
-    <div class="module-copy">
-<p>Anchoring Leaders: Steve Jobs, Ralph Lauren, Oprah Winfrey</p>
-<p>Tone: Meaning-driven + Craft-focused</p>
-<p>Narrative: People Don’t Buy Products — They Buy Meaning</p>
-<ul>
-  <li>Write a one-sentence positioning statement.</li>
-  <li>Build a brand moodboard: 10 images/words.</li>
-  <li>Write the customer’s “before/after” story arc.</li>
-</ul>
-<p>Reflection</p>
-<p>Clarity is a competitive advantage.</p>
-    </div>
-  </div>
-</details>
+          <!-- 8 -->
+          <article class="module-tile">
+            <div class="tile-top">
+              <div class="tile-kicker">Module 8</div>
+              <h3 class="tile-title">FINANCIAL LITERACY FOR ENTREPRENEURS</h3>
+              <p class="tile-leaders">Ken Griffin • Warren Buffett • Indra Nooyi</p>
+            </div>
+            <div class="tile-thumbs">
+              <div class="thumb"><img src="assets/img/image22.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image23.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image24.jpeg" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="tile-actions">
+              <a class="tile-link" href="#module-8">View module</a><span class="tile-dot" aria-hidden="true">→</span>
+            </div>
+          </article>
 
-<details class="module-card" id="m12">
-  <summary class="module-summary">
-    <div class="module-kicker">Module 12</div>
-    <div class="module-title">DIGITAL TRANSFORMATION &amp; AI FOR ENTREPRENEURS</div>
-    <div class="module-blurb">Open the full module curriculum, frameworks, and exercises.</div>
-    <div class="module-chevron" aria-hidden="true">+</div>
-  </summary>
-  <div class="module-body">
-    <div class="module-media-row">
-      <figure class="module-figure"><img src="assets/img/image34.jpeg" alt="Module 12 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image1.jpeg" alt="Module 12 leader image" loading="lazy" decoding="async"></figure>
-      <figure class="module-figure"><img src="assets/img/image2.jpeg" alt="Module 12 leader image" loading="lazy" decoding="async"></figure>
-    </div>
-    <div class="module-copy">
-<p>Anchoring Leaders: Jensen Huang, Sam Altman, Fei-Fei Li</p>
-<p>Tone: Modern + Practical + Responsible</p>
-<p>Narrative: Leverage Is the New Differentiator</p>
-<ul>
-  <li>Automate one repetitive workflow.</li>
-  <li>Design a “human-in-the-loop” decision system.</li>
-  <li>Run an ethics check: bias, privacy, misuse, mitigations.</li>
-</ul>
-<p>Reflection</p>
-<p>The best entrepreneurs won’t just use AI — they’ll use it wisely, responsibly, and with taste.</p>
-    </div>
-  </div>
-</details>
+          <!-- 9 -->
+          <article class="module-tile">
+            <div class="tile-top">
+              <div class="tile-kicker">Module 9</div>
+              <h3 class="tile-title">EXECUTION, SYSTEMS &amp; OPERATIONS</h3>
+              <p class="tile-leaders">Jeff Bezos • James Clear • Tim Cook</p>
+            </div>
+            <div class="tile-thumbs">
+              <div class="thumb"><img src="assets/img/image25.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image26.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image27.jpeg" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="tile-actions">
+              <a class="tile-link" href="#module-9">View module</a><span class="tile-dot" aria-hidden="true">→</span>
+            </div>
+          </article>
+
+          <!-- 10 -->
+          <article class="module-tile">
+            <div class="tile-top">
+              <div class="tile-kicker">Module 10</div>
+              <h3 class="tile-title">ETHICS, RESPONSIBILITY &amp; LONG-TERM THINKING</h3>
+              <p class="tile-leaders">Paul Polman • Abraham Lincoln • Melinda French Gates</p>
+            </div>
+            <div class="tile-thumbs">
+              <div class="thumb"><img src="assets/img/image28.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image29.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image30.jpeg" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="tile-actions">
+              <a class="tile-link" href="#module-10">View module</a><span class="tile-dot" aria-hidden="true">→</span>
+            </div>
+          </article>
+
+          <!-- 11 -->
+          <article class="module-tile">
+            <div class="tile-top">
+              <div class="tile-kicker">Module 11</div>
+              <h3 class="tile-title">BRAND-BUILDING &amp; STORYTELLING</h3>
+              <p class="tile-leaders">Steve Jobs • Ralph Lauren • Oprah Winfrey</p>
+            </div>
+            <div class="tile-thumbs">
+              <div class="thumb"><img src="assets/img/image31.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image32.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image33.jpeg" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="tile-actions">
+              <a class="tile-link" href="#module-11">View module</a><span class="tile-dot" aria-hidden="true">→</span>
+            </div>
+          </article>
+
+          <!-- 12 -->
+          <article class="module-tile">
+            <div class="tile-top">
+              <div class="tile-kicker">Module 12</div>
+              <h3 class="tile-title">DIGITAL TRANSFORMATION &amp; AI FOR ENTREPRENEURS</h3>
+              <p class="tile-leaders">Jensen Huang • Sam Altman • Fei-Fei Li</p>
+            </div>
+            <div class="tile-thumbs">
+              <div class="thumb"><img src="assets/img/image34.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image1.jpeg" alt="" loading="lazy" decoding="async"></div>
+              <div class="thumb"><img src="assets/img/image2.jpeg" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="tile-actions">
+              <a class="tile-link" href="#module-12">View module</a><span class="tile-dot" aria-hidden="true">→</span>
+            </div>
+          </article>
 
         </div>
 
@@ -591,33 +616,685 @@
             <h3>How to use this platform</h3>
             <p>Work one module per week (or per two weeks). Keep a single “Operating System” notebook: frameworks, reflections, decisions, and lessons learned.</p>
           </div>
-          <a class="btn btn-primary" href="index.html#modules">Back to homepage</a>
+          <a class="btn btn-primary" href="#modules">Go to full curriculum</a>
         </div>
-
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="container footer-inner">
-        <div class="footer-brand">
-          <div class="site-logo">LLP</div>
-          <div>
-            <strong>Luke’s Leadership Platform</strong>
-            <div class="fineprint">Business / Entrepreneurship platform</div>
+    <!-- FULL MODULES -->
+    <section id="modules" class="section section--cream">
+      <div class="container">
+        <div class="section-head">
+          <h2>Full Curriculum</h2>
+          <p>Each module begins with the leader images front-and-center, followed by the embedded curriculum.</p>
+        </div>
+
+                <!-- MODULE 1 -->
+        <article class="module-full" id="module-1">
+          <div class="module-full__head">
+            <div>
+              <p class="module-full__kicker">Module 1</p>
+              <h3 class="module-full__title">PROBLEM SOLVING &amp; OPPORTUNITY IDENTIFICATION</h3>
+              <p class="module-full__meta">
+                <strong>Anchoring Leaders:</strong> Elon Musk, Peter Drucker, Jack Dorsey<br/>
+                <strong>Tone:</strong> Blended Inspirational + Actionable (for a mature 17-year-old entering college)<br/>
+                <strong>Narrative:</strong> Seeing What Others Miss
+              </p>
+            </div>
+            <div class="leader-triptych">
+              <div class="leader-shot"><img src="assets/img/image1.jpeg" alt="Elon Musk" loading="lazy" decoding="async"></div>
+              <div class="leader-shot"><img src="assets/img/image2.jpeg" alt="Peter Drucker" loading="lazy" decoding="async"></div>
+              <div class="leader-shot"><img src="assets/img/image3.jpeg" alt="Jack Dorsey" loading="lazy" decoding="async"></div>
+            </div>
           </div>
-        </div>
+          <div class="module-full__body module-copy">
+            <p>Anchoring Leaders: Elon Musk, Peter Drucker, Jack Dorsey</p>
+            <p>Tone: Blended Inspirational + Actionable (for a mature 17-year-old entering college)</p>
+            <p>Narrative: Seeing What Others Miss</p>
+            <p>Every entrepreneur begins with a moment — not of brilliance, but of noticing what others overlook and turning it into a path.</p>
+            <p>The world is full of problems disguised as “normal.” Most people accept them. Some complain about them. The exceptional learn to widen them into doorways.</p>
+            <p>This module teaches your son the first and most essential skill in entrepreneurship: the ability to identify real problems, define what truly matters, and transform a problem into a path.</p>
+            <p>And for this foundation, we turn to three leaders who mastered the art of seeing differently.</p>
+            <p>Elon Musk — Reimagine the Problem</p>
+            <p>Musk’s signature gift is not rockets or electric cars. It is the ability to look directly at a problem and ask:</p>
+            <p>“What is actually true here — and what have we simply accepted?”</p>
+            <p>He breaks challenges down to physics, cost curves, and natural constraints — and rebuilds from there. Everything else — tradition, industry norms, “the way things are done” — is noise.</p>
+            <p>For a young entrepreneur entering college, this is a powerful approach: don’t just solve the problem. Challenge the assumption and rebuild your understanding from the ground up.</p>
+            <p>Actionable takeaways for your son:</p>
+            <ul>
+              <li>Don’t accept inherited definitions of a problem</li>
+              <li>Reduce challenges to first principles</li>
+              <li>Start with constraints, not conventions</li>
+            </ul>
+            <p>Peter Drucker — Define the Real Need</p>
+            <p>Drucker, the father of modern management, believed that entrepreneurship begins with clarity.</p>
+            <p>Not “What product should I build?”</p>
+            <p>But “What need exists — and who is served?”</p>
+            <p>He taught leaders to observe systems, incentives, and human behavior with discipline and humility. Problems are rarely solved by intuition alone; they are solved by asking better questions.</p>
+            <p>Actionable takeaways for your son:</p>
+            <ul>
+              <li>Learn to diagnose before you prescribe</li>
+              <li>Ask: “Who is the customer? What do they value?”</li>
+              <li>Distinguish symptoms from root causes</li>
+            </ul>
+            <p>Jack Dorsey — Simplicity as an Opportunity Filter</p>
+            <p>Dorsey built products around one obsession: reducing friction.</p>
+            <p>Square existed because he saw small businesses blocked by complexity. Twitter succeeded because it stripped communication to something fast and simple.</p>
+            <p>His lesson: opportunities often live where things are unnecessarily hard.</p>
+            <p>Actionable takeaways for your son:</p>
+            <ul>
+              <li>Find friction and remove it</li>
+              <li>Simplify the customer experience</li>
+              <li>Let constraints sharpen creativity</li>
+            </ul>
+            <p>Exercises</p>
+            <ul>
+              <li>Opportunity Journal: Write down 5 frustrations per day for one week. Choose one and analyze it with first principles (Musk), diagnosis (Drucker), and simplification (Dorsey).</li>
+              <li>“Why ladder” drill: For one chosen problem, ask “why?” five times to locate root cause.</li>
+              <li>Friction map: List steps a user must take to complete a task; highlight where effort spikes.</li>
+            </ul>
+            <p>Reflection</p>
+            <p>Entrepreneurship begins with perception. What does your son notice that others normalize? If he trains this skill now, he will carry it into every class, internship, and career decision.</p>
+          </div>
+          <div class="module-nav"><span class="small">Jump to another module anytime.</span><a href="#module-index">Back to Modules</a></div>
+        </article>
 
-        <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="if.html">If</a>
-          <a href="entrepreneurship.html">Business</a>
-          <a href="power.html">Power</a>
-          <a href="sports.html">Sports</a>
-        </div>
-      </div>
-    </footer>
-  </main>
+        <!-- MODULE 2 -->
+        <article class="module-full" id="module-2">
+          <div class="module-full__head">
+            <div>
+              <p class="module-full__kicker">Module 2</p>
+              <h3 class="module-full__title">CREATIVITY × ANALYTICAL THINKING</h3>
+              <p class="module-full__meta">
+                <strong>Anchoring Leaders:</strong> Reed Hastings, Tim Brown, Leonardo da Vinci<br/>
+                <strong>Tone:</strong> Thoughtful + Expansive + Structured (for a student who loves both logic and creativity)<br/>
+                <strong>Narrative:</strong> The Competitive Advantage of “Both/And”
+              </p>
+            </div>
+            <div class="leader-triptych">
+              <div class="leader-shot"><img src="assets/img/image4.jpeg" alt="Reed Hastings" loading="lazy" decoding="async"></div>
+              <div class="leader-shot"><img src="assets/img/image5.jpeg" alt="Tim Brown" loading="lazy" decoding="async"></div>
+              <div class="leader-shot"><img src="assets/img/image6.jpeg" alt="Leonardo da Vinci" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <div class="module-full__body module-copy">
+            <p>Anchoring Leaders: Reed Hastings, Tim Brown, Leonardo da Vinci</p>
+            <p>Tone: Thoughtful + Expansive + Structured (for a student who loves both logic and creativity)</p>
+            <p>Narrative: The Competitive Advantage of “Both/And”</p>
+            <p>Most people think creativity and analytical thinking live on opposite sides of the brain. But modern entrepreneurship belongs to those who can do both: imagine something new and then build it with rigor.</p>
+            <p>This module teaches your son how to unite these two strengths — and how that fusion becomes a real competitive advantage.</p>
+            <p>Reed Hastings — Data + Taste</p>
+            <p>Netflix succeeded because Hastings blended data science with creative intuition. He used analytics to understand behavior, but he also invested in storytelling, culture, and product experience.</p>
+            <p>His lesson: the best builders measure what’s true, but they also sense what matters.</p>
+            <ul>
+              <li>Use data to reduce uncertainty — not to avoid judgment</li>
+              <li>Hold opinions, but update them with evidence</li>
+              <li>Build feedback loops for both numbers and experience</li>
+            </ul>
+            <p>Tim Brown — Design Thinking as a Method</p>
+            <p>Tim Brown (IDEO) teaches that creativity isn’t randomness — it’s a process. Design thinking is a repeatable method for generating ideas, testing them, and refining them through empathy and iteration.</p>
+            <ul>
+              <li>Start with empathy: understand the user’s lived experience</li>
+              <li>Prototype quickly to learn cheaply</li>
+              <li>Iterate based on real feedback, not ego</li>
+            </ul>
+            <p>Leonardo da Vinci — Curiosity Without Borders</p>
+            <p>Da Vinci had no categories. Art, science, anatomy, mechanics — all were one exploration. His lesson for your son: curiosity across domains is not a distraction. It’s an advantage.</p>
+            <ul>
+              <li>Cross-train your mind by exploring outside your “major”</li>
+              <li>Keep a notebook for questions, sketches, and hypotheses</li>
+              <li>Make connections across disciplines</li>
+            </ul>
+            <p>Exercises</p>
+            <ul>
+              <li>“Both/And” Challenge: Pick one business idea. Write (1) the creative vision, then (2) the analytical model (assumptions, numbers, constraints).</li>
+              <li>Rapid prototypes: Create 3 versions of the same idea in 30 minutes (sketches, storyboards, UI screens, paper models).</li>
+              <li>Curiosity map: List 10 topics you’re curious about; circle 3 and design a one-week micro-study plan.</li>
+            </ul>
+            <p>Reflection</p>
+            <p>The future belongs to builders who can think in systems and still see beauty, meaning, and human desire. If your son can integrate creativity with analytical rigor, he becomes rare.</p>
+          </div>
+          <div class="module-nav"><span class="small">Next up: Innovation &amp; Design Thinking.</span><a href="#module-index">Back to Modules</a></div>
+        </article>
 
-  <script src="script.js"></script>
-</body>
-</html>
+        <!-- MODULE 3 -->
+        <article class="module-full" id="module-3">
+          <div class="module-full__head">
+            <div>
+              <p class="module-full__kicker">Module 3</p>
+              <h3 class="module-full__title">INNOVATION &amp; DESIGN THINKING</h3>
+              <p class="module-full__meta">
+                <strong>Anchoring Leaders:</strong> Jeff Bezos, Steve Blank, Brian Chesky<br/>
+                <strong>Tone:</strong> Practical + Modern + Builder-focused<br/>
+                <strong>Narrative:</strong> Innovation Is a System
+              </p>
+            </div>
+            <div class="leader-triptych">
+              <div class="leader-shot"><img src="assets/img/image7.jpeg" alt="Jeff Bezos" loading="lazy" decoding="async"></div>
+              <div class="leader-shot"><img src="assets/img/image8.jpeg" alt="Steve Blank" loading="lazy" decoding="async"></div>
+              <div class="leader-shot"><img src="assets/img/image9.jpeg" alt="Brian Chesky" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <div class="module-full__body module-copy">
+            <p>Anchoring Leaders: Jeff Bezos, Steve Blank, Brian Chesky</p>
+            <p>Tone: Practical + Modern + Builder-focused</p>
+            <p>Narrative: Innovation Is a System</p>
+            <p>Innovation is often romanticized as inspiration. In reality, innovation is a system: a disciplined way of discovering what people need and building solutions that scale.</p>
+            <p>This module teaches your son the core frameworks behind modern innovation and startup building.</p>
+            <p>Jeff Bezos — Customer Obsession</p>
+            <p>Bezos built Amazon around one principle: obsess over the customer, not the competition. He believed that if you make decisions from the customer backward, you will outlast cycles and competitors.</p>
+            <ul>
+              <li>Start with the customer’s pain point</li>
+              <li>Build long-term trust through consistency</li>
+              <li>Use invention to reduce cost and friction</li>
+            </ul>
+            <p>Steve Blank — “Get Out of the Building”</p>
+            <p>Blank teaches that you don’t “execute” a plan — you discover one. Entrepreneurs must test assumptions through real conversations and real behavior.</p>
+            <ul>
+              <li>Assumptions are guesses until tested</li>
+              <li>Talk to users early, often, and honestly</li>
+              <li>Let evidence shape the product</li>
+            </ul>
+            <p>Brian Chesky — Design + Trust</p>
+            <p>Airbnb succeeded because Chesky understood experience design and trust. He didn’t just build a marketplace; he built a feeling of safety and belonging.</p>
+            <ul>
+              <li>Design the entire experience, not just the product</li>
+              <li>Trust is a feature</li>
+              <li>Details create loyalty</li>
+            </ul>
+            <p>Exercises</p>
+            <ul>
+              <li>Customer-backward memo: Write a “press release” from the future announcing your product and the customer problem it solves.</li>
+              <li>Assumption list: For an idea, list 10 assumptions; select the riskiest 3 and design simple tests.</li>
+              <li>Trust audit: Identify what a user must believe to adopt your product; list design elements that increase trust.</li>
+            </ul>
+            <p>Reflection</p>
+            <p>Innovation isn’t magic. It’s curiosity, discipline, and iteration. The earlier your son learns this system, the faster he can build in the real world.</p>
+          </div>
+          <div class="module-nav"><span class="small">Customer-backward beats hype.</span><a href="#module-index">Back to Modules</a></div>
+        </article>
+
+        <!-- MODULE 4 -->
+        <article class="module-full" id="module-4">
+          <div class="module-full__head">
+            <div>
+              <p class="module-full__kicker">Module 4</p>
+              <h3 class="module-full__title">BUSINESS MODELS &amp; VALUE CREATION</h3>
+              <p class="module-full__meta">
+                <strong>Anchoring Leaders:</strong> Warren Buffett, Sara Blakely, Marc Benioff<br/>
+                <strong>Tone:</strong> Strategic + Practical + Customer-driven<br/>
+                <strong>Narrative:</strong> Value Isn’t Created by Ideas — It’s Created by Models
+              </p>
+            </div>
+            <div class="leader-triptych">
+              <div class="leader-shot"><img src="assets/img/image10.jpeg" alt="Warren Buffett" loading="lazy" decoding="async"></div>
+              <div class="leader-shot"><img src="assets/img/image11.jpeg" alt="Sara Blakely" loading="lazy" decoding="async"></div>
+              <div class="leader-shot"><img src="assets/img/image12.jpeg" alt="Marc Benioff" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <div class="module-full__body module-copy">
+            <p>Anchoring Leaders: Warren Buffett, Sara Blakely, Marc Benioff</p>
+            <p>Tone: Strategic + Practical + Customer-driven</p>
+            <p>Narrative: Value Isn’t Created by Ideas — It’s Created by Models</p>
+            <p>Many young entrepreneurs fall in love with an idea. But ideas don’t create value on their own. Value is created by a business model: the structure that turns a solution into something sustainable.</p>
+            <p>This module teaches your son how to think about value creation, pricing, distribution, retention, and the engine that makes a company durable.</p>
+            <p>Exercises</p>
+            <ul>
+              <li>Pick 3 companies you admire. Identify how each makes money, how it acquires customers, and what keeps customers loyal.</li>
+              <li>For an idea, write 3 business model versions (subscription, transaction, licensing) and compare tradeoffs.</li>
+              <li>Create a simple unit economics model (CAC, LTV, gross margin) using assumptions.</li>
+            </ul>
+            <p>Reflection</p>
+            <p>A great business model turns a good idea into something that lasts.</p>
+          </div>
+          <div class="module-nav"><span class="small">Model &gt; idea.</span><a href="#module-index">Back to Modules</a></div>
+        </article>
+
+        <!-- MODULE 5 -->
+        <article class="module-full" id="module-5">
+          <div class="module-full__head">
+            <div>
+              <p class="module-full__kicker">Module 5</p>
+              <h3 class="module-full__title">GO-TO-MARKET STRATEGY &amp; GROWTH</h3>
+              <p class="module-full__meta">
+                <strong>Anchoring Leaders:</strong> Steve Jobs, Reed Hastings, Whitney Wolfe Herd<br/>
+                <strong>Tone:</strong> Modern + Tactical + Brand-aware<br/>
+                <strong>Narrative:</strong> Growth Is Engineered
+              </p>
+            </div>
+            <div class="leader-triptych">
+              <div class="leader-shot"><img src="assets/img/image13.jpeg" alt="Steve Jobs" loading="lazy" decoding="async"></div>
+              <div class="leader-shot"><img src="assets/img/image14.jpeg" alt="Reed Hastings" loading="lazy" decoding="async"></div>
+              <div class="leader-shot"><img src="assets/img/image15.jpeg" alt="Whitney Wolfe Herd" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <div class="module-full__body module-copy">
+            <p>Anchoring Leaders: Steve Jobs, Reed Hastings, Whitney Wolfe Herd</p>
+            <p>Tone: Modern + Tactical + Brand-aware</p>
+            <p>Narrative: Growth Is Engineered</p>
+            <p>Growth is not luck. It’s engineered through clarity: who you serve, how you reach them, and why they stay.</p>
+            <p>Exercises</p>
+            <ul>
+              <li>Define ICP (ideal customer profile) and write a “customer promise.”</li>
+              <li>Map 3 channels (content, partnerships, paid) and design a test for each.</li>
+              <li>Write your retention loop: what brings a user back?</li>
+            </ul>
+            <p>Reflection</p>
+            <p>Great products don’t automatically grow. Great go-to-market systems make them visible.</p>
+          </div>
+          <div class="module-nav"><span class="small">Clarity drives growth.</span><a href="#module-index">Back to Modules</a></div>
+        </article>
+
+        <!-- MODULE 6 -->
+        <article class="module-full" id="module-6">
+          <div class="module-full__head">
+            <div>
+              <p class="module-full__kicker">Module 6</p>
+              <h3 class="module-full__title">DECISION-MAKING UNDER UNCERTAINTY</h3>
+              <p class="module-full__meta">
+                <strong>Anchoring Leaders:</strong> Ray Dalio, Howard Marks, Annie Duke<br/>
+                <strong>Tone:</strong> Clear + Probabilistic + Grounded<br/>
+                <strong>Narrative:</strong> Good Decisions Don’t Require Certainty
+              </p>
+            </div>
+            <div class="leader-triptych">
+              <div class="leader-shot"><img src="assets/img/image16.jpeg" alt="Ray Dalio" loading="lazy" decoding="async"></div>
+              <div class="leader-shot"><img src="assets/img/image17.jpeg" alt="Howard Marks" loading="lazy" decoding="async"></div>
+              <div class="leader-shot"><img src="assets/img/image18.jpeg" alt="Annie Duke" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <div class="module-full__body module-copy">
+            <p>Anchoring Leaders: Ray Dalio, Howard Marks, Annie Duke</p>
+            <p>Tone: Clear + Probabilistic + Grounded</p>
+            <p>Narrative: Good Decisions Don’t Require Certainty</p>
+            <p>Entrepreneurship is uncertainty. The goal is not perfect certainty — it’s disciplined judgment.</p>
+            <p>Exercises</p>
+            <ul>
+              <li>For 3 decisions, write: options, probabilities, downside, expected value.</li>
+              <li>Keep a “decision journal” and review outcomes monthly.</li>
+              <li>Practice “pre-mortems”: imagine failure and identify root causes early.</li>
+            </ul>
+            <p>Reflection</p>
+            <p>Confidence grows when you learn to make good decisions even without guarantees.</p>
+          </div>
+          <div class="module-nav"><span class="small">Probability beats vibes.</span><a href="#module-index">Back to Modules</a></div>
+        </article>
+<article class="module-full" id="module-7">
+  <div class="module-full__head">
+    <div>
+      <p class="module-full__kicker">Module 7</p>
+      <h3 class="module-full__title">LEADERSHIP &amp; TEAM BUILDING</h3>
+      <p class="module-full__meta">
+        <strong>Anchoring Leaders:</strong> Satya Nadella, Coach K, Sheryl Sandberg<br/>
+        <strong>Tone:</strong> High standards + Human leadership<br/>
+        <strong>Narrative:</strong> Culture Is the Invisible Operating System
+      </p>
+    </div>
+    <div class="leader-triptych">
+      <div class="leader-shot"><img src="assets/img/image19.jpeg" alt="Satya Nadella"></div>
+      <div class="leader-shot"><img src="assets/img/image20.jpeg" alt="Coach K"></div>
+      <div class="leader-shot"><img src="assets/img/image21.jpeg" alt="Sheryl Sandberg"></div>
+    </div>
+  </div>
+
+  <div class="module-full__body module-copy">
+    <p>Leadership is often misunderstood as charisma, authority, or confidence. In reality, leadership is behavior — repeated daily — that shapes how people think, act, and treat one another.</p>
+
+    <p>This module teaches your son that culture is not slogans or values printed on a wall. Culture is the invisible operating system that governs decisions when no one is watching.</p>
+
+    <h4>Satya Nadella — From Know-It-All to Learn-It-All</h4>
+    <p>Nadella transformed Microsoft not by strategy alone, but by reshaping how leaders behaved. He replaced internal competition with curiosity, empathy, and growth mindset.</p>
+    <ul>
+      <li>Create psychological safety so people can learn and improve</li>
+      <li>Model humility at the top</li>
+      <li>Reward learning, not ego</li>
+    </ul>
+
+    <h4>Coach K — Standards Over Motivation</h4>
+    <p>Coach K understood that motivation fades. Standards endure. His teams were built around clarity: roles, expectations, accountability, and trust.</p>
+    <ul>
+      <li>Define what excellence looks like — explicitly</li>
+      <li>Hold everyone to the same standard</li>
+      <li>Care deeply, but never lower the bar</li>
+    </ul>
+
+    <h4>Sheryl Sandberg — Trust, Candor, and Belonging</h4>
+    <p>Sandberg emphasized leadership through communication and trust. Strong teams are built when people feel heard, respected, and supported.</p>
+    <ul>
+      <li>Give direct but empathetic feedback</li>
+      <li>Build allies, not silos</li>
+      <li>Create environments where people belong</li>
+    </ul>
+
+    <h4>Exercises</h4>
+    <ul>
+      <li>Write a one-page “team operating manual” outlining expectations, communication norms, and accountability.</li>
+      <li>Run a meeting with a written agenda, time blocks, and follow-ups.</li>
+      <li>Observe a team you’re part of: what behaviors are rewarded vs discouraged?</li>
+    </ul>
+
+    <h4>Reflection</h4>
+    <p>Leadership is not a position — it’s the habits you model every day. Culture forms whether you design it or not.</p>
+  </div>
+
+  <div class="module-nav">
+    <span class="small">Leadership is behavior.</span>
+    <a href="#module-index">Back to Modules</a>
+  </div>
+</article>
+<article class="module-full" id="module-8">
+  <div class="module-full__head">
+    <div>
+      <p class="module-full__kicker">Module 8</p>
+      <h3 class="module-full__title">FINANCIAL LITERACY FOR ENTREPRENEURS</h3>
+      <p class="module-full__meta">
+        <strong>Anchoring Leaders:</strong> Ken Griffin, Warren Buffett, Indra Nooyi<br/>
+        <strong>Tone:</strong> Practical + Disciplined<br/>
+        <strong>Narrative:</strong> Numbers Tell the Truth
+      </p>
+    </div>
+    <div class="leader-triptych">
+      <div class="leader-shot"><img src="assets/img/image22.jpeg" alt="Ken Griffin"></div>
+      <div class="leader-shot"><img src="assets/img/image23.jpeg" alt="Warren Buffett"></div>
+      <div class="leader-shot"><img src="assets/img/image24.jpeg" alt="Indra Nooyi"></div>
+    </div>
+  </div>
+
+  <div class="module-full__body module-copy">
+    <p>Entrepreneurship without financial literacy is intuition without verification. Numbers do not replace judgment — they sharpen it.</p>
+
+    <p>This module gives your son the financial fluency needed to make grounded decisions, avoid self-deception, and understand what truly drives sustainability.</p>
+
+    <h4>Warren Buffett — Economic Reality Over Story</h4>
+    <p>Buffett ignores hype and focuses on cash flow, margins, and durable advantage. His discipline is emotional as much as analytical.</p>
+    <ul>
+      <li>Understand how value is actually created</li>
+      <li>Separate narrative from economics</li>
+      <li>Think long-term</li>
+    </ul>
+
+    <h4>Ken Griffin — Risk Lives in the Details</h4>
+    <p>Griffin teaches that risk hides in assumptions. Understanding exposure requires precision, not optimism.</p>
+    <ul>
+      <li>Know where downside lives</li>
+      <li>Stress-test assumptions</li>
+      <li>Respect uncertainty</li>
+    </ul>
+
+    <h4>Indra Nooyi — Capital Allocation as Strategy</h4>
+    <p>Nooyi emphasized disciplined investment — allocating capital to what matters most.</p>
+    <ul>
+      <li>Resources signal priorities</li>
+      <li>Invest deliberately, not evenly</li>
+      <li>Align numbers with values</li>
+    </ul>
+
+    <h4>Exercises</h4>
+    <ul>
+      <li>Build a simple P&amp;L with assumptions.</li>
+      <li>Model unit economics (CAC vs LTV).</li>
+      <li>Identify your biggest financial blind spot.</li>
+    </ul>
+
+    <h4>Reflection</h4>
+    <p>Financial literacy turns confidence into competence.</p>
+  </div>
+
+  <div class="module-nav">
+    <span class="small">Numbers reveal reality.</span>
+    <a href="#module-index">Back to Modules</a>
+  </div>
+</article>
+<article class="module-full" id="module-9">
+  <div class="module-full__head">
+    <div>
+      <p class="module-full__kicker">Module 9</p>
+      <h3 class="module-full__title">EXECUTION, SYSTEMS &amp; OPERATIONS</h3>
+      <p class="module-full__meta">
+        <strong>Anchoring Leaders:</strong> Jeff Bezos, James Clear, Tim Cook<br/>
+        <strong>Tone:</strong> Systems-driven + Practical<br/>
+        <strong>Narrative:</strong> Talent Doesn’t Scale — Systems Do
+      </p>
+    </div>
+    <div class="leader-triptych">
+      <div class="leader-shot"><img src="assets/img/image25.jpeg" alt="Jeff Bezos"></div>
+      <div class="leader-shot"><img src="assets/img/image26.jpeg" alt="James Clear"></div>
+      <div class="leader-shot"><img src="assets/img/image27.jpeg" alt="Tim Cook"></div>
+    </div>
+  </div>
+
+  <div class="module-full__body module-copy">
+    <p>Ideas are fragile. Execution is what turns intent into impact. This module teaches your son that consistency beats intensity — and systems beat talent.</p>
+
+    <h4>Jeff Bezos — Inputs Over Outputs</h4>
+    <p>Bezos focused on controllable inputs rather than unpredictable outcomes.</p>
+    <ul>
+      <li>Design processes that scale</li>
+      <li>Obsess over controllables</li>
+      <li>Build repeatability</li>
+    </ul>
+
+    <h4>James Clear — Small Habits, Massive Results</h4>
+    <p>Clear teaches that systems shape outcomes more than goals.</p>
+    <ul>
+      <li>Make good habits easy</li>
+      <li>Reduce friction</li>
+      <li>Focus on consistency</li>
+    </ul>
+
+    <h4>Tim Cook — Operational Excellence</h4>
+    <p>Cook transformed Apple by mastering logistics, supply chains, and reliability.</p>
+    <ul>
+      <li>Precision matters</li>
+      <li>Operational excellence compounds</li>
+      <li>Details scale</li>
+    </ul>
+
+    <h4>Exercises</h4>
+    <ul>
+      <li>Design a weekly execution review.</li>
+      <li>Identify one system that needs redesign.</li>
+      <li>Define inputs you control vs outcomes you want.</li>
+    </ul>
+
+    <h4>Reflection</h4>
+    <p>Execution is respect — for ideas, people, and reality.</p>
+  </div>
+
+  <div class="module-nav">
+    <span class="small">Systems win.</span>
+    <a href="#module-index">Back to Modules</a>
+  </div>
+</article>
+<article class="module-full" id="module-10">
+  <div class="module-full__head">
+    <div>
+      <p class="module-full__kicker">Module 10</p>
+      <h3 class="module-full__title">ETHICS, RESPONSIBILITY &amp; LONG-TERM THINKING</h3>
+      <p class="module-full__meta">
+        <strong>Anchoring Leaders:</strong> Paul Polman, Abraham Lincoln, Melinda French Gates<br/>
+        <strong>Tone:</strong> Serious + Values-forward<br/>
+        <strong>Narrative:</strong> The Future Is Shaped by Values
+      </p>
+    </div>
+    <div class="leader-triptych">
+      <div class="leader-shot"><img src="assets/img/image28.jpeg" alt="Paul Polman" loading="lazy" decoding="async"></div>
+      <div class="leader-shot"><img src="assets/img/image29.jpeg" alt="Abraham Lincoln" loading="lazy" decoding="async"></div>
+      <div class="leader-shot"><img src="assets/img/image30.jpeg" alt="Melinda French Gates" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+
+  <div class="module-full__body module-copy">
+    <p>Entrepreneurship is power: the power to build products, shape behavior, influence culture, and move money and attention. Power always carries a moral dimension — whether the builder admits it or not.</p>
+
+    <p>This module teaches your son that ethics are not “a nice add-on.” They are a strategic and human necessity. In the long run, trust is the most valuable asset a leader can hold — and the easiest to destroy.</p>
+
+    <h4>Paul Polman — Stakeholders, Not Just Shareholders</h4>
+    <p>Polman argued that business should be built for durability — not quarterly optics. His leadership mindset was anchored in a simple belief: if you ignore long-term effects on people and the planet, the bill eventually arrives.</p>
+    <ul>
+      <li>Define success beyond short-term metrics</li>
+      <li>Consider second- and third-order consequences</li>
+      <li>Build trust as an operating principle</li>
+    </ul>
+
+    <h4>Abraham Lincoln — Moral Clarity Under Pressure</h4>
+    <p>Lincoln’s leadership is a masterclass in choosing principle over convenience. He navigated intense conflict while holding a steady moral center, understanding that difficult decisions become easier when values are non-negotiable.</p>
+    <ul>
+      <li>Clarify what you will not compromise</li>
+      <li>Hold steady when incentives pull you off course</li>
+      <li>Lead with responsibility, not popularity</li>
+    </ul>
+
+    <h4>Melinda French Gates — Use Power to Expand Opportunity</h4>
+    <p>Gates focuses on systems: health, education, inequality, and the structural barriers that determine who gets access to opportunity. Her leadership lesson is that ethics aren’t only about “avoiding harm” — they’re about intentionally doing good with the leverage you have.</p>
+    <ul>
+      <li>Ask who benefits — and who is excluded</li>
+      <li>Design for dignity and access</li>
+      <li>Measure impact honestly, not sentimentally</li>
+    </ul>
+
+    <h4>Exercises</h4>
+    <ul>
+      <li><strong>Values Constitution:</strong> Write a one-page document that defines 5–7 core values, what they mean in practice, and what violating them would look like.</li>
+      <li><strong>Second-Order Map:</strong> Choose a product or business idea. List likely consequences across users, society, incentives, privacy, mental health, and fairness. Then design mitigations.</li>
+      <li><strong>Case Study:</strong> Study one business ethics failure. Identify early warning signs and the “small compromises” that led to large consequences.</li>
+      <li><strong>Pre-Commitments:</strong> Write 3 rules you will follow under pressure (e.g., truth in marketing, user consent, data minimization).</li>
+    </ul>
+
+    <h4>Reflection</h4>
+    <p>Ambition without ethics becomes hunger. Ethics without courage becomes branding. The goal is character with competence — the kind of leadership people trust even when it is inconvenient.</p>
+  </div>
+
+  <div class="module-nav">
+    <span class="small">Trust is the asset.</span>
+    <a href="#module-index">Back to Modules</a>
+  </div>
+</article>
+<article class="module-full" id="module-11">
+  <div class="module-full__head">
+    <div>
+      <p class="module-full__kicker">Module 11</p>
+      <h3 class="module-full__title">BRAND-BUILDING &amp; STORYTELLING</h3>
+      <p class="module-full__meta">
+        <strong>Anchoring Leaders:</strong> Steve Jobs, Ralph Lauren, Oprah Winfrey<br/>
+        <strong>Tone:</strong> Meaning-driven + Craft-focused<br/>
+        <strong>Narrative:</strong> People Don’t Buy Products — They Buy Meaning
+      </p>
+    </div>
+    <div class="leader-triptych">
+      <div class="leader-shot"><img src="assets/img/image31.jpeg" alt="Steve Jobs" loading="lazy" decoding="async"></div>
+      <div class="leader-shot"><img src="assets/img/image32.jpeg" alt="Ralph Lauren" loading="lazy" decoding="async"></div>
+      <div class="leader-shot"><img src="assets/img/image33.jpeg" alt="Oprah Winfrey" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+
+  <div class="module-full__body module-copy">
+    <p>In a crowded world, quality matters — but clarity matters more. If people can’t articulate what you are and why you exist, they will forget you.</p>
+
+    <p>This module teaches your son that branding is not a logo. Branding is disciplined meaning: a consistent identity that makes people feel something specific — and trust that feeling over time.</p>
+
+    <h4>Steve Jobs — Clarity Through Subtraction</h4>
+    <p>Jobs understood that taste is a competitive advantage. He removed distractions until the product’s essence became obvious. His storytelling wasn’t decoration — it was focus.</p>
+    <ul>
+      <li>Say one thing clearly rather than ten things vaguely</li>
+      <li>Design is communication</li>
+      <li>Consistency builds credibility</li>
+    </ul>
+
+    <h4>Ralph Lauren — Selling a World, Not a Shirt</h4>
+    <p>Ralph Lauren built an empire by creating a coherent world: Americana, aspiration, elegance, familiarity. He didn’t market products; he offered identity. That’s the deepest form of brand loyalty.</p>
+    <ul>
+      <li>Brands are stories people wear and inhabit</li>
+      <li>Details signal standards</li>
+      <li>Consistency over time creates trust</li>
+    </ul>
+
+    <h4>Oprah Winfrey — Trust Is the Brand</h4>
+    <p>Oprah’s influence comes from credibility and emotional resonance. People believe her because her story feels authentic and her values feel stable. She models a lesson most entrepreneurs learn too late: trust is hard-earned and easily lost.</p>
+    <ul>
+      <li>Credibility beats hype</li>
+      <li>Storytelling is emotional accuracy, not exaggeration</li>
+      <li>Brands grow when people feel seen</li>
+    </ul>
+
+    <h4>Exercises</h4>
+    <ul>
+      <li><strong>Positioning Sentence:</strong> Write: “We help [who] achieve [outcome] by [how], unlike [alternative].” Make it sharp and specific.</li>
+      <li><strong>Brand World:</strong> Create a moodboard of 10 images/words that define your brand’s world. Remove anything that doesn’t fit the story.</li>
+      <li><strong>Before/After Story Arc:</strong> Write the customer’s life before your product, the moment they adopt it, and what becomes possible after.</li>
+      <li><strong>Subtraction Drill:</strong> Remove 30% of the words from a homepage pitch. Make it simpler and stronger.</li>
+    </ul>
+
+    <h4>Reflection</h4>
+    <p>Your product may solve a problem — but your brand tells people who you are. And who you are determines whether they trust you, remember you, and recommend you.</p>
+  </div>
+
+  <div class="module-nav">
+    <span class="small">Clarity creates loyalty.</span>
+    <a href="#module-index">Back to Modules</a>
+  </div>
+</article>
+<article class="module-full" id="module-12">
+  <div class="module-full__head">
+    <div>
+      <p class="module-full__kicker">Module 12</p>
+      <h3 class="module-full__title">DIGITAL TRANSFORMATION &amp; AI FOR ENTREPRENEURS</h3>
+      <p class="module-full__meta">
+        <strong>Anchoring Leaders:</strong> Jensen Huang, Sam Altman, Fei-Fei Li<br/>
+        <strong>Tone:</strong> Modern + Practical + Responsible<br/>
+        <strong>Narrative:</strong> Leverage Is the New Differentiator
+      </p>
+    </div>
+    <div class="leader-triptych">
+      <div class="leader-shot"><img src="assets/img/image34.jpeg" alt="Jensen Huang" loading="lazy" decoding="async"></div>
+      <div class="leader-shot"><img src="assets/img/image1.jpeg" alt="Sam Altman" loading="lazy" decoding="async"></div>
+      <div class="leader-shot"><img src="assets/img/image2.jpeg" alt="Fei-Fei Li" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+
+  <div class="module-full__body module-copy">
+    <p>AI changes the shape of advantage. What used to require teams now requires systems. What used to take months can take days. But leverage is not automatically virtue — it amplifies whatever values and intentions are already present.</p>
+
+    <p>This module teaches your son how to think about AI like a builder: where it creates true leverage, how to implement it practically, and how to use it responsibly.</p>
+
+    <h4>Jensen Huang — Infrastructure Wins</h4>
+    <p>Huang’s leadership shows that technological revolutions are won by the people who build the infrastructure — the enabling platform that others depend on. The lesson for your son: don’t only chase apps; understand the stack beneath them.</p>
+    <ul>
+      <li>Learn the fundamentals: data, compute, workflows</li>
+      <li>Build systems that scale</li>
+      <li>Think in platforms and ecosystems</li>
+    </ul>
+
+    <h4>Sam Altman — Distribution + Iteration + Speed</h4>
+    <p>Altman’s playbook emphasizes rapid iteration and tight feedback loops. In modern markets, speed is not reckless — it’s a discipline: ship, learn, adjust, repeat.</p>
+    <ul>
+      <li>Prototype quickly with AI assistance</li>
+      <li>Use feedback loops to avoid fantasy-building</li>
+      <li>Pair speed with guardrails</li>
+    </ul>
+
+    <h4>Fei-Fei Li — Human-Centered AI</h4>
+    <p>Fei-Fei Li’s work emphasizes that technology should serve people — not reduce them. The lesson: responsible AI means designing for fairness, transparency, privacy, and dignity.</p>
+    <ul>
+      <li>Bias and harm are often “invisible” until too late</li>
+      <li>Privacy is a design choice, not an afterthought</li>
+      <li>Human judgment remains essential</li>
+    </ul>
+
+    <h4>Exercises</h4>
+    <ul>
+      <li><strong>Workflow Automation:</strong> Identify one repetitive workflow (research, scheduling, writing drafts, summarizing meetings). Design an AI-assisted process that saves time without losing quality.</li>
+      <li><strong>Human-in-the-Loop System:</strong> Choose a decision (hiring, admissions-style evaluation, product recommendations). Design where AI assists and where humans must confirm.</li>
+      <li><strong>Risk &amp; Ethics Checklist:</strong> For any AI use-case: list data sources, privacy risks, bias risks, and misuse scenarios. Add mitigations.</li>
+      <li><strong>Build a Mini-Prototype:</strong> Create a simple demo (mock UI, workflow diagram, or coded prototype) showing how AI improves the user experience.</li>
+    </ul>
+
+    <h4>Reflection</h4>
+    <p>The best entrepreneurs won’t just use AI. They’ll use it with taste — balancing speed with responsibility, and leverage with integrity.</p>
+  </div>
+
+  <div class="module-nav">
+    <span class="small">Leverage with integrity.</span>
+    <a href="#module-index">Back to Modules</a>
+  </div>
+</article>
