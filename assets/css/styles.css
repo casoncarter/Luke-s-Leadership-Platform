@@ -773,5 +773,9 @@ body{
 .platform :is(.quote, .pullquote, .blockquote, blockquote){
   color: var(--ink-90);
 }
+.platform :is(.scripture, .verse, blockquote){
+  font-style: italic;
+  line-height: 1.6;
+}
 
 
