@@ -1017,3 +1017,45 @@ body{
   color: rgba(10,15,31,.70) !important;
   opacity: 1 !important;
 }
+/* ===== CRITICAL CONTRAST FIX (hero + intro) ===== */
+
+/* Force the hero panel to be light, regardless of global platform background */
+.platform-hero{
+  background: linear-gradient(180deg, rgba(246,241,230,.96), rgba(255,255,255,.92)) !important;
+  border: 1px solid rgba(10,15,31,.12) !important;
+}
+
+/* Make sure hero text is dark and readable */
+.platform-hero h1,
+.platform-hero p,
+.platform-hero .kicker,
+.platform-hero .pill,
+.platform-hero .hero-card,
+.platform-hero .hero-card p{
+  color: rgba(10,15,31,.95) !important;
+}
+
+/* Kicker line + subtle contrast */
+.platform-hero .kicker{
+  color: rgba(11,18,38,.78) !important;
+}
+
+/* If your global CSS makes callouts darker, force the intro callout to be light too */
+.platform-main .callout{
+  background: rgba(246,241,230,.78) !important;
+  border: 1px solid rgba(10,15,31,.14) !important;
+}
+.platform-main .callout h4{
+  color: rgba(11,18,38,.86) !important;
+}
+.platform-main .callout li,
+.platform-main .callout p{
+  color: rgba(10,15,31,.92) !important;
+}
+/* Optional: give the main content area a light canvas */
+.platform-shell{
+  background: rgba(255,255,255,.00) !important;
+}
+.platform-main{
+  background: rgba(255,255,255,.00) !important;
+}
