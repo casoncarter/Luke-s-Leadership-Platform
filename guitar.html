@@ -9,157 +9,148 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/platforms.css" />
 
-  <!-- Page-only fixes: contrast + professional card system -->
+  <!-- Page-only polish (safe, self-contained) -->
   <style>
-    /* ================= GUITAR PLATFORM – FINAL FIX ================= */
+    /* =========================================================
+       GUITAR PLATFORM — PROFESSIONAL, HIGH-CONTRAST
+       No light-on-light, no dark-on-dark
+    ========================================================= */
 
-    /* Hero card */
-    .hero-guitar{
+    /* HERO */
+    .guitar-hero{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
-      gap:22px;
-      align-items:stretch;
-      padding:26px;
-      border-radius:20px;
-      background: linear-gradient(180deg, rgba(246,241,230,.78), rgba(246,241,230,.38));
+      gap:18px;
+      padding:20px;
+      margin-top:18px;
+      border-radius:22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(246,241,230,.75));
       border:1px solid rgba(10,15,31,.12);
-      box-shadow: 0 16px 44px rgba(10,15,31,.08);
-      margin: 10px 0 18px;
+      box-shadow:0 18px 48px rgba(10,15,31,.08);
     }
     @media (max-width: 980px){
-      .hero-guitar{ grid-template-columns:1fr; }
+      .guitar-hero{ grid-template-columns:1fr; }
     }
 
-    .hero-guitar h2{ margin:0 0 8px; }
-    .hero-guitar .sub{
+    .guitar-hero-copy{
+      background:#ffffff;
+      border-radius:18px;
+      padding:18px;
+      border:1px solid rgba(10,15,31,.10);
+    }
+    .guitar-hero-copy .kicker{
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:.78rem;
+      opacity:.7;
+      margin:0 0 8px;
+    }
+    .guitar-hero-copy h1{
+      margin:0 0 10px;
+      line-height:1.08;
+    }
+    .guitar-hero-copy p{
+      margin:0 0 12px;
       color:#0a0f1f;
-      opacity:.85;
-      max-width:64ch;
-      line-height:1.55;
-      margin-bottom:12px;
+      opacity:.88;
     }
 
-    .guitar-pillrow{
+    .guitar-pill-row{
       display:flex;
       flex-wrap:wrap;
       gap:8px;
       margin-top:10px;
     }
     .guitar-pill{
-      padding:8px 10px;
+      padding:7px 10px;
       border-radius:999px;
-      background: rgba(255,255,255,.78);
       border:1px solid rgba(10,15,31,.14);
-      font-size:.92rem;
-      color:#0a0f1f;
-      font-weight:600;
+      background:rgba(246,241,230,.75);
+      font-size:.9rem;
     }
 
-    .hero-media{
-      border-radius:16px;
+    .guitar-hero-media{
+      border-radius:18px;
       overflow:hidden;
-      border:1px solid rgba(10,15,31,.12);
+      border:1px solid rgba(10,15,31,.10);
       background:#000;
-      min-height:260px;
-    }
-    .hero-media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
-
-    /* Core callout — THIS PLATFORM TEACHES… */
-    .guitar-callout{
-      border-radius:18px;
-      padding:16px;
-      background: rgba(11,18,38,.92);
-      color:rgba(246,241,230,.96);
-      border:1px solid rgba(246,241,230,.18);
-      box-shadow: 0 14px 36px rgba(0,0,0,.35);
-      margin:14px 0;
-    }
-    .guitar-callout strong{
-      display:block;
-      margin-bottom:10px;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      font-size:.78rem;
-    }
-    .guitar-callout ul{
-      margin:0;
-      padding-left:18px;
-    }
-    .guitar-callout li{
-      margin:6px 0;
-      line-height:1.4;
-    }
-
-    /* Modules */
-    .module{
-      padding:18px;
-      border-radius:18px;
-      border:1px solid rgba(10,15,31,.12);
-      background: rgba(255,255,255,.86);
-      box-shadow: 0 12px 34px rgba(10,15,31,.06);
-      margin: 16px 0;
-      color:#0a0f1f;
-    }
-
-    .module-head{
-      margin-bottom:10px;
-    }
-    .module-head h2{ margin:0 0 4px; }
-    .module-kicker{
-      opacity:.78;
-      font-size:.95rem;
-    }
-
-    .module-grid{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:16px;
-      align-items:start;
-    }
-    @media (max-width: 980px){
-      .module-grid{ grid-template-columns:1fr; }
-    }
-
-    .callout{
-      background: rgba(246,241,230,.75);
-      border:1px solid rgba(10,15,31,.12);
-      border-radius:14px;
-      padding:12px;
-      margin:10px 0;
-    }
-
-    .video{
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid rgba(10,15,31,.12);
       aspect-ratio:16/9;
-      background:#000;
     }
-    .video iframe{
+    .guitar-hero-media iframe{
       width:100%;
       height:100%;
       border:0;
     }
 
-    .divider{
-      height:1px;
-      background: rgba(10,15,31,.12);
-      margin:14px 0;
+    /* MODULES */
+    .module{
+      margin:18px 0;
+      border-radius:20px;
+      background:#ffffff;
+      border:1px solid rgba(10,15,31,.10);
+      box-shadow:0 12px 34px rgba(10,15,31,.06);
+      overflow:hidden;
     }
 
-    .small{
+    .module-grid{
+      display:grid;
+      grid-template-columns:.45fr .55fr;
+    }
+    @media (max-width: 980px){
+      .module-grid{ grid-template-columns:1fr; }
+    }
+
+    .module-media{
+      background:#111;
+      aspect-ratio:16/9;
+    }
+    .module-media iframe{
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    .module-content{
+      padding:16px 18px;
+    }
+    .module-content h2{
+      margin:0 0 6px;
+      font-size:1.15rem;
+    }
+    .module-sub{
+      margin:0 0 12px;
       font-size:.95rem;
+      opacity:.75;
+    }
+
+    .callout{
+      background:rgba(246,241,230,.85);
+      border:1px solid rgba(10,15,31,.10);
+      border-radius:16px;
+      padding:12px;
+      margin:12px 0;
+    }
+    .callout h4{
+      margin:0 0 8px;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-size:.82rem;
       opacity:.8;
+    }
+    .callout ul{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .divider{
+      height:1px;
+      background:rgba(10,15,31,.10);
+      margin:16px 0;
     }
   </style>
 </head>
 
-<body class="platform">
+<body class="platform platform--guitar">
 
 <header class="topbar">
   <div class="container">
@@ -186,41 +177,28 @@
 <main class="container">
 
   <!-- HERO -->
-  <section class="platform-hero">
-    <p class="kicker">Platform</p>
-    <h1>THE GUITAR TRAINING PLATFORM</h1>
-    <p class="small">A musician-first system built around real playing — not worksheets.</p>
+  <section class="guitar-hero">
+    <div class="guitar-hero-copy">
+      <p class="kicker">Platform</p>
+      <h1>THE GUITAR TRAINING PLATFORM</h1>
+      <p>
+        This platform teaches guitar the way musicians actually use it —
+        through shapes, sound, and songs rather than notation.
+      </p>
 
-    <div class="hero-guitar">
-      <div>
-        <h2>Executive Summary</h2>
-        <p class="sub">
-          This platform teaches guitar the way musicians actually use it:
-          through shapes, ears, songs, and feel — not notation drills.
-        </p>
-
-        <div class="guitar-callout">
-          <strong>This platform teaches guitar the way musicians actually use it</strong>
-          <ul>
-            <li>Shape-based (CAGED) rather than notation-based</li>
-            <li>Ear-first, not theory-first</li>
-            <li>Song-driven, not exercise-driven</li>
-            <li>Play-focused, not practice-heavy</li>
-          </ul>
-        </div>
-
-        <div class="guitar-pillrow">
-          <div class="guitar-pill">CAGED mastery</div>
-          <div class="guitar-pill">Pentatonic fluency</div>
-          <div class="guitar-pill">Rhythm & feel</div>
-          <div class="guitar-pill">Song application</div>
-          <div class="guitar-pill">Musical confidence</div>
-        </div>
+      <div class="guitar-pill-row">
+        <div class="guitar-pill">Shape-based (CAGED)</div>
+        <div class="guitar-pill">Ear-first</div>
+        <div class="guitar-pill">Song-driven</div>
+        <div class="guitar-pill">Play-focused</div>
       </div>
+    </div>
 
-      <div class="hero-media">
-        <img src="assets/img/guitar-hero.jpeg" alt="Guitar platform hero image" />
-      </div>
+    <div class="guitar-hero-media">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/0Qp26KcDrGw?rel=0&modestbranding=1"
+        title="Guitar platform overview"
+        allowfullscreen></iframe>
     </div>
   </section>
 
@@ -228,111 +206,105 @@
   <section class="platform-shell">
     <aside class="platform-toc">
       <div class="toc-title">On this page</div>
-      <a href="#m1">Module 1 — CAGED Overview</a>
-      <a href="#m2">Module 2 — Pentatonic Shapes</a>
-      <a href="#m3">Module 3 — Chord Progressions</a>
-      <a href="#m4">Module 4 — Rhythm & Groove</a>
-      <a href="#m5">Module 5 — Song-Based Learning</a>
+      <a href="#m1">Module 1 — The Fretboard Map</a>
+      <a href="#m2">Module 2 — CAGED in Motion</a>
+      <a href="#m3">Module 3 — Pentatonic Power</a>
+      <a href="#m4">Module 4 — Chord Vocabulary</a>
+      <a href="#m5">Module 5 — Rhythm & Groove</a>
     </aside>
 
     <article class="platform-main">
 
       <!-- MODULE 1 -->
       <section class="module" id="m1">
-        <div class="module-head">
-          <h2>Module 1 — The CAGED System</h2>
-          <p class="module-kicker">Five shapes. One fretboard.</p>
-        </div>
-
         <div class="module-grid">
-          <div>
+          <div class="module-media">
+            <iframe src="https://www.youtube-nocookie.com/embed/0Qp26KcDrGw?rel=0&modestbranding=1"
+              title="Fretboard fundamentals" allowfullscreen></iframe>
+          </div>
+          <div class="module-content">
+            <h2>Module 1 — The Fretboard Map</h2>
+            <p class="module-sub">Seeing patterns instead of memorizing notes</p>
+
             <div class="callout">
+              <h4>What this builds</h4>
               <ul>
-                <li>Understand the neck as repeating shapes</li>
-                <li>Play chords anywhere on the fretboard</li>
-                <li>Connect rhythm + harmony visually</li>
+                <li>Spatial awareness of the neck</li>
+                <li>Confidence moving across strings</li>
+                <li>Reduced dependence on tabs</li>
               </ul>
             </div>
-          </div>
-          <div class="video">
-            <iframe src="https://www.youtube-nocookie.com/embed/0Qp26KcDrGw?rel=0" allowfullscreen></iframe>
           </div>
         </div>
       </section>
 
       <!-- MODULE 2 -->
       <section class="module" id="m2">
-        <div class="module-head">
-          <h2>Module 2 — Pentatonic Fluency</h2>
-          <p class="module-kicker">Soloing without fear.</p>
-        </div>
-
         <div class="module-grid">
-          <div>
+          <div class="module-media">
+            <iframe src="https://www.youtube-nocookie.com/embed/5bJ3rGxP3ZQ?rel=0&modestbranding=1"
+              title="CAGED system" allowfullscreen></iframe>
+          </div>
+          <div class="module-content">
+            <h2>Module 2 — CAGED in Motion</h2>
+            <p class="module-sub">Connecting shapes across the neck</p>
+
             <div class="callout">
               <ul>
-                <li>Five boxes, one connected system</li>
-                <li>Target chord tones by ear</li>
-                <li>Move laterally with confidence</li>
+                <li>Moveable chord forms</li>
+                <li>Neck fluency</li>
+                <li>Visual logic instead of theory overload</li>
               </ul>
             </div>
-          </div>
-          <div class="video">
-            <iframe src="https://www.youtube-nocookie.com/embed/2b1_1J2qCfw?rel=0" allowfullscreen></iframe>
           </div>
         </div>
       </section>
 
       <!-- MODULE 3 -->
       <section class="module" id="m3">
-        <div class="module-head">
-          <h2>Module 3 — Chord Progressions</h2>
-          <p class="module-kicker">Understand why songs work.</p>
-        </div>
-
-        <div class="callout">
-          <ul>
-            <li>I-IV-V patterns</li>
-            <li>Minor variations</li>
-            <li>Song mapping by ear</li>
-          </ul>
+        <div class="module-grid">
+          <div class="module-media">
+            <iframe src="https://www.youtube-nocookie.com/embed/4H4vGQWvXvQ?rel=0&modestbranding=1"
+              title="Pentatonic scale" allowfullscreen></iframe>
+          </div>
+          <div class="module-content">
+            <h2>Module 3 — Pentatonic Power</h2>
+            <p class="module-sub">Soloing with confidence</p>
+          </div>
         </div>
       </section>
 
       <!-- MODULE 4 -->
       <section class="module" id="m4">
-        <div class="module-head">
-          <h2>Module 4 — Rhythm & Groove</h2>
-          <p class="module-kicker">Feel beats, not math.</p>
-        </div>
-
-        <div class="callout">
-          <ul>
-            <li>Strumming patterns</li>
-            <li>Syncopation</li>
-            <li>Locking in with others</li>
-          </ul>
+        <div class="module-grid">
+          <div class="module-media">
+            <iframe src="https://www.youtube-nocookie.com/embed/lv5u6Wb3Ysw?rel=0&modestbranding=1"
+              title="Chord vocabulary" allowfullscreen></iframe>
+          </div>
+          <div class="module-content">
+            <h2>Module 4 — Chord Vocabulary</h2>
+            <p class="module-sub">From cowboy chords to color</p>
+          </div>
         </div>
       </section>
 
       <!-- MODULE 5 -->
       <section class="module" id="m5">
-        <div class="module-head">
-          <h2>Module 5 — Song-Driven Learning</h2>
-          <p class="module-kicker">Music first. Always.</p>
-        </div>
-
-        <div class="callout">
-          <ul>
-            <li>Learn real songs immediately</li>
-            <li>Extract techniques from music</li>
-            <li>Build a personal repertoire</li>
-          </ul>
+        <div class="module-grid">
+          <div class="module-media">
+            <iframe src="https://www.youtube-nocookie.com/embed/2ZQm2e1p9Xs?rel=0&modestbranding=1"
+              title="Strumming and groove" allowfullscreen></iframe>
+          </div>
+          <div class="module-content">
+            <h2>Module 5 — Rhythm & Groove</h2>
+            <p class="module-sub">Feel over flash</p>
+          </div>
         </div>
       </section>
 
     </article>
   </section>
+
 </main>
 </body>
 </html>
