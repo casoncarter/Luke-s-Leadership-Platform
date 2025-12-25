@@ -4,84 +4,199 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>THE SPORTS LEADERSHIP PLATFORM | Luke</title>
+  <meta name="description" content="Leadership lessons forged through discipline, adversity, preparation, and character—through Coach K, distance running, and legendary athletes." />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/platforms.css" />
 
+  <!-- Page-only enhancements (keeps global site CSS untouched) -->
   <style>
-    /* =============== SPORTS PLATFORM (PAGE-ONLY) =============== */
-    .hero-sport{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:22px;
-      padding:26px;
-      border-radius:18px;
-      background:linear-gradient(180deg,rgba(246,241,230,.75),rgba(246,241,230,.35));
-      border:1px solid rgba(10,15,31,.12);
-      box-shadow:0 14px 40px rgba(10,15,31,.06);
-      margin:10px 0 18px;
+    /* ================================
+       SPORTS PLATFORM — PAGE-ONLY POLISH
+       (Matches the “pro” look of Guitar / Entrepreneurship)
+    ================================= */
+
+    /* Hero */
+    .platform-hero{
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid rgba(10,15,31,.10);
+      background: linear-gradient(180deg, rgba(246,241,230,.92), rgba(246,241,230,.68));
+      box-shadow: 0 14px 36px rgba(10,15,31,.10);
+      padding: 20px 18px;
+      margin: 10px 0 18px;
     }
-    .hero-sport img{width:100%;height:100%;object-fit:cover;border-radius:16px;}
-    .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+    .platform-hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(900px 420px at 20% 10%, rgba(11,18,38,.14), transparent 60%),
+        radial-gradient(700px 420px at 85% 0%, rgba(11,18,38,.10), transparent 58%),
+        linear-gradient(180deg, rgba(11,18,38,.10), rgba(11,18,38,0));
+      pointer-events:none;
+    }
+    .platform-hero > *{ position:relative; z-index:1; }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 10px;
+    }
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+    }
+
+    .hero-card{
+      border: 1px solid rgba(10,15,31,.12);
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(6px);
+      border-radius: 18px;
+      padding: 14px 14px 12px;
+      box-shadow: 0 10px 26px rgba(10,15,31,.10);
+      color: rgba(10,15,31,.94);
+    }
+    .hero-card strong{
+      display:block;
+      letter-spacing: .02em;
+      color: var(--ink, #0a0f1f);
+    }
+    .hero-card p{ margin: 10px 0 0; opacity: .92; }
+
+    .hero-media{
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(10,15,31,.12);
+      background: rgba(255,255,255,.70);
+      box-shadow: 0 10px 26px rgba(10,15,31,.10);
+      min-height: 260px;
+    }
+    .hero-media img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
     .pill{
-      padding:8px 10px;border-radius:999px;
-      border:1px solid rgba(10,15,31,.14);
-      background:rgba(255,255,255,.65);
-      font-size:.92rem;
+      border: 1px solid rgba(10,15,31,.14);
+      background: rgba(255,255,255,.70);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: .92rem;
+      line-height: 1;
+      white-space: nowrap;
+      color: rgba(10,15,31,.92);
     }
 
+    /* Modules */
     .module{
-      padding:18px;
-      border-radius:16px;
-      border:1px solid rgba(10,15,31,.12);
-      background:rgba(255,255,255,.55);
-      box-shadow:0 10px 28px rgba(10,15,31,.05);
-      margin:14px 0;
+      border: 1px solid rgba(10,15,31,.10);
+      border-radius: 18px;
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 10px 28px rgba(10,15,31,.06);
+      overflow: hidden;
+      margin: 18px 0;
+    }
+    .module-hd{
+      padding: 14px 16px 12px;
+      background: linear-gradient(180deg, rgba(11,18,38,.06), rgba(255,255,255,0));
+      border-bottom: 1px solid rgba(10,15,31,.08);
+    }
+    .module-hd h2{
+      margin: 0 0 6px;
+      font-size: 1.25rem;
+      letter-spacing: .02em;
+      color: var(--ink, #0a0f1f);
+    }
+    .module-hd .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      opacity:.95;
+      font-size:.95rem;
+      color: rgba(10,15,31,.92);
     }
 
-    .module-grid{
+    .module-bd{
+      padding: 14px 16px 16px;
       display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:16px;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 16px;
       align-items:start;
+    }
+    @media (max-width: 980px){
+      .module-bd{ grid-template-columns: 1fr; }
     }
 
     .callout{
-      background:rgba(246,241,230,.55);
-      border:1px solid rgba(10,15,31,.12);
-      border-radius:14px;
-      padding:12px;
+      border: 1px solid rgba(10,15,31,.10);
+      background: rgba(246,241,230,.62);
+      border-radius: 16px;
+      padding: 12px 12px 10px;
+      color: rgba(10,15,31,.94);
     }
-
-    .athlete-card{
-      display:grid;
-      grid-template-columns:100px 1fr;
-      gap:12px;
-      align-items:center;
-      border-radius:14px;
-      border:1px solid rgba(10,15,31,.12);
-      background:rgba(255,255,255,.65);
-      padding:10px;
-      margin-bottom:10px;
+    .callout h4{
+      margin: 0 0 8px;
+      font-size: .98rem;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      opacity: .92;
+      color: var(--ink, #0a0f1f);
     }
-    .athlete-card img{
-      width:100px;height:100px;object-fit:cover;border-radius:12px;
-    }
-    .athlete-card strong{display:block;}
-    .athlete-card span{font-size:.9rem;opacity:.85;}
+    .callout ul{ margin: 0; padding-left: 18px; }
+    .callout p{ margin: 0; }
 
     .quote{
-      border-left:4px solid rgba(10,15,31,.18);
-      padding:10px 12px;
-      background:rgba(246,241,230,.55);
-      border-radius:12px;
-      margin:10px 0;
-      font-style:italic;
+      border-left: 4px solid rgba(10,15,31,.18);
+      padding: 10px 12px;
+      background: rgba(246,241,230,.55);
+      border: 1px solid rgba(10,15,31,.10);
+      border-radius: 12px;
+      margin: 10px 0;
+      font-style: italic;
+      color: rgba(10,15,31,.92);
     }
 
-    @media(max-width:980px){
-      .hero-sport,.module-grid{grid-template-columns:1fr;}
+    /* Athlete / coach cards (consistent frames) */
+    .athlete-stack{ display:flex; flex-direction:column; gap:10px; }
+    .athlete-card{
+      display:grid;
+      grid-template-columns: 92px 1fr;
+      gap: 12px;
+      align-items:center;
+      border-radius: 16px;
+      border: 1px solid rgba(10,15,31,.10);
+      background: rgba(255,255,255,.78);
+      padding: 10px;
+      box-shadow: 0 8px 18px rgba(10,15,31,.05);
     }
+    .athlete-card img{
+      width:92px;
+      height:92px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(10,15,31,.10);
+      background: rgba(11,18,38,.06);
+    }
+    .athlete-card strong{ display:block; color: var(--ink, #0a0f1f); }
+    .athlete-card span{ font-size:.92rem; opacity:.86; color: rgba(10,15,31,.92); }
+
+    /* Breathing room */
+    .platform-main{ color: rgba(10,15,31,.94); }
+    .platform-main p{ margin: 10px 0; }
+    .platform-main h2{ margin-top: 22px; color: var(--ink, #0a0f1f); }
+    .divider{ height:1px; background: rgba(10,15,31,.10); margin: 18px 0; }
   </style>
 </head>
 
@@ -109,151 +224,514 @@
 </header>
 
 <main class="container">
-<section class="platform-hero">
-  <p class="kicker">Platform</p>
-  <h1>THE SPORTS LEADERSHIP PLATFORM</h1>
-  <p class="small">Leadership lessons forged through discipline, adversity, preparation, and character.</p>
 
-  <div class="hero-sport">
-    <div>
-      <h2>Why Sport Teaches Leadership</h2>
-      <p>
-        Sport is one of the greatest classrooms of leadership. It demands discipline,
-        resilience, communication, humility, and courage under pressure.
-      </p>
+  <!-- HERO -->
+  <section class="platform-hero">
+    <p class="kicker">Platform</p>
+    <h1>THE SPORTS LEADERSHIP PLATFORM</h1>
+    <p class="small">Lessons forged through discipline, adversity, preparation, and character.</p>
 
-      <div class="pillrow">
-        <div class="pill">🏀 Coach K</div>
-        <div class="pill">🏃 Distance Runners</div>
-        <div class="pill">🔥 Competitive Fire</div>
-        <div class="pill">🧠 Mental Toughness</div>
-        <div class="pill">🤝 Servant Leadership</div>
-      </div>
-    </div>
+    <div class="hero-grid">
+      <div>
+        <div class="hero-card">
+          <strong>Executive Summary</strong>
+          <p>
+            Sport is one of the greatest classrooms of leadership. It demands discipline, resilience, communication, humility,
+            and courage under pressure. It reveals character—how people treat teammates, how they respond to coaches,
+            how they compete, and how they carry themselves when adversity hits.
+          </p>
+          <p>
+            Few leaders embody these lessons better than Coach Mike Krzyzewski (“Coach K”), whose teams are built on
+            shared values, standards, and trust. And then there are leaders closer to home—like Meredith Valmon (Rainey),
+            two-time Olympian and elite coach—whose example shows what excellence looks like week after week.
+          </p>
+          <p>
+            This platform distills the universal truths of sports leadership into ten modules that Luke can apply in sports,
+            school, friendship, and life.
+          </p>
 
-    <!-- HERO IMAGE -->
-    <img src="assets/img/sports-hero.jpeg" alt="Sports leadership hero image" />
-  </div>
-</section>
-
-<section class="platform-shell">
-<aside class="platform-toc">
-  <div class="toc-title">On this page</div>
-  <a href="#module-1">Module 1 — Values & Identity</a>
-  <a href="#module-2">Module 2 — Communication & Trust</a>
-  <a href="#module-3">Module 3 — Standards Over Rules</a>
-  <a href="#module-4">Module 4 — Discipline</a>
-  <a href="#module-5">Module 5 — Adversity</a>
-  <a href="#module-6">Module 6 — Servant Leadership</a>
-  <a href="#module-7">Module 7 — Emotional Control</a>
-  <a href="#module-8">Module 8 — Preparation</a>
-  <a href="#module-9">Module 9 — Pressure</a>
-  <a href="#module-10">Module 10 — Legacy</a>
-</aside>
-
-<article class="platform-main">
-
-<!-- MODULE 1 -->
-<section class="module" id="module-1">
-  <h2>Module 1 — Leadership Begins with Values & Identity</h2>
-  <div class="module-grid">
-    <div>
-      <p><strong>Core Principle:</strong> Teams succeed because they know who they are.</p>
-      <div class="callout">
-        <ul>
-          <li>Define core values</li>
-          <li>Align behavior daily</li>
-          <li>Leaders go first</li>
-        </ul>
-      </div>
-    </div>
-
-    <div>
-      <div class="athlete-card">
-        <img src="assets/img/coach-k.jpeg" alt="Coach K" />
-        <div>
-          <strong>Coach K</strong>
-          <span>Duke & Team USA — Values-based leadership</span>
+          <div class="pill-row">
+            <div class="pill">🏀 Coach K</div>
+            <div class="pill">🏃 Distance Runners</div>
+            <div class="pill">🔥 Competitive Fire</div>
+            <div class="pill">🧠 Mental Toughness</div>
+            <div class="pill">🤝 Servant Leadership</div>
+          </div>
         </div>
       </div>
 
-      <div class="athlete-card">
-        <img src="assets/img/eliud-kipchoge.jpeg" alt="Eliud Kipchoge" />
-        <div>
-          <strong>Eliud Kipchoge</strong>
-          <span>“Only the disciplined are free.”</span>
-        </div>
+      <div class="hero-media">
+        <img src="assets/img/sports-hero.jpeg" alt="Sports leadership hero image" />
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- MODULE 4 SAMPLE (pattern repeats for all) -->
-<section class="module" id="module-4">
-  <h2>Module 4 — The Power of Discipline & Daily Excellence</h2>
-  <div class="module-grid">
-    <div>
-      <p><strong>Core Principle:</strong> Motivation fades. Discipline remains.</p>
-      <div class="quote">“To give anything less than your best is to sacrifice the gift.” — Steve Prefontaine</div>
-    </div>
+  <section class="platform-shell">
+    <aside class="platform-toc">
+      <div class="toc-title">On this page</div>
+      <a href="#module-1">Module 1 — Values & Identity</a>
+      <a href="#module-2">Module 2 — Communication & Trust</a>
+      <a href="#module-3">Module 3 — Standards Over Rules</a>
+      <a href="#module-4">Module 4 — Discipline</a>
+      <a href="#module-5">Module 5 — Adversity</a>
+      <a href="#module-6">Module 6 — Servant Leadership</a>
+      <a href="#module-7">Module 7 — Emotional Control</a>
+      <a href="#module-8">Module 8 — Preparation</a>
+      <a href="#module-9">Module 9 — Pressure</a>
+      <a href="#module-10">Module 10 — Legacy</a>
+    </aside>
 
-    <div>
-      <div class="athlete-card">
-        <img src="assets/img/des-linden.jpeg" alt="Des Linden" />
-        <div>
-          <strong>Des Linden</strong>
-          <span>Consistency under adversity</span>
+    <article class="platform-main">
+
+      <!-- MODULE 1 -->
+      <section class="module" id="module-1">
+        <div class="module-hd">
+          <h2>Module 1 — Leadership Begins with Values and Identity</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Teams don’t succeed by accident—they succeed because they share who they are and what they stand for.</span>
+          </div>
         </div>
-      </div>
 
-      <div class="athlete-card">
-        <img src="assets/img/meredith-valmon.jpeg" alt="Meredith Valmon Rainey" />
-        <div>
-          <strong>Meredith Valmon (Rainey)</strong>
-          <span>Discipline through precision & daily work</span>
+        <div class="module-bd">
+          <div>
+            <div class="callout">
+              <h4>Framework</h4>
+              <ul>
+                <li>Define your core values (effort, honesty, respect, accountability).</li>
+                <li>Align behaviors with those values—every day.</li>
+                <li>Build a shared identity: What do we want to be known for?</li>
+                <li>Leaders go first: consistency creates trust.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/coach-k.jpeg" alt="Coach K" />
+              <div>
+                <strong>Coach K</strong>
+                <span>Duke &amp; Team USA — identity + values-based leadership</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/eliud-kipchoge.jpeg" alt="Eliud Kipchoge" />
+              <div>
+                <strong>Eliud Kipchoge</strong>
+                <span>Discipline as identity: daily standards become who you are</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-<!-- FINAL MODULE -->
-<section class="module" id="module-10">
-  <h2>Module 10 — Legacy, Impact & Leadership Beyond Sport</h2>
-  <div class="module-grid">
-    <div>
-      <p><strong>Core Principle:</strong> Trophies fade. Impact endures.</p>
-      <div class="callout">
-        <ul>
-          <li>Mentor those behind you</li>
-          <li>Leave environments better</li>
-          <li>Measure success by influence</li>
-        </ul>
-      </div>
-    </div>
-
-    <div>
-      <div class="athlete-card">
-        <img src="assets/img/bill-russell.jpeg" alt="Bill Russell" />
-        <div>
-          <strong>Bill Russell</strong>
-          <span>Championships + justice + humility</span>
+      <!-- MODULE 2 -->
+      <section class="module" id="module-2">
+        <div class="module-hd">
+          <h2>Module 2 — Communication + Trust = Strong Teams</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Great teams don’t just work together. They talk, listen, and trust.</span>
+          </div>
         </div>
-      </div>
 
-      <div class="athlete-card">
-        <img src="assets/img/eliud-kipchoge.jpeg" alt="Eliud Kipchoge" />
-        <div>
-          <strong>Eliud Kipchoge</strong>
-          <span>Leadership through service & community</span>
+        <div class="module-bd">
+          <div>
+            <div class="callout">
+              <h4>Framework</h4>
+              <ul>
+                <li>Communicate early, often, and clearly.</li>
+                <li>Listen deeply—communication is two-way.</li>
+                <li>Create an environment where honesty is safe.</li>
+                <li>Trust grows from reliability and follow-through.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/tom-brady.jpeg" alt="Tom Brady" />
+              <div>
+                <strong>Tom Brady</strong>
+                <span>The trust builder: honest, real-time leadership that elevates teammates</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/derek-jeter.jpeg" alt="Derek Jeter" />
+              <div>
+                <strong>Derek Jeter</strong>
+                <span>Calm, clear, dependable: leadership through steadiness and respect</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-</article>
-</section>
+      <!-- MODULE 3 -->
+      <section class="module" id="module-3">
+        <div class="module-hd">
+          <h2>Module 3 — Standards Over Rules</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Rules restrict. Standards inspire.</span>
+          </div>
+        </div>
+
+        <div class="module-bd">
+          <div>
+            <div class="callout">
+              <h4>Framework</h4>
+              <ul>
+                <li>Rules come from authority; standards come from shared identity.</li>
+                <li>Standards reflect who we are, not what we avoid.</li>
+                <li>Leaders protect standards even when no one is watching.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/pat-summitt.jpeg" alt="Pat Summitt" />
+              <div>
+                <strong>Pat Summitt</strong>
+                <span>The Definite Dozen: standards that shape character and accountability</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/shalane-flanagan.jpeg" alt="Shalane Flanagan" />
+              <div>
+                <strong>Shalane Flanagan</strong>
+                <span>Culture architect: excellence built through daily professional norms</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 4 -->
+      <section class="module" id="module-4">
+        <div class="module-hd">
+          <h2>Module 4 — The Power of Discipline and Daily Excellence</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Motivation fades. Discipline remains.</span>
+          </div>
+        </div>
+
+        <div class="module-bd">
+          <div>
+            <div class="callout">
+              <h4>Framework</h4>
+              <ul>
+                <li>Show up every day, especially on the hard days.</li>
+                <li>Fall in love with the process, not the outcome.</li>
+                <li>Small habits compound into elite performance.</li>
+                <li>Consistency builds trust—your team can rely on you.</li>
+              </ul>
+            </div>
+
+            <div class="quote">“To give anything less than your best is to sacrifice the gift.” — Steve Prefontaine</div>
+          </div>
+
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/des-linden.jpeg" alt="Des Linden" />
+              <div>
+                <strong>Des Linden</strong>
+                <span>“Keep showing up” — consistency under adversity</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/meredith-valmon.jpeg" alt="Meredith Valmon (Rainey)" />
+              <div>
+                <strong>Meredith Valmon (Rainey)</strong>
+                <span>Discipline + deliberate training: daily precision wins</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/steve-prefontaine.jpeg" alt="Steve Prefontaine" />
+              <div>
+                <strong>Steve Prefontaine</strong>
+                <span>Courage as commitment: effort as a leadership signature</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 5 -->
+      <section class="module" id="module-5">
+        <div class="module-hd">
+          <h2>Module 5 — Adversity as a Leadership Advantage</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Setbacks are not interruptions—they are the curriculum.</span>
+          </div>
+        </div>
+
+        <div class="module-bd">
+          <div>
+            <div class="callout">
+              <h4>Framework</h4>
+              <ul>
+                <li>Adversity reveals what you believe and who you are.</li>
+                <li>Respond with ownership: “What can I control next?”</li>
+                <li>Use setbacks to build empathy and resilience.</li>
+                <li>Let hardship deepen your leadership, not harden it.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/michael-jordan.jpeg" alt="Michael Jordan" />
+              <div>
+                <strong>Michael Jordan</strong>
+                <span>Rising through setbacks: rejection turned into fuel</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/kenenisa-bekele.jpeg" alt="Kenenisa Bekele" />
+              <div>
+                <strong>Kenenisa Bekele</strong>
+                <span>The art of the comeback: resilience through time + work</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/meredith-valmon.jpeg" alt="Meredith Valmon (Rainey)" />
+              <div>
+                <strong>Meredith Valmon (Rainey)</strong>
+                <span>Resilience through injury: rebuild with patience and purpose</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 6 -->
+      <section class="module" id="module-6">
+        <div class="module-hd">
+          <h2>Module 6 — Servant Leadership: Lifting Others First</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Leaders serve the mission by serving the people.</span>
+          </div>
+        </div>
+
+        <div class="module-bd">
+          <div>
+            <div class="callout">
+              <h4>Framework</h4>
+              <ul>
+                <li>Make teammates better—especially the quiet ones.</li>
+                <li>Lead with humility: your role is to elevate the group.</li>
+                <li>Share credit; take responsibility.</li>
+                <li>Serve consistently, not performatively.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/mia-hamm.jpeg" alt="Mia Hamm" />
+              <div>
+                <strong>Mia Hamm</strong>
+                <span>Team above self: leadership through humility and work</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/eliud-kipchoge.jpeg" alt="Eliud Kipchoge" />
+              <div>
+                <strong>Eliud Kipchoge</strong>
+                <span>Servant leader: respect, community, and shared success</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/meredith-valmon.jpeg" alt="Meredith Valmon (Rainey)" />
+              <div>
+                <strong>Meredith Valmon (Rainey)</strong>
+                <span>Coaching as service: develop people, not just athletes</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 7 -->
+      <section class="module" id="module-7">
+        <div class="module-hd">
+          <h2>Module 7 — Competitive Fire with Emotional Control</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Leaders feel emotion, but they don’t let emotion lead them.</span>
+          </div>
+        </div>
+
+        <div class="module-bd">
+          <div>
+            <div class="callout">
+              <h4>Framework</h4>
+              <ul>
+                <li>Compete with intensity, but stay composed.</li>
+                <li>Detach your identity from outcomes.</li>
+                <li>Use routines to reset (breath, self-talk, next-play focus).</li>
+                <li>Emotional control is contagious—teams mirror leaders.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/serena-williams.jpeg" alt="Serena Williams" />
+              <div>
+                <strong>Serena Williams</strong>
+                <span>Passion with precision: intensity under control</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/mo-farah.jpeg" alt="Mo Farah" />
+              <div>
+                <strong>Mo Farah</strong>
+                <span>Calm amid chaos: composed decision-making under stress</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 8 -->
+      <section class="module" id="module-8">
+        <div class="module-hd">
+          <h2>Module 8 — Preparation Builds Confidence</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Confidence is earned in silence.</span>
+          </div>
+        </div>
+
+        <div class="module-bd">
+          <div>
+            <div class="callout">
+              <h4>Framework</h4>
+              <ul>
+                <li>Prepare early; remove chaos from game day.</li>
+                <li>Rehearse fundamentals until they are automatic.</li>
+                <li>Build routines: sleep, nutrition, warmup, mindset.</li>
+                <li>Preparation creates freedom under pressure.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/kobe-bryant.jpeg" alt="Kobe Bryant" />
+              <div>
+                <strong>Kobe Bryant</strong>
+                <span>The Mamba routine: mastery through relentless preparation</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/joan-benoit.jpeg" alt="Joan Benoit Samuelson" />
+              <div>
+                <strong>Joan Benoit Samuelson</strong>
+                <span>Olympic preparation mastery: quiet consistency and precision</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/meredith-valmon.jpeg" alt="Meredith Valmon (Rainey)" />
+              <div>
+                <strong>Meredith Valmon (Rainey)</strong>
+                <span>Precision in preparation: details create confidence</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 9 -->
+      <section class="module" id="module-9">
+        <div class="module-hd">
+          <h2>Module 9 — Leadership Under Pressure</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Pressure reveals who you are and what you believe.</span>
+          </div>
+        </div>
+
+        <div class="module-bd">
+          <div>
+            <div class="callout">
+              <h4>Framework</h4>
+              <ul>
+                <li>Pressure is information: it shows where you need reps.</li>
+                <li>Stay present: next play, next breath, next decision.</li>
+                <li>Anchor to values: calm is a choice.</li>
+                <li>Great leaders transfer confidence to the group.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/coach-k.jpeg" alt="Coach K" />
+              <div>
+                <strong>Coach K</strong>
+                <span>Olympic-level poise: calm leadership when everything is at stake</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/eliud-kipchoge.jpeg" alt="Eliud Kipchoge" />
+              <div>
+                <strong>Eliud Kipchoge</strong>
+                <span>Composure at the edge: calm execution under extreme demand</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 10 -->
+      <section class="module" id="module-10">
+        <div class="module-hd">
+          <h2>Module 10 — Legacy, Impact, and Leadership Beyond Sport</h2>
+          <div class="meta">
+            <span><strong>Core Principle:</strong> Trophies fade. Impact endures.</span>
+          </div>
+        </div>
+
+        <div class="module-bd">
+          <div>
+            <div class="callout">
+              <h4>Framework</h4>
+              <ul>
+                <li>Mentor those behind you.</li>
+                <li>Leave environments better than you found them.</li>
+                <li>Measure success by influence, not attention.</li>
+                <li>Use your gifts to serve something bigger than yourself.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="athlete-stack">
+            <div class="athlete-card">
+              <img src="assets/img/bill-russell.jpeg" alt="Bill Russell" />
+              <div>
+                <strong>Bill Russell</strong>
+                <span>Championships + justice + humility: legacy through impact</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/eliud-kipchoge.jpeg" alt="Eliud Kipchoge" />
+              <div>
+                <strong>Eliud Kipchoge</strong>
+                <span>Community builder: leadership through service and example</span>
+              </div>
+            </div>
+            <div class="athlete-card">
+              <img src="assets/img/meredith-valmon.jpeg" alt="Meredith Valmon (Rainey)" />
+              <div>
+                <strong>Meredith Valmon (Rainey)</strong>
+                <span>Legacy through coaching: multiplying leadership in others</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </section>
+
 </main>
 </body>
 </html>
