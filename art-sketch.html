@@ -9,268 +9,880 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/platforms.css" />
 
-  <!-- PAGE-ONLY FIX (SAFE + CONSISTENT) -->
+  <!-- Page-only polish (keeps global system intact) -->
   <style>
-    /* =========================
-       ART PLATFORM — FIXED
-       Matches IF / Guitar / Spiritual
-    ========================== */
+    /* =============== ART PLATFORM ENHANCEMENTS (page-only) =============== */
+    body.platform-art{
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(255,214,102,.18), transparent 60%),
+        radial-gradient(900px 600px at 100% 0%, rgba(116,217,255,.14), transparent 55%),
+        radial-gradient(900px 600px at 40% 110%, rgba(189,137,255,.12), transparent 55%),
+        linear-gradient(180deg, rgba(246,241,230,.55), rgba(246,241,230,0) 40%),
+        var(--cream);
+    }
 
-    /* ---------- HERO ---------- */
-    .hero-art{
+    .art-hero{
+      position:relative;
+      overflow:hidden;
+      border-radius: 22px;
+      padding: clamp(22px, 4vw, 34px);
+      background:
+        linear-gradient(135deg, rgba(11,18,38,.92), rgba(10,15,31,.94)),
+        radial-gradient(900px 500px at 10% 0%, rgba(255,214,102,.20), transparent 60%),
+        radial-gradient(900px 500px at 100% 10%, rgba(116,217,255,.18), transparent 55%);
+      color: rgba(255,255,255,.92);
+      box-shadow: 0 18px 50px rgba(0,0,0,.14);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .art-hero-grid{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:22px;
-      align-items:stretch;
-      margin: 16px 0 18px;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: center;
     }
-    @media (max-width: 980px){
-      .hero-art{ grid-template-columns:1fr; }
-    }
-
-    .hero-panel{
-      border-radius:18px;
-      border:1px solid rgba(246,241,230,.16);
-      background: rgba(255,255,255,.92);
-      padding:18px;
-      box-shadow: 0 14px 40px rgba(0,0,0,.25);
-      color: var(--rl-ink);
+    @media (max-width: 860px){
+      .art-hero-grid{ grid-template-columns: 1fr; }
     }
 
-    .hero-panel h2{ margin:0 0 8px; }
-    .hero-panel p{
-      color: rgba(10,15,31,.85);
-      line-height:1.5;
+    .art-hero h1{
+      margin:0 0 10px;
+      letter-spacing: .02em;
+      line-height: 1.08;
+      font-size: clamp(28px, 3.2vw, 42px);
+      color: #fff;
+    }
+    .art-hero .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: rgba(255,255,255,.78);
+    }
+    .art-hero .kicker .dot{
+      width:9px;height:9px;border-radius:50%;
+      background: rgba(255,214,102,.95);
+      box-shadow: 0 0 0 5px rgba(255,214,102,.12);
     }
 
-    .pillrow{
+    .hero-sub{
+      margin: 0 0 14px;
+      font-size: 16px;
+      line-height: 1.55;
+      color: rgba(255,255,255,.78);
+      max-width: 62ch;
+    }
+
+    .hero-badges{
       display:flex;
       flex-wrap:wrap;
-      gap:8px;
-      margin-top:12px;
+      gap: 10px;
+      margin-top: 12px;
     }
-    .pill{
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(0,0,0,.12);
-      background: rgba(255,255,255,.85);
-      font-size:.92rem;
-      color: rgba(10,15,31,.85);
-      white-space:nowrap;
-    }
-
-    .practice-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-      margin-top:12px;
-    }
-    @media (max-width: 980px){
-      .practice-grid{ grid-template-columns:1fr; }
-    }
-    .practice{
-      padding:12px;
-      border-radius:14px;
-      border:1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.92);
-      color: rgba(10,15,31,.85);
-    }
-
-    /* ---------- HERO IMAGE ---------- */
-    .hero-media{
-      position:relative;
-      border-radius:18px;
-      overflow:hidden;
-      border:1px solid rgba(246,241,230,.16);
-      box-shadow: 0 14px 40px rgba(0,0,0,.35);
-      min-height:260px;
-    }
-    .hero-media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-    .hero-media .overlay{
-      position:absolute;
-      inset:auto 0 0 0;
-      padding:12px;
-      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.65));
-      color:#fff;
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-end;
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
       gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.86);
+      font-size: 13px;
+      backdrop-filter: blur(6px);
     }
-    .btn-mini{
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.35);
-      background: rgba(255,255,255,.12);
-      color:#fff;
-      font-weight:800;
-      white-space:nowrap;
+    .hero-badge b{ color:#fff; }
+
+    .art-hero-card{
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 16px;
+    }
+    .art-hero-card h3{
+      margin: 0 0 10px;
+      font-size: 14px;
+      letter-spacing:.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.82);
+    }
+    .art-hero-card ul{
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,.78);
+      line-height: 1.55;
+      font-size: 14px;
     }
 
-    /* ---------- CONTENT CARDS ---------- */
-    .module{
-      padding:18px;
-      border-radius:18px;
-      border:1px solid rgba(246,241,230,.16);
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 14px 40px rgba(0,0,0,.20);
-      margin: 14px 0;
-      color: var(--rl-ink);
+    .section-head--art{
+      display:flex;
+      justify-content: space-between;
+      align-items:flex-end;
+      gap: 14px;
+      margin: 26px 0 12px;
+    }
+    .section-head--art h2{ margin:0; }
+    .section-head--art p{
+      margin:0;
+      max-width: 80ch;
+      opacity: .8;
     }
 
-    .module-head{ margin-bottom:12px; }
-    .module-kicker{
-      color: rgba(10,15,31,.70);
-      line-height:1.45;
-    }
-
-    .module-grid{
+    .modules-grid{
       display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:16px;
-      align-items:start;
+      gap: 14px;
+    }
+
+    .module-card{
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(11,18,38,.10);
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.08);
+      overflow:hidden;
+    }
+    .module-card__inner{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 0;
+      align-items: stretch;
     }
     @media (max-width: 980px){
-      .module-grid{ grid-template-columns:1fr; }
+      .module-card__inner{ grid-template-columns: 1fr; }
     }
 
-    .callout{
-      border-radius:14px;
-      border:1px solid rgba(0,0,0,.10);
-      background: rgba(246,241,230,.85);
-      padding:12px;
-      margin-top:10px;
+    .module-card__content{
+      padding: 18px 18px 16px;
+    }
+    .module-top{
+      display:flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .module-top h3{
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.25;
+      letter-spacing: .01em;
+      color: var(--ink);
+    }
+    .module-num{
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: rgba(11,18,38,.58);
     }
 
-    .divider{
-      height:1px;
-      background: rgba(0,0,0,.12);
-      margin: 12px 0;
+    .module-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin: 10px 0 12px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(11,18,38,.06);
+      border: 1px solid rgba(11,18,38,.10);
+      color: rgba(11,18,38,.78);
+      font-size: 13px;
+      line-height: 1.25;
+    }
+    .module-pill b{ color: var(--ink); }
+
+    .module-cols{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    @media (max-width: 640px){
+      .module-cols{ grid-template-columns: 1fr; }
     }
 
-    .media-stack{ display:grid; gap:12px; }
-    .thumb{
-      border-radius:16px;
+    .module-box{
+      border-radius: 14px;
+      background: rgba(246,241,230,.78);
+      border: 1px solid rgba(11,18,38,.10);
+      padding: 12px;
+    }
+    .module-box h4{
+      margin: 0 0 8px;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(11,18,38,.70);
+    }
+    .module-box ul{
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(11,18,38,.80);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .resource-row{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin-top: 12px;
+      align-items: center;
+    }
+    .resource-link{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(11,18,38,.92);
+      color: rgba(255,255,255,.92);
+      border: 1px solid rgba(11,18,38,.92);
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .resource-link:hover{ filter: brightness(1.06); }
+
+    .module-media{
+      padding: 14px;
+      background:
+        radial-gradient(900px 380px at 20% 0%, rgba(255,214,102,.18), transparent 62%),
+        radial-gradient(700px 380px at 100% 10%, rgba(116,217,255,.16), transparent 58%),
+        linear-gradient(180deg, rgba(11,18,38,.92), rgba(10,15,31,.94));
+      border-left: 1px solid rgba(255,255,255,.10);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    @media (max-width: 980px){
+      .module-media{ border-left: 0; border-top: 1px solid rgba(255,255,255,.10); }
+    }
+
+    .video-shell{
+      width: 100%;
+      max-width: 520px;
+      border-radius: 14px;
       overflow:hidden;
-      border:1px solid rgba(0,0,0,.10);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 18px 44px rgba(0,0,0,.20);
+      background: rgba(0,0,0,.25);
     }
-    .thumb img{
-      width:100%;
-      height:220px;
-      object-fit:cover;
+    .video-shell .ratio{
+      position: relative;
+      padding-top: 56.25%;
     }
-
-    .video{
-      border-radius:16px;
-      overflow:hidden;
-      border:1px solid rgba(0,0,0,.12);
-      aspect-ratio:16/9;
-      background:#000;
-    }
-    .video iframe{
+    .video-shell iframe{
+      position:absolute;
+      inset:0;
       width:100%;
       height:100%;
       border:0;
     }
+    .video-caption{
+      padding: 10px 12px;
+      font-size: 12px;
+      color: rgba(255,255,255,.78);
+      background: rgba(0,0,0,.22);
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
 
-    details.tech{
-      margin-top:12px;
-      border-radius:14px;
-      border:1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.95);
-      padding:10px 12px;
+    .art-footer-note{
+      margin-top: 18px;
+      border-radius: 16px;
+      padding: 14px 14px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(11,18,38,.10);
+      color: rgba(11,18,38,.80);
+      box-shadow: 0 10px 28px rgba(0,0,0,.08);
     }
-    details.tech summary{
-      cursor:pointer;
-      font-weight:900;
-      display:flex;
-      justify-content:space-between;
-      list-style:none;
-    }
-    details.tech .tech-body{
-      margin-top:10px;
-      color: rgba(10,15,31,.85);
-    }
+    .art-footer-note b{ color: var(--ink); }
   </style>
 </head>
 
-<body class="platform">
+<body class="platform platform-art">
+  <!-- Keep your existing site header/nav if you already have one; this is a safe default -->
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Luke’s Leadership Platform Home">
+        <span class="brand__mark">L</span>
+        <span class="brand__text">Luke</span>
+      </a>
 
-<header class="topbar">
-  <div class="container">
-    <nav class="nav">
-      <div class="brand">
-        <div class="mark">LUKE</div>
-        <div class="tag">Leadership • Craft • Character</div>
-      </div>
-      <div class="links">
+      <nav class="site-nav" aria-label="Primary">
         <a href="index.html">Home</a>
-        <a href="if-leadership.html">If—</a>
-        <a href="entrepreneurship.html">Business</a>
-        <a href="power-leadership.html">Power</a>
-        <a href="sports-leadership.html">Sports</a>
+        <a href="entrepreneurship.html">Entrepreneurship</a>
+        <a href="if.html">If</a>
         <a href="guitar.html">Guitar</a>
-        <a class="active" href="art-sketch.html">Art</a>
-        <a href="dad-jokes.html">Dad Jokes</a>
-        <a href="spiritual.html">Spiritual</a>
-      </div>
-    </nav>
-  </div>
-</header>
+        <a class="is-active" href="sketch.html">Art</a>
+      </nav>
+    </div>
+  </header>
 
-<main class="container">
+  <main class="container section">
+    <!-- HERO -->
+    <section class="art-hero">
+      <div class="art-hero-grid">
+        <div>
+          <div class="kicker"><span class="dot" aria-hidden="true"></span> Advanced Platform</div>
+          <h1>🎨 The Advanced Sketch & Visual Art Platform</h1>
+          <p class="hero-sub"><em>“See More. Choose More. Create More.”</em></p>
 
-  <!-- HERO -->
-  <section class="platform-hero">
-    <p class="kicker">Platform</p>
-    <h1>🎨 THE ADVANCED SKETCH &amp; VISUAL ART PLATFORM</h1>
-    <p class="small">See More. Choose More. Create More.</p>
+          <p class="hero-sub">
+            Great artists aren’t defined by technique alone. They’re defined by <b>visual judgment</b>—the ability to
+            see, simplify, stylize, and communicate something real. This platform is designed to challenge Luke not to
+            draw better—but to draw with <b>voice</b>.
+          </p>
 
-    <div class="hero-art">
-      <div class="hero-panel">
-        <h2>Executive Summary</h2>
-        <p>
-          Great artists aren’t defined by technique alone. They’re defined by how they see.
-          Luke already draws exceptionally well. This platform develops intentional vision,
-          confident choices, and a distinct artistic voice.
-        </p>
-
-        <div class="pillrow">
-          <div class="pill">Vision</div>
-          <div class="pill">Form</div>
-          <div class="pill">Light</div>
-          <div class="pill">Story</div>
-          <div class="pill">Style</div>
-          <div class="pill">Growth Loop</div>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="practice-grid">
-          <div class="practice"><strong>Daily</strong><p>Seeing studies (10 min).</p></div>
-          <div class="practice"><strong>2× / week</strong><p>Technique drill + reflection.</p></div>
-          <div class="practice"><strong>Weekly</strong><p>One signature piece.</p></div>
-        </div>
-      </div>
-
-      <div class="hero-media">
-        <img src="assets/img/art-hero.jpeg" alt="Art platform hero" />
-        <div class="overlay">
-          <div>
-            <strong>Visual-first modules</strong><br/>
-            <span style="opacity:.9;">Technique + intention</span>
+          <div class="hero-badges" role="list" aria-label="Core growth targets">
+            <span class="hero-badge" role="listitem"><b>Vision</b> & perception</span>
+            <span class="hero-badge" role="listitem"><b>Interpretation</b> & style</span>
+            <span class="hero-badge" role="listitem"><b>Risk</b> & experimentation</span>
+            <span class="hero-badge" role="listitem"><b>Story</b> & composition</span>
           </div>
-          <a class="btn-mini" href="#module-1-the-artists-eye-leveling-up-visual-perception">Start Module 1 →</a>
         </div>
+
+        <aside class="art-hero-card" aria-label="What this platform builds">
+          <h3>What this platform builds</h3>
+          <ul>
+            <li>Advanced observation and visual simplification</li>
+            <li>Intentional lines, edges, values, and shapes</li>
+            <li>Stylization that stays grounded in structure</li>
+            <li>Composition and visual storytelling choices</li>
+            <li>A repeatable growth loop that compounds</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- MODULES -->
+    <div class="section-head section-head--art">
+      <div>
+        <h2>Modules</h2>
+        <p>Each module introduces one advanced artistic “superpower” with exercises, thinking tools, and curated resources.</p>
       </div>
     </div>
-  </section>
 
-  <!-- CONTENT CONTINUES UNCHANGED -->
-</main>
+    <section class="modules-grid" aria-label="Art modules list">
+
+      <!-- MODULE 1 -->
+      <article class="module-card">
+        <div class="module-card__inner">
+          <div class="module-card__content">
+            <div class="module-top">
+              <h3>The Artist’s Eye — Leveling Up Visual Perception</h3>
+              <div class="module-num">Module 01</div>
+            </div>
+
+            <div class="module-pill"><b>Core Principle:</b> Great drawing begins with better seeing.</div>
+
+            <div class="module-cols">
+              <div class="module-box">
+                <h4>Exercises</h4>
+                <ul>
+                  <li>10-minute “visual scan” sketches: draw only the biggest shapes you see.</li>
+                  <li>Thumbnail 5 objects as 3–5 simple shapes each (no details).</li>
+                  <li>Pick a reference and reduce it into <b>10–12 shapes</b> (then redraw from memory).</li>
+                </ul>
+              </div>
+              <div class="module-box">
+                <h4>Thinking Tool</h4>
+                <ul>
+                  <li>Ask: “What is the <b>biggest truth</b> I can capture first?”</li>
+                  <li>Prioritize structure and silhouette before texture and detail.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="resource-row">
+              <a class="resource-link" href="https://ctrlpaint.myshopify.com/collections/free" target="_blank" rel="noopener">Key Resource: Ctrl+Paint Foundations</a>
+            </div>
+          </div>
+
+          <div class="module-media">
+            <div class="video-shell">
+              <div class="ratio">
+                <!-- Ctrl+Paint is not reliably embeddable; use a stable “how to see” video -->
+                <iframe
+                  src="https://www.youtube.com/embed/8FzHV2h29zE"
+                  title="Building Your Visual Library — The Human Head (visual perception)"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">Optional: a strong “how to see” lesson for building visual library. :contentReference[oaicite:0]{index=0}</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- MODULE 2 -->
+      <article class="module-card">
+        <div class="module-card__inner">
+          <div class="module-card__content">
+            <div class="module-top">
+              <h3>Line Mastery — Intentional, Expressive, Controlled</h3>
+              <div class="module-num">Module 02</div>
+            </div>
+
+            <div class="module-pill"><b>Core Principle:</b> Advanced artists don’t draw lines. They choose them.</div>
+
+            <div class="module-cols">
+              <div class="module-box">
+                <h4>Focus areas</h4>
+                <ul>
+                  <li>Line weight for emotional effect</li>
+                  <li>Edge hierarchy (lost edges vs. found edges)</li>
+                  <li>Stylization through exaggeration</li>
+                  <li>The “Confidence Arc” technique</li>
+                </ul>
+              </div>
+              <div class="module-box">
+                <h4>Exercise</h4>
+                <ul>
+                  <li>Draw the same face using only thin lines, then only thick lines.</li>
+                  <li>Do a “no sketch” pass: commit lines once, slowly, with intention.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="resource-row">
+              <a class="resource-link" href="https://www.youtube.com/watch?v=wgDNDOKnArk" target="_blank" rel="noopener">Key Resource: Line Control Lesson</a>
+            </div>
+          </div>
+
+          <div class="module-media">
+            <div class="video-shell">
+              <div class="ratio">
+                <iframe
+                  src="https://www.youtube.com/embed/wgDNDOKnArk"
+                  title="Line mastery — intentional line control"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">Line mastery (embed). (From the curriculum doc.)</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- MODULE 3 -->
+      <article class="module-card">
+        <div class="module-card__inner">
+          <div class="module-card__content">
+            <div class="module-top">
+              <h3>Form Fluency — Making Drawings Look 3D Instantly</h3>
+              <div class="module-num">Module 03</div>
+            </div>
+
+            <div class="module-pill"><b>Core Principle:</b> If you can simplify form, you can draw anything.</div>
+
+            <div class="module-cols">
+              <div class="module-box">
+                <h4>Exercises</h4>
+                <ul>
+                  <li>Turn objects into basic volumes: box, cylinder, sphere.</li>
+                  <li>Draw the same form at 3 rotations (front / 3/4 / side).</li>
+                  <li>Build heads from simple planes before details.</li>
+                </ul>
+              </div>
+              <div class="module-box">
+                <h4>Habit</h4>
+                <ul>
+                  <li>Ask: “What 3D form is this, underneath the surface?”</li>
+                  <li>Use contour + cross-contour to “wrap” the form.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="resource-row">
+              <a class="resource-link" href="https://www.youtube.com/@moderndayjames" target="_blank" rel="noopener">Key Resource: ModernDayJames (Channel)</a>
+            </div>
+          </div>
+
+          <div class="module-media">
+            <div class="video-shell">
+              <div class="ratio">
+                <!-- Use a single embeddable MDJ-style “learn strategically” video -->
+                <iframe
+                  src="https://www.youtube.com/embed/sXgaNuxf1vk"
+                  title="Learn Art Tactically — practice strategy"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">Practice strategy to build form fluency. :contentReference[oaicite:1]{index=1}</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- MODULE 4 -->
+      <article class="module-card">
+        <div class="module-card__inner">
+          <div class="module-card__content">
+            <div class="module-top">
+              <h3>Shading Intelligence — Light as Design, Not Accuracy</h3>
+              <div class="module-num">Module 04</div>
+            </div>
+
+            <div class="module-pill"><b>Core Principle:</b> Values create clarity. Clarity creates impact.</div>
+
+            <div class="module-cols">
+              <div class="module-box">
+                <h4>Exercises</h4>
+                <ul>
+                  <li>3-value studies (light / mid / dark) from photo reference.</li>
+                  <li>Paint/draw the same subject with <b>two</b> different lighting setups.</li>
+                  <li>Squint test: does the subject read clearly from far away?</li>
+                </ul>
+              </div>
+              <div class="module-box">
+                <h4>Thinking tool</h4>
+                <ul>
+                  <li>“Value hierarchy”: what deserves contrast, what stays quiet?</li>
+                  <li>Design the light to support the focal point.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="resource-row">
+              <a class="resource-link" href="https://www.youtube.com/watch?v=V3WmrWUEIJo" target="_blank" rel="noopener">Key Resource: Shading & Value Design</a>
+            </div>
+          </div>
+
+          <div class="module-media">
+            <div class="video-shell">
+              <div class="ratio">
+                <iframe
+                  src="https://www.youtube.com/embed/V3WmrWUEIJo"
+                  title="Shading Intelligence — light as design"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">Shading intelligence (embed). (From the curriculum doc.)</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- MODULE 5 (FIXED EMBED) -->
+      <article class="module-card">
+        <div class="module-card__inner">
+          <div class="module-card__content">
+            <div class="module-top">
+              <h3>Character & Portrait Stylization — Beyond Accuracy</h3>
+              <div class="module-num">Module 05</div>
+            </div>
+
+            <div class="module-pill"><b>Core Principle:</b> Stylization is structure + choice, not distortion.</div>
+
+            <div class="module-cols">
+              <div class="module-box">
+                <h4>Exercises</h4>
+                <ul>
+                  <li>Draw a portrait three ways: realistic, simplified, and stylized.</li>
+                  <li>Pick 3 features to exaggerate (and 3 to simplify).</li>
+                  <li>Do “shape-language” studies: round vs. angular vs. tapered.</li>
+                </ul>
+              </div>
+              <div class="module-box">
+                <h4>Thinking tool</h4>
+                <ul>
+                  <li>Ask: “What’s the <b>identity</b> of this face?”</li>
+                  <li>Keep landmarks true, then stylize rhythm + proportion.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="resource-row">
+              <a class="resource-link" href="https://www.youtube.com/watch?v=H8yu29x831Q" target="_blank" rel="noopener">Key Resource: Stylized Portrait Technique</a>
+            </div>
+          </div>
+
+          <div class="module-media">
+            <div class="video-shell">
+              <div class="ratio">
+                <iframe
+                  src="https://www.youtube.com/embed/H8yu29x831Q"
+                  title="Stylized Portrait Drawing Tutorial"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">Replaced the non-embeddable/broken Module 5 link with a stable portrait stylization tutorial. :contentReference[oaicite:2]{index=2}</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- MODULE 6 -->
+      <article class="module-card">
+        <div class="module-card__inner">
+          <div class="module-card__content">
+            <div class="module-top">
+              <h3>Composition & Visual Storytelling — The Artist as Director</h3>
+              <div class="module-num">Module 06</div>
+            </div>
+
+            <div class="module-pill"><b>Core Principle:</b> Composition is the choreography of attention.</div>
+
+            <div class="module-cols">
+              <div class="module-box">
+                <h4>Exercises</h4>
+                <ul>
+                  <li>10 thumbnails: one idea, 10 different compositions.</li>
+                  <li>Use 3 focal tools: contrast, framing, leading lines.</li>
+                  <li>“Camera” practice: crop and zoom to change emotion.</li>
+                </ul>
+              </div>
+              <div class="module-box">
+                <h4>Thinking tool</h4>
+                <ul>
+                  <li>Ask: “What do I want the viewer to feel first?”</li>
+                  <li>Build a clear focal point, then support it.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="resource-row">
+              <a class="resource-link" href="https://www.youtube.com/watch?v=O8i7OKbWmRM" target="_blank" rel="noopener">Key Resource: Composition Lesson</a>
+            </div>
+          </div>
+
+          <div class="module-media">
+            <div class="video-shell">
+              <div class="ratio">
+                <iframe
+                  src="https://www.youtube.com/embed/O8i7OKbWmRM"
+                  title="Composition & Visual Storytelling"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">Composition & storytelling (embed). (From the curriculum doc.)</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- MODULE 7 (FIXED EMBED) -->
+      <article class="module-card">
+        <div class="module-card__inner">
+          <div class="module-card__content">
+            <div class="module-top">
+              <h3>Style Development — Becoming More “Luke”</h3>
+              <div class="module-num">Module 07</div>
+            </div>
+
+            <div class="module-pill"><b>Core Principle:</b> Style is consistency of choices over time.</div>
+
+            <div class="module-cols">
+              <div class="module-box">
+                <h4>Exercises</h4>
+                <ul>
+                  <li>Make a 12-image “style board” of what you love.</li>
+                  <li>Draw one subject 5 ways (shape language shifts each time).</li>
+                  <li>Pick 3 “rules” and apply them for a week (then break one).</li>
+                </ul>
+              </div>
+              <div class="module-box">
+                <h4>Thinking tool</h4>
+                <ul>
+                  <li>Track your recurring choices: shapes, edges, simplification, mood.</li>
+                  <li>Ask: “What do I want my drawings to <b>feel</b> like?”</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="resource-row">
+              <a class="resource-link" href="https://www.youtube.com/watch?v=sXgaNuxf1vk" target="_blank" rel="noopener">Key Resource: Practice & Style Strategy</a>
+            </div>
+          </div>
+
+          <div class="module-media">
+            <div class="video-shell">
+              <div class="ratio">
+                <iframe
+                  src="https://www.youtube.com/embed/sXgaNuxf1vk"
+                  title="Learn Art Tactically — build style through strategy"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">Replaced the broken Module 7 embed with a stable “how to practice / build style” lesson. :contentReference[oaicite:3]{index=3}</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- MODULE 8 (FIXED EMBED: PLAYLIST) -->
+      <article class="module-card">
+        <div class="module-card__inner">
+          <div class="module-card__content">
+            <div class="module-top">
+              <h3>Advanced Anatomy — The Artist’s Superpower</h3>
+              <div class="module-num">Module 08</div>
+            </div>
+
+            <div class="module-pill"><b>Core Principle:</b> Anatomy is not memorization—it’s understanding structure.</div>
+
+            <div class="module-cols">
+              <div class="module-box">
+                <h4>Exercises</h4>
+                <ul>
+                  <li>Hands: 10 quick gesture hands + 2 slow structure hands.</li>
+                  <li>Torso: ribcage + pelvis as simple forms, then connect.</li>
+                  <li>Pick one body part per week (repeat for 4 weeks).</li>
+                </ul>
+              </div>
+              <div class="module-box">
+                <h4>Thinking tool</h4>
+                <ul>
+                  <li>Learn “landmarks” (bony points) first—then muscles.</li>
+                  <li>Think in simple forms under the surface.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="resource-row">
+              <a class="resource-link" href="https://www.youtube.com/playlist?list=PLtG4P3lq8RHFBeVaruf2JjyQmZJH4__Zv" target="_blank" rel="noopener">Key Resource: Proko Anatomy Playlist</a>
+            </div>
+          </div>
+
+          <div class="module-media">
+            <div class="video-shell">
+              <div class="ratio">
+                <iframe
+                  src="https://www.youtube.com/embed/videoseries?list=PLtG4P3lq8RHFBeVaruf2JjyQmZJH4__Zv"
+                  title="Anatomy for Artists — Playlist"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">Replaced the broken Module 8 embed with a reliable anatomy playlist embed. :contentReference[oaicite:4]{index=4}</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- MODULE 9 (FIXED EMBED) -->
+      <article class="module-card">
+        <div class="module-card__inner">
+          <div class="module-card__content">
+            <div class="module-top">
+              <h3>Creative Risk-Taking — Break Your Own Rules</h3>
+              <div class="module-num">Module 09</div>
+            </div>
+
+            <div class="module-pill"><b>Core Principle:</b> Growth happens when you risk being bad on purpose.</div>
+
+            <div class="module-cols">
+              <div class="module-box">
+                <h4>Exercises</h4>
+                <ul>
+                  <li>Do 5 “ugly drawings” fast—then pick 1 to refine seriously.</li>
+                  <li>Limit yourself to 2 values or 3 shapes only.</li>
+                  <li>Make one drawing where the goal is “weird but clear.”</li>
+                </ul>
+              </div>
+              <div class="module-box">
+                <h4>Thinking tool</h4>
+                <ul>
+                  <li>Ask: “What am I afraid to try—and why?”</li>
+                  <li>Separate “identity” from “output.” The drawing is data.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="resource-row">
+              <a class="resource-link" href="https://www.youtube.com/watch?v=yOIaI3Q_8UQ" target="_blank" rel="noopener">Key Resource: Drawfee “Choose Your Own Adventure”</a>
+            </div>
+          </div>
+
+          <div class="module-media">
+            <div class="video-shell">
+              <div class="ratio">
+                <iframe
+                  src="https://www.youtube.com/embed/yOIaI3Q_8UQ"
+                  title="Drawfee Break — Choose Your Own Adventure"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">Replaced the non-embeddable Module 9 channel link with a stable Drawfee episode embed. :contentReference[oaicite:5]{index=5}</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- MODULE 10 (FIXED EMBED) -->
+      <article class="module-card">
+        <div class="module-card__inner">
+          <div class="module-card__content">
+            <div class="module-top">
+              <h3>The Artist’s Growth Loop — Your Personal Evolution Engine</h3>
+              <div class="module-num">Module 10</div>
+            </div>
+
+            <div class="module-pill"><b>Core Principle:</b> Consistent feedback loops create inevitable improvement.</div>
+
+            <div class="module-cols">
+              <div class="module-box">
+                <h4>The loop</h4>
+                <ul>
+                  <li><b>Input:</b> study one skill intentionally</li>
+                  <li><b>Output:</b> create something real (small is fine)</li>
+                  <li><b>Review:</b> identify 1–2 specific improvements</li>
+                  <li><b>Repeat:</b> apply the fix immediately in the next piece</li>
+                </ul>
+              </div>
+              <div class="module-box">
+                <h4>Weekly system</h4>
+                <ul>
+                  <li>2 short studies + 1 “finished” piece</li>
+                  <li>1 mini critique: what worked / what didn’t / what’s next</li>
+                  <li>Track one metric: value clarity, proportion accuracy, gesture energy, etc.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="resource-row">
+              <a class="resource-link" href="https://www.youtube.com/watch?v=nJkqeaDqXdk" target="_blank" rel="noopener">Key Resource: Practice Effectively</a>
+            </div>
+          </div>
+
+          <div class="module-media">
+            <div class="video-shell">
+              <div class="ratio">
+                <iframe
+                  src="https://www.youtube.com/embed/nJkqeaDqXdk"
+                  title="How to Practice Effectively (art growth loop)"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">Added a stable “how to practice” embed to anchor the growth loop. :contentReference[oaicite:6]{index=6}</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <div class="art-footer-note" role="note">
+      <b>Tip:</b> If any video ever fails again, switch the iframe URL to the “embed” format:
+      <span style="white-space:nowrap;">https://www.youtube.com/embed/VIDEO_ID</span>
+      (and for playlists use <span style="white-space:nowrap;">/embed/videoseries?list=PLAYLIST_ID</span>).
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p style="margin:0; opacity:.8;">© Luke’s Leadership Platform</p>
+    </div>
+  </footer>
 </body>
 </html>
