@@ -1,7 +1,13 @@
-/* ================================
-   Platforms (Ralph Lauren feel)
+/* =========================================================
+   platforms.css — PLATFORMS (Ralph Lauren feel)
    Scoped to body.platform
-================================= */
+
+   Goals:
+   - Reliable shell + TOC + content spacing
+   - Premium dark background, consistent typography
+   - Platform layout matches your best pages (IF/Business)
+   - No truncation / no broken rules
+========================================================= */
 
 :root{
   --rl-navy:#0b1226;
@@ -43,7 +49,6 @@ body.platform .topbar{
 body.platform .nav .brand .mark{
   letter-spacing: .22em;
 }
-
 body.platform .nav .brand .tag{
   opacity:.78;
 }
@@ -55,12 +60,10 @@ body.platform .nav .links a{
   padding: 8px 12px;
   transition: background .15s ease, border-color .15s ease, color .15s ease;
 }
-
 body.platform .nav .links a:hover{
   background: rgba(255,255,255,.04);
   border-color: rgba(246,241,230,.10);
 }
-
 body.platform .nav .links a.active,
 body.platform .nav .links a[aria-current="page"]{
   border-color: var(--rl-gold-soft);
@@ -68,7 +71,9 @@ body.platform .nav .links a[aria-current="page"]{
   background: rgba(201,163,73,.06);
 }
 
-/* Hero */
+/* ---------------------------------------------------------
+   Hero
+--------------------------------------------------------- */
 .platform-hero{
   padding: 34px 0 18px;
 }
@@ -98,7 +103,9 @@ body.platform .nav .links a[aria-current="page"]{
   font-family: var(--rl-sans);
 }
 
-/* Layout */
+/* ---------------------------------------------------------
+   Shell Layout
+--------------------------------------------------------- */
 .platform-shell{
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -110,7 +117,9 @@ body.platform .nav .links a[aria-current="page"]{
   .platform-shell{ grid-template-columns: 1fr; }
 }
 
-/* TOC */
+/* ---------------------------------------------------------
+   TOC
+--------------------------------------------------------- */
 .platform-toc{
   position: sticky;
   top: 92px;
@@ -133,10 +142,103 @@ body.platform .nav .links a[aria-current="page"]{
 
 .platform-toc a{
   display:block;
-  text-decoration:none;
-  color: rgba(246,241
+  padding: 9px 10px;
+  border-radius: 12px;
+  color: rgba(246,241,230,.86);
+  border: 1px solid transparent;
+  margin: 2px 0;
+  transition: background .15s ease, border-color .15s ease, transform .15s ease;
+}
 
-      /* Entrepreneurship — Leader bands (IF-style) */
+.platform-toc a:hover{
+  background: rgba(255,255,255,.04);
+  border-color: rgba(246,241,230,.10);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------
+   Main Content Area
+--------------------------------------------------------- */
+.platform-main{
+  border-radius: var(--rl-radius2);
+  border: 1px solid rgba(246,241,230,.10);
+  background: rgba(255,255,255,.02);
+  box-shadow: var(--rl-shadow);
+  padding: 16px 16px 18px;
+}
+
+.platform-main h2{
+  font-family: var(--rl-serif);
+  letter-spacing: -0.01em;
+  margin: 8px 0 10px;
+}
+
+.platform-main p{
+  color: var(--rl-muted);
+  margin: 0 0 12px;
+}
+
+/* Make anchor jumps not hide under sticky nav */
+.platform-main [id]{
+  scroll-margin-top: 96px;
+}
+
+/* ---------------------------------------------------------
+   Content Blocks + sections spacing
+--------------------------------------------------------- */
+.platform-main .module,
+.platform-main section.module{
+  margin: 14px 0;
+}
+
+.platform-main .module-head{
+  margin-bottom: 12px;
+}
+
+/* ---------------------------------------------------------
+   Nice end-of-page nav (if present)
+--------------------------------------------------------- */
+.platform-endcap{
+  display:flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(246,241,230,.10);
+}
+
+.platform-endcap a{
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(246,241,230,.14);
+  background: rgba(255,255,255,.04);
+  transition: background .15s ease, border-color .15s ease, transform .15s ease;
+}
+
+.platform-endcap a:hover{
+  background: rgba(255,255,255,.07);
+  border-color: rgba(246,241,230,.22);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------
+   Responsive tweaks
+--------------------------------------------------------- */
+@media (max-width: 980px){
+  .platform-toc{
+    position: relative;
+    top: auto;
+  }
+  .platform-main{
+    padding: 14px 14px 16px;
+  }
+}
+
+/* =========================================================
+   OPTIONAL: Entrepreneurship “leader band”
+   (Safe to keep here, but best moved to entrepreneurship.html
+    page-only <style> if you prefer)
+========================================================= */
 .leader-band{
   margin: 16px 0 26px;
   padding: 14px 14px 12px;
@@ -186,15 +288,11 @@ body.platform .nav .links a[aria-current="page"]{
   box-shadow: 0 10px 22px rgba(0,0,0,.12);
 }
 
-.leader-meta{
-  min-width: 0;
-}
-
+.leader-meta{ min-width: 0; }
 .leader-meta .name{
   font-weight: 700;
   line-height: 1.1;
 }
-
 .leader-meta .role{
   font-size: .92rem;
   opacity: .78;
@@ -206,4 +304,3 @@ body.platform .nav .links a[aria-current="page"]{
   .leader-grid{ grid-template-columns: 1fr; }
   .leader-card img{ width: 68px; height: 68px; }
 }
-        
