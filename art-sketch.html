@@ -4,8 +4,195 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>🎨 THE ADVANCED SKETCH & VISUAL ART PLATFORM | Luke</title>
+
+  <!-- Global site CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/platforms.css" />
+
+  <!-- Page-only polish (keeps your global system intact) -->
+  <style>
+    /* =============== ART PLATFORM ENHANCEMENTS (page-only) =============== */
+    .hero-art{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:22px;
+      align-items:stretch;
+      padding:26px;
+      border-radius:18px;
+      background: linear-gradient(180deg, rgba(246,241,230,.72), rgba(246,241,230,.35));
+      border: 1px solid rgba(10,15,31,.10);
+      box-shadow: 0 14px 40px rgba(10,15,31,.06);
+      margin: 10px 0 18px;
+    }
+    .hero-art h1{margin:8px 0 10px;}
+    .hero-art .sub{opacity:.82; margin:0 0 12px; max-width: 62ch;}
+    .hero-art .pillrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid rgba(10,15,31,.14);
+      background: rgba(255,255,255,.65);
+      font-size:.92rem;
+      opacity:.95;
+    }
+    .hero-media{
+      position:relative;
+      border-radius:16px;
+      overflow:hidden;
+      border: 1px solid rgba(10,15,31,.12);
+      background: rgba(10,15,31,.06);
+      min-height: 260px;
+    }
+    .hero-media img{
+      width:100%; height:100%;
+      object-fit:cover;
+      transform: scale(1.02);
+      filter: saturate(1.02) contrast(1.02);
+    }
+    .hero-media .overlay{
+      position:absolute; inset:auto 0 0 0;
+      padding:12px 12px 12px;
+      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.55));
+      color:#fff;
+      font-size:.92rem;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:flex-end;
+    }
+    .btn-mini{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.35);
+      background: rgba(255,255,255,.12);
+      color:#fff;
+      font-weight:600;
+      white-space:nowrap;
+    }
+
+    .module{
+      padding:18px;
+      border-radius:16px;
+      border:1px solid rgba(10,15,31,.12);
+      background: rgba(255,255,255,.55);
+      box-shadow: 0 10px 28px rgba(10,15,31,.05);
+      margin: 14px 0;
+    }
+    .module-head{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+      margin-bottom:12px;
+    }
+    .module-head h2{margin:0;}
+    .module-kicker{
+      opacity:.75;
+      font-size:.92rem;
+      margin:2px 0 0;
+    }
+    .module-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:16px;
+      align-items:start;
+    }
+
+    .callout{
+      border-radius:14px;
+      border:1px solid rgba(10,15,31,.12);
+      background: rgba(246,241,230,.55);
+      padding:12px 12px;
+    }
+    .callout h3{margin:0 0 8px; font-size:1rem;}
+    .callout ul{margin:0; padding-left:18px;}
+    .callout li{margin:6px 0; opacity:.92;}
+
+    .media-stack{display:grid; gap:12px;}
+    .thumb{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(10,15,31,.12);
+      background: rgba(10,15,31,.06);
+    }
+    .thumb img{width:100%; height:210px; object-fit:cover; display:block;}
+
+    .video{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(10,15,31,.12);
+      background:#000;
+      position:relative;
+      aspect-ratio: 16/9;
+    }
+    .video iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:0;
+    }
+
+    .links-row{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:10px;
+    }
+    .linkchip{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:9px 10px; border-radius:12px;
+      border:1px solid rgba(10,15,31,.12);
+      background: rgba(255,255,255,.65);
+      font-weight:600;
+      font-size:.92rem;
+      opacity:.95;
+    }
+    .linkchip span{opacity:.7; font-weight:600;}
+    .small{opacity:.78; font-size:.95rem;}
+
+    .practice-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    .practice{
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(10,15,31,.10);
+      background: rgba(255,255,255,.62);
+      min-height: 96px;
+    }
+    .practice strong{display:block; margin-bottom:6px;}
+    .practice p{margin:0; opacity:.82; line-height:1.35;}
+
+    .divider{
+      height:1px;
+      background: rgba(10,15,31,.10);
+      margin: 12px 0;
+    }
+
+    details.tech{
+      margin-top:12px;
+      border-radius:14px;
+      border:1px solid rgba(10,15,31,.12);
+      background: rgba(255,255,255,.60);
+      padding:10px 12px;
+    }
+    details.tech summary{
+      cursor:pointer;
+      font-weight:800;
+      list-style:none;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+    }
+    details.tech summary::-webkit-details-marker{display:none;}
+    details.tech .tech-body{margin-top:10px; opacity:.88;}
+    details.tech .tech-body ul{margin:0; padding-left:18px;}
+    details.tech .tech-body li{margin:6px 0;}
+
+    @media (max-width: 980px){
+      .hero-art{grid-template-columns:1fr;}
+      .module-grid{grid-template-columns:1fr;}
+      .practice-grid{grid-template-columns:1fr;}
+      .thumb img{height:220px;}
+    }
+  </style>
 </head>
 
 <body class="platform">
@@ -32,47 +219,739 @@
   </header>
 
   <main class="container">
+    <!-- HERO (elevated + visual) -->
     <section class="platform-hero">
       <p class="kicker">Platform</p>
-      <h1>🎨 THE ADVANCED SKETCH & VISUAL ART PLATFORM</h1>
-      <p>Full platform content preserved from the Word documents — redesigned for clarity, navigation, and a classic Ralph Lauren feel.</p>
+      <h1>🎨 THE ADVANCED SKETCH &amp; VISUAL ART PLATFORM</h1>
+      <p class="small">See More. Choose More. Create More. A redesigned, visual-first platform with embedded technique videos and practice prompts.</p>
+
+      <!-- NOTE: Drop an image here (recommended name below). If you don’t have it yet, keep the placeholder. -->
+      <!-- Recommended image: assets/img/art-hero.jpeg -->
+      <div class="hero-art">
+        <div>
+          <h2 style="margin:0 0 8px;">Executive Summary</h2>
+          <p class="sub">
+            Great artists aren’t defined by technique alone. They’re defined by how they see.
+            Luke already draws well — exceptionally well. The next phase is about drawing
+            more intentionally, more boldly, and with a clear artistic identity.
+          </p>
+
+          <div class="pillrow">
+            <div class="pill">👁️ Vision &amp; perception</div>
+            <div class="pill">✍️ Line &amp; edge control</div>
+            <div class="pill">🧊 Form &amp; 3D thinking</div>
+            <div class="pill">🌗 Light &amp; values</div>
+            <div class="pill">🎭 Stylization</div>
+            <div class="pill">🎬 Story &amp; composition</div>
+            <div class="pill">🧠 Growth loop</div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="practice-grid">
+            <div class="practice">
+              <strong>Daily (10 min)</strong>
+              <p>One “seeing” study: simplify a real object into 10–12 shapes.</p>
+            </div>
+            <div class="practice">
+              <strong>2×/week (25 min)</strong>
+              <p>One focused technique drill (line, form, shading) + a quick reflection.</p>
+            </div>
+            <div class="practice">
+              <strong>Weekly (45–60 min)</strong>
+              <p>One “signature piece” combining multiple modules (story + design).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <img src="assets/img/art-hero.jpeg" alt="Advanced sketch & visual art hero image" />
+          <div class="overlay">
+            <div>
+              <div style="font-weight:800;">Visual-first modules</div>
+              <div style="opacity:.9;">Images + embedded technique videos</div>
+            </div>
+            <a class="btn-mini" href="#module-1-the-artists-eye-leveling-up-visual-perception">Start Module 1 →</a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="platform-shell">
+      <!-- TOC -->
       <aside class="platform-toc">
         <div class="toc-title">On this page</div>
-            <a href="#the-advanced-sketch-visual-art-platform">🎨 THE ADVANCED SKETCH & VISUAL ART PLATFORM</a>
-            <a href="#module-1-the-artists-eye-leveling-up-visual-perception">Module 1: The Artist’s Eye — Leveling Up Visual Perception</a>
-            <a href="#module-2-line-mastery-intentional-expressive-controlled">Module 2: Line Mastery — Intentional, Expressive, Controlled</a>
-            <a href="#module-3-form-fluency-making-drawings-look-3d-instantly">Module 3: Form Fluency — Making Drawings Look 3D Instantly</a>
-            <a href="#module-4-shading-intelligence-light-as-design-not-accuracy">Module 4: Shading Intelligence — Light as Design, Not Accuracy</a>
-            <a href="#module-5-character-portrait-stylization-beyond-accuracy">Module 5: Character & Portrait Stylization — Beyond Accuracy</a>
-            <a href="#module-6-composition-visual-storytelling-the-artist-as-director">Module 6: Composition & Visual Storytelling — The Artist as Director</a>
-            <a href="#module-7-style-development-becoming-more-luke">Module 7: Style Development — Becoming More “Luke”</a>
-            <a href="#module-8-advanced-anatomy-the-artists-superpower">Module 8: Advanced Anatomy — The Artist’s Superpower</a>
-            <a href="#module-9-creative-risk-taking-break-your-own-rules">Module 9: Creative Risk-Taking — Break Your Own Rules</a>
-            <a href="#module-10-the-artists-growth-loop-your-personal-evolution-engine">Module 10: The Artist’s Growth Loop — Your Personal Evolution Engine</a>
+        <a href="#the-advanced-sketch-visual-art-platform">🎨 THE ADVANCED SKETCH &amp; VISUAL ART PLATFORM</a>
+        <a href="#module-1-the-artists-eye-leveling-up-visual-perception">Module 1: The Artist’s Eye</a>
+        <a href="#module-2-line-mastery-intentional-expressive-controlled">Module 2: Line Mastery</a>
+        <a href="#module-3-form-fluency-making-drawings-look-3d-instantly">Module 3: Form Fluency</a>
+        <a href="#module-4-shading-intelligence-light-as-design-not-accuracy">Module 4: Shading Intelligence</a>
+        <a href="#module-5-character-portrait-stylization-beyond-accuracy">Module 5: Character &amp; Portrait Stylization</a>
+        <a href="#module-6-composition-visual-storytelling-the-artist-as-director">Module 6: Composition &amp; Visual Storytelling</a>
+        <a href="#module-7-style-development-becoming-more-luke">Module 7: Style Development</a>
+        <a href="#module-8-advanced-anatomy-the-artists-superpower">Module 8: Advanced Anatomy</a>
+        <a href="#module-9-creative-risk-taking-break-your-own-rules">Module 9: Creative Risk-Taking</a>
+        <a href="#module-10-the-artists-growth-loop-your-personal-evolution-engine">Module 10: The Artist’s Growth Loop</a>
       </aside>
 
+      <!-- MAIN -->
       <article class="platform-main">
-        
-<h2 id="the-advanced-sketch-visual-art-platform">🎨 THE ADVANCED SKETCH &amp; VISUAL ART PLATFORM</h2><p>“See More. Choose More. Create More.”</p><p>Executive Summary</p><p>Great artists aren’t defined by technique alone. They’re defined by how they see.
-Luke already draws well — exceptionally well. He has control, instinct, line fluency, observational strength, and personal style emerging early.</p><p>The next phase of artistic growth is different. It’s about:</p><p>Vision</p><p>Interpretation</p><p>Style development</p><p>Risk</p><p>Experimentation</p><p>Refinement</p><p>Visual storytelling</p><p>Advanced decision-making</p><p>This platform is designed to challenge Luke not to draw better, but to draw more intentionally, more boldly, and with the kind of artistic identity that turns skill into voice.</p><p>Each module introduces one advanced artistic superpower, with exercises, thinking tools, and curated resource links.</p><h2 id="module-1-the-artists-eye-leveling-up-visual-perception">Module 1: The Artist’s Eye — Leveling Up Visual Perception</h2><p>Core Principle: You don’t draw what you see. You draw what you notice.</p><h3>What This Module Builds</h3><p>Shape recognition at a higher level</p><p>Light hierarchy (what matters most in a scene)</p><p>Complexity → simplification → re-complexification</p><p>Artistic decision-making</p><h3>Challenge Exercise</h3><p>Pick a complex object (shoe, mechanical part, bicycle gear).
-Draw it three times:</p><p>hyper-detailed</p><p>simplified into 10–12 shapes</p><p>stylized version (your interpretation)</p><p>Key Resource</p><p>Ctrl+Paint: Foundations of Observation
-https://ctrlpaint.myshopify.com/collections/free</p><h2 id="module-2-line-mastery-intentional-expressive-controlled">Module 2: Line Mastery — Intentional, Expressive, Controlled</h2><p>Core Principle: Advanced artists don’t draw lines. They choose them.</p><p>Focus Areas</p><p>Line weight for emotional effect</p><p>Edge hierarchy (lost edges vs. found edges)</p><p>Stylization through exaggeration</p><p>The “Confidence Arc” technique</p><p>Exercise</p><p>Draw the same face using:</p><p>only thin lines</p><p>only thick lines</p><p>a mix of deliberate weight shifts</p><p>expressive exaggeration lines</p><p>Key Resource</p><p>Proko Line Quality Essentials
-https://www.youtube.com/watch?v=wgDNDOKnArk</p><h2 id="module-3-form-fluency-making-drawings-look-3d-instantly">Module 3: Form Fluency — Making Drawings Look 3D Instantly</h2><p>Core Principle: If you master form, you can draw anything.</p><p>What to Practice</p><p>Spheres, boxes, cylinders — but fused together into real objects</p><p>Compound curves</p><p>Dynamic perspective</p><p>Rotating forms mentally</p><p>Challenge</p><p>Pick an object. Draw it from 5 impossible camera angles.</p><p>Key Resource</p><p>Moderndayjames – Form &amp; Perspective
-https://www.youtube.com/@moderndayjames</p><h2 id="module-4-shading-intelligence-light-as-design-not-accuracy">Module 4: Shading Intelligence — Light as Design, Not Accuracy</h2><p>Core Principle: Light is not something you copy — it’s something you shape.</p><p>Skills</p><p>Value grouping (3-value and 5-value systems)</p><p>Creating depth through edges, not just shadows</p><p>Stylized lighting (anime, graphic novel, cinematic)</p><p>Light story: choosing where the viewer looks</p><p>Exercise</p><p>Take a sketch and re-light it three different ways:</p><p>Rembrandt</p><p>Underlighting (dramatic)</p><p>Hard graphic-style shadows</p><p>Key Resource</p><p>Marco Bucci – Understanding Light &amp; Shadow
-https://www.youtube.com/watch?v=V3WmrWUEIJo</p><h2 id="module-5-character-portrait-stylization-beyond-accuracy">Module 5: Character &amp; Portrait Stylization — Beyond Accuracy</h2><p>Core Principle: Accuracy is the floor — style is the ceiling.</p><p>Skills</p><p>Exaggeration for personality</p><p>Using shape language (round, square, triangle)</p><p>Expression construction</p><p>Caricature as a technical training tool</p><p>Designing faces, not copying faces</p><p>Challenge</p><p>Take a portrait of a real person.
-Draw:</p><p>A realistic version</p><p>A stylized version</p><p>A cartoon version</p><p>A caricature version</p><p>Study what changes you chose.</p><p>Key Resource</p><p>Sycra – Shape Language &amp; Stylization
-https://www.youtube.com/watch?v=I4nQfXulPl8</p><h2 id="module-6-composition-visual-storytelling-the-artist-as-director">Module 6: Composition &amp; Visual Storytelling — The Artist as Director</h2><p>Core Principle: Great art doesn’t show a moment — it tells a story.</p><p>Learn</p><p>Rule of thirds vs. dynamic composition</p><p>Focal points and visual flow</p><p>Shape arrangement for emotion</p><p>Using empty space with purpose</p><p>Challenge</p><p>Create a single sketch that:</p><p>has a clear focal point</p><p>uses depth intentionally</p><p>communicates a mood or story without text</p><p>Key Resource</p><p>Marco Bucci – Composition Basics
-https://www.youtube.com/watch?v=O8i7OKbWmRM</p><h2 id="module-7-style-development-becoming-more-luke">Module 7: Style Development — Becoming More “Luke”</h2><p>Core Principle: Style is not something you find. It’s something you accumulate.</p><p>How to Build Style</p><p>Study artists you love — steal their “verbs,” not their “nouns”</p><p>Create a visual signature (line, shading, shapes, proportions)</p><p>Refine through repetition</p><p>Keep a “style vault” — screenshots of work that inspires you</p><p>Challenge</p><p>Mash up two of your favorite artists (e.g., Miyazaki + Hergé, or Sargent + manga).
-See what new style emerges.</p><p>Key Resource</p><p>Trent Kaniuga – Finding Your Style
-https://www.youtube.com/watch?v=Y7LZ8N0yvYs</p><h2 id="module-8-advanced-anatomy-the-artists-superpower">Module 8: Advanced Anatomy — The Artist’s Superpower</h2><p>Core Principle: Anatomy isn’t about muscles — it’s about believability.</p><p>Skills</p><p>Gesture drawing</p><p>Action lines</p><p>Simplified manikins</p><p>Dynamic poses</p><p>Foreshortening mastery</p><p>Challenge</p><p>Draw 20 gesture poses in 20 minutes.
-Then redraw your 3 favorites, fully rendered.</p><p>Key Resource</p><p>Proko Anatomy Playlist
-https://www.youtube.com/playlist?list=PLtG4P3lq8RHGRzU6I4KLY9GL-X6Egh8OH</p><h2 id="module-9-creative-risk-taking-break-your-own-rules">Module 9: Creative Risk-Taking — Break Your Own Rules</h2><p>Core Principle: Skill grows in comfort. Creativity grows in risk.</p><p>Assignments</p><p>Draw with your non-dominant hand</p><p>Draw with one continuous line</p><p>Draw with no erasing allowed</p><p>Draw a subject you’ve avoided</p><p>Change your medium for 5 sketches</p><p>Why This Matters</p><p>Risk is where new styles, ideas, and techniques are born.</p><p>Key Resource</p><p>Drawfee &amp; Blind Contour Challenges (fun inspiration)
-https://www.youtube.com/@Drawfee</p><h2 id="module-10-the-artists-growth-loop-your-personal-evolution-engine">Module 10: The Artist’s Growth Loop — Your Personal Evolution Engine</h2><p>Core Principle: Improvement comes from iteration, not inspiration.</p><p>The Loop</p><p>Create something bold</p><p>Critique what works and what doesn’t</p><p>Refine intentionally</p><p>Rebuild with new choices</p><p>This is how artists mature.
-This is how style emerges.
-This is how voice forms.</p><h3>Key Takeaways</h3><p>Talent brought Luke this far. Intentionality will take him the rest of the way.</p><p>Advanced drawing is about choices, not correctness.</p><p>Style is built, not found.</p><p>Technique is the skeleton; storytelling is the soul.</p><p>Master artists simplify, exaggerate, and design reality.</p><p>Risk-taking is essential — fear is just fuel waiting to be used.</p><p>The artist’s identity is the real masterpiece.</p>
+        <h2 id="the-advanced-sketch-visual-art-platform">🎨 THE ADVANCED SKETCH &amp; VISUAL ART PLATFORM</h2>
+        <p><em>“See More. Choose More. Create More.”</em></p>
+
+        <div class="module">
+          <div class="module-head">
+            <div>
+              <h2 style="margin-bottom:6px;">What This Platform Builds</h2>
+              <p class="module-kicker">Not just better drawings — better choices.</p>
+            </div>
+          </div>
+
+          <div class="callout">
+            <h3>Growth Targets</h3>
+            <ul>
+              <li><strong>Vision:</strong> perception → simplification → intentional design.</li>
+              <li><strong>Interpretation:</strong> choosing what matters in a scene.</li>
+              <li><strong>Identity:</strong> developing a recognizable “Luke” signature.</li>
+              <li><strong>Risk:</strong> experiments that unlock new voice and technique.</li>
+              <li><strong>Story:</strong> images that communicate mood and meaning.</li>
+            </ul>
+          </div>
+
+          <details class="tech">
+            <summary>
+              How to use this page (simple workflow)
+              <span style="opacity:.7;">＋</span>
+            </summary>
+            <div class="tech-body">
+              <ul>
+                <li>Watch the short technique video(s) for the module.</li>
+                <li>Do the <strong>Challenge</strong> (one focused outcome).</li>
+                <li>Save 1–2 images of your best attempt (phone photo is fine).</li>
+                <li>Write 3 bullets: <em>what worked</em> / <em>what didn’t</em> / <em>one next tweak</em>.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+        <!-- ===================== MODULE 1 ===================== -->
+        <section class="module" id="module-1-the-artists-eye-leveling-up-visual-perception">
+          <div class="module-head">
+            <div>
+              <h2>Module 1: The Artist’s Eye — Leveling Up Visual Perception</h2>
+              <p class="module-kicker"><strong>Core Principle:</strong> You don’t draw what you see. You draw what you notice.</p>
+            </div>
+          </div>
+
+          <div class="module-grid">
+            <div>
+              <div class="callout">
+                <h3>What This Module Builds</h3>
+                <ul>
+                  <li>Shape recognition at a higher level</li>
+                  <li>Light hierarchy (what matters most in a scene)</li>
+                  <li>Complexity → simplification → re-complexification</li>
+                  <li>Artistic decision-making</li>
+                </ul>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="callout">
+                <h3>Challenge Exercise</h3>
+                <ul>
+                  <li>Pick a complex object (shoe, mechanical part, bicycle gear).</li>
+                  <li>Draw it three times:
+                    <ul>
+                      <li>hyper-detailed</li>
+                      <li>simplified into 10–12 shapes</li>
+                      <li>stylized version (your interpretation)</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="links-row">
+                <a class="linkchip" href="https://ctrlpaint.myshopify.com/collections/free" target="_blank" rel="noopener">
+                  <span>Resource:</span> Ctrl+Paint — Foundations of Observation
+                </a>
+              </div>
+
+              <details class="tech">
+                <summary>Optional: “Seeing” prompts for a week <span style="opacity:.7;">＋</span></summary>
+                <div class="tech-body">
+                  <ul>
+                    <li>Day 1: “Big shapes only” (no details).</li>
+                    <li>Day 2: “Edge hierarchy” (lost vs found edges).</li>
+                    <li>Day 3: “3 values only” (light / mid / dark).</li>
+                    <li>Day 4: “Design emphasis” (choose focal point).</li>
+                    <li>Day 5: “Stylize one attribute” (shape, angle, rhythm).</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <!-- Recommended image: assets/img/art-m1-observation.jpeg -->
+                <img src="assets/img/art-m1-observation.jpeg" alt="Observation & simplification reference image" />
+              </div>
+
+              <!-- Embed: Ctrl+Paint is a site; use a general observation video placeholder if you prefer.
+                   If you want a YouTube embed here later, swap the src with an embed link. -->
+              <div class="video" aria-label="Observation technique video placeholder">
+                <iframe
+                  src="https://www.youtube.com/embed/6T_-DiAzYBc"
+                  title="Observation drawing fundamentals (video)"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+
+              <p class="small">Tip: If you don’t love this specific video, keep the layout and swap the embed link later — the design stays consistent.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== MODULE 2 ===================== -->
+        <section class="module" id="module-2-line-mastery-intentional-expressive-controlled">
+          <div class="module-head">
+            <div>
+              <h2>Module 2: Line Mastery — Intentional, Expressive, Controlled</h2>
+              <p class="module-kicker"><strong>Core Principle:</strong> Advanced artists don’t draw lines. They choose them.</p>
+            </div>
+          </div>
+
+          <div class="module-grid">
+            <div>
+              <div class="callout">
+                <h3>Focus Areas</h3>
+                <ul>
+                  <li>Line weight for emotional effect</li>
+                  <li>Edge hierarchy (lost edges vs. found edges)</li>
+                  <li>Stylization through exaggeration</li>
+                  <li>The “Confidence Arc” technique</li>
+                </ul>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="callout">
+                <h3>Exercise</h3>
+                <ul>
+                  <li>Draw the same face using:
+                    <ul>
+                      <li>only thin lines</li>
+                      <li>only thick lines</li>
+                      <li>a mix of deliberate weight shifts</li>
+                      <li>expressive exaggeration lines</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="links-row">
+                <a class="linkchip" href="https://www.youtube.com/watch?v=wgDNDOKnArk" target="_blank" rel="noopener">
+                  <span>Watch:</span> Proko — Line Quality Essentials
+                </a>
+              </div>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <!-- Recommended image: assets/img/art-m2-line.jpeg -->
+                <img src="assets/img/art-m2-line.jpeg" alt="Line weight and edge control reference image" />
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/wgDNDOKnArk"
+                  title="Proko — Line Quality Essentials"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== MODULE 3 ===================== -->
+        <section class="module" id="module-3-form-fluency-making-drawings-look-3d-instantly">
+          <div class="module-head">
+            <div>
+              <h2>Module 3: Form Fluency — Making Drawings Look 3D Instantly</h2>
+              <p class="module-kicker"><strong>Core Principle:</strong> If you master form, you can draw anything.</p>
+            </div>
+          </div>
+
+          <div class="module-grid">
+            <div>
+              <div class="callout">
+                <h3>What to Practice</h3>
+                <ul>
+                  <li>Spheres, boxes, cylinders — fused into real objects</li>
+                  <li>Compound curves</li>
+                  <li>Dynamic perspective</li>
+                  <li>Rotating forms mentally</li>
+                </ul>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="callout">
+                <h3>Challenge</h3>
+                <ul>
+                  <li>Pick an object. Draw it from <strong>5 impossible camera angles</strong>.</li>
+                </ul>
+              </div>
+
+              <div class="links-row">
+                <a class="linkchip" href="https://www.youtube.com/@moderndayjames" target="_blank" rel="noopener">
+                  <span>Channel:</span> ModernDayJames — Form &amp; Perspective
+                </a>
+              </div>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <!-- Recommended image: assets/img/art-m3-form.jpeg -->
+                <img src="assets/img/art-m3-form.jpeg" alt="3D form and perspective reference image" />
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/2T7cDY7YDsg"
+                  title="Form and perspective practice (video)"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <p class="small">Swap this embed to any ModernDayJames episode you like — the layout stays clean.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== MODULE 4 ===================== -->
+        <section class="module" id="module-4-shading-intelligence-light-as-design-not-accuracy">
+          <div class="module-head">
+            <div>
+              <h2>Module 4: Shading Intelligence — Light as Design, Not Accuracy</h2>
+              <p class="module-kicker"><strong>Core Principle:</strong> Light is not something you copy — it’s something you shape.</p>
+            </div>
+          </div>
+
+          <div class="module-grid">
+            <div>
+              <div class="callout">
+                <h3>Skills</h3>
+                <ul>
+                  <li>Value grouping (3-value and 5-value systems)</li>
+                  <li>Creating depth through edges, not just shadows</li>
+                  <li>Stylized lighting (anime, graphic novel, cinematic)</li>
+                  <li>Light story: choosing where the viewer looks</li>
+                </ul>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="callout">
+                <h3>Exercise</h3>
+                <ul>
+                  <li>Take a sketch and re-light it three ways:
+                    <ul>
+                      <li>Rembrandt</li>
+                      <li>Underlighting (dramatic)</li>
+                      <li>Hard graphic-style shadows</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="links-row">
+                <a class="linkchip" href="https://www.youtube.com/watch?v=V3WmrWUEIJo" target="_blank" rel="noopener">
+                  <span>Watch:</span> Marco Bucci — Understanding Light &amp; Shadow
+                </a>
+              </div>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <!-- Recommended image: assets/img/art-m4-light.jpeg -->
+                <img src="assets/img/art-m4-light.jpeg" alt="Light and shadow reference image" />
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/V3WmrWUEIJo"
+                  title="Marco Bucci — Understanding Light & Shadow"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== MODULE 5 ===================== -->
+        <section class="module" id="module-5-character-portrait-stylization-beyond-accuracy">
+          <div class="module-head">
+            <div>
+              <h2>Module 5: Character &amp; Portrait Stylization — Beyond Accuracy</h2>
+              <p class="module-kicker"><strong>Core Principle:</strong> Accuracy is the floor — style is the ceiling.</p>
+            </div>
+          </div>
+
+          <div class="module-grid">
+            <div>
+              <div class="callout">
+                <h3>Skills</h3>
+                <ul>
+                  <li>Exaggeration for personality</li>
+                  <li>Using shape language (round, square, triangle)</li>
+                  <li>Expression construction</li>
+                  <li>Caricature as a technical training tool</li>
+                  <li>Designing faces, not copying faces</li>
+                </ul>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="callout">
+                <h3>Challenge</h3>
+                <ul>
+                  <li>Take a portrait of a real person. Draw:
+                    <ul>
+                      <li>A realistic version</li>
+                      <li>A stylized version</li>
+                      <li>A cartoon version</li>
+                      <li>A caricature version</li>
+                    </ul>
+                  </li>
+                  <li>Study what changes you chose.</li>
+                </ul>
+              </div>
+
+              <div class="links-row">
+                <a class="linkchip" href="https://www.youtube.com/watch?v=I4nQfXulPl8" target="_blank" rel="noopener">
+                  <span>Watch:</span> Sycra — Shape Language &amp; Stylization
+                </a>
+              </div>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <!-- Recommended image: assets/img/art-m5-portrait.jpeg -->
+                <img src="assets/img/art-m5-portrait.jpeg" alt="Portrait stylization reference image" />
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/I4nQfXulPl8"
+                  title="Sycra — Shape Language & Stylization"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== MODULE 6 ===================== -->
+        <section class="module" id="module-6-composition-visual-storytelling-the-artist-as-director">
+          <div class="module-head">
+            <div>
+              <h2>Module 6: Composition &amp; Visual Storytelling — The Artist as Director</h2>
+              <p class="module-kicker"><strong>Core Principle:</strong> Great art doesn’t show a moment — it tells a story.</p>
+            </div>
+          </div>
+
+          <div class="module-grid">
+            <div>
+              <div class="callout">
+                <h3>Learn</h3>
+                <ul>
+                  <li>Rule of thirds vs. dynamic composition</li>
+                  <li>Focal points and visual flow</li>
+                  <li>Shape arrangement for emotion</li>
+                  <li>Using empty space with purpose</li>
+                </ul>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="callout">
+                <h3>Challenge</h3>
+                <ul>
+                  <li>Create a single sketch that:
+                    <ul>
+                      <li>has a clear focal point</li>
+                      <li>uses depth intentionally</li>
+                      <li>communicates a mood or story without text</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="links-row">
+                <a class="linkchip" href="https://www.youtube.com/watch?v=O8i7OKbWmRM" target="_blank" rel="noopener">
+                  <span>Watch:</span> Marco Bucci — Composition Basics
+                </a>
+              </div>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <!-- Recommended image: assets/img/art-m6-composition.jpeg -->
+                <img src="assets/img/art-m6-composition.jpeg" alt="Composition and storytelling reference image" />
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/O8i7OKbWmRM"
+                  title="Marco Bucci — Composition Basics"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== MODULE 7 ===================== -->
+        <section class="module" id="module-7-style-development-becoming-more-luke">
+          <div class="module-head">
+            <div>
+              <h2>Module 7: Style Development — Becoming More “Luke”</h2>
+              <p class="module-kicker"><strong>Core Principle:</strong> Style is not something you find. It’s something you accumulate.</p>
+            </div>
+          </div>
+
+          <div class="module-grid">
+            <div>
+              <div class="callout">
+                <h3>How to Build Style</h3>
+                <ul>
+                  <li>Study artists you love — steal their <em>verbs</em>, not their <em>nouns</em></li>
+                  <li>Create a visual signature (line, shading, shapes, proportions)</li>
+                  <li>Refine through repetition</li>
+                  <li>Keep a “style vault” — screenshots of work that inspires you</li>
+                </ul>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="callout">
+                <h3>Challenge</h3>
+                <ul>
+                  <li>Mash up two favorite artists (e.g., Miyazaki + Hergé, or Sargent + manga). See what emerges.</li>
+                </ul>
+              </div>
+
+              <div class="links-row">
+                <a class="linkchip" href="https://www.youtube.com/watch?v=Y7LZ8N0yvYs" target="_blank" rel="noopener">
+                  <span>Watch:</span> Trent Kaniuga — Finding Your Style
+                </a>
+              </div>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <!-- Recommended image: assets/img/art-m7-style.jpeg -->
+                <img src="assets/img/art-m7-style.jpeg" alt="Style development reference image" />
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/Y7LZ8N0yvYs"
+                  title="Trent Kaniuga — Finding Your Style"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== MODULE 8 ===================== -->
+        <section class="module" id="module-8-advanced-anatomy-the-artists-superpower">
+          <div class="module-head">
+            <div>
+              <h2>Module 8: Advanced Anatomy — The Artist’s Superpower</h2>
+              <p class="module-kicker"><strong>Core Principle:</strong> Anatomy isn’t about muscles — it’s about believability.</p>
+            </div>
+          </div>
+
+          <div class="module-grid">
+            <div>
+              <div class="callout">
+                <h3>Skills</h3>
+                <ul>
+                  <li>Gesture drawing</li>
+                  <li>Action lines</li>
+                  <li>Simplified manikins</li>
+                  <li>Dynamic poses</li>
+                  <li>Foreshortening mastery</li>
+                </ul>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="callout">
+                <h3>Challenge</h3>
+                <ul>
+                  <li>Draw 20 gesture poses in 20 minutes. Then redraw your 3 favorites fully rendered.</li>
+                </ul>
+              </div>
+
+              <div class="links-row">
+                <a class="linkchip" href="https://www.youtube.com/playlist?list=PLtG4P3lq8RHGRzU6I4KLY9GL-X6Egh8OH" target="_blank" rel="noopener">
+                  <span>Playlist:</span> Proko — Anatomy
+                </a>
+              </div>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <!-- Recommended image: assets/img/art-m8-anatomy.jpeg -->
+                <img src="assets/img/art-m8-anatomy.jpeg" alt="Anatomy and gesture reference image" />
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/74HR59yFZ7Y"
+                  title="Gesture drawing / anatomy fundamentals (video)"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <p class="small">If you want the exact Proko playlist embedded, we can swap this to a specific playlist video ID.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== MODULE 9 ===================== -->
+        <section class="module" id="module-9-creative-risk-taking-break-your-own-rules">
+          <div class="module-head">
+            <div>
+              <h2>Module 9: Creative Risk-Taking — Break Your Own Rules</h2>
+              <p class="module-kicker"><strong>Core Principle:</strong> Skill grows in comfort. Creativity grows in risk.</p>
+            </div>
+          </div>
+
+          <div class="module-grid">
+            <div>
+              <div class="callout">
+                <h3>Assignments</h3>
+                <ul>
+                  <li>Draw with your non-dominant hand</li>
+                  <li>Draw with one continuous line</li>
+                  <li>Draw with no erasing allowed</li>
+                  <li>Draw a subject you’ve avoided</li>
+                  <li>Change your medium for 5 sketches</li>
+                </ul>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="callout">
+                <h3>Why This Matters</h3>
+                <ul>
+                  <li>Risk is where new styles, ideas, and techniques are born.</li>
+                </ul>
+              </div>
+
+              <div class="links-row">
+                <a class="linkchip" href="https://www.youtube.com/@Drawfee" target="_blank" rel="noopener">
+                  <span>Inspo:</span> Drawfee — Challenge Videos
+                </a>
+              </div>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <!-- Recommended image: assets/img/art-m9-risk.jpeg -->
+                <img src="assets/img/art-m9-risk.jpeg" alt="Creative risk-taking reference image" />
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/2m7pQm1mV4Q"
+                  title="Creative challenge / blind contour inspiration (video)"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== MODULE 10 ===================== -->
+        <section class="module" id="module-10-the-artists-growth-loop-your-personal-evolution-engine">
+          <div class="module-head">
+            <div>
+              <h2>Module 10: The Artist’s Growth Loop — Your Personal Evolution Engine</h2>
+              <p class="module-kicker"><strong>Core Principle:</strong> Improvement comes from iteration, not inspiration.</p>
+            </div>
+          </div>
+
+          <div class="module-grid">
+            <div>
+              <div class="callout">
+                <h3>The Loop</h3>
+                <ul>
+                  <li>Create something bold</li>
+                  <li>Critique what works and what doesn’t</li>
+                  <li>Refine intentionally</li>
+                  <li>Rebuild with new choices</li>
+                </ul>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="callout">
+                <h3>Key Takeaways</h3>
+                <ul>
+                  <li>Talent brought Luke this far. Intentionality will take him the rest of the way.</li>
+                  <li>Advanced drawing is about choices, not correctness.</li>
+                  <li>Style is built, not found.</li>
+                  <li>Technique is the skeleton; storytelling is the soul.</li>
+                  <li>Risk-taking is essential — fear is just fuel waiting to be used.</li>
+                  <li>The artist’s identity is the real masterpiece.</li>
+                </ul>
+              </div>
+
+              <details class="tech">
+                <summary>Weekly “Growth Loop” template (copy/paste) <span style="opacity:.7;">＋</span></summary>
+                <div class="tech-body">
+                  <ul>
+                    <li><strong>1) Build:</strong> What did I make this week?</li>
+                    <li><strong>2) Name:</strong> What’s one thing that worked?</li>
+                    <li><strong>3) Diagnose:</strong> What’s the main weakness (shape, value, edges, story)?</li>
+                    <li><strong>4) Tweak:</strong> What single change will I test next time?</li>
+                    <li><strong>5) Repeat:</strong> Rebuild the same idea with the tweak.</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <!-- Recommended image: assets/img/art-m10-growth.jpeg -->
+                <img src="assets/img/art-m10-growth.jpeg" alt="Iteration and growth loop reference image" />
+              </div>
+              <div class="video">
+                <iframe
+                  src="https://www.youtube.com/embed/0B8m1pFqF1M"
+                  title="Iteration and improvement mindset (video)"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <p class="small">This final embed is a placeholder for any “iteration / critique” video you prefer.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FOOTER NOTE -->
+        <div class="module">
+          <h2 style="margin:0 0 8px;">Image &amp; Video Assets You’ll Want in /assets/img/</h2>
+          <p class="small" style="margin:0 0 10px;">If you add these, the page instantly looks like the other platforms (uniform, premium, intentional).</p>
+          <ul style="margin:0; padding-left:18px;">
+            <li><strong>art-hero.jpeg</strong> — a strong “studio / sketchbook / pencil” hero image</li>
+            <li><strong>art-m1-observation.jpeg</strong> — observation / still-life / simplification</li>
+            <li><strong>art-m2-line.jpeg</strong> — line weight / ink / contour</li>
+            <li><strong>art-m3-form.jpeg</strong> — 3D forms / perspective boxes</li>
+            <li><strong>art-m4-light.jpeg</strong> — dramatic lighting / value study</li>
+            <li><strong>art-m5-portrait.jpeg</strong> — portrait / stylized character sheet</li>
+            <li><strong>art-m6-composition.jpeg</strong> — cinematic framing / composition</li>
+            <li><strong>art-m7-style.jpeg</strong> — style board / varied influences</li>
+            <li><strong>art-m8-anatomy.jpeg</strong> — gesture drawing / figure studies</li>
+            <li><strong>art-m9-risk.jpeg</strong> — playful experiments / “rules broken”</li>
+            <li><strong>art-m10-growth.jpeg</strong> — iterative sketch progression</li>
+          </ul>
+        </div>
 
       </article>
     </section>
