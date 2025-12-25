@@ -11,11 +11,10 @@
 
   <!-- Page-only polish (keeps your global system intact) -->
   <style>
-    /* =============== SPIRITUAL PLATFORM (FINAL, FULL FILE) =============== */
+    /* =============== SPIRITUAL PLATFORM (FULL FILE — RESTORED CONTENT) =============== */
 
     /* --- THEME: fix header contrast + platform coloring --- */
     body.platform--spiritual{
-      /* warm + premium, readable */
       background:
         radial-gradient(1200px 700px at 12% -10%, rgba(214,164,255,.14), transparent 60%),
         radial-gradient(900px 600px at 100% 0%, rgba(140,210,255,.16), transparent 55%),
@@ -69,15 +68,12 @@
        TOP READABILITY FIXES
        (hero header card + stronger contrast)
        ======================= */
-
-    /* Give the hero area a designed “section” frame */
     body.platform--spiritual .platform-hero{
       position: relative;
       padding-top: 18px;
       margin-top: 18px;
     }
 
-    /* Add a premium header card behind the title block */
     .hero-headcard{
       position: relative;
       border-radius: 20px;
@@ -99,7 +95,6 @@
     }
     .hero-headcard > *{ position: relative; z-index: 1; }
 
-    /* Platform header section (kicker + title area) – ensure contrast */
     body.platform--spiritual .platform-hero .kicker{
       color: rgba(10,15,31,.82);
       font-weight: 950;
@@ -121,7 +116,7 @@
       max-width: 78ch;
     }
 
-    /* Make TOC feel “on brand” + readable (prevents light-on-light issues) */
+    /* TOC */
     body.platform--spiritual .platform-toc{
       background: rgba(255,255,255,.78);
       border: 1px solid rgba(10,15,31,.12);
@@ -158,7 +153,6 @@
       .hero-spirit{grid-template-columns:1fr;}
     }
 
-    .hero-spirit h1{margin:8px 0 10px;}
     .hero-spirit .sub{
       opacity:.90;
       margin:0 0 12px;
@@ -216,7 +210,7 @@
       white-space:nowrap;
     }
 
-    /* Intro card + modules: consistent premium cards */
+    /* Cards */
     .intro-card,
     .module{
       padding:18px;
@@ -250,7 +244,7 @@
       border:1px solid rgba(10,15,31,.12);
       background: rgba(246,241,230,.42);
       padding:16px 16px;
-      line-height:1.60;
+      line-height:1.62;
     }
     .letter p{margin:0 0 10px;}
     .letter p:last-child{margin-bottom:0;}
@@ -296,22 +290,6 @@
     }
     .thumb img{width:100%; height:210px; object-fit:cover; display:block;}
 
-    .links-row{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top:10px;
-    }
-    .linkchip{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:9px 10px; border-radius:12px;
-      border:1px solid rgba(10,15,31,.12);
-      background: rgba(255,255,255,.84);
-      font-weight:900;
-      font-size:.92rem;
-      opacity: 1;
-      color: rgba(10,15,31,.92);
-    }
-    .linkchip span{opacity:.72; font-weight:900;}
-
     details.accord{
       margin-top:12px;
       border-radius:14px;
@@ -353,6 +331,24 @@
       .practice-grid{grid-template-columns:1fr;}
       .thumb img{height:220px;}
     }
+
+    /* --- DOC FLOW formatting (so Word content reads clean + premium) --- */
+    .docflow p{margin:0 0 10px; line-height:1.62;}
+    .docflow h3.subhead{
+      margin:14px 0 8px;
+      font-size:1.05rem;
+      letter-spacing:.01em;
+      color: rgba(10,15,31,.95);
+    }
+    .docflow h4.minorhead{
+      margin:12px 0 8px;
+      font-size:1rem;
+      color: rgba(10,15,31,.92);
+    }
+    .docflow .attrib{opacity:.9; font-weight:800;}
+    .docflow .script{font-weight:700; opacity:.92;}
+    .docflow ol.numlist{margin:8px 0 12px 20px; padding:0;}
+    .docflow ol.numlist li{margin:6px 0; line-height:1.5; color: rgba(10,15,31,.88);}
   </style>
 </head>
 
@@ -404,8 +400,10 @@
             <div class="pill">🧭 Character Formation</div>
             <div class="pill">🪵 Costly Discipleship</div>
             <div class="pill">🛠 Apprenticeship</div>
+            <div class="pill">🌍 Kingdom Participation</div>
             <div class="pill">🕊 Compassionate Presence</div>
             <div class="pill">🔥 Daily Courage</div>
+            <div class="pill">👑 Identity &amp; Purpose</div>
           </div>
 
           <div class="divider"></div>
@@ -444,16 +442,19 @@
       <aside class="platform-toc">
         <div class="toc-title">On this page</div>
         <a href="#spiritual-platform">Spiritual Platform (Letter + Foundations)</a>
+        <a href="#module-1-character-formation">Module 1 — Character Formation</a>
         <a href="#module-2-costly-discipleship">Module 2 — Costly Discipleship</a>
         <a href="#module-3-apprenticeship-to-christ">Module 3 — Apprenticeship to Christ</a>
-        <a href="#module-5-a-life-of-compassionate-presence">Module 5 — A Life of Compassionate Presence</a>
-        <a href="#identity-purpose">Identity &amp; Purpose (Man After God’s Heart)</a>
+        <a href="#module-4-kingdom-participation">Module 4 — Kingdom Participation</a>
+        <a href="#module-5-a-life-of-compassionate-presence">Module 5 — Compassionate Presence</a>
+        <a href="#module-6-daily-courage">Module 6 — Daily Courage</a>
+        <a href="#module-7-identity-purpose">Module 7 — Identity &amp; Purpose</a>
       </aside>
 
       <!-- MAIN -->
       <article class="platform-main">
 
-        <!-- INTRO / LETTER -->
+        <!-- INTRO / LETTER + FOUNDATIONS (FROM WORD DOC) -->
         <section class="intro-card" id="spiritual-platform">
           <div class="module-head">
             <div>
@@ -465,26 +466,16 @@
           <div class="two-col">
             <div class="letter" aria-label="Letter to Luke">
               <p><strong>Luke,</strong></p>
-              <p>
-                As you grow into adulthood, there will be many paths offered to you—some loud, some easy, some popular, some comfortable.
-                But there is only one path that shapes a man into someone strong, wise, courageous, compassionate, and truly alive:
-                the path of becoming who God created you to be.
-              </p>
+              <p>As you grow into adulthood, there will be many paths offered to you—some loud, some easy, some popular, some comfortable. But there is only one path that shapes a man into someone strong, wise, courageous, compassionate, and truly alive: the path of becoming who God created you to be.</p>
               <p>This platform is meant to help guide you on that journey.</p>
-              <p>
-                Over the years I have learned, sometimes slowly and painfully, that spiritual maturity is not about becoming flawless—it’s about becoming formed:
-                formed in character, in humility, in courage, and in love.
-              </p>
-
-              <div class="quote">
-                <em>“A man of God is not defined by perfection, but by direction—by the One he is walking toward.”</em>
-              </div>
-
-              <p>
-                This platform is not a list of rules. It is not a checklist. It is an invitation—a map for the kind of inner life that shapes the outer life.
-                It will challenge you, encourage you, steady you, and prepare you for a world that desperately needs men of integrity, tenderness, and conviction.
-              </p>
-
+              <p>Over the years I have learned, sometimes slowly and painfully, that spiritual maturity is not about becoming flawless—it’s about becoming formed.</p>
+              <p><strong>Their lives carry a message:</strong></p>
+              <div class="quote"><em>A man of God is not defined by perfection, but by direction—by the One he is walking toward</em></div>
+              <p>My hope is that these insights help you see what I already see so clearly: God has given you a remarkable mind, a compassionate heart, and the strength to become a leader whose life carries meaning far beyond success.</p>
+              <p>This platform is not a list of rules. It is not a checklist. It is an invitation—a map for the kind of inner life that shapes the outer life.</p>
+              <p>Luke, you were made with purpose. You were made for a story far greater than comfort or achievement. And you were made to walk with God in a way that shapes everything you touch.</p>
+              <p>Wherever life leads you, I pray that you become a man whose character quietly reflects Christ—steadfast in truth, courageous in faith, gentle in strength, and full of love.</p>
+              <p>I am endlessly proud of who you are and who you are becoming. It is the honor of my life to walk beside you as you grow—into manhood, into leadership, and into spiritual adulthood.</p>
               <p class="sig">With all my love, and always with hope,<br/>Dad</p>
             </div>
 
@@ -520,70 +511,195 @@
           </div>
         </section>
 
+        <!-- MODULE 1 -->
+        <section class="module" id="module-1-character-formation">
+          <div class="module-head">
+            <div>
+              <h2>Module 1 — Character Formation</h2>
+              <p class="module-kicker">C.S. Lewis, Scripture, and the slow formation of inner strength.</p>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div class="docflow">
+              <h3 class="subhead">I. What Character Really Means</h3>
+              <p>Lewis believed that beneath every action lies a condition of the heart. True maturity isn’t behavior modification; it’s inner transformation.</p>
+              <p>This involves:</p>
+              <p>Moral courage in the ordinary</p>
+              <p>Choosing truth even when it costs you something</p>
+              <p>Steadiness when emotions fluctuate</p>
+              <p>Learning to love what is good rather than merely avoiding what is wrong</p>
+              <p>Elisabeth Elliot put it succinctly:</p>
+              <div class="quote"><em>“The faithfulness of the everyday routine is a better test of love than the heroics of a moment.”</em></div>
+              <p>Tim Keller adds:</p>
+              <div class="quote"><em>“You are what you love most, and what you love most is revealed by your habits.”</em></div>
+              <p>Character is not a moment. It is a landscape shaped by countless unseen choices.</p>
+
+              <h3 class="subhead">II. The Scripture Lens</h3>
+              <p>Key Scriptures</p>
+              <p class="script">Proverbs 4:23 — “Above all else, guard your heart, for everything you do flows from it.”</p>
+              <p class="script">Galatians 5:22–23 — The fruit of the Spirit as a blueprint for Christlike character.</p>
+              <p class="script">Psalm 1 — The promise that the man who roots himself in God becomes “like a tree planted by streams of water.”</p>
+              <p class="script">Romans 12:2 — Transformation by renewing the mind.</p>
+              <p>Together these passages reveal a consistent spiritual truth:</p>
+              <p>The heart you cultivate determines the life you live.</p>
+
+              <h3 class="subhead">III. Case Study: C.S. Lewis — A Reluctant Convert, A Steadfast Man</h3>
+              <p>Lewis fought in WWI. He battled doubt. He struggled with grief. Yet over time he became a man of remarkable integrity, courage, and faith.</p>
+              <p>He became known not because of perfection but direction—a quiet, unwavering movement toward truth.</p>
+              <p>Through decades of university lecturing, wartime broadcasts, and personal loss, he consistently chose:</p>
+              <p>humility instead of intellectual pride</p>
+              <p>forgiveness instead of resentment</p>
+              <p>truth instead of convenience</p>
+              <p>He shows what it means to become the same person in every setting: public or private, admired or misunderstood.</p>
+
+              <h3 class="subhead">IV. Practical Spiritual Exercises for Character Formation</h3>
+              <p>1. The Daily Examen (5 minutes)</p>
+              <p>Ask:</p>
+              <p>Where did I sense God’s presence today?</p>
+              <p>Where did I resist Him?</p>
+              <p>Where did I choose courage or truth?</p>
+              <p>Where did I choose comfort or fear?</p>
+              <p>Then pray:</p>
+              <p>“Lord, form my heart. Make me steady. Make me true.”</p>
+              <p>2. The Unseen Act of Goodness</p>
+              <p>Once this week, do something kind, generous, or sacrificial that no one will ever know about.</p>
+              <p>Character grows in secrecy.</p>
+              <p>3. The Slow Response Practice</p>
+              <p>When you feel irritated, defensive, or impatient:</p>
+              <p>Pause for 5 seconds.</p>
+              <p>Ask: “What would love do here?”</p>
+              <p>Then speak.</p>
+              <p>4. Scripture Meditation (10 minutes)</p>
+              <p>Choose one passage (Psalm 1, Proverbs 4, Romans 12).</p>
+              <p>Read slowly. Write one sentence: “This is what God is forming in me.”</p>
+
+              <h3 class="subhead">V. Reflection Questions</h3>
+              <p>What habit most shapes my character right now?</p>
+              <p>What does my anger, impatience, or anxiety reveal about my heart?</p>
+              <p>In what recurring situation do I need courage more than comfort?</p>
+              <p>How would the man I want to become handle the decisions I’m facing this week?</p>
+              <p>Where am I practicing “cheap grace”—expecting growth without effort?</p>
+
+              <h3 class="subhead">VI. Challenge for the Week</h3>
+              <p>The Consistency Challenge (7 Days):</p>
+              <p>Pick one habit from this module:</p>
+              <p>Daily examen</p>
+              <p>One unseen act of goodness</p>
+              <p>One memory verse</p>
+              <p>One intentional slow-response moment</p>
+              <p>Five minutes of Scripture meditation</p>
+              <p>Do it for seven days without break.</p>
+              <p>Small consistency builds deep roots.</p>
+              <p>As John Stott taught:</p>
+              <div class="quote"><em>“Holiness is not a condition achieved but a direction pursued.”</em></div>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <img src="assets/img/spiritual-foundations.jpeg" alt="Character formation reference image" />
+              </div>
+              <div class="callout">
+                <h3>Quick anchor</h3>
+                <ul>
+                  <li>Character is formed in hidden choices.</li>
+                  <li>Train the heart, not just behavior.</li>
+                  <li>Consistency builds deep roots.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- MODULE 2 -->
         <section class="module" id="module-2-costly-discipleship">
           <div class="module-head">
             <div>
               <h2>Module 2 — Costly Discipleship</h2>
-              <p class="module-kicker">Dietrich Bonhoeffer &amp; the courage to follow Christ when it costs you something.</p>
+              <p class="module-kicker">Dietrich Bonhoeffer &amp; the Courage to Follow Christ When It Costs You Something</p>
             </div>
           </div>
 
           <div class="two-col">
-            <div>
-              <div class="quote">
-                <em>“When Christ calls a man, He bids him come and die.”</em><br/>
-                — Dietrich Bonhoeffer, <span style="opacity:.85;">The Cost of Discipleship</span>
-              </div>
+            <div class="docflow">
+              <h4 class="minorhead">Guiding Insight</h4>
+              <div class="quote"><em>“When Christ calls a man, He bids him come and die.”</em><br/><span class="attrib">— Dietrich Bonhoeffer, The Cost of Discipleship</span></div>
+              <p>Bonhoeffer’s words are among the most sobering ever written on Christian maturity.</p>
+              <p>They remind us of a truth often softened in modern faith:</p>
+              <p>Following Christ will cost you something.</p>
+              <p>It will cost comfort, popularity, ease, and sometimes safety.</p>
+              <p>But the reward is a life rooted in truth, courage, integrity, and deep joy.</p>
+              <p>This module teaches that spiritual adulthood means embracing a faith that is not passive or convenient but courageous, resilient, and obedient.</p>
 
-              <p class="small">
-                Following Christ will cost comfort, popularity, ease, and sometimes safety.
-                But the reward is a life rooted in truth, courage, integrity, and deep joy.
-              </p>
+              <h3 class="subhead">I. What “Costly Discipleship” Really Means</h3>
+              <p>Bonhoeffer warned against what he called cheap grace—grace without discipleship.</p>
+              <p>Cheap grace is:</p>
+              <p>Forgiveness without repentance</p>
+              <p>Baptism without obedience</p>
+              <p>Communion without transformation</p>
+              <p>Faith without sacrifice</p>
+              <p>Costly grace is different.</p>
+              <p>It is grace that calls you to follow Jesus even when it hurts.</p>
+              <p>It does not remove hardship—it forms a man through hardship.</p>
 
-              <div class="divider"></div>
+              <h3 class="subhead">II. The Scripture Lens</h3>
+              <p class="script">Luke 9:23 — “If anyone would come after me, let him deny himself and take up his cross daily and follow me.”</p>
+              <p class="script">Micah 6:8 — “Do justice, love mercy, walk humbly.”</p>
+              <p class="script">James 1:22 — “Be doers of the word, and not hearers only.”</p>
+              <p>True discipleship always includes obedience.</p>
 
-              <div class="callout">
-                <h3>What “Costly Discipleship” Means</h3>
-                <ul>
-                  <li><strong>Rejecting cheap grace:</strong> forgiveness without repentance, faith without sacrifice.</li>
-                  <li><strong>Standing for truth:</strong> conviction instead of passivity; clarity instead of compromise.</li>
-                  <li><strong>Immediate obedience:</strong> delayed obedience becomes disobedience.</li>
-                </ul>
-              </div>
+              <h3 class="subhead">III. Case Study: Dietrich Bonhoeffer — A Life of Radical Obedience</h3>
+              <p>Bonhoeffer lived his theology.</p>
+              <p>He trained pastors in secret</p>
+              <p>Rejected comfort and academic prestige</p>
+              <p>Returned to Germany when he could have stayed safe in America</p>
+              <p>Resisted a genocidal regime</p>
+              <p>Prayed for his captors</p>
+              <p>Walked to the gallows calmly, peacefully, faithfully</p>
+              <p>A prison doctor wrote that Bonhoeffer died with the peace of a man “completely devoted to God.”</p>
+              <p>He shows that courage is not the absence of fear—it is fidelity to Christ in spite of fear.</p>
 
-              <div class="links-row">
-                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=Luke%209%3A23&version=ESV" target="_blank" rel="noopener">
-                  <span>Scripture:</span> Luke 9:23
-                </a>
-                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=Micah%206%3A8&version=ESV" target="_blank" rel="noopener">
-                  <span>Scripture:</span> Micah 6:8
-                </a>
-                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=James%201%3A22&version=ESV" target="_blank" rel="noopener">
-                  <span>Scripture:</span> James 1:22
-                </a>
-              </div>
+              <h3 class="subhead">IV. Modern Examples of Costly Discipleship</h3>
+              <p>Tim Keller</p>
+              <p>Faithful in a secular city, willing to hold biblical truth even when it cost influence.</p>
+              <p>Elisabeth Elliot</p>
+              <p>Returned to minister among the very people who killed her husband—a stunning act of forgiveness and obedience.</p>
+              <p>Chinese Underground Church Leaders</p>
+              <p>Risk arrest to shepherd believers and carry Scripture.</p>
 
-              <details class="accord">
-                <summary>Practices (simple + actionable) <span style="opacity:.7;">＋</span></summary>
-                <div class="body">
-                  <ul>
-                    <li><strong>Yes/No Prayer:</strong> “Help me say yes to what is right; no to what is easy but wrong.”</li>
-                    <li><strong>Weekly act of courage:</strong> stand up, tell truth, admit wrong, set boundary, give comfort away.</li>
-                    <li><strong>Scriptural anchoring:</strong> memorize Josh 1:9 / Ps 27:1 / Isa 41:10.</li>
-                  </ul>
-                </div>
-              </details>
+              <h3 class="subhead">V. Spiritual Practices for Costly Discipleship</h3>
+              <p>1. The Yes/No Prayer</p>
+              <p>Each morning, pray:</p>
+              <p>“Lord, help me say yes to what is right, and no to what is easy but wrong.”</p>
+              <p>2. Weekly Act of Courage</p>
+              <p>Once a week, practice one act of courage:</p>
+              <p>Tell the truth</p>
+              <p>Stand up for someone</p>
+              <p>Admit you were wrong</p>
+              <p>Set a boundary</p>
+              <p>Do what is right even if it costs you</p>
+              <p>3. Scriptural Anchoring</p>
+              <p>Memorize:</p>
+              <p>Joshua 1:9</p>
+              <p>Psalm 27:1</p>
+              <p>Isaiah 41:10</p>
 
-              <details class="accord">
-                <summary>Challenge for the Week (7 days) <span style="opacity:.7;">＋</span></summary>
-                <div class="body">
-                  <ul>
-                    <li>Each day: identify one small act of obedience that costs you something (time, pride, comfort, reputation).</li>
-                    <li>Write the moment down. End the week reviewing what God formed through the cost.</li>
-                  </ul>
-                </div>
-              </details>
+              <h3 class="subhead">VI. Reflection Questions</h3>
+              <p>Where do I choose convenience over obedience?</p>
+              <p>What fear most keeps me from courage?</p>
+              <p>What is one area where I need to stop delaying obedience?</p>
+              <p>Where am I tempted toward cheap grace—wanting forgiveness without formation?</p>
+
+              <h3 class="subhead">VII. Challenge for the Week</h3>
+              <p>The Courageous Obedience Challenge (7 days)</p>
+              <p>For the next week:</p>
+              <p>Each day, identify one small act of obedience that costs you something—</p>
+              <p>time, reputation, pride, comfort, or convenience.</p>
+              <p>Write down the moment.</p>
+              <p>At the end of the week, review what God formed in you through the cost.</p>
+              <p>As Bonhoeffer said:</p>
+              <div class="quote"><em>“The only man who has the right to say he is justified by grace is the man who has left all to follow Christ.”</em></div>
+              <p>This is the beginning of spiritual manhood.</p>
             </div>
 
             <div class="media-stack">
@@ -591,11 +707,11 @@
                 <img src="assets/img/spiritual-m2-bonhoeffer.jpeg" alt="Costly discipleship / courage reference image" />
               </div>
               <div class="callout">
-                <h3>Modern echoes</h3>
+                <h3>Quick anchor</h3>
                 <ul>
-                  <li>Elisabeth Elliot — forgiveness &amp; obedience</li>
-                  <li>Underground church leaders — courage under pressure</li>
-                  <li>Reconciliation leaders — mercy without denial of truth</li>
+                  <li>Reject cheap grace.</li>
+                  <li>Obey immediately.</li>
+                  <li>Courage is fidelity to Christ.</li>
                 </ul>
               </div>
             </div>
@@ -607,74 +723,199 @@
           <div class="module-head">
             <div>
               <h2>Module 3 — Apprenticeship to Christ</h2>
-              <p class="module-kicker">Dallas Willard &amp; the transformation of the whole life — training, not just trying.</p>
+              <p class="module-kicker">Dallas Willard &amp; the Transformation of the Whole Life</p>
             </div>
           </div>
 
           <div class="two-col">
-            <div>
-              <div class="quote">
-                <em>“The greatest issue facing the world today is whether those who identify as Christians will become disciples—students, apprentices—of Jesus Christ...”</em><br/>
-                — Dallas Willard
-              </div>
+            <div class="docflow">
+              <h4 class="minorhead">Guiding Insight</h4>
+              <div class="quote"><em>“The greatest issue facing the world today is whether those who identify as Christians will become disciples—students, apprentices—of Jesus Christ... learning from him how to live the life of the Kingdom of the heavens.”</em><br/><span class="attrib">— Dallas Willard</span></div>
+              <p>Willard reframed spiritual maturity for the modern world.</p>
+              <p>The goal isn’t simply believing in Jesus — it’s becoming the kind of person who naturally lives like Jesus.</p>
+              <p>This module teaches that discipleship is not about trying harder but training wiser.</p>
+              <p>It is the slow, beautiful formation of the heart, mind, body, and habits into Christlikeness.</p>
 
-              <div class="callout">
-                <h3>Core Distinction</h3>
-                <ul>
-                  <li><strong>Trying</strong> = effort in the moment.</li>
-                  <li><strong>Training</strong> = shaping who you’re becoming over time.</li>
-                  <li><strong>Grace</strong> is opposed to earning, not to effort.</li>
-                </ul>
-              </div>
+              <h3 class="subhead">I. What It Means to Be an Apprentice of Jesus</h3>
+              <p>An apprentice doesn’t just admire a master.</p>
+              <p>He builds his life around learning from the master.</p>
+              <p>He studies, practices, imitates, and becomes.</p>
+              <p>Willard teaches that spiritual maturity is not a “moment” or “decision.”</p>
+              <p>It is a life being shaped over time.</p>
+              <p>Apprenticeship means:</p>
+              <p>living with Jesus</p>
+              <p>learning from Jesus</p>
+              <p>becoming like Jesus</p>
+              <p>doing what Jesus would do if He were you</p>
 
-              <div class="divider"></div>
+              <h3 class="subhead">II. The Scripture Lens</h3>
+              <p class="script">John 15:5 — “Apart from me you can do nothing.”</p>
+              <p class="script">Matthew 11:29 — “Learn from me... and you will find rest for your souls.”</p>
+              <p class="script">Romans 12:2 — “Be transformed by the renewal of your mind.”</p>
+              <p>Spiritual transformation is not self-improvement.</p>
+              <p>It is God shaping the whole person through a life of abiding.</p>
 
-              <div class="callout">
-                <h3>Disciplines (starter set)</h3>
-                <ul>
-                  <li><strong>Silence &amp; solitude:</strong> 10–15 minutes daily.</li>
-                  <li><strong>Scripture immersion:</strong> read until something “speaks,” then stop and savor.</li>
-                  <li><strong>Slowing:</strong> practice the “unhurried soul.”</li>
-                  <li><strong>Sabbath:</strong> start with one protected hour of rest and delight.</li>
-                  <li><strong>Presence prayer:</strong> “Lord, be with me in this moment.”</li>
-                </ul>
-              </div>
+              <h3 class="subhead">III. Case Study: Dallas Willard — A Quiet Giant of Formation</h3>
+              <p>Willard lived what he taught.</p>
+              <p>He was known for calmness, wisdom, and deep presence.</p>
+              <p>His students said he carried an “unhurried soul.”</p>
+              <p>He practiced:</p>
+              <p>silence</p>
+              <p>rest</p>
+              <p>slow conversation</p>
+              <p>joy</p>
+              <p>He was not impressive because he was intense.</p>
+              <p>He was impressive because he was formed.</p>
 
-              <div class="links-row">
-                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=John%2015%3A5&version=ESV" target="_blank" rel="noopener">
-                  <span>Scripture:</span> John 15:5
-                </a>
-                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=Matthew%2011%3A29&version=ESV" target="_blank" rel="noopener">
-                  <span>Scripture:</span> Matthew 11:29
-                </a>
-                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=Romans%2012%3A2&version=ESV" target="_blank" rel="noopener">
-                  <span>Scripture:</span> Romans 12:2
-                </a>
-              </div>
+              <h3 class="subhead">IV. Modern Examples of Apprenticeship to Christ</h3>
+              <p>Men who live differently in a frantic world:</p>
+              <p>They are slow to anger</p>
+              <p>Quick to forgive</p>
+              <p>Steady under stress</p>
+              <p>Gentle with power</p>
+              <p>Unmoved by approval</p>
+              <p>They are apprentices—trained over time.</p>
 
-              <details class="accord">
-                <summary>Challenge: The Apprenticeship Hour (7 days) <span style="opacity:.7;">＋</span></summary>
-                <div class="body">
-                  <ul>
-                    <li>One uninterrupted hour each day: no phone, no tasks.</li>
-                    <li>Bible + journal + silence.</li>
-                    <li>Question: “Lord, what are You forming in me?”</li>
-                  </ul>
-                </div>
-              </details>
+              <h3 class="subhead">V. Spiritual Disciplines for Apprenticeship</h3>
+              <p>1. Silence &amp; Solitude (10–15 minutes daily)</p>
+              <p>2. Scripture Immersion</p>
+              <p>Read until something “speaks,” then stop and savor.</p>
+              <p>3. Slowing</p>
+              <p>Practice the “unhurried soul.”</p>
+              <p>4. Sabbath</p>
+              <p>Start with one protected hour of rest and delight.</p>
+              <p>5. Presence Prayer</p>
+              <p>“Lord, be with me in this moment.”</p>
+
+              <h3 class="subhead">VI. Reflection Questions</h3>
+              <p>What part of my life is most unformed?</p>
+              <p>What habit is shaping me right now more than I realize?</p>
+              <p>Where do I need to stop trying and start training?</p>
+              <p>What would it look like to actually organize my life around Jesus?</p>
+
+              <h3 class="subhead">VII. Challenge for the Week</h3>
+              <p>The Apprenticeship Hour</p>
+              <p>For 7 days:</p>
+              <p>Set aside one uninterrupted hour</p>
+              <p>No phone</p>
+              <p>No tasks</p>
+              <p>Bible, journal, and silence</p>
+              <p>Ask: “Lord, what are You forming in me?”</p>
+              <p>Close with Willard’s prayer:</p>
+              <div class="quote"><em>“Lord, let me be the kind of person who naturally does what Jesus would do.”</em></div>
+              <p>This is the core of spiritual adulthood.</p>
+              <p>Not perfection — transformation.</p>
             </div>
 
             <div class="media-stack">
               <div class="thumb">
                 <img src="assets/img/spiritual-m3-willard.jpeg" alt="Apprenticeship / formation reference image" />
               </div>
-
               <div class="callout">
-                <h3>Practice rhythm (easy to start)</h3>
+                <h3>Quick anchor</h3>
                 <ul>
-                  <li><strong>AM:</strong> 2-min surrender + one verse</li>
-                  <li><strong>Midday:</strong> 10-sec presence prayer</li>
-                  <li><strong>PM:</strong> 5-min examen + gratitude</li>
+                  <li>Trying vs training.</li>
+                  <li>Grace opposed to earning, not effort.</li>
+                  <li>Daily practices shape who you become.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 4 -->
+        <section class="module" id="module-4-kingdom-participation">
+          <div class="module-head">
+            <div>
+              <h2>Module 4 — Kingdom Participation</h2>
+              <p class="module-kicker">N.T. Wright &amp; the Call to Join God’s Work of Renewal</p>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div class="docflow">
+              <h4 class="minorhead">Guiding Insight</h4>
+              <div class="quote"><em>“Jesus did not come to take us to heaven. He came to bring heaven to earth — beginning with us.”</em><br/><span class="attrib">— N.T. Wright</span></div>
+              <p>N.T. Wright reframes the Christian story not as an escape plan but as a participation plan.</p>
+              <p>We are not waiting for God’s story to begin — we are living inside it now.</p>
+              <p>And every apprentice of Jesus is called to join His work of healing, justice, renewal, and resurrection life in the world.</p>
+              <p>This module teaches that spiritual adulthood means seeing your life as part of God’s mission:</p>
+              <p>the restoration of all things.</p>
+
+              <h3 class="subhead">I. Understanding the Resurrection Story</h3>
+              <p>1. The Resurrection Is Not the End — It’s the Beginning</p>
+              <p>Wright explains that the empty tomb is not just proof of life after death; it is the launching point of new creation.</p>
+              <p>Jesus is raised</p>
+              <p>therefore new creation has begun</p>
+              <p>therefore you are invited into a new way of being human</p>
+              <p>The resurrection is a doorway into the Kingdom.</p>
+              <p>As Wright writes:</p>
+              <div class="quote"><em>“The message of Easter is not that we go to heaven when we die. It is that God’s new world has been unveiled.”</em></div>
+
+              <h3 class="subhead">II. The Scripture Lens</h3>
+              <p class="script">2 Corinthians 5:17 — “If anyone is in Christ, he is a new creation.”</p>
+              <p class="script">Revelation 21:5 — “Behold, I am making all things new.”</p>
+              <p class="script">Romans 8:19–21 — Creation is groaning for renewal.</p>
+              <p>The Christian story is not a private belief system.</p>
+              <p>It is a cosmic rescue mission.</p>
+
+              <h3 class="subhead">III. Case Study: N.T. Wright — Reintroducing Christians to the Kingdom Story</h3>
+              <p>Wright has spent decades teaching that Christianity is not primarily about going somewhere later.</p>
+              <p>It is about living in God’s new creation now.</p>
+              <p>He calls believers to stop living as consumers of faith and become participants in God’s renewal.</p>
+
+              <h3 class="subhead">IV. Modern Examples of Kingdom Participation</h3>
+              <p>People who bring resurrection life into broken places:</p>
+              <p>Those working for justice</p>
+              <p>Those caring for the vulnerable</p>
+              <p>Those restoring marriages</p>
+              <p>Those making beauty and healing</p>
+              <p>Every act of restoration is Kingdom work.</p>
+
+              <h3 class="subhead">V. Practices for Living the Resurrection Story</h3>
+              <p>1. The “Where Is God Restoring?” Question</p>
+              <p>Ask daily:</p>
+              <p>Where do I see brokenness today?</p>
+              <p>Where can I bring one small act of restoration?</p>
+              <p>2. The Kingdom Lens</p>
+              <p>Look for “resurrection fingerprints”:</p>
+              <p>hope</p>
+              <p>healing</p>
+              <p>peace</p>
+              <p>justice</p>
+              <p>beauty</p>
+              <p>3. The Daily Mission Prayer</p>
+              <p>“Lord, let Your Kingdom come in me and through me today.”</p>
+
+              <h3 class="subhead">VI. Reflection Questions</h3>
+              <p>Where have I reduced faith to private comfort instead of public mission?</p>
+              <p>What brokenness in the world most moves my heart?</p>
+              <p>What fears or distractions keep me from joining God’s mission?</p>
+              <p>What small act of restoration is God inviting me to this week?</p>
+
+              <h3 class="subhead">VII. Challenge for the Week</h3>
+              <p>The Resurrection Participation Challenge (7 days)</p>
+              <p>Each day, look for one moment where you can bring:</p>
+              <p>hope where there is cynicism</p>
+              <p>peace where there is tension</p>
+              <p>generosity where there is need</p>
+              <p>forgiveness where there is hurt</p>
+              <p>beauty where there is ugliness</p>
+              <p>These are the fingerprints of resurrection life.</p>
+              <p>End each day with this prayer from Wright:</p>
+              <div class="quote"><em>“Lord, let Your Kingdom come in me and through me.”</em></div>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <img src="assets/img/spiritual-foundations.jpeg" alt="Kingdom participation reference image" />
+              </div>
+              <div class="callout">
+                <h3>Quick anchor</h3>
+                <ul>
+                  <li>You live inside God’s story now.</li>
+                  <li>Bring resurrection life into ordinary places.</li>
+                  <li>Healing • justice • renewal.</li>
                 </ul>
               </div>
             </div>
@@ -686,121 +927,304 @@
           <div class="module-head">
             <div>
               <h2>Module 5 — A Life of Compassionate Presence</h2>
-              <p class="module-kicker">Henri Nouwen &amp; the strength of a tender, grounded heart.</p>
+              <p class="module-kicker">Henri Nouwen &amp; the Strength of a Tender, Grounded Heart</p>
             </div>
           </div>
 
           <div class="two-col">
-            <div>
-              <div class="quote">
-                <em>“The great illusion of leadership is that you must be in control. The great truth is that you are called to love.”</em><br/>
-                — Henri Nouwen
-              </div>
+            <div class="docflow">
+              <h4 class="minorhead">Guiding Insight</h4>
+              <div class="quote"><em>“The great illusion of leadership is that you must be in control. The great truth is that you are called to love.”</em><br/><span class="attrib">— Henri Nouwen</span></div>
+              <p>Nouwen teaches that spiritual maturity is not about becoming tougher.</p>
+              <p>It is about becoming steadier, gentler, more present, and more loving.</p>
 
-              <div class="callout">
-                <h3>What This Forms</h3>
-                <ul>
-                  <li>Strength under control</li>
-                  <li>Listening without fixing</li>
-                  <li>Calm response instead of reactive emotion</li>
-                  <li>Making others safe in your presence</li>
-                </ul>
-              </div>
+              <h3 class="subhead">I. Understanding Compassionate Presence</h3>
+              <p>Compassionate presence means:</p>
+              <p>being fully with someone without trying to fix them</p>
+              <p>listening without rushing to advise</p>
+              <p>making others feel safe in your presence</p>
+              <p>being strong enough to stay calm with someone else’s pain</p>
+              <p>Nouwen later wrote:</p>
+              <div class="quote"><em>“Compassion means going directly to those people and places where suffering is most acute and building a home there.”</em></div>
 
-              <div class="divider"></div>
+              <h3 class="subhead">II. The Scripture Lens</h3>
+              <p class="script">James 1:19 — “Let every person be quick to hear, slow to speak, slow to anger.”</p>
+              <p class="script">Colossians 3:12 — “Put on... compassion, kindness, humility, gentleness, and patience.”</p>
+              <p class="script">Philippians 2:3–4 — “In humility count others more significant than yourselves.”</p>
+              <p>Presence is love made tangible.</p>
 
-              <div class="callout">
-                <h3>Practices</h3>
-                <ul>
-                  <li><strong>4-minute listening:</strong> one conversation daily, no interrupting or advising.</li>
-                  <li><strong>Breath prayer:</strong> “Lord Jesus, make my heart like Yours.”</li>
-                  <li><strong>Compassion pause:</strong> “What does love require of me here?”</li>
-                  <li><strong>Noticing:</strong> choose one person daily who feels unseen.</li>
-                </ul>
-              </div>
+              <h3 class="subhead">III. Case Study: Henri Nouwen — Leaving Prestige for Presence</h3>
+              <p>Nouwen left a prestigious academic career at Harvard to serve at L’Arche Daybreak, a community for people with disabilities.</p>
+              <p>He chose presence over prestige.</p>
+              <p>He discovered that love is not proven by dominance or control but by tenderness and steadiness.</p>
 
-              <div class="links-row">
-                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=James%201%3A19&version=ESV" target="_blank" rel="noopener">
-                  <span>Scripture:</span> James 1:19
-                </a>
-                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=Colossians%203%3A12&version=ESV" target="_blank" rel="noopener">
-                  <span>Scripture:</span> Colossians 3:12
-                </a>
-                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=Philippians%202%3A3-4&version=ESV" target="_blank" rel="noopener">
-                  <span>Scripture:</span> Philippians 2:3–4
-                </a>
-              </div>
+              <h3 class="subhead">IV. Modern Examples of Compassionate Presence</h3>
+              <p>The friend who stays when life falls apart</p>
+              <p>The nurse who treats patients as people</p>
+              <p>The mentor who listens before speaking</p>
+              <p>These people carry quiet power.</p>
 
-              <details class="accord">
-                <summary>Challenge: The Presence Challenge (7 days) <span style="opacity:.7;">＋</span></summary>
-                <div class="body">
-                  <ul>
-                    <li>Every day: choose one moment of pure presence with someone (no phone, no multitasking).</li>
-                    <li>Look them in the eyes. Listen with love. Leave them feeling more seen.</li>
-                  </ul>
-                </div>
-              </details>
+              <h3 class="subhead">V. Practices for Compassionate Presence</h3>
+              <p>1. The 4-minute Listening Practice</p>
+              <p>Once per day, listen to someone for 4 minutes:</p>
+              <p>No interrupting</p>
+              <p>No advising</p>
+              <p>No fixing</p>
+              <p>Just presence.</p>
+              <p>2. The Breath Prayer</p>
+              <p>“Lord Jesus, make my heart like Yours.”</p>
+              <p>3. The Compassion Pause</p>
+              <p>Ask in tense moments:</p>
+              <p>“What does love require of me here?”</p>
+              <p>4. The Noticing Practice</p>
+              <p>Each day choose one person who feels unseen.</p>
+              <p>Notice them. Speak to them. Make them feel human.</p>
+
+              <h3 class="subhead">VI. Reflection Questions</h3>
+              <p>Where do I rush to fix instead of simply being present?</p>
+              <p>Who in my life needs me to listen more deeply?</p>
+              <p>Where am I tempted to use strength to control instead of heal?</p>
+
+              <h3 class="subhead">VII. Challenge for the Week</h3>
+              <p>The Presence Challenge (7 Days)</p>
+              <p>Every day this week:</p>
+              <p>Choose one moment to practice pure presence with someone.</p>
+              <p>No phone.</p>
+              <p>No multitasking.</p>
+              <p>No rushing.</p>
+              <p>Look them in the eyes.</p>
+              <p>Listen with love.</p>
+              <p>Leave them feeling more seen, not more corrected.</p>
+              <p>End each day with Nouwen’s prayer:</p>
+              <div class="quote"><em>“Lord, help me be where You want me to be: fully present, fully loving.”</em></div>
+              <p>Compassionate presence is what turns strength into healing and influence into love.</p>
+              <p>It is the mark of a spiritually mature man.</p>
             </div>
 
             <div class="media-stack">
               <div class="thumb">
                 <img src="assets/img/spiritual-m5-nouwen.jpeg" alt="Compassionate presence reference image" />
               </div>
-
               <div class="callout">
-                <h3>Scripture lens</h3>
+                <h3>Quick anchor</h3>
                 <ul>
-                  <li>Compassion is not a personality trait — it is Christ’s character expressed through you.</li>
-                  <li>Presence turns strength into healing and influence into love.</li>
+                  <li>Presence makes others safe.</li>
+                  <li>Listen without fixing.</li>
+                  <li>Love is strength under control.</li>
                 </ul>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- IDENTITY / PURPOSE -->
-        <section class="module" id="identity-purpose">
+        <!-- MODULE 6 -->
+        <section class="module" id="module-6-daily-courage">
           <div class="module-head">
             <div>
-              <h2>Identity &amp; Purpose — A Man After God’s Heart</h2>
-              <p class="module-kicker">Rooted not in performance or approval — but in belonging to God.</p>
+              <h2>Module 6 — Daily Courage</h2>
+              <p class="module-kicker">Integrating Lewis, Bonhoeffer, Willard, Wright, Nouwen, Keller, Elliot &amp; Stott</p>
             </div>
           </div>
 
           <div class="two-col">
-            <div>
-              <div class="quote">
-                <em>“God does not look at the things people look at... the Lord looks at the heart.”</em> — 1 Samuel 16:7
-              </div>
-              <div class="quote">
-                <em>“The question is not ‘Who am I?’ but ‘Whose am I?’”</em> — Henri Nouwen
-              </div>
+            <div class="docflow">
+              <h4 class="minorhead">Guiding Insight</h4>
+              <div class="quote"><em>“Courage is not simply one of the virtues but the form of every virtue at the moment of testing.”</em><br/><span class="attrib">— C.S. Lewis</span></div>
+              <p>Daily courage is not dramatic heroism.</p>
+              <p>It is the quiet strength to do what is right over and over again.</p>
+              <p>It is:</p>
+              <p>truth when lying is easier</p>
+              <p>purity when temptation is easier</p>
+              <p>humility when pride is easier</p>
+              <p>forgiveness when resentment is easier</p>
+              <p>hope when cynicism is easier</p>
+              <p>It is the rare strength of a young man who says with his life: “I will not be owned by fear.”</p>
 
+              <h3 class="subhead">I. The Integrated Framework of Spiritual Courage</h3>
+              <p>Lewis teaches courage of character.</p>
+              <p>Bonhoeffer teaches courage of obedience.</p>
+              <p>Willard teaches courage of training.</p>
+              <p>Wright teaches courage of mission.</p>
+              <p>Nouwen teaches courage of tenderness.</p>
+              <p>Keller, Elliot, and Stott teach courage of faithfulness.</p>
+              <p>Together they form a framework:</p>
+              <p>Be formed in the unseen</p>
+              <p>Obey when it costs</p>
+              <p>Train the soul</p>
+              <p>Join God’s renewal work</p>
+              <p>Love with strength</p>
+              <p>Stay faithful for the long haul</p>
+
+              <h3 class="subhead">II. The Places Where Daily Courage Is Most Needed</h3>
+              <p>1. Integrity</p>
+              <p>Doing the right thing when no one is watching.</p>
+              <p>2. Purity</p>
+              <p>Guarding the mind and body in a world of easy compromise.</p>
+              <p>3. Emotional strength</p>
+              <p>Staying calm instead of reactive.</p>
+              <p>4. Humility</p>
+              <p>Admitting wrong. Listening. Learning.</p>
+              <p>5. Compassion</p>
+              <p>Being kind when selfishness is easier.</p>
+
+              <h3 class="subhead">III. The Scripture Lens</h3>
+              <p class="script">Joshua 1:9 — “Be strong and courageous... for the Lord your God is with you wherever you go.”</p>
+              <p class="script">2 Timothy 1:7 — “God gave us a spirit not of fear but of power and love and self-control.”</p>
+              <p class="script">Micah 6:8 — “Do justice, love mercy, walk humbly.”</p>
+
+              <h3 class="subhead">IV. Case Studies: Modern Everyday Courage</h3>
+              <p>1. The Student Who Told the Truth Even When It Cost Him Social Standing</p>
+              <p>Chose integrity — a Bonhoeffer moment.</p>
+              <p>2. The Athlete Who Refused to Cheat</p>
+              <p>Chose holiness — a Stott moment.</p>
+              <p>3. The Leader Who Stayed Calm Under Criticism</p>
+              <p>Chose steadiness — a Willard moment.</p>
+              <p>4. The College Student Who Gave Away a Weekend to Serve the Poor</p>
+              <p>Chose Kingdom participation — a Wright moment.</p>
+              <p>5. The Friend Who Apologized First</p>
+              <p>Chose humility — a Keller and Stott moment.</p>
+              <p>None of these made headlines.</p>
+              <p>But all of them made a man.</p>
+
+              <h3 class="subhead">V. Practices for Building Daily Courage</h3>
+              <p>1. The Courage Check (Evening Review)</p>
+              <p>Ask each night:</p>
+              <p>Where did I choose courage today?</p>
+              <p>Where did I shrink back?</p>
+              <p>What do I wish I had done differently?</p>
+              <p>This is how courage grows: by noticing.</p>
+              <p>2. The One Hard Thing Practice</p>
+              <p>Each day, do one hard thing:</p>
+              <p>a difficult conversation</p>
+              <p>a confession</p>
+              <p>a boundary</p>
+              <p>a truth spoken gently</p>
+              <p>a sacrifice</p>
+              <p>Hard things grow strong men.</p>
+              <p>3. The Quick Obedience Habit</p>
+              <p>When God convicts you—act quickly.</p>
+              <p>Delayed obedience becomes disobedience.</p>
+              <p>4. The Strength Under Control Practice</p>
+              <p>Practice calm when provoked.</p>
+              <p>Real strength is controlled strength.</p>
+
+              <h3 class="subhead">VI. Reflection Questions</h3>
+              <p>Where am I most tempted to compromise?</p>
+              <p>What fear is most holding me back?</p>
+              <p>What would daily courage look like in my relationships, habits, and leadership?</p>
+
+              <h3 class="subhead">VII. Challenge for the Week</h3>
+              <p>The Courage Challenge (7 days)</p>
+              <p>Each day this week, do one courageous thing.</p>
+              <p>At the end of the week, write:</p>
+              <p>“This is what God is forming in me.”</p>
+              <p>“Christian maturity is Christlikeness.”</p>
+              <p>And Christlikeness is never cowardly.</p>
+              <p>It is the courage of a man whose strength comes from God alone.</p>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <img src="assets/img/spiritual-hero.jpeg" alt="Daily courage reference image" />
+              </div>
               <div class="callout">
-                <h3>Identity declarations (daily)</h3>
+                <h3>Quick anchor</h3>
                 <ul>
-                  <li>I belong to Christ.</li>
-                  <li>I am God’s beloved.</li>
-                  <li>I choose courage today.</li>
-                  <li>I am being formed into Christlikeness.</li>
+                  <li>Courage is the form of every virtue.</li>
+                  <li>Small brave choices compound.</li>
+                  <li>Christlikeness is never cowardly.</li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </section>
 
-              <details class="accord">
-                <summary>Monthly Rule-of-Life Review (quick checklist) <span style="opacity:.7;">＋</span></summary>
-                <div class="body">
-                  <ul>
-                    <li>Prayer life</li>
-                    <li>Scripture practices</li>
-                    <li>Relationships</li>
-                    <li>Digital life</li>
-                    <li>Emotional maturity</li>
-                    <li>Courage</li>
-                    <li>Compassion</li>
-                    <li>Service</li>
-                  </ul>
-                </div>
-              </details>
+        <!-- MODULE 7 -->
+        <section class="module" id="module-7-identity-purpose">
+          <div class="module-head">
+            <div>
+              <h2>Module 7 — Identity &amp; Purpose</h2>
+              <p class="module-kicker">A Man After God’s Heart — belonging, purpose, and quiet confidence.</p>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div class="docflow">
+              <h4 class="minorhead">Guiding Insight</h4>
+              <div class="quote"><em>“God does not look at the things people look at. People look at the outward appearance, but the Lord looks at the heart.”</em><br/><span class="attrib">— 1 Samuel 16:7</span></div>
+              <div class="quote"><em>“The question is not ‘Who am I?’ but ‘Whose am I?’”</em><br/><span class="attrib">— Henri Nouwen</span></div>
+              <p>Everything in the previous modules leads to this final truth:</p>
+              <p>Spiritual maturity begins when your identity is rooted not in achievement, performance, approval, or talent — but in God’s love.</p>
+              <p>A man after God’s heart is a man who knows:</p>
+              <p>who he is</p>
+              <p>who he belongs to</p>
+              <p>what story he is living in</p>
+              <p>what kind of life God is forming in him</p>
+              <p>This is the deep, quiet confidence of spiritual adulthood.</p>
+
+              <h3 class="subhead">I. Identity: The Foundation of Manhood</h3>
+              <p>1. You Are Beloved Before You Are Successful</p>
+              <p>Nouwen writes that the greatest spiritual battle is accepting that you are beloved — not because of what you do, but because of who God is.</p>
+              <p>Identity statements every young man must learn:</p>
+              <p>“I am loved.”</p>
+              <p>“I am forgiven.”</p>
+              <p>“I am chosen.”</p>
+              <p>“I belong to Christ.”</p>
+              <p>Identity shapes destiny.</p>
+
+              <h3 class="subhead">II. Purpose: Your Life in God’s Story</h3>
+              <p>Purpose is not primarily about career.</p>
+              <p>It is about calling.</p>
+              <p>Wright teaches that your life is meant to participate in God’s renewal of the world.</p>
+              <p>Purpose is asking:</p>
+              <p>Where do my gifts meet the world’s brokenness?</p>
+              <p>Where can I bring healing, justice, courage, compassion, and beauty?</p>
+
+              <h3 class="subhead">III. The Scripture Lens</h3>
+              <p class="script">Psalm 139 — You are known and formed by God.</p>
+              <p class="script">Ephesians 2:10 — You are created for good works prepared beforehand.</p>
+              <p class="script">Micah 6:8 — Justice, mercy, humility.</p>
+
+              <h3 class="subhead">IV. Case Studies: Men After God’s Heart Today</h3>
+              <p>Men who lead with humility.</p>
+              <p>Men who confess quickly.</p>
+              <p>Men who are steady under pressure.</p>
+              <p>Men who are kind with power.</p>
+
+              <h3 class="subhead">V. Practices for Becoming a Man After God’s Heart</h3>
+              <p>1. The Identity Declaration (Daily)</p>
+              <p>Each morning speak:</p>
+              <p>“I belong to Christ.”</p>
+              <p>“I am God’s beloved.”</p>
+              <p>“I choose courage today.”</p>
+              <p>“I am being formed into Christlikeness.”</p>
+              <p>Identity must be rehearsed to be remembered.</p>
+              <p>2. The Rule-of-Life Review (Monthly)</p>
+              <p>Prayer life</p>
+              <p>Scripture practices</p>
+              <p>Relationships</p>
+              <p>Digital life</p>
+              <p>Emotional maturity</p>
+              <p>Courage</p>
+              <p>Compassion</p>
+              <p>Service</p>
+              <p>3. The Purpose Question</p>
+              <p>Where do my gifts meet the world’s brokenness?</p>
+
+              <h3 class="subhead">VI. Reflection Questions</h3>
+              <p>Where do I feel pressure to prove myself?</p>
+              <p>What approval am I chasing that is not from God?</p>
+              <p>Where in my life do I need to return to God’s heart like David did?</p>
+              <p>What part of God’s mission — healing, justice, compassion, truth — am I being invited into?</p>
+
+              <h3 class="subhead">VII. Challenge for the Week</h3>
+              <p>The Identity &amp; Purpose Challenge (7 Days)</p>
+              <p>Each day this week:</p>
+              <p>Speak the identity declaration.</p>
+              <p>Pray: “Lord, form my heart to reflect Yours.”</p>
+              <p>Choose one way to bring Kingdom life into your sphere — a word, a service, a courage act, a forgiveness, a kindness.</p>
+              <p>Write at the end of the week:</p>
+              <p>“This is the man God is forming in me.”</p>
             </div>
 
             <div class="media-stack">
@@ -808,10 +1232,11 @@
                 <img src="assets/img/spiritual-identity.jpeg" alt="Identity and purpose reference image" />
               </div>
               <div class="callout">
-                <h3>Purpose question (simple, powerful)</h3>
+                <h3>Quick anchor</h3>
                 <ul>
-                  <li><strong>Where do my gifts meet the world’s brokenness?</strong></li>
-                  <li>Write 3 places you can bring: healing, justice, beauty, courage, compassion.</li>
+                  <li>Whose you are comes before what you do.</li>
+                  <li>Purpose is participation in God’s mission.</li>
+                  <li>Rehearse identity daily.</li>
                 </ul>
               </div>
             </div>
