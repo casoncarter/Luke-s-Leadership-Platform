@@ -10,42 +10,131 @@
 
   <!-- Page-only enhancements (keeps global site CSS untouched) -->
   <style>
-    /* ===== Hero polish (contrast + depth) ===== */
+    /* =========================================================
+       GUITAR PAGE — PRO-LEVEL CONTRAST + LAYOUT OVERRIDES
+       (Fixes: light-on-light, dark-on-dark, TOC readability,
+              spacing, card hierarchy, “IF/Homepage” polish)
+       ========================================================= */
+
+    /* ---- Hard contrast defaults for this page only ---- */
+    body.platform{
+      background: linear-gradient(180deg, rgba(246,241,230,.82), rgba(246,241,230,.55));
+      color: #0a0f1f;
+    }
+
+    /* Ensure all text inherits strong contrast even if shared CSS sets muted colors */
+    .platform-main,
+    .platform-main p,
+    .platform-main li,
+    .platform-main .meta,
+    .platform-main .callout,
+    .platform-main .resources a,
+    .platform-main .song-card,
+    .platform-main .module-hd,
+    .platform-main .module-bd{
+      color: rgba(10,15,31,.94);
+    }
+
+    .platform-main h1,
+    .platform-main h2,
+    .platform-main h3,
+    .platform-main h4,
+    .platform-hero h1,
+    .platform-hero h2,
+    .platform-hero h3{
+      color: #0a0f1f;
+    }
+
+    /* Make links always readable */
+    .platform-main a,
+    .platform-toc a,
+    .topbar a{
+      color: #0a0f1f;
+    }
+
+    /* ---- Topbar readability: prevent light links on light background ---- */
+    .topbar{
+      background: rgba(11,18,38,.92) !important;
+      border-bottom: 1px solid rgba(255,255,255,.10) !important;
+    }
+    .topbar .brand .mark{ color: #ffffff !important; }
+    .topbar .brand .tag{ color: rgba(255,255,255,.78) !important; }
+    .topbar .links a{
+      color: rgba(255,255,255,.90) !important;
+      border-radius: 999px;
+      padding: 8px 10px;
+      transition: background .15s ease, color .15s ease;
+    }
+    .topbar .links a:hover{
+      background: rgba(255,255,255,.12);
+      color: #ffffff !important;
+    }
+    .topbar .links a.active{
+      background: rgba(246,241,230,.92) !important;
+      color: #0a0f1f !important;
+      border: 1px solid rgba(255,255,255,.18);
+    }
+
+    /* ---- Hero polish (contrast + depth) ---- */
     .platform-hero{
       position: relative;
       overflow: hidden;
       border-radius: 22px;
       border: 1px solid rgba(10,15,31,.10);
       background:
-        linear-gradient(180deg, rgba(246,241,230,.92), rgba(246,241,230,.68));
+        linear-gradient(180deg, rgba(255,255,255,.82), rgba(246,241,230,.78));
       box-shadow: 0 14px 36px rgba(10,15,31,.10);
-      padding: 20px 18px;
+      padding: 22px 18px 18px;
+      margin-top: 20px;
     }
     .platform-hero::before{
       content:"";
       position:absolute;
       inset:-2px;
       background:
-        radial-gradient(900px 400px at 20% 10%, rgba(11,18,38,.14), transparent 60%),
-        radial-gradient(700px 420px at 85% 0%, rgba(11,18,38,.10), transparent 58%),
+        radial-gradient(900px 420px at 16% 8%, rgba(11,18,38,.18), transparent 60%),
+        radial-gradient(760px 460px at 86% 0%, rgba(11,18,38,.14), transparent 58%),
         linear-gradient(180deg, rgba(11,18,38,.10), rgba(11,18,38,0));
       pointer-events:none;
     }
     .platform-hero > *{ position:relative; z-index:1; }
 
+    /* Kicker readability (shared CSS sometimes makes these too light) */
+    .platform-hero .kicker{
+      display:inline-block;
+      margin: 0 0 8px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-size: .78rem;
+      color: rgba(10,15,31,.85);
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(10,15,31,.10);
+      border-radius: 999px;
+      padding: 6px 10px;
+    }
+    .platform-hero h1{
+      margin: 0 0 6px;
+      letter-spacing: .02em;
+    }
+    .platform-hero p{
+      margin: 0;
+      color: rgba(10,15,31,.92);
+    }
+
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.15fr .85fr;
       gap: 18px;
       align-items: end;
-      margin-top: 6px;
+      margin-top: 12px;
     }
     @media (max-width: 980px){
       .hero-grid{ grid-template-columns: 1fr; }
     }
     .hero-card{
       border: 1px solid rgba(10,15,31,.12);
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.86);
       backdrop-filter: blur(6px);
       border-radius: 18px;
       padding: 14px 14px 12px;
@@ -54,19 +143,23 @@
     .hero-card strong{
       display:block;
       letter-spacing: .02em;
-      color: var(--ink, #0a0f1f);
+      color: #0a0f1f;
     }
-    .hero-card p{ margin: 10px 0 0; opacity: .92; color: var(--ink, #0a0f1f); }
+    .hero-card p{
+      margin: 10px 0 0;
+      opacity: 1;
+      color: rgba(10,15,31,.92);
+    }
 
     .pill-row{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-top:10px;
+      margin-top:12px;
     }
     .pill{
       border: 1px solid rgba(10,15,31,.14);
-      background: rgba(255,255,255,.70);
+      background: rgba(255,255,255,.78);
       border-radius: 999px;
       padding: 8px 10px;
       font-size: .92rem;
@@ -75,68 +168,141 @@
       color: rgba(10,15,31,.92);
     }
 
-    /* ===== Module cards ===== */
+    /* ---- Platform shell (TOC + content) — enforce clean grid + readable TOC ---- */
+    .platform-shell{
+      margin-top: 18px;
+    }
+
+    /* If shared CSS makes TOC pale, this fixes it hard */
+    .platform-toc{
+      position: sticky;
+      top: 92px; /* below topbar */
+      align-self: start;
+      border-radius: 18px;
+      border: 1px solid rgba(10,15,31,.12);
+      background: rgba(11,18,38,.92);
+      box-shadow: 0 12px 30px rgba(10,15,31,.10);
+      padding: 14px 12px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+    }
+
+    .platform-toc .toc-title{
+      font-weight: 800;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      font-size: .78rem;
+      color: rgba(255,255,255,.82);
+      margin: 2px 8px 10px;
+    }
+
+    .platform-toc a{
+      display:block;
+      padding: 9px 10px;
+      margin: 4px 4px;
+      border-radius: 12px;
+      color: rgba(255,255,255,.92) !important;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      text-decoration: none;
+      line-height: 1.25;
+      font-size: .94rem;
+    }
+    .platform-toc a:hover{
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.18);
+      color: #ffffff !important;
+    }
+
+    /* ---- Article container polish (avoid content “floating” on cream) ---- */
+    .platform-main{
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(10,15,31,.10);
+      border-radius: 18px;
+      box-shadow: 0 12px 34px rgba(10,15,31,.08);
+      padding: 18px 18px 10px;
+    }
+
+    .platform-main p{ margin: 10px 0; }
+    .platform-main h2{ margin-top: 22px; }
+    .platform-main h3{ margin-top: 18px; }
+
+    .divider{
+      height:1px;
+      background: rgba(10,15,31,.12);
+      margin: 18px 0;
+    }
+
+    /* ---- Module cards ---- */
     .module{
       border: 1px solid rgba(10,15,31,.10);
       border-radius: 18px;
-      background: rgba(255,255,255,.82);
+      background: rgba(255,255,255,.86);
       box-shadow: 0 10px 28px rgba(10,15,31,.06);
       overflow: hidden;
       margin: 18px 0;
     }
     .module-hd{
       padding: 14px 16px 12px;
-      background: linear-gradient(180deg, rgba(11,18,38,.06), rgba(255,255,255,0));
+      background:
+        linear-gradient(180deg, rgba(11,18,38,.08), rgba(255,255,255,0));
       border-bottom: 1px solid rgba(10,15,31,.08);
     }
     .module-hd h2{
       margin: 0 0 6px;
       font-size: 1.25rem;
       letter-spacing: .02em;
-      color: var(--ink, #0a0f1f);
+      color: #0a0f1f;
     }
     .module-hd .meta{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
       align-items:center;
-      opacity:.95;
       font-size:.95rem;
       color: rgba(10,15,31,.92);
+      opacity: 1;
     }
+    .module-hd .meta strong{ color: #0a0f1f; }
+
     .module-bd{
       padding: 14px 16px 16px;
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.18fr .82fr;
       gap: 16px;
     }
     @media (max-width: 980px){
       .module-bd{ grid-template-columns: 1fr; }
+      .platform-toc{
+        position: relative;
+        top: auto;
+        max-height: none;
+      }
     }
 
     .callout{
       border: 1px solid rgba(10,15,31,.10);
-      background: rgba(246,241,230,.62);
+      background: rgba(246,241,230,.78);
       border-radius: 16px;
       padding: 12px 12px 10px;
       color: rgba(10,15,31,.94);
     }
     .callout h4{
       margin: 0 0 8px;
-      font-size: .98rem;
-      letter-spacing: .02em;
+      font-size: .90rem;
+      letter-spacing: .10em;
       text-transform: uppercase;
-      opacity: .92;
-      color: var(--ink, #0a0f1f);
+      opacity: 1;
+      color: rgba(10,15,31,.88);
     }
     .callout ul{ margin: 0; padding-left: 18px; }
     .callout p{ margin: 0; }
 
-    /* ===== Resource link styling (no raw URLs) ===== */
+    /* ---- Resource link styling ---- */
     .resources{
       margin-top: 10px;
       padding-top: 10px;
-      border-top: 1px dashed rgba(10,15,31,.18);
+      border-top: 1px dashed rgba(10,15,31,.22);
       display:flex;
       flex-wrap:wrap;
       gap:10px;
@@ -148,19 +314,25 @@
       padding: 8px 10px;
       border-radius: 999px;
       border: 1px solid rgba(10,15,31,.14);
-      background: rgba(255,255,255,.70);
+      background: rgba(255,255,255,.82);
       font-size: .92rem;
       text-decoration: none;
+      color: rgba(10,15,31,.94) !important;
     }
-    .resources a:hover{ background: rgba(255,255,255,.88); }
-    .resources a span{ opacity:.9; }
+    .resources a:hover{
+      background: rgba(255,255,255,.96);
+      border-color: rgba(10,15,31,.22);
+    }
+    .resources a strong{ color: #0a0f1f; }
+    .resources a span{ opacity:.92; color: rgba(10,15,31,.88); }
 
-    /* ===== Video embeds ===== */
+    /* ---- Video embeds ---- */
     .video-card{
       border: 1px solid rgba(10,15,31,.10);
       border-radius: 16px;
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.86);
       overflow:hidden;
+      box-shadow: 0 10px 24px rgba(10,15,31,.07);
     }
     .video-card .vc-hd{
       padding: 10px 12px;
@@ -169,22 +341,24 @@
       align-items:center;
       justify-content:space-between;
       gap:10px;
-      background: linear-gradient(180deg, rgba(246,241,230,.55), rgba(255,255,255,0));
+      background:
+        linear-gradient(180deg, rgba(246,241,230,.80), rgba(255,255,255,.86));
     }
     .video-card .vc-hd strong{
       font-size: .98rem;
-      color: var(--ink, #0a0f1f);
+      color: #0a0f1f;
     }
     .video-card .vc-hd a{
       font-size: .92rem;
-      opacity: .9;
+      opacity: 1;
+      color: rgba(10,15,31,.86) !important;
       text-decoration: underline;
     }
     .video{
       position:relative;
       width:100%;
       aspect-ratio: 16 / 9;
-      background: rgba(11,18,38,.08);
+      background: rgba(11,18,38,.10);
     }
     .video iframe{
       position:absolute;
@@ -194,18 +368,21 @@
       border:0;
     }
 
-    /* ===== Song list layout ===== */
+    /* ---- Song list layout ---- */
     .song-grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
       margin-top: 10px;
+      margin-bottom: 8px;
     }
-    @media (max-width: 980px){ .song-grid{ grid-template-columns: 1fr; } }
+    @media (max-width: 980px){
+      .song-grid{ grid-template-columns: 1fr; }
+    }
     .song-card{
       border: 1px solid rgba(10,15,31,.10);
       border-radius: 16px;
-      background: rgba(255,255,255,.82);
+      background: rgba(255,255,255,.86);
       padding: 12px 12px 10px;
       box-shadow: 0 8px 22px rgba(10,15,31,.05);
     }
@@ -213,22 +390,12 @@
       margin:0 0 8px;
       font-size: 1.02rem;
       letter-spacing: .02em;
-      color: var(--ink, #0a0f1f);
+      color: #0a0f1f;
     }
     .song-card ol{ margin:0; padding-left: 18px; }
+    .song-card p{ color: rgba(10,15,31,.86); opacity: 1; }
 
-    /* Make long platform paragraphs breathe + ensure contrast */
-    .platform-main{ color: rgba(10,15,31,.94); }
-    .platform-main p{ margin: 10px 0; }
-    .platform-main h2{ margin-top: 22px; color: var(--ink, #0a0f1f); }
-    .platform-main h3{ margin-top: 18px; color: var(--ink, #0a0f1f); }
-
-    .divider{
-      height:1px;
-      background: rgba(10,15,31,.10);
-      margin: 18px 0;
-    }
-
+    /* Keep any long URLs from busting layout (still readable) */
     .platform-main a{ word-break: break-word; }
   </style>
 </head>
@@ -940,7 +1107,7 @@
               <li>Stand By Me — Ben E. King</li>
               <li>Love Yourself — Justin Bieber</li>
             </ol>
-            <p style="margin-top:8px; opacity:.85;">All are based on G-family or C-family chords. Perfect for learning strumming confidence.</p>
+            <p style="margin-top:8px;">All are based on G-family or C-family chords. Perfect for learning strumming confidence.</p>
           </div>
 
           <div class="song-card">
@@ -976,4 +1143,3 @@
   </main>
 </body>
 </html>
-
