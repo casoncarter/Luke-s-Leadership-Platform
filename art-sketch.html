@@ -390,45 +390,29 @@
     @media (max-width: 560px){
       .gallery-break img{ height: 200px; }
     }
-
-    /* ---------- FOOTER NOTE ---------- */
-    .art-footer-note{
-      margin-top: 18px;
-      border-radius: 16px;
-      padding: 14px 14px;
-      background: rgba(255,255,255,.86);
-      border: 1px solid rgba(11,18,38,.10);
-      color: rgba(11,18,38,.86);
-      box-shadow: 0 10px 28px rgba(0,0,0,.08);
-    }
-    .art-footer-note b{ color: var(--ink); }
-    .mono{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 12px;
-      padding: 2px 6px;
-      border-radius: 8px;
-      background: rgba(11,18,38,.06);
-      border: 1px solid rgba(11,18,38,.10);
-      white-space: nowrap;
-    }
   </style>
 </head>
 
 <body class="platform platform-art">
-  <!-- Keep your existing site header/nav if you already have one; this is a safe default -->
-  <header class="site-header">
+  <!-- ✅ RESTORED HEADER/NAV (same structure as other platform pages) -->
+  <header class="topbar">
     <div class="container">
-      <a class="brand" href="index.html" aria-label="Luke’s Leadership Platform Home">
-        <span class="brand__mark">L</span>
-        <span class="brand__text">Luke</span>
-      </a>
-
-      <nav class="site-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="entrepreneurship.html">Entrepreneurship</a>
-        <a href="if.html">If</a>
-        <a href="guitar.html">Guitar</a>
-        <a class="is-active" href="sketch.html">Art</a>
+      <nav class="nav">
+        <div class="brand">
+          <div class="mark">LUKE</div>
+          <div class="tag">Leadership • Craft • Character</div>
+        </div>
+        <div class="links">
+          <a href="index.html">Home</a>
+          <a href="if-leadership.html">If—</a>
+          <a href="entrepreneurship.html">Business</a>
+          <a href="power-leadership.html">Power</a>
+          <a href="sports-leadership.html">Sports</a>
+          <a href="guitar.html">Guitar</a>
+          <a class="active" href="art-sketch.html">Art</a>
+          <a href="dad-jokes.html">Dad Jokes</a>
+          <a href="spiritual.html">Spiritual</a>
+        </div>
       </nav>
     </div>
   </header>
@@ -449,10 +433,10 @@
           </p>
 
           <div class="hero-badges" role="list" aria-label="Core growth targets">
-            <span class="hero-badge" role="listitem"><b>Vision</b> & perception</span>
-            <span class="hero-badge" role="listitem"><b>Interpretation</b> & style</span>
-            <span class="hero-badge" role="listitem"><b>Risk</b> & experimentation</span>
-            <span class="hero-badge" role="listitem"><b>Story</b> & composition</span>
+            <span class="hero-badge" role="listitem"><b>Vision</b> &amp; perception</span>
+            <span class="hero-badge" role="listitem"><b>Interpretation</b> &amp; style</span>
+            <span class="hero-badge" role="listitem"><b>Risk</b> &amp; experimentation</span>
+            <span class="hero-badge" role="listitem"><b>Story</b> &amp; composition</span>
           </div>
         </div>
 
@@ -711,7 +695,7 @@
             </div>
 
             <div class="resource-row">
-              <a class="resource-link" href="https://www.youtube.com/watch?v=V3WmrWUEIJo" target="_blank" rel="noopener">Key Resource: Shading & Value Design</a>
+              <a class="resource-link" href="https://www.youtube.com/watch?v=V3WmrWUEIJo" target="_blank" rel="noopener">Key Resource: Shading &amp; Value Design</a>
             </div>
           </div>
 
@@ -749,7 +733,7 @@
         <div class="module-card__inner">
           <div class="module-card__content">
             <div class="module-top">
-              <h3>Character & Portrait Stylization — Beyond Accuracy</h3>
+              <h3>Character &amp; Portrait Stylization — Beyond Accuracy</h3>
               <div class="module-num">Module 05</div>
             </div>
 
@@ -809,7 +793,7 @@
         <div class="module-card__inner">
           <div class="module-card__content">
             <div class="module-top">
-              <h3>Composition & Visual Storytelling — The Artist as Director</h3>
+              <h3>Composition &amp; Visual Storytelling — The Artist as Director</h3>
               <div class="module-num">Module 06</div>
             </div>
 
@@ -904,7 +888,7 @@
             </div>
 
             <div class="resource-row">
-              <a class="resource-link" href="https://www.youtube.com/watch?v=sXgaNuxf1vk" target="_blank" rel="noopener">Key Resource: Practice & Style Strategy</a>
+              <a class="resource-link" href="https://www.youtube.com/watch?v=sXgaNuxf1vk" target="_blank" rel="noopener">Key Resource: Practice &amp; Style Strategy</a>
             </div>
           </div>
 
@@ -1128,21 +1112,6 @@
       </section>
 
     </section>
-
-    <div class="art-footer-note" role="note">
-      <b>Video embed tip:</b>
-      if any video ever fails again, switch the iframe URL to the embed format
-      <span class="mono">https://www.youtube.com/embed/VIDEO_ID</span>
-      (and for playlists use <span class="mono">/embed/videoseries?list=PLAYLIST_ID</span>).
-      <br><br>
-      <b>Image path rule:</b> all still images on this page load from <span class="mono">assets/img/</span> using the exact filenames you provided.
-    </div>
   </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p style="margin:0; opacity:.8;">© Luke’s Leadership Platform</p>
-    </div>
-  </footer>
 </body>
 </html>
