@@ -730,3 +730,48 @@ body{
 .platform .divider{
   background: rgba(10,15,31,.14);
 }
+/* =========================================
+   Dad Jokes + Spiritual — Callout Contrast Fix
+   Catches page-specific callouts + quote blocks
+========================================= */
+
+/* 1) Any callout-ish block: make it a real surface */
+.platform :is(
+  .callout,
+  .quote, .pullquote, .blockquote,
+  .reflection, .devotional, .prayer,
+  .scripture, .verse, .passage,
+  .note, .aside, .highlight, .insight,
+  .card, .panel
+){
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  color: var(--ink-90);
+}
+
+/* 2) If those blocks have headings/labels, don’t let them fade */
+.platform :is(
+  .callout h4,
+  .quote h4, .pullquote h4, .reflection h4,
+  .scripture h4, .verse h4, .note h4,
+  .callout .label, .quote .label, .reflection .label,
+  .scripture .label, .verse .label
+){
+  opacity: 1 !important;
+  color: var(--ink-75);
+}
+
+/* 3) Fix “muted text” classes that are too light */
+.platform :is(
+  .muted, .meta, .subtle, .fineprint, .caption, .kicker
+){
+  opacity: 1 !important;
+  color: var(--ink-75) !important;
+}
+
+/* 4) Quote text should still be readable (not pale gray) */
+.platform :is(.quote, .pullquote, .blockquote, blockquote){
+  color: var(--ink-90);
+}
+
+
