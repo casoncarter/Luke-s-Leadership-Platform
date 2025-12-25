@@ -9,134 +9,99 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/platforms.css" />
 
-  <!-- Page-only polish (SAFE + RL CONSISTENT) -->
+  <!-- Page-only polish (keeps your global system intact) -->
   <style>
-    /* =========================
-       SPIRITUAL PLATFORM — FIXED
-       Matches IF / Entrepreneurship shell
-    ========================== */
+    /* =============== SPIRITUAL PLATFORM (FINAL, FULL FILE) =============== */
 
-    /* ---------- HERO ---------- */
-    .platform-hero{
-      padding: 34px 0 18px;
-    }
+    /* Guardrails: always readable text in main content */
+    body.platform{ color: rgba(10,15,31,.92); }
+    .platform-main p, .platform-main li{ color: rgba(10,15,31,.86); }
+    .platform-main h1, .platform-main h2, .platform-main h3{ color: rgba(10,15,31,.95); }
 
+    /* Hero wrapper (matches “premium card” feel) */
     .hero-spirit{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
       gap:22px;
       align-items:stretch;
-      margin: 16px 0 18px;
+      padding:26px;
+      border-radius:20px;
+      background: linear-gradient(180deg, rgba(246,241,230,.78), rgba(246,241,230,.38));
+      border: 1px solid rgba(10,15,31,.12);
+      box-shadow: 0 16px 44px rgba(10,15,31,.08);
+      margin: 10px 0 18px;
     }
     @media (max-width: 980px){
-      .hero-spirit{ grid-template-columns:1fr; }
+      .hero-spirit{grid-template-columns:1fr;}
     }
 
-    .hero-panel{
-      border-radius:18px;
-      border:1px solid rgba(246,241,230,.16);
-      background: rgba(255,255,255,.92);
-      padding:18px;
-      box-shadow: 0 14px 40px rgba(0,0,0,.25);
-      color: var(--rl-ink);
+    .hero-spirit h1{margin:8px 0 10px;}
+    .hero-spirit .sub{
+      opacity:.86;
+      margin:0 0 12px;
+      max-width: 68ch;
+      line-height:1.55;
     }
 
-    .hero-panel h2{
-      margin:0 0 8px;
-    }
-
-    .hero-panel p{
-      color: rgba(10,15,31,.85);
-      line-height:1.5;
-    }
-
-    .pillrow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:12px;
-    }
+    .pillrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;}
     .pill{
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(0,0,0,.12);
-      background: rgba(255,255,255,.85);
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid rgba(10,15,31,.14);
+      background: rgba(255,255,255,.78);
       font-size:.92rem;
-      color: rgba(10,15,31,.85);
-      white-space:nowrap;
+      opacity:.98;
+      font-weight:600;
+      color: rgba(10,15,31,.92);
     }
 
-    .practice-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-      margin-top:12px;
-    }
-    @media (max-width: 980px){
-      .practice-grid{ grid-template-columns:1fr; }
-    }
-    .practice{
-      padding:12px;
-      border-radius:14px;
-      border:1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.90);
-      color: rgba(10,15,31,.85);
-    }
-
-    /* ---------- HERO IMAGE ---------- */
     .hero-media{
       position:relative;
-      border-radius:18px;
+      border-radius:16px;
       overflow:hidden;
-      border:1px solid rgba(246,241,230,.16);
-      box-shadow: 0 14px 40px rgba(0,0,0,.35);
-      min-height:260px;
+      border: 1px solid rgba(10,15,31,.12);
+      background: rgba(10,15,31,.06);
+      min-height: 260px;
     }
     .hero-media img{
-      width:100%;
-      height:100%;
+      width:100%; height:100%;
       object-fit:cover;
+      transform: scale(1.02);
+      filter: saturate(1.02) contrast(1.02);
+      display:block;
     }
     .hero-media .overlay{
-      position:absolute;
-      inset:auto 0 0 0;
-      padding:12px;
-      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.65));
+      position:absolute; inset:auto 0 0 0;
+      padding:12px 12px 12px;
+      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.58));
       color:#fff;
+      font-size:.92rem;
       display:flex;
       justify-content:space-between;
-      align-items:flex-end;
       gap:10px;
+      align-items:flex-end;
     }
     .btn-mini{
+      display:inline-flex; align-items:center; justify-content:center;
       padding:8px 10px;
       border-radius:12px;
       border:1px solid rgba(255,255,255,.35);
-      background: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.14);
       color:#fff;
       font-weight:800;
       white-space:nowrap;
     }
 
-    /* ---------- CONTENT CARDS ---------- */
+    /* Intro card + modules: consistent premium cards */
     .intro-card,
     .module{
       padding:18px;
       border-radius:18px;
-      border:1px solid rgba(246,241,230,.16);
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 14px 40px rgba(0,0,0,.20);
-      margin: 14px 0;
-      color: var(--rl-ink);
-    }
-
-    .module-head{
-      margin-bottom:12px;
-    }
-
-    .module-kicker{
-      color: rgba(10,15,31,.70);
-      line-height:1.45;
+      border:1px solid rgba(10,15,31,.12);
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 12px 34px rgba(10,15,31,.06);
+      margin: 16px 0;
+      color: rgba(10,15,31,.92);
     }
 
     .two-col{
@@ -146,164 +111,588 @@
       align-items:start;
     }
     @media (max-width: 980px){
-      .two-col{ grid-template-columns:1fr; }
+      .two-col{grid-template-columns:1fr;}
     }
+
+    .module-head{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+      margin-bottom:12px;
+    }
+    .module-head h2{margin:0;}
+    .module-kicker{opacity:.78; font-size:.95rem; margin:4px 0 0; line-height:1.45;}
 
     .letter{
       border-radius:16px;
-      border:1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.96);
-      padding:16px;
-      line-height:1.55;
+      border:1px solid rgba(10,15,31,.12);
+      background: rgba(246,241,230,.42);
+      padding:16px 16px;
+      line-height:1.60;
+    }
+    .letter p{margin:0 0 10px;}
+    .letter p:last-child{margin-bottom:0;}
+    .sig{
+      margin-top:10px;
+      padding-top:10px;
+      border-top:1px solid rgba(10,15,31,.10);
+      font-weight:900;
+      opacity:.95;
     }
 
     .quote{
-      border-left:4px solid rgba(10,15,31,.20);
+      border-left:4px solid rgba(10,15,31,.18);
       padding:10px 12px;
-      border-radius:12px;
-      background: rgba(246,241,230,.75);
       margin:10px 0;
+      border-radius:12px;
+      background: rgba(255,255,255,.78);
     }
+    .quote em{opacity:.92;}
 
     .callout{
       border-radius:14px;
-      border:1px solid rgba(0,0,0,.10);
-      background: rgba(246,241,230,.80);
-      padding:12px;
-      margin-top:10px;
+      border:1px solid rgba(10,15,31,.12);
+      background: rgba(246,241,230,.58);
+      padding:12px 12px;
     }
+    .callout h3{margin:0 0 8px; font-size:1rem;}
+    .callout ul{margin:0; padding-left:18px;}
+    .callout li{margin:6px 0; opacity:.92; line-height:1.38;}
 
     .divider{
       height:1px;
-      background: rgba(0,0,0,.12);
-      margin: 12px 0;
+      background: rgba(10,15,31,.12);
+      margin: 14px 0;
     }
 
     .media-stack{display:grid; gap:12px;}
     .thumb{
-      border-radius:16px;
+      border-radius:14px;
       overflow:hidden;
-      border:1px solid rgba(0,0,0,.10);
+      border:1px solid rgba(10,15,31,.12);
+      background: rgba(10,15,31,.06);
     }
-    .thumb img{
-      width:100%;
-      height:220px;
-      object-fit:cover;
+    .thumb img{width:100%; height:210px; object-fit:cover; display:block;}
+
+    .links-row{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:10px;
     }
+    .linkchip{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:9px 10px; border-radius:12px;
+      border:1px solid rgba(10,15,31,.12);
+      background: rgba(255,255,255,.82);
+      font-weight:800;
+      font-size:.92rem;
+      opacity:.98;
+    }
+    .linkchip span{opacity:.7; font-weight:800;}
 
     details.accord{
       margin-top:12px;
       border-radius:14px;
-      border:1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.92);
+      border:1px solid rgba(10,15,31,.12);
+      background: rgba(255,255,255,.86);
       padding:10px 12px;
     }
     details.accord summary{
       cursor:pointer;
       font-weight:900;
-      display:flex;
-      justify-content:space-between;
       list-style:none;
-    }
-    details.accord .body{
-      margin-top:10px;
-      line-height:1.55;
-      color: rgba(10,15,31,.85);
-    }
-
-    .links-row{
-      display:flex;
-      flex-wrap:wrap;
+      display:flex; align-items:center; justify-content:space-between;
       gap:10px;
-      margin-top:10px;
     }
-    .linkchip{
-      padding:9px 10px;
-      border-radius:12px;
-      border:1px solid rgba(0,0,0,.12);
-      background: rgba(255,255,255,.92);
-      font-weight:800;
-      font-size:.92rem;
-      color: rgba(10,15,31,.85);
+    details.accord summary::-webkit-details-marker{display:none;}
+    details.accord .body{margin-top:10px; opacity:.92; line-height:1.55;}
+    details.accord .body ul{margin:0; padding-left:18px;}
+    details.accord .body li{margin:6px 0;}
+
+    .practice-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:12px;
     }
-    .linkchip span{opacity:.65;}
+    .practice{
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(10,15,31,.10);
+      background: rgba(255,255,255,.88);
+      min-height: 96px;
+    }
+    .practice strong{display:block; margin-bottom:6px;}
+    .practice p{margin:0; opacity:.84; line-height:1.35;}
+
+    .small{opacity:.82; font-size:.95rem;}
+
+    @media (max-width: 980px){
+      .practice-grid{grid-template-columns:1fr;}
+      .thumb img{height:220px;}
+    }
   </style>
 </head>
 
-<body class="platform">
+<body class="platform platform--spiritual">
 
-<header class="topbar">
-  <div class="container">
-    <nav class="nav">
-      <div class="brand">
-        <div class="mark">LUKE</div>
-        <div class="tag">Leadership • Craft • Character</div>
-      </div>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="if-leadership.html">If—</a>
-        <a href="entrepreneurship.html">Business</a>
-        <a href="power-leadership.html">Power</a>
-        <a href="sports-leadership.html">Sports</a>
-        <a href="guitar.html">Guitar</a>
-        <a href="art-sketch.html">Art</a>
-        <a href="dad-jokes.html">Dad Jokes</a>
-        <a class="active" href="spiritual.html">Spiritual</a>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<main class="container">
-
-  <!-- HERO -->
-  <section class="platform-hero">
-    <p class="kicker">Platform</p>
-    <h1>Spiritual Leadership Platform</h1>
-    <p class="small">A visual-first spiritual formation platform — anchored in Scripture, shaped by great thinkers, and built for daily practice.</p>
-
-    <div class="hero-spirit">
-      <div class="hero-panel">
-        <h2>Purpose</h2>
-        <p>
-          There is one path that shapes a man into someone strong, wise, courageous, compassionate, and truly alive:
-          the path of becoming who God created you to be.
-        </p>
-
-        <div class="pillrow">
-          <div class="pill">📖 Scripture Lens</div>
-          <div class="pill">🧭 Character Formation</div>
-          <div class="pill">🪵 Costly Discipleship</div>
-          <div class="pill">🛠 Apprenticeship</div>
-          <div class="pill">🕊 Compassionate Presence</div>
-          <div class="pill">🔥 Daily Courage</div>
+  <header class="topbar">
+    <div class="container">
+      <nav class="nav">
+        <div class="brand">
+          <div class="mark">LUKE</div>
+          <div class="tag">Leadership • Craft • Character</div>
         </div>
-
-        <div class="divider"></div>
-
-        <div class="practice-grid">
-          <div class="practice"><strong>Daily</strong><p>5 minutes: examen + prayer of surrender.</p></div>
-          <div class="practice"><strong>Weekly</strong><p>One costly obedience act + quiet apprenticeship hour.</p></div>
-          <div class="practice"><strong>Monthly</strong><p>Rule-of-life review: habits, relationships, service.</p></div>
+        <div class="links">
+          <a href="index.html">Home</a>
+          <a href="if-leadership.html">If—</a>
+          <a href="entrepreneurship.html">Business</a>
+          <a href="power-leadership.html">Power</a>
+          <a href="sports-leadership.html">Sports</a>
+          <a href="guitar.html">Guitar</a>
+          <a href="art-sketch.html">Art</a>
+          <a href="dad-jokes.html">Dad Jokes</a>
+          <a class="active" href="spiritual.html">Spiritual</a>
         </div>
-      </div>
-
-      <div class="hero-media">
-        <img src="assets/img/spiritual-hero.jpeg" alt="Spiritual formation image" />
-        <div class="overlay">
-          <div>
-            <strong>Formation, not performance</strong><br/>
-            <span style="opacity:.9;">Direction → depth → steadiness</span>
-          </div>
-          <a class="btn-mini" href="#module-2-costly-discipleship">Jump to Module 2 →</a>
-        </div>
-      </div>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- REMAINDER OF PAGE CONTENT -->
-  <!-- (Your modules, letter, TOC structure remain unchanged and now render cleanly) -->
+  <main class="container">
 
-</main>
+    <!-- HERO -->
+    <section class="platform-hero">
+      <p class="kicker">Platform</p>
+      <h1>Spiritual Leadership Platform</h1>
+      <p class="small">A visual-first spiritual formation platform — anchored in Scripture, shaped by great thinkers, and built for daily practice.</p>
+
+      <div class="hero-spirit">
+        <div>
+          <h2 style="margin:0 0 8px;">Purpose</h2>
+          <p class="sub">
+            As you grow into adulthood, there will be many paths offered to you—some loud, some easy, some popular, some comfortable.
+            But there is one path that shapes a man into someone strong, wise, courageous, compassionate, and truly alive:
+            the path of becoming who God created you to be.
+          </p>
+
+          <div class="pillrow">
+            <div class="pill">📖 Scripture Lens</div>
+            <div class="pill">🧭 Character Formation</div>
+            <div class="pill">🪵 Costly Discipleship</div>
+            <div class="pill">🛠 Apprenticeship</div>
+            <div class="pill">🕊 Compassionate Presence</div>
+            <div class="pill">🔥 Daily Courage</div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="practice-grid">
+            <div class="practice">
+              <strong>Daily</strong>
+              <p>5 minutes: examen + one prayer of surrender.</p>
+            </div>
+            <div class="practice">
+              <strong>Weekly</strong>
+              <p>One costly obedience act + one hour of “apprenticeship” (quiet + journal).</p>
+            </div>
+            <div class="practice">
+              <strong>Monthly</strong>
+              <p>Rule-of-life check: habits, digital life, relationships, service.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <img src="assets/img/spiritual-hero.jpeg" alt="Spiritual platform hero image" />
+          <div class="overlay">
+            <div>
+              <div style="font-weight:900;">Formation, not performance</div>
+              <div style="opacity:.9;">Direction → depth → steadiness</div>
+            </div>
+            <a class="btn-mini" href="#module-2-costly-discipleship">Jump to Module 2 →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="platform-shell">
+      <!-- TOC -->
+      <aside class="platform-toc">
+        <div class="toc-title">On this page</div>
+        <a href="#spiritual-platform">Spiritual Platform (Letter + Foundations)</a>
+        <a href="#module-2-costly-discipleship">Module 2 — Costly Discipleship</a>
+        <a href="#module-3-apprenticeship-to-christ">Module 3 — Apprenticeship to Christ</a>
+        <a href="#module-5-a-life-of-compassionate-presence">Module 5 — A Life of Compassionate Presence</a>
+        <a href="#identity-purpose">Identity &amp; Purpose (Man After God’s Heart)</a>
+      </aside>
+
+      <!-- MAIN -->
+      <article class="platform-main">
+
+        <!-- INTRO / LETTER -->
+        <section class="intro-card" id="spiritual-platform">
+          <div class="module-head">
+            <div>
+              <h2>Spiritual Platform</h2>
+              <p class="module-kicker">An invitation — a map for the inner life that shapes the outer life.</p>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div class="letter" aria-label="Letter to Luke">
+              <p><strong>Luke,</strong></p>
+              <p>
+                As you grow into adulthood, there will be many paths offered to you—some loud, some easy, some popular, some comfortable.
+                But there is only one path that shapes a man into someone strong, wise, courageous, compassionate, and truly alive:
+                the path of becoming who God created you to be.
+              </p>
+              <p>This platform is meant to help guide you on that journey.</p>
+              <p>
+                Over the years I have learned, sometimes slowly and painfully, that spiritual maturity is not about becoming flawless—it’s about becoming formed:
+                formed in character, in humility, in courage, and in love.
+              </p>
+
+              <div class="quote">
+                <em>“A man of God is not defined by perfection, but by direction—by the One he is walking toward.”</em>
+              </div>
+
+              <p>
+                This platform is not a list of rules. It is not a checklist. It is an invitation—a map for the kind of inner life that shapes the outer life.
+                It will challenge you, encourage you, steady you, and prepare you for a world that desperately needs men of integrity, tenderness, and conviction.
+              </p>
+
+              <p class="sig">With all my love, and always with hope,<br/>Dad</p>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <img src="assets/img/spiritual-foundations.jpeg" alt="Open Bible / journal / quiet morning reference image" />
+              </div>
+
+              <div class="callout">
+                <h3>Voices shaping this platform</h3>
+                <ul>
+                  <li>C.S. Lewis — moral clarity</li>
+                  <li>Dietrich Bonhoeffer — obedience under pressure</li>
+                  <li>Dallas Willard — apprenticeship + formation</li>
+                  <li>N.T. Wright — Kingdom participation</li>
+                  <li>Henri Nouwen — compassionate presence</li>
+                  <li>Tim Keller / Elisabeth Elliot / John Stott — humility + perseverance</li>
+                </ul>
+              </div>
+
+              <details class="accord">
+                <summary>Key Scriptures (quick anchor set) <span style="opacity:.7;">＋</span></summary>
+                <div class="body">
+                  <ul>
+                    <li><strong>Proverbs 4:23</strong> — Guard your heart; life flows from it.</li>
+                    <li><strong>Galatians 5:22–23</strong> — Fruit of the Spirit blueprint.</li>
+                    <li><strong>Psalm 1</strong> — Rooted like a tree by streams of water.</li>
+                    <li><strong>Romans 12:2</strong> — Renewed mind → transformed life.</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 2 -->
+        <section class="module" id="module-2-costly-discipleship">
+          <div class="module-head">
+            <div>
+              <h2>Module 2 — Costly Discipleship</h2>
+              <p class="module-kicker">Dietrich Bonhoeffer &amp; the courage to follow Christ when it costs you something.</p>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div>
+              <div class="quote">
+                <em>“When Christ calls a man, He bids him come and die.”</em><br/>
+                — Dietrich Bonhoeffer, <span style="opacity:.85;">The Cost of Discipleship</span>
+              </div>
+
+              <p class="small">
+                Following Christ will cost comfort, popularity, ease, and sometimes safety.
+                But the reward is a life rooted in truth, courage, integrity, and deep joy.
+              </p>
+
+              <div class="divider"></div>
+
+              <div class="callout">
+                <h3>What “Costly Discipleship” Means</h3>
+                <ul>
+                  <li><strong>Rejecting cheap grace:</strong> forgiveness without repentance, faith without sacrifice.</li>
+                  <li><strong>Standing for truth:</strong> conviction instead of passivity; clarity instead of compromise.</li>
+                  <li><strong>Immediate obedience:</strong> delayed obedience becomes disobedience.</li>
+                </ul>
+              </div>
+
+              <div class="links-row">
+                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=Luke%209%3A23&version=ESV" target="_blank" rel="noopener">
+                  <span>Scripture:</span> Luke 9:23
+                </a>
+                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=Micah%206%3A8&version=ESV" target="_blank" rel="noopener">
+                  <span>Scripture:</span> Micah 6:8
+                </a>
+                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=James%201%3A22&version=ESV" target="_blank" rel="noopener">
+                  <span>Scripture:</span> James 1:22
+                </a>
+              </div>
+
+              <details class="accord">
+                <summary>Practices (simple + actionable) <span style="opacity:.7;">＋</span></summary>
+                <div class="body">
+                  <ul>
+                    <li><strong>Yes/No Prayer:</strong> “Help me say yes to what is right; no to what is easy but wrong.”</li>
+                    <li><strong>Weekly act of courage:</strong> stand up, tell truth, admit wrong, set boundary, give comfort away.</li>
+                    <li><strong>Scriptural anchoring:</strong> memorize Josh 1:9 / Ps 27:1 / Isa 41:10.</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="accord">
+                <summary>Challenge for the Week (7 days) <span style="opacity:.7;">＋</span></summary>
+                <div class="body">
+                  <ul>
+                    <li>Each day: identify one small act of obedience that costs you something (time, pride, comfort, reputation).</li>
+                    <li>Write the moment down. End the week reviewing what God formed through the cost.</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <img src="assets/img/spiritual-m2-bonhoeffer.jpeg" alt="Costly discipleship / courage reference image" />
+              </div>
+              <div class="callout">
+                <h3>Modern echoes</h3>
+                <ul>
+                  <li>Elisabeth Elliot — forgiveness &amp; obedience</li>
+                  <li>Underground church leaders — courage under pressure</li>
+                  <li>Reconciliation leaders — mercy without denial of truth</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 3 -->
+        <section class="module" id="module-3-apprenticeship-to-christ">
+          <div class="module-head">
+            <div>
+              <h2>Module 3 — Apprenticeship to Christ</h2>
+              <p class="module-kicker">Dallas Willard &amp; the transformation of the whole life — training, not just trying.</p>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div>
+              <div class="quote">
+                <em>“The greatest issue facing the world today is whether those who identify as Christians will become disciples—students, apprentices—of Jesus Christ...”</em><br/>
+                — Dallas Willard
+              </div>
+
+              <div class="callout">
+                <h3>Core Distinction</h3>
+                <ul>
+                  <li><strong>Trying</strong> = effort in the moment.</li>
+                  <li><strong>Training</strong> = shaping who you’re becoming over time.</li>
+                  <li><strong>Grace</strong> is opposed to earning, not to effort.</li>
+                </ul>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="callout">
+                <h3>Disciplines (starter set)</h3>
+                <ul>
+                  <li><strong>Silence &amp; solitude:</strong> 10–15 minutes daily.</li>
+                  <li><strong>Scripture immersion:</strong> read until something “speaks,” then stop and savor.</li>
+                  <li><strong>Slowing:</strong> practice the “unhurried soul.”</li>
+                  <li><strong>Sabbath:</strong> start with one protected hour of rest and delight.</li>
+                  <li><strong>Presence prayer:</strong> “Lord, be with me in this moment.”</li>
+                </ul>
+              </div>
+
+              <div class="links-row">
+                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=John%2015%3A5&version=ESV" target="_blank" rel="noopener">
+                  <span>Scripture:</span> John 15:5
+                </a>
+                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=Matthew%2011%3A29&version=ESV" target="_blank" rel="noopener">
+                  <span>Scripture:</span> Matthew 11:29
+                </a>
+                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=Romans%2012%3A2&version=ESV" target="_blank" rel="noopener">
+                  <span>Scripture:</span> Romans 12:2
+                </a>
+              </div>
+
+              <details class="accord">
+                <summary>Challenge: The Apprenticeship Hour (7 days) <span style="opacity:.7;">＋</span></summary>
+                <div class="body">
+                  <ul>
+                    <li>One uninterrupted hour each day: no phone, no tasks.</li>
+                    <li>Bible + journal + silence.</li>
+                    <li>Question: “Lord, what are You forming in me?”</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <img src="assets/img/spiritual-m3-willard.jpeg" alt="Apprenticeship / formation reference image" />
+              </div>
+
+              <div class="callout">
+                <h3>Practice rhythm (easy to start)</h3>
+                <ul>
+                  <li><strong>AM:</strong> 2-min surrender + one verse</li>
+                  <li><strong>Midday:</strong> 10-sec presence prayer</li>
+                  <li><strong>PM:</strong> 5-min examen + gratitude</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MODULE 5 -->
+        <section class="module" id="module-5-a-life-of-compassionate-presence">
+          <div class="module-head">
+            <div>
+              <h2>Module 5 — A Life of Compassionate Presence</h2>
+              <p class="module-kicker">Henri Nouwen &amp; the strength of a tender, grounded heart.</p>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div>
+              <div class="quote">
+                <em>“The great illusion of leadership is that you must be in control. The great truth is that you are called to love.”</em><br/>
+                — Henri Nouwen
+              </div>
+
+              <div class="callout">
+                <h3>What This Forms</h3>
+                <ul>
+                  <li>Strength under control</li>
+                  <li>Listening without fixing</li>
+                  <li>Calm response instead of reactive emotion</li>
+                  <li>Making others safe in your presence</li>
+                </ul>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="callout">
+                <h3>Practices</h3>
+                <ul>
+                  <li><strong>4-minute listening:</strong> one conversation daily, no interrupting or advising.</li>
+                  <li><strong>Breath prayer:</strong> “Lord Jesus, make my heart like Yours.”</li>
+                  <li><strong>Compassion pause:</strong> “What does love require of me here?”</li>
+                  <li><strong>Noticing:</strong> choose one person daily who feels unseen.</li>
+                </ul>
+              </div>
+
+              <div class="links-row">
+                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=James%201%3A19&version=ESV" target="_blank" rel="noopener">
+                  <span>Scripture:</span> James 1:19
+                </a>
+                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=Colossians%203%3A12&version=ESV" target="_blank" rel="noopener">
+                  <span>Scripture:</span> Colossians 3:12
+                </a>
+                <a class="linkchip" href="https://www.biblegateway.com/passage/?search=Philippians%202%3A3-4&version=ESV" target="_blank" rel="noopener">
+                  <span>Scripture:</span> Philippians 2:3–4
+                </a>
+              </div>
+
+              <details class="accord">
+                <summary>Challenge: The Presence Challenge (7 days) <span style="opacity:.7;">＋</span></summary>
+                <div class="body">
+                  <ul>
+                    <li>Every day: choose one moment of pure presence with someone (no phone, no multitasking).</li>
+                    <li>Look them in the eyes. Listen with love. Leave them feeling more seen.</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <img src="assets/img/spiritual-m5-nouwen.jpeg" alt="Compassionate presence reference image" />
+              </div>
+
+              <div class="callout">
+                <h3>Scripture lens</h3>
+                <ul>
+                  <li>Compassion is not a personality trait — it is Christ’s character expressed through you.</li>
+                  <li>Presence turns strength into healing and influence into love.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- IDENTITY / PURPOSE -->
+        <section class="module" id="identity-purpose">
+          <div class="module-head">
+            <div>
+              <h2>Identity &amp; Purpose — A Man After God’s Heart</h2>
+              <p class="module-kicker">Rooted not in performance or approval — but in belonging to God.</p>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div>
+              <div class="quote">
+                <em>“God does not look at the things people look at... the Lord looks at the heart.”</em> — 1 Samuel 16:7
+              </div>
+              <div class="quote">
+                <em>“The question is not ‘Who am I?’ but ‘Whose am I?’”</em> — Henri Nouwen
+              </div>
+
+              <div class="callout">
+                <h3>Identity declarations (daily)</h3>
+                <ul>
+                  <li>I belong to Christ.</li>
+                  <li>I am God’s beloved.</li>
+                  <li>I choose courage today.</li>
+                  <li>I am being formed into Christlikeness.</li>
+                </ul>
+              </div>
+
+              <details class="accord">
+                <summary>Monthly Rule-of-Life Review (quick checklist) <span style="opacity:.7;">＋</span></summary>
+                <div class="body">
+                  <ul>
+                    <li>Prayer life</li>
+                    <li>Scripture practices</li>
+                    <li>Relationships</li>
+                    <li>Digital life</li>
+                    <li>Emotional maturity</li>
+                    <li>Courage</li>
+                    <li>Compassion</li>
+                    <li>Service</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+
+            <div class="media-stack">
+              <div class="thumb">
+                <img src="assets/img/spiritual-identity.jpeg" alt="Identity and purpose reference image" />
+              </div>
+              <div class="callout">
+                <h3>Purpose question (simple, powerful)</h3>
+                <ul>
+                  <li><strong>Where do my gifts meet the world’s brokenness?</strong></li>
+                  <li>Write 3 places you can bring: healing, justice, beauty, courage, compassion.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </section>
+  </main>
 </body>
 </html>
