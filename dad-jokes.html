@@ -5,615 +5,368 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>THE DAD JOKE MASTERY PLATFORM | Luke</title>
 
-  <!-- Global site CSS -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/platforms.css" />
 
-  <!-- Page-only polish (no shared CSS edits) -->
+  <!-- Page-only stabilization -->
   <style>
-    /* ===== Dad Jokes – Premium layout layer (JPEG-only) ===== */
+    /* =========================
+       DAD JOKES — FINAL FIXED
+    ========================== */
 
-    .platform-hero{
-      position: relative;
-      overflow: hidden;
-      border-radius: 22px;
-      border: 1px solid rgba(10,15,31,.10);
-      background: linear-gradient(180deg, rgba(11,18,38,.08), rgba(246,241,230,.35));
-      box-shadow: 0 18px 55px rgba(10,15,31,.10);
-      margin-top: 18px;
-    }
-    .platform-hero::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(900px 420px at 18% 8%, rgba(246,241,230,.35), transparent 60%),
-        radial-gradient(700px 420px at 88% 0%, rgba(246,241,230,.22), transparent 58%),
-        linear-gradient(180deg, rgba(11,18,38,.18), rgba(11,18,38,0));
-      pointer-events:none;
-      z-index: 0;
-    }
-
+    /* ---------- HERO ---------- */
     .dj-hero-grid{
-      position: relative;
-      z-index: 1;
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-      padding: 18px;
-      align-items: stretch;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+      margin:18px 0;
     }
-    @media (max-width: 980px){
-      .dj-hero-grid{ grid-template-columns: 1fr; }
+    @media (max-width:980px){
+      .dj-hero-grid{grid-template-columns:1fr;}
     }
 
     .dj-hero-copy{
-      border-radius: 18px;
-      padding: 18px;
-      background: rgba(255,255,255,.82);
-      border: 1px solid rgba(10,15,31,.10);
-      box-shadow: 0 10px 28px rgba(10,15,31,.06);
+      background:#ffffff;
+      border:1px solid rgba(0,0,0,.12);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 14px 40px rgba(0,0,0,.25);
+      color:#0a0f1f;
     }
     .dj-hero-copy .kicker{
-      margin: 0 0 10px;
-      opacity: .85;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      font-size: .80rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-size:.8rem;
+      opacity:.75;
+      margin:0 0 8px;
     }
-    .dj-hero-copy h1{
-      margin: 0 0 10px;
-      line-height: 1.08;
-      letter-spacing: .02em;
-    }
-    .dj-hero-copy p{
-      margin: 0 0 12px;
-      opacity: .92;
-      font-size: 1.02rem;
-    }
+    .dj-hero-copy h1{margin:0 0 10px;}
+    .dj-hero-copy p{color:rgba(10,15,31,.85);}
 
-    .dj-pill-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top: 10px;
-    }
+    .dj-pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
     .dj-pill{
-      border: 1px solid rgba(10,15,31,.14);
-      background: rgba(246,241,230,.60);
-      border-radius: 999px;
-      padding: 8px 10px;
-      font-size: .92rem;
-      line-height: 1;
-      white-space: nowrap;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.14);
+      background:#f6f1e6;
+      font-size:.92rem;
     }
 
     .dj-hero-media{
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(10,15,31,.10);
-      background: rgba(255,255,255,.60);
-      box-shadow: 0 10px 30px rgba(10,15,31,.08);
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.12);
+      box-shadow:0 14px 40px rgba(0,0,0,.35);
       display:grid;
-      grid-template-rows: 1fr auto;
-      min-height: 290px;
+      grid-template-rows:1fr auto;
     }
     .dj-hero-media img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width:100%;
+      height:100%;
+      object-fit:cover;
       display:block;
-      filter: saturate(1.02) contrast(1.02);
     }
     .dj-hero-caption{
-      padding: 12px 12px 12px;
-      background: rgba(255,255,255,.88);
-      border-top: 1px solid rgba(10,15,31,.08);
-    }
-    .dj-hero-caption strong{
-      display:block;
-      margin-bottom: 6px;
-      letter-spacing: .02em;
-    }
-    .dj-hero-caption p{
-      margin:0;
-      opacity:.92;
-      line-height: 1.45;
+      background:#ffffff;
+      padding:12px;
+      border-top:1px solid rgba(0,0,0,.12);
+      color:#0a0f1f;
     }
 
-    /* Module cards – editorial, image-left */
+    /* ---------- MODULES ---------- */
     .module{
-      border: 1px solid rgba(10,15,31,.10);
-      border-radius: 20px;
-      background: rgba(255,255,255,.86);
-      box-shadow: 0 12px 34px rgba(10,15,31,.07);
+      background:#ffffff;
+      border:1px solid rgba(0,0,0,.12);
+      border-radius:20px;
+      box-shadow:0 14px 40px rgba(0,0,0,.22);
+      margin:18px 0;
       overflow:hidden;
-      margin: 18px 0;
+      color:#0a0f1f;
     }
 
     .dj-module-grid{
       display:grid;
-      grid-template-columns: .44fr .56fr;
-      min-height: 250px;
+      grid-template-columns:.44fr .56fr;
     }
-    @media (max-width: 980px){
-      .dj-module-grid{ grid-template-columns: 1fr; }
+    @media (max-width:980px){
+      .dj-module-grid{grid-template-columns:1fr;}
     }
 
     .dj-module-media{
-      position: relative;
-      overflow:hidden;
-      background: rgba(246,241,230,.75);
-      border-right: 1px solid rgba(10,15,31,.08);
-      min-height: 220px;
+      position:relative;
+      background:#f6f1e6;
+      border-right:1px solid rgba(0,0,0,.12);
     }
-    @media (max-width: 980px){
-      .dj-module-media{ border-right: 0; border-bottom: 1px solid rgba(10,15,31,.08); }
+    @media (max-width:980px){
+      .dj-module-media{
+        border-right:0;
+        border-bottom:1px solid rgba(0,0,0,.12);
+      }
     }
     .dj-module-media img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width:100%;
+      height:100%;
+      object-fit:cover;
       display:block;
-      transform: scale(1.01);
-      filter: saturate(1.02) contrast(1.02);
     }
     .dj-module-badge{
       position:absolute;
-      top: 12px;
-      left: 12px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: .82rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      background: rgba(11,18,38,.82);
-      color: rgba(246,241,230,.96);
-      border: 1px solid rgba(246,241,230,.18);
-      box-shadow: 0 10px 22px rgba(10,15,31,.18);
+      top:12px;
+      left:12px;
+      background:#0b1226;
+      color:#f6f1e6;
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:.78rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
     }
 
-    .dj-module-content{
-      padding: 16px 16px 18px;
-    }
-    .dj-module-content h2{
-      margin: 0 0 6px;
-      font-size: 1.18rem;
-      letter-spacing: .02em;
-    }
-    .dj-sub{
-      margin: 0 0 12px;
-      opacity: .88;
-      font-size: .98rem;
-    }
+    .dj-module-content{padding:16px 18px;}
+    .dj-sub{color:rgba(10,15,31,.70);}
 
     .callout{
-      border: 1px solid rgba(10,15,31,.10);
-      background: rgba(246,241,230,.58);
-      border-radius: 16px;
-      padding: 12px 12px 10px;
-      margin: 12px 0;
+      background:#f6f1e6;
+      border:1px solid rgba(0,0,0,.12);
+      border-radius:16px;
+      padding:12px;
+      margin:12px 0;
     }
     .callout h4{
-      margin: 0 0 8px;
-      font-size: .92rem;
-      letter-spacing: .10em;
-      text-transform: uppercase;
-      opacity: .9;
-    }
-    .callout ul{ margin: 0; padding-left: 18px; }
-    .divider{
-      height:1px;
-      background: rgba(10,15,31,.10);
-      margin: 18px 0;
+      margin:0 0 6px;
+      letter-spacing:.12em;
+      font-size:.82rem;
+      text-transform:uppercase;
     }
 
-    /* Arsenal grid */
+    .divider{height:1px;background:rgba(0,0,0,.14);margin:18px 0;}
+
+    /* ---------- ARSENAL ---------- */
     .arsenal{
       display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 10px;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
     }
-    @media (max-width: 980px){
-      .arsenal{ grid-template-columns: 1fr; }
+    @media (max-width:980px){
+      .arsenal{grid-template-columns:1fr;}
     }
     .arsenal-card{
-      border: 1px solid rgba(10,15,31,.10);
-      border-radius: 16px;
-      background: rgba(255,255,255,.86);
-      padding: 12px 12px 10px;
-      box-shadow: 0 8px 22px rgba(10,15,31,.05);
+      background:#ffffff;
+      border:1px solid rgba(0,0,0,.12);
+      border-radius:16px;
+      padding:12px;
+      box-shadow:0 8px 22px rgba(0,0,0,.08);
     }
-    .arsenal-card h3{
-      margin: 0 0 8px;
-      font-size: 1.02rem;
-      letter-spacing: .02em;
-    }
-    .arsenal-card ol{
-      margin: 0;
-      padding-left: 18px;
-    }
-
-    /* breathing */
-    .platform-main p{ margin: 10px 0; }
   </style>
 </head>
 
-<body class="platform platform--dadjokes">
+<body class="platform">
 
-  <header class="topbar">
-    <div class="container">
-      <nav class="nav">
-        <div class="brand">
-          <div class="mark">LUKE</div>
-          <div class="tag">Leadership • Craft • Character</div>
-        </div>
-        <div class="links">
-          <a href="index.html">Home</a>
-          <a href="if-leadership.html">If—</a>
-          <a href="entrepreneurship.html">Business</a>
-          <a href="power-leadership.html">Power</a>
-          <a href="sports-leadership.html">Sports</a>
-          <a href="guitar.html">Guitar</a>
-          <a href="art-sketch.html">Art</a>
-          <a class="active" href="dad-jokes.html">Dad Jokes</a>
-          <a href="spiritual.html">Spiritual</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <!-- HERO -->
-    <section class="platform-hero">
-      <div class="dj-hero-grid">
-        <div class="dj-hero-copy">
-          <p class="kicker">Platform</p>
-          <h1>THE DAD JOKE MASTERY PLATFORM</h1>
-          <p>A training module in the ancient art of groan-worthy greatness.</p>
-
-          <div class="dj-pill-row">
-            <div class="dj-pill">Approachability</div>
-            <div class="dj-pill">Timing</div>
-            <div class="dj-pill">Confidence</div>
-            <div class="dj-pill">Social glue</div>
-          </div>
-
-          <div class="divider"></div>
-
-          <div class="callout" style="margin-bottom:0;">
-            <h4>What you’ll build</h4>
-            <ul>
-              <li>Instant rapport (humor as social leadership)</li>
-              <li>Better speaking presence (setup, pause, punchline)</li>
-              <li>Observation + quick pattern recognition</li>
-              <li>A personal “arsenal” of reliable jokes</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="dj-hero-media">
-          <img src="assets/img/dadjokes-hero.jpeg" alt="Dad jokes hero image" />
-          <div class="dj-hero-caption">
-            <strong>Executive Summary</strong>
-            <p>
-              Dad jokes are more than puns — they’re a leadership move: disarm tension, create a shared moment,
-              and make people feel at ease. Groans are just applause with extra character.
-            </p>
-          </div>
-        </div>
+<header class="topbar">
+  <div class="container">
+    <nav class="nav">
+      <div class="brand">
+        <div class="mark">LUKE</div>
+        <div class="tag">Leadership • Craft • Character</div>
       </div>
-    </section>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="if-leadership.html">If—</a>
+        <a href="entrepreneurship.html">Business</a>
+        <a href="power-leadership.html">Power</a>
+        <a href="sports-leadership.html">Sports</a>
+        <a href="guitar.html">Guitar</a>
+        <a href="art-sketch.html">Art</a>
+        <a class="active" href="dad-jokes.html">Dad Jokes</a>
+        <a href="spiritual.html">Spiritual</a>
+      </div>
+    </nav>
+  </div>
+</header>
 
-    <!-- BODY -->
-    <section class="platform-shell">
-      <aside class="platform-toc">
-        <div class="toc-title">On this page</div>
-        <a href="#the-dad-joke-mastery-platform">THE DAD JOKE MASTERY PLATFORM</a>
-        <a href="#m1">MODULE 1 — The Secret Power of the Dad Joke</a>
-        <a href="#m2">MODULE 2 — The Dad Joke Blueprint</a>
-        <a href="#m3">MODULE 3 — The Five Sacred Dad Joke Archetypes</a>
-        <a href="#m4">MODULE 4 — How to Deliver Dad Jokes Like a Pro</a>
-        <a href="#m5">MODULE 5 — Write Your Own Dad Jokes</a>
-        <a href="#m6">MODULE 6 — The Dad Joke Arsenal: 40 Elite Groaners</a>
-        <a href="#m7">MODULE 7 — Advanced Techniques: Situational Dad Jokes</a>
-        <a href="#closing">CLOSING MESSAGE FOR LUKE</a>
-      </aside>
+<main class="container">
 
-      <article class="platform-main">
-        <h2 id="the-dad-joke-mastery-platform">THE DAD JOKE MASTERY PLATFORM</h2>
-        <p><em>A Training Module in the Ancient Art of Groan-Worthy Greatness</em></p>
+<!-- HERO -->
+<section class="platform-hero">
+  <div class="dj-hero-grid">
+    <div class="dj-hero-copy">
+      <p class="kicker">Platform</p>
+      <h1>THE DAD JOKE MASTERY PLATFORM</h1>
+      <p>A training module in the ancient art of groan-worthy greatness.</p>
 
+      <div class="dj-pill-row">
+        <div class="dj-pill">Approachability</div>
+        <div class="dj-pill">Timing</div>
+        <div class="dj-pill">Confidence</div>
+        <div class="dj-pill">Social glue</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="callout">
+        <h4>What you’ll build</h4>
+        <ul>
+          <li>Instant rapport (humor as social leadership)</li>
+          <li>Better speaking presence</li>
+          <li>Observation + pattern recognition</li>
+          <li>A reliable personal joke arsenal</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dj-hero-media">
+      <img src="assets/img/dadjokes-hero.jpeg" alt="Dad jokes hero image" />
+      <div class="dj-hero-caption">
+        <strong>Executive Summary</strong>
         <p>
-          The best dad jokes do three things at once: they create comfort, they signal confidence,
-          and they make a moment memorable. This platform turns “corny” into a skill.
+          Dad jokes are a leadership move: they lower defenses, build connection,
+          and create shared moments. Groans are just applause with character.
         </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="divider"></div>
+<!-- MODULE 1 -->
+<section class="module" id="m1">
+  <div class="dj-module-grid">
+    <div class="dj-module-media">
+      <img src="assets/img/dadjokes-m1-setup.jpeg" alt="Module 1 image" />
+      <div class="dj-module-badge">Module 1</div>
+    </div>
+    <div class="dj-module-content">
+      <h2>The Secret Power of the Dad Joke</h2>
+      <p class="dj-sub">Why groan-inducing humor actually works</p>
 
-        <!-- MODULE 1 -->
-        <section class="module" id="m1">
-          <div class="dj-module-grid">
-            <div class="dj-module-media">
-              <img src="assets/img/dadjokes-m1-setup.jpeg" alt="Module 1 image: setup" />
-              <div class="dj-module-badge">Module 1</div>
-            </div>
-            <div class="dj-module-content">
-              <h2>MODULE 1 — The Secret Power of the Dad Joke</h2>
-              <p class="dj-sub">Why Groan-Inducing Humor Actually Works</p>
+      <div class="callout">
+        <ul>
+          <li>Disarms tension</li>
+          <li>Signals approachability</li>
+          <li>Creates shared moments</li>
+          <li>Builds timing and confidence</li>
+          <li>Trains structure: setup → twist</li>
+        </ul>
+      </div>
 
-              <div class="callout">
-                <h4>Core concepts</h4>
-                <ul>
-                  <li>Disarms tension — a pun is a “soft landing” for conversation.</li>
-                  <li>Signals approachability — you don’t take yourself too seriously.</li>
-                  <li>Creates a shared moment — the eye-roll + smile combo is bonding.</li>
-                  <li>Builds confidence — timing and voice get trained through repetition.</li>
-                  <li>Teaches structure — setup → twist → reaction.</li>
-                </ul>
-              </div>
+      <p><strong>Leadership insight:</strong> Great leaders often begin with levity to lower defenses. Dad jokes are the playful version of the same strategy.</p>
+    </div>
+  </div>
+</section>
 
-              <p><strong>Mini Case Study — Coach K’s “Light Moment” Principle</strong><br />
-                Great leaders often open with a moment of levity to lower defenses and build trust.
-                Dad jokes are the playful version of that same strategy.
-              </p>
-            </div>
-          </div>
-        </section>
+<!-- MODULE 2 -->
+<section class="module" id="m2">
+  <div class="dj-module-grid">
+    <div class="dj-module-media">
+      <img src="assets/img/dadjokes-m2-wordplay.jpeg" alt="Module 2 image" />
+      <div class="dj-module-badge">Module 2</div>
+    </div>
+    <div class="dj-module-content">
+      <h2>The Dad Joke Blueprint</h2>
+      <p class="dj-sub">The anatomy of a perfect terrible joke</p>
 
-        <!-- MODULE 2 -->
-        <section class="module" id="m2">
-          <div class="dj-module-grid">
-            <div class="dj-module-media">
-              <img src="assets/img/dadjokes-m2-wordplay.jpeg" alt="Module 2 image: wordplay" />
-              <div class="dj-module-badge">Module 2</div>
-            </div>
-            <div class="dj-module-content">
-              <h2>MODULE 2 — The Dad Joke Blueprint</h2>
-              <p class="dj-sub">The Anatomy of a Perfect (Terrible) Joke</p>
+      <div class="callout">
+        <ul>
+          <li><strong>Setup</strong> — normal statement</li>
+          <li><strong>Misdirection</strong> — expected ending</li>
+          <li><strong>Twist</strong> — logic collapses</li>
+        </ul>
+      </div>
 
-              <p>A classic dad joke has three parts:</p>
+      <p><strong>Example:</strong><br />Why don’t eggs tell jokes? Because they’d crack each other up.</p>
+    </div>
+  </div>
+</section>
 
-              <div class="callout">
-                <ul>
-                  <li><strong>The Setup</strong>: serious face, normal question or statement.</li>
-                  <li><strong>The Misdirection</strong>: your audience predicts a sensible ending.</li>
-                  <li><strong>The Twist</strong>: the pun lands, logic collapses, joy begins.</li>
-                </ul>
-              </div>
+<!-- MODULE 3 -->
+<section class="module" id="m3">
+  <div class="dj-module-grid">
+    <div class="dj-module-media">
+      <img src="assets/img/dadjokes-m3-timing.jpeg" alt="Module 3 image" />
+      <div class="dj-module-badge">Module 3</div>
+    </div>
+    <div class="dj-module-content">
+      <h2>The Five Sacred Dad Joke Archetypes</h2>
+      <p class="dj-sub">Your taxonomy of groan</p>
 
-              <p><strong>Formula:</strong> Setup → Expectation → Twist that makes no sense but still makes sense.</p>
+      <p>Classic pun • Question/answer • Literal misunderstanding • Overconfidence • Unexpected wisdom</p>
+    </div>
+  </div>
+</section>
 
-              <p><strong>Example:</strong><br />
-                “Why don’t eggs tell jokes?”<br />
-                Because they’d crack each other up.
-              </p>
-            </div>
-          </div>
-        </section>
+<!-- MODULE 4 -->
+<section class="module" id="m4">
+  <div class="dj-module-grid">
+    <div class="dj-module-media">
+      <img src="assets/img/dadjokes-m4-delivery.jpeg" alt="Module 4 image" />
+      <div class="dj-module-badge">Module 4</div>
+    </div>
+    <div class="dj-module-content">
+      <h2>How to Deliver Dad Jokes Like a Pro</h2>
+      <div class="callout">
+        <ul>
+          <li>Deadpan delivery</li>
+          <li>Pause after punchline</li>
+          <li>Groans = success</li>
+          <li>Use your surroundings</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- MODULE 3 -->
-        <section class="module" id="m3">
-          <div class="dj-module-grid">
-            <div class="dj-module-media">
-              <img src="assets/img/dadjokes-m3-timing.jpeg" alt="Module 3 image: timing" />
-              <div class="dj-module-badge">Module 3</div>
-            </div>
-            <div class="dj-module-content">
-              <h2>MODULE 3 — The Five Sacred Dad Joke Archetypes</h2>
-              <p class="dj-sub">Your complete taxonomy of groan</p>
+<!-- MODULE 5 -->
+<section class="module" id="m5">
+  <div class="dj-module-grid">
+    <div class="dj-module-media">
+      <img src="assets/img/dadjokes-m5-clean-humor.jpeg" alt="Module 5 image" />
+      <div class="dj-module-badge">Module 5</div>
+    </div>
+    <div class="dj-module-content">
+      <h2>Write Your Own Dad Jokes</h2>
+      <div class="callout">
+        <ul>
+          <li>Pick an object</li>
+          <li>List associations</li>
+          <li>Find double meanings</li>
+          <li>Land the twist</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-              <p><strong>1. The Classic Pun</strong><br />
-                “I’m reading a book on anti-gravity. It’s impossible to put down.”</p>
+<!-- MODULE 6 -->
+<section class="module" id="m6">
+  <div class="dj-module-grid">
+    <div class="dj-module-media">
+      <img src="assets/img/dadjokes-m6-callbacks.jpeg" alt="Module 6 image" />
+      <div class="dj-module-badge">Module 6</div>
+    </div>
+    <div class="dj-module-content">
+      <h2>The Dad Joke Arsenal</h2>
+      <div class="arsenal">
+        <div class="arsenal-card"><strong>1–20</strong> (classic groaners)</div>
+        <div class="arsenal-card"><strong>21–40</strong> (advanced deployment)</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-              <p><strong>2. The Question/Answer Groaner</strong><br />
-                “Why did the scarecrow win an award?”<br />
-                He was outstanding in his field.</p>
+<!-- MODULE 7 -->
+<section class="module" id="m7">
+  <div class="dj-module-grid">
+    <div class="dj-module-media">
+      <img src="assets/img/dadjokes-m7-character.jpeg" alt="Module 7 image" />
+      <div class="dj-module-badge">Module 7</div>
+    </div>
+    <div class="dj-module-content">
+      <h2>Situational Dad Jokes</h2>
+      <p>Context is king. The best jokes feel discovered, not scripted.</p>
+    </div>
+  </div>
+</section>
 
-              <p><strong>3. The Literal Interpretation Joke</strong><br />
-                “My boss told me to have a good day… so I went home.”</p>
-
-              <p><strong>4. The Overly-Confident Misunderstanding</strong><br />
-                “I used to play piano by ear… now I use my hands.”</p>
-
-              <p><strong>5. The Unexpected Wisdom Joke</strong><br />
-                “Never trust atoms. They make up everything.”</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- MODULE 4 -->
-        <section class="module" id="m4">
-          <div class="dj-module-grid">
-            <div class="dj-module-media">
-              <img src="assets/img/dadjokes-m4-delivery.jpeg" alt="Module 4 image: delivery" />
-              <div class="dj-module-badge">Module 4</div>
-            </div>
-            <div class="dj-module-content">
-              <h2>MODULE 4 — How to Deliver Dad Jokes Like a Pro</h2>
-              <p class="dj-sub">Timing, Expression, and Maximum Groan Factor</p>
-
-              <div class="callout">
-                <h4>Delivery rules</h4>
-                <ul>
-                  <li>Deliver deadpan (as if it’s objectively brilliant).</li>
-                  <li>Hold eye contact for half a beat after the punchline.</li>
-                  <li>Groans count as success — they’re applause with personality.</li>
-                  <li>Use the environment: objects around you = instant material.</li>
-                </ul>
-              </div>
-
-              <p><strong>Example:</strong><br />
-                Waiter: “How’s the food?”<br />
-                You: “It’s pasta-tively amazing.”
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- MODULE 5 -->
-        <section class="module" id="m5">
-          <div class="dj-module-grid">
-            <div class="dj-module-media">
-              <img src="assets/img/dadjokes-m5-clean-humor.jpeg" alt="Module 5 image: clean humor" />
-              <div class="dj-module-badge">Module 5</div>
-            </div>
-            <div class="dj-module-content">
-              <h2>MODULE 5 — Write Your Own Dad Jokes</h2>
-              <p class="dj-sub">A Practical Framework</p>
-
-              <div class="callout">
-                <h4>4-step recipe</h4>
-                <ul>
-                  <li><strong>Step 1:</strong> Pick a normal object (stairs, pencils, clouds, shoes).</li>
-                  <li><strong>Step 2:</strong> List verbs/ideas associated with it.</li>
-                  <li><strong>Step 3:</strong> Find double meanings / sound-alikes.</li>
-                  <li><strong>Step 4:</strong> Combine into a twist.</li>
-                </ul>
-              </div>
-
-              <p><strong>Example creation process:</strong><br />
-                Object: stairs → idea: “up to something”<br />
-                Joke: “Why don’t you trust stairs? They’re always up to something.”
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- MODULE 6 -->
-        <section class="module" id="m6">
-          <div class="dj-module-grid">
-            <div class="dj-module-media">
-              <img src="assets/img/dadjokes-m6-callbacks.jpeg" alt="Module 6 image: callbacks" />
-              <div class="dj-module-badge">Module 6</div>
-            </div>
-            <div class="dj-module-content">
-              <h2>MODULE 6 — The Dad Joke Arsenal: 40 Elite Groaners</h2>
-              <p class="dj-sub">(A starter kit for Luke to deploy at will)</p>
-
-              <div class="arsenal">
-                <div class="arsenal-card">
-                  <h3>1–20</h3>
-                  <ol>
-                    <li>I used to be addicted to soap… but I’m clean now.</li>
-                    <li>What do you call fake spaghetti? An impasta.</li>
-                    <li>I’m afraid for the calendar… its days are numbered.</li>
-                    <li>What’s blue and not very heavy? Light blue.</li>
-                    <li>Want to hear a roof joke? Never mind — it’s over your head.</li>
-                    <li>I only know 25 letters of the alphabet… I don’t know Y.</li>
-                    <li>Why do seagulls fly over the sea? If they flew over the bay, they’d be bagels.</li>
-                    <li>Why don’t skeletons fight each other? They don’t have the guts.</li>
-                    <li>What do you call cheese that isn’t yours? Nacho cheese.</li>
-                    <li>I’m on a seafood diet. I see food and I eat it.</li>
-                    <li>Why did the bicycle fall over? It was two-tired.</li>
-                    <li>How do you organize a space party? You planet.</li>
-                    <li>Parallel lines have so much in common… it’s a shame they’ll never meet.</li>
-                    <li>Why was the math book sad? It had too many problems.</li>
-                    <li>I used to hate facial hair… but then it grew on me.</li>
-                    <li>What do you call a factory that makes good products? A satisfactory.</li>
-                    <li>What do clouds wear? Thunderwear.</li>
-                    <li>Want to hear a construction joke? I’m still working on it.</li>
-                    <li>What did the janitor say when he jumped out of the closet? “Supplies!”</li>
-                    <li>Don’t trust stairs… they’re always up to something.</li>
-                  </ol>
-                </div>
-
-                <div class="arsenal-card">
-                  <h3>21–40</h3>
-                  <ol start="21">
-                    <li>What do you call a belt made of clocks? A waist of time.</li>
-                    <li>The shovel was a groundbreaking invention.</li>
-                    <li>Why can’t a leopard hide? He’s always spotted.</li>
-                    <li>What do you call an alligator in a vest? An investigator.</li>
-                    <li>I told my computer I needed a break… now it won’t stop sending me Kit-Kats.</li>
-                    <li>Why did the golfer bring two pants? In case he got a hole in one.</li>
-                    <li>Why can’t a nose be 12 inches long? Because then it would be a foot.</li>
-                    <li>How does a penguin build a house? Igloos it together.</li>
-                    <li>What do you call a fish with no eyes? Fsh.</li>
-                    <li>I don’t trust those trees. They seem kinda shady.</li>
-                    <li>Why don’t oysters donate to charity? They’re shellfish.</li>
-                    <li>What do you call a sleeping bull? A bulldozer.</li>
-                    <li>I stayed up all night wondering where the sun went… then it dawned on me.</li>
-                    <li>What’s orange and sounds like a parrot? A carrot.</li>
-                    <li>Why did the coffee file a police report? It got mugged.</li>
-                    <li>Did you hear about the circus fire? It was in tents.</li>
-                    <li>How do you make a tissue dance? You put a little boogie in it.</li>
-                    <li>What do you call a dinosaur with an extensive vocabulary? A thesaurus.</li>
-                    <li>Why can’t Elsa hold a balloon? Because she will let it go.</li>
-                    <li>My dog ate a bag of Scrabble tiles… next week his poop could spell disaster.</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- MODULE 7 -->
-        <section class="module" id="m7">
-          <div class="dj-module-grid">
-            <div class="dj-module-media">
-              <img src="assets/img/dadjokes-m7-character.jpeg" alt="Module 7 image: character" />
-              <div class="dj-module-badge">Module 7</div>
-            </div>
-            <div class="dj-module-content">
-              <h2>MODULE 7 — Advanced Techniques: Situational Dad Jokes</h2>
-              <p class="dj-sub">Humor as a Leadership Skill (but silly)</p>
-
-              <div class="callout">
-                <h4>Ready-to-deploy lines</h4>
-                <ul>
-                  <li><strong>Meeting running long:</strong> “I’d like to wrap up… but I forgot the wrapping paper.”</li>
-                  <li><strong>Compliment:</strong> “Aw shucks… and I didn’t even wear my shucking gloves.”</li>
-                  <li><strong>Track teammates:</strong> “I tried a marathon once… but it was too fast paced.”</li>
-                  <li><strong>Guitar practice:</strong> “This chord progression is major news.”</li>
-                  <li><strong>Cold day:</strong> “I’m not built for this weather… I’m two-ply at best.”</li>
-                </ul>
-              </div>
-
-              <p>
-                The key is <strong>context</strong>. The best dad jokes feel like they were “found” in the moment,
-                not pulled from a script.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- CLOSING -->
-        <section class="module" id="closing">
-          <div class="dj-module-grid">
-            <div class="dj-module-media">
-              <img src="assets/img/dadjokes-m10-legacy.jpeg" alt="Closing image: legacy" />
-              <div class="dj-module-badge">Closing</div>
-            </div>
-            <div class="dj-module-content">
-              <h2>CLOSING MESSAGE FOR LUKE</h2>
-              <p class="dj-sub">Wisdom, warmth, and ridiculousness — together</p>
-
-              <p>
-                Luke,<br />
-                Mastering dad jokes is less about puns and more about perspective. It means being lighthearted, quick-witted,
-                observant, and brave enough to say something goofy even in serious rooms. Humor is a quiet form of leadership —
-                it warms the room, eases tension, and reminds people to breathe.
-              </p>
-
-              <p>
-                If you can hold wisdom in one hand and ridiculousness in the other, you’ll be a rare and joyful presence wherever you go.
-              </p>
-
-              <div class="callout">
-                <h4>And just remember…</h4>
-                <p style="margin:0;">
-                  If anyone ever asks if you’re serious about dad jokes, you can say:<br />
-                  <strong>“No… I’m Sirius. The brightest star in the dad-joke galaxy.”</strong>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </article>
-    </section>
-  </main>
+</main>
 </body>
 </html>
