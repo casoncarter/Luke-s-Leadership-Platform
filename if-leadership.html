@@ -21,44 +21,98 @@
       background-repeat: repeat, no-repeat, no-repeat, no-repeat;
     }
 
-    .platform-hero{
-      position: relative;
+    /* ===== HERO (homepage-style: image + integrated body) ===== */
+    .if-hero{
       border-radius: var(--radius-lg);
-      overflow: hidden;
       border: 1px solid var(--line);
+      overflow: hidden;
       box-shadow: var(--shadow);
-      padding: 0;
       margin-top: 22px;
+      background: rgba(255,255,255,.03);
     }
-    .platform-hero .hero-img{
-      min-height: 320px;
+    .if-hero__media{
+      min-height: 340px;
       background-image: url('./assets/img/if-hero.jpeg');
       background-size: cover;
       background-position: center;
-      filter: saturate(.95) contrast(1.05);
+      background-repeat: no-repeat;
       position: relative;
+      filter: saturate(.95) contrast(1.05);
     }
-    .platform-hero .hero-img::after{
+    .if-hero__media::after{
       content:"";
       position:absolute;
       inset:0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(10,15,31,.72) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(10,15,31,.72) 100%);
+      pointer-events:none;
     }
-    .platform-hero .hero-copy{
-      position: relative;
-      margin-top: -46px;
-      padding: 22px 22px 20px;
-      background: rgba(10,15,31,.72);
+    .if-hero__body{
+      margin-top: -36px;
+      padding: 20px 20px 22px;
+      background: rgba(10,15,31,.78);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border-top: 1px solid rgba(255,255,255,.10);
+      border-top: 1px solid rgba(246,241,230,.10);
+      position: relative;
     }
-    .platform-hero h1{ margin: 0 0 8px; }
-    .platform-hero p{ margin: 0; color: var(--muted); }
+    .if-hero__kicker{
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin: 0 0 8px;
+      color: rgba(246,241,230,.72);
+    }
+    .if-hero__title{
+      margin: 0 0 8px;
+      font-family: var(--serif);
+      letter-spacing: -0.02em;
+    }
+    .if-hero__sub{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 78ch;
+    }
 
+    /* ===== Clean divider (replaces crest image entirely) ===== */
+    .divider-mark{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin: 22px 0;
+      opacity: .95;
+    }
+    .divider-mark::before,
+    .divider-mark::after{
+      content:"";
+      height:1px;
+      flex:1;
+      background: linear-gradient(90deg,
+        transparent,
+        rgba(246,241,230,.18),
+        rgba(201,163,73,.30),
+        rgba(246,241,230,.18),
+        transparent
+      );
+    }
+    .divider-mark span{
+      font-family: var(--serif);
+      letter-spacing:.18em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: rgba(246,241,230,.70);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(246,241,230,.12);
+      background: rgba(10,15,31,.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    /* ===== Letter card (homepage editorial card style) ===== */
     .lead-card{
       display:grid;
-      grid-template-columns: 220px 1fr;
+      grid-template-columns: 240px 1fr;
       gap: 18px;
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
@@ -71,49 +125,85 @@
       .lead-card{ grid-template-columns: 1fr; }
     }
     .lead-card__media{
-      min-height: 220px;
+      min-height: 240px;
       background-size: cover;
       background-position: center 20%;
+      position: relative;
+      filter: saturate(.95) contrast(1.05);
     }
-    .lead-card__body{ padding: 18px; }
-    .lead-card__body p{ margin:0 0 12px; }
-
-    .crest-divider{
-      display:flex;
-      justify-content:center;
-      margin: 18px 0;
-      opacity: .92;
+    .lead-card__media::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(10,15,31,.55) 100%);
+      pointer-events:none;
     }
-    .crest-divider img{
-      height: 34px;
-      width: auto;
-      filter: drop-shadow(0 10px 24px rgba(0,0,0,.35));
-    }
-
-    .poem-card{
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: rgba(255,255,255,.03);
-      box-shadow: var(--shadow);
+    .lead-card__body{
       padding: 18px;
+    }
+    .lead-card__body p{ margin:0 0 12px; }
+    .lead-card__body p:last-child{ margin-bottom: 0; }
+
+    /* ===== Poem “feature artifact” ===== */
+    .poem-card{
+      border: 1px solid rgba(246,241,230,.14);
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(800px 280px at 10% 0%, rgba(201,163,73,.16), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(10,15,31,.55));
+      box-shadow: 0 18px 50px rgba(0,0,0,.45);
+      overflow:hidden;
+      margin: 18px 0;
+    }
+    .poem-card .poem-head{
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid rgba(246,241,230,.10);
+      background: rgba(10,15,31,.35);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
     .poem-title{
       font-family: var(--serif);
       margin: 0 0 4px;
       letter-spacing: -.01em;
+      font-size: 26px;
     }
     .poem-by{
-      margin: 0 0 14px;
-      color: rgba(246,241,230,.68);
+      margin: 0;
+      color: rgba(246,241,230,.72);
       font-size: 14px;
+    }
+    .poem{
+      padding: 18px 18px 16px;
+      position: relative;
+    }
+    .poem::before{
+      content:"";
+      position:absolute;
+      left: 18px;
+      top: 18px;
+      bottom: 18px;
+      width: 3px;
+      border-radius: 999px;
+      background: linear-gradient(
+        to bottom,
+        rgba(201,163,73,.55),
+        rgba(246,241,230,.12)
+      );
     }
     .poem p{
       margin: 0 0 6px;
-      color: rgba(246,241,230,.82);
+      padding-left: 16px;
+      color: rgba(246,241,230,.90);
       font-family: var(--serif);
+      font-size: 16px;
       line-height: 1.55;
     }
+    .poem p:nth-child(4n){
+      margin-bottom: 12px;
+    }
 
+    /* ===== Module banners + rules (clean) ===== */
     .module-banner{
       height: 240px;
       border-radius: var(--radius-lg);
@@ -134,7 +224,7 @@
       margin: 14px 0 18px;
     }
 
-    /* ===== Professional leader embedding ===== */
+    /* ===== Professional leader embedding (as you had, slightly refined) ===== */
     .leader-card{
       display:grid;
       grid-template-columns: 170px 1fr;
@@ -214,12 +304,12 @@
   <main class="container">
 
     <!-- HERO -->
-    <section class="platform-hero">
-      <div class="hero-img"></div>
-      <div class="hero-copy">
-        <p class="kicker">Platform</p>
-        <h1>THE “IF” LEADERSHIP PLATFORM</h1>
-        <p>
+    <section class="if-hero">
+      <div class="if-hero__media"></div>
+      <div class="if-hero__body">
+        <p class="if-hero__kicker">Platform</p>
+        <h1 class="if-hero__title">THE “IF” LEADERSHIP PLATFORM</h1>
+        <p class="if-hero__sub">
           A character-based leadership curriculum built on Kipling’s timeless virtues — translated into eight competencies,
           each anchored in history, psychology, and practical application.
         </p>
@@ -245,7 +335,7 @@
       <!-- MAIN -->
       <article class="platform-main">
 
-        <!-- LETTER + KIPLING IMAGE -->
+        <!-- LETTER -->
         <section class="lead-card">
           <div class="lead-card__media" style="background-image:url('./assets/img/if-kipling.jpeg');"></div>
           <div class="lead-card__body">
@@ -259,12 +349,14 @@
           </div>
         </section>
 
-        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+        <div class="divider-mark"><span>•</span></div>
 
         <!-- POEM -->
         <section class="poem-card">
-          <h2 class="poem-title">If&mdash;</h2>
-          <p class="poem-by">By Rudyard Kipling</p>
+          <div class="poem-head">
+            <h2 class="poem-title">If&mdash;</h2>
+            <p class="poem-by">By Rudyard Kipling</p>
+          </div>
           <div class="poem">
             <p>If you can keep your head when all about you</p>
             <p>Are losing theirs and blaming it on you,</p>
@@ -301,7 +393,7 @@
           </div>
         </section>
 
-        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+        <div class="divider-mark"><span>•</span></div>
 
         <!-- PLATFORM OVERVIEW -->
         <h2 id="the-if-leadership-platform">THE “IF” LEADERSHIP PLATFORM</h2>
@@ -319,7 +411,7 @@
         <p>Each module features three exemplars whose lives illustrate the principle in action. Together, they form a holistic model of character-based leadership designed for a complex, rapidly changing world.</p>
         <p>This is not a leadership model built on charisma or bravado. It is built on character, clarity, courage, and connection — the attributes that endure when conditions shift.</p>
 
-        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+        <div class="divider-mark"><span>•</span></div>
 
         <!-- =========================
              MODULE 1
@@ -410,7 +502,7 @@
         <p>Composure is not the opposite of urgency; it is what makes effective urgency possible.</p>
         <p>If you can keep your head when all about you are losing theirs, you create the conditions for others to find theirs again.</p>
 
-        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+        <div class="divider-mark"><span>•</span></div>
 
         <!-- =========================
              MODULE 2
@@ -478,7 +570,7 @@
         <h3>Key Insight</h3>
         <p><strong>Confidence earns trust when it makes room for others.</strong></p>
 
-        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+        <div class="divider-mark"><span>•</span></div>
 
         <!-- =========================
              MODULE 3
@@ -546,7 +638,7 @@
         <h3>Key Insight</h3>
         <p><strong>Patience is not passive—it is power exercised over time.</strong></p>
 
-        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+        <div class="divider-mark"><span>•</span></div>
 
         <!-- =========================
              MODULE 4
@@ -623,7 +715,7 @@
         <h3>Closing Narrative</h3>
         <p>To treat triumph and disaster “just the same” is not indifference—it is mastery. It is the ability to remain centered when the world tilts.</p>
 
-        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+        <div class="divider-mark"><span>•</span></div>
 
         <!-- =========================
              MODULE 5
@@ -691,7 +783,7 @@
         <h3>Closing Reflection</h3>
         <p>Ethical persuasion is not about winning arguments. It is about preserving trust, dignity, and truth in a world eager to distort all three.</p>
 
-        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+        <div class="divider-mark"><span>•</span></div>
 
         <!-- =========================
              MODULE 6
@@ -759,7 +851,7 @@
           </div>
         </article>
 
-        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+        <div class="divider-mark"><span>•</span></div>
 
         <!-- =========================
              MODULE 7
@@ -824,7 +916,7 @@
           </div>
         </article>
 
-        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+        <div class="divider-mark"><span>•</span></div>
 
         <!-- =========================
              MODULE 8
@@ -893,7 +985,7 @@
         <p>Great leaders learn to walk with power without becoming distant, and to walk with crowds without becoming diluted.</p>
         <p>Humility keeps you grounded. Presence keeps you connected. Together, they ensure leadership never loses its human center.</p>
 
-        <div class="crest-divider"><img src="./assets/img/if-divider-crest.jpeg" alt="" loading="lazy"></div>
+        <div class="divider-mark"><span>•</span></div>
 
         <p style="color:rgba(246,241,230,.70); font-size: 13px;">
           Tip: If you want, I can add a mobile “Jump to Module” dropdown under the hero for easier navigation.
